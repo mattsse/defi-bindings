@@ -13,7 +13,7 @@ fn generate() {
             // generate bindings for this release tag
             // if not set, then the default branch will be used
             .tag(RELEASE_TAG))
-            // keep build artifacts in `artifacts` forlder
+            // keep build artifacts in `artifacts` folder
             .keep_artifacts("artifacts");
 
     binder.generate().expect("Failed to generate bindings")

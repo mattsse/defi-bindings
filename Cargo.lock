@@ -13,6 +13,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "aave-v3-bindings"
+version = "0.1.0"
+dependencies = [
+ "ethers",
+ "foundry-binder",
+ "serde_json",
+]
+
+[[package]]
 name = "aes"
 version = "0.7.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -465,6 +474,15 @@ dependencies = [
  "atty",
  "lazy_static",
  "winapi",
+]
+
+[[package]]
+name = "compound-bindings"
+version = "0.1.0"
+dependencies = [
+ "ethers",
+ "foundry-binder",
+ "serde_json",
 ]
 
 [[package]]
@@ -1174,6 +1192,7 @@ dependencies = [
 [[package]]
 name = "foundry-binder"
 version = "0.1.0"
+source = "git+https://github.com/mattsse/dapptools-rs?branch=matt/add-foundry-binder#88c0fa90062cea4e9aa872daf0503cbaa239f1fa"
 dependencies = [
  "curl",
  "ethers-contract",
@@ -1189,6 +1208,7 @@ dependencies = [
 [[package]]
 name = "foundry-config"
 version = "0.2.0"
+source = "git+https://github.com/mattsse/dapptools-rs?branch=matt/add-foundry-binder#88c0fa90062cea4e9aa872daf0503cbaa239f1fa"
 dependencies = [
  "Inflector",
  "dirs-next",
@@ -3236,7 +3256,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8ccb82d61f80a663efe1f787a51b16b5a51e3314d6ac365b08639f52387b33f3"
 
 [[package]]
-name = "uniswap-bindings"
+name = "uniswap-v3-periphery-bindings"
 version = "0.1.0"
 dependencies = [
  "ethers",

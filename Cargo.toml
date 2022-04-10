@@ -5,6 +5,11 @@ edition = "2021"
 
 [workspace]
 members = [
-    "uniswap",
-    "mape-loan"
+    "aave-v3",
+    "compound",
+    "mape-loan",
+    "uniswap-v3-periphery",
 ]
+
+[patch."https://github.com/gakonst/foundry"]
+foundry-binder = { git = "https://github.com/mattsse/dapptools-rs", branch = "matt/add-foundry-binder" }

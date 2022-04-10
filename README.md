@@ -7,7 +7,7 @@ Contains various [ethers-rs](https://github.com/gakonst/ethers-rs) rust bindings
 Import directly from this repo
 
 ```toml
-uniswap-bindings = { git = "https://github.com/mattsse/defi-bindings" }
+uniswap-v3-periphery-bindings = { git = "https://github.com/mattsse/defi-bindings" }
 ```
 
 ## Generate your own
@@ -22,7 +22,7 @@ ethers = { git = "https://github.com/gakonst/ethers-rs", features = ["abigen"] }
 serde_json = "1.0"
 
 [build-dependencies]
-foundry-binder = { git = "https://github.com/gakonst/foundry/tree/master/binder" }
+foundry-binder = { git = "https://github.com/gakonst/foundry" }
 ```
 
 In the `build.rs` file, you must configure which project you want to check out, build, and generate bindings for.
@@ -43,7 +43,7 @@ fn generate() {
             // generate bindings for this release tag
             // if not set, then the default branch will be used
             .tag(RELEASE_TAG))
-            // keep build artifacts in `artifacts` forlder
+            // keep build artifacts in `artifacts` folder
             .keep_artifacts("artifacts");
 
     binder.generate().expect("Failed to generate bindings")
