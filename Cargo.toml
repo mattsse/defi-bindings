@@ -7,7 +7,7 @@ edition = "2021"
 members = [
     "aave-v3",
     "compound",
-    "mape-loan",
+    "maple-loan",
     "uniswap-v3-periphery",
 ]
 
