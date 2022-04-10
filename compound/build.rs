@@ -8,14 +8,9 @@ const REPO_URL: &str = "https://github.com/compound-finance/compound-protocol";
 const RELEASE_TAG: &str = "v2.8.1";
 
 fn generate() {
-    let binder = Binder::new(
-        RepositoryBuilder::new(Url::parse(REPO_URL).unwrap())
-            // generate bindings for this release tag
-            // if not set, then the default branch will be used
-            .tag(RELEASE_TAG),
-    )
-    // keep build artifacts in `artifacts` folder
-    .command(["yarn", "install"]);
+    let binder =
+        Binder::new(RepositoryBuilder::new(Url::parse(REPO_URL).unwrap()).tag(RELEASE_TAG))
+            .command(["yarn", "install"]);
 
     binder.generate().expect("Failed to generate bindings")
 }

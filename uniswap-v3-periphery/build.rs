@@ -8,14 +8,8 @@ const REPO_URL: &str = "https://github.com/Uniswap/v3-periphery";
 const RELEASE_TAG: &str = "v1.3.0";
 
 fn generate() {
-    let binder = Binder::new(
-        RepositoryBuilder::new(Url::parse(REPO_URL).unwrap())
-            // generate bindings for this release tag
-            // if not set, then the default branch will be used
-            .tag(RELEASE_TAG),
-    )
-    // keep build artifacts in `artifacts` folder
-    .keep_artifacts("artifacts");
+    let binder =
+        Binder::new(RepositoryBuilder::new(Url::parse(REPO_URL).unwrap()).tag(RELEASE_TAG));
 
     binder.generate().expect("Failed to generate bindings")
 }
