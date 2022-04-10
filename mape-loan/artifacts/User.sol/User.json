@@ -1,0 +1,1457 @@
+{
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "instance_",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "toVersion_",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "arguments_",
+          "type": "bytes"
+        }
+      ],
+      "name": "mapleProxied_upgrade",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "factory_",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes",
+          "name": "arguments_",
+          "type": "bytes"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "salt_",
+          "type": "bytes32"
+        }
+      ],
+      "name": "mapleProxyFactory_createInstance",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "instance_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "instance_",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "toVersion_",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "arguments_",
+          "type": "bytes"
+        }
+      ],
+      "name": "try_mapleProxied_upgrade",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "ok_",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "factory_",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes",
+          "name": "arguments_",
+          "type": "bytes"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "salt_",
+          "type": "bytes32"
+        }
+      ],
+      "name": "try_mapleProxyFactory_createInstance",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "ok_",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x608060405234801561001057600080fd5b506104b5806100206000396000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c806348b4e6bc1461005157806399c96d4c14610081578063b501482f146100a4578063e5743b4f146100b9575b600080fd5b61006461005f36600461030d565b6100cc565b6040516001600160a01b0390911681526020015b60405180910390f35b61009461008f36600461030d565b61015a565b6040519015158152602001610078565b6100b76100b2366004610369565b61020f565b005b6100946100c7366004610369565b610277565b60405163517b657f60e01b81526000906001600160a01b0386169063517b657f906100ff90879087908790600401610429565b602060405180830381600087803b15801561011957600080fd5b505af115801561012d573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061015191906102e9565b95945050505050565b6000846001600160a01b031663517b657f60e01b85858560405160240161018393929190610429565b60408051601f198184030181529181526020820180516001600160e01b03166001600160e01b03199094169390931790925290516101c191906103ee565b6000604051808303816000865af19150503d80600081146101fe576040519150601f19603f3d011682016040523d82523d6000602084013e610203565b606091505b50909695505050505050565b604051631dccde7760e11b81526001600160a01b03851690633b99bcee9061023f9086908690869060040161044d565b600060405180830381600087803b15801561025957600080fd5b505af115801561026d573d6000803e3d6000fd5b5050505050505050565b6000846001600160a01b0316633b99bcee60e01b8585856040516024016101839392919061044d565b60008083601f8401126102b257600080fd5b50813567ffffffffffffffff8111156102ca57600080fd5b6020830191508360208285010111156102e257600080fd5b9250929050565b6000602082840312156102fb57600080fd5b815161030681610467565b9392505050565b6000806000806060858703121561032357600080fd5b843561032e81610467565b9350602085013567ffffffffffffffff81111561034a57600080fd5b610356878288016102a0565b9598909750949560400135949350505050565b6000806000806060858703121561037f57600080fd5b843561038a81610467565b935060208501359250604085013567ffffffffffffffff8111156103ad57600080fd5b6103b9878288016102a0565b95989497509550505050565b81835281816020850137506000828201602090810191909152601f909101601f19169091010190565b6000825160005b8181101561040f57602081860181015185830152016103f5565b8181111561041e576000828501525b509190910192915050565b60408152600061043d6040830185876103c5565b9050826020830152949350505050565b8381526040602082015260006101516040830184866103c5565b6001600160a01b038116811461047c57600080fd5b5056fea2646970667358221220c9c940a645630b888fd4845c51b71798534e88a720ae296f2f6f36db6cb2931f64736f6c63430008070033",
+    "sourceMap": "222:1136:39:-:0;;;;;;;;;;;;;;;;;;;",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x608060405234801561001057600080fd5b506004361061004c5760003560e01c806348b4e6bc1461005157806399c96d4c14610081578063b501482f146100a4578063e5743b4f146100b9575b600080fd5b61006461005f36600461030d565b6100cc565b6040516001600160a01b0390911681526020015b60405180910390f35b61009461008f36600461030d565b61015a565b6040519015158152602001610078565b6100b76100b2366004610369565b61020f565b005b6100946100c7366004610369565b610277565b60405163517b657f60e01b81526000906001600160a01b0386169063517b657f906100ff90879087908790600401610429565b602060405180830381600087803b15801561011957600080fd5b505af115801561012d573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061015191906102e9565b95945050505050565b6000846001600160a01b031663517b657f60e01b85858560405160240161018393929190610429565b60408051601f198184030181529181526020820180516001600160e01b03166001600160e01b03199094169390931790925290516101c191906103ee565b6000604051808303816000865af19150503d80600081146101fe576040519150601f19603f3d011682016040523d82523d6000602084013e610203565b606091505b50909695505050505050565b604051631dccde7760e11b81526001600160a01b03851690633b99bcee9061023f9086908690869060040161044d565b600060405180830381600087803b15801561025957600080fd5b505af115801561026d573d6000803e3d6000fd5b5050505050505050565b6000846001600160a01b0316633b99bcee60e01b8585856040516024016101839392919061044d565b60008083601f8401126102b257600080fd5b50813567ffffffffffffffff8111156102ca57600080fd5b6020830191508360208285010111156102e257600080fd5b9250929050565b6000602082840312156102fb57600080fd5b815161030681610467565b9392505050565b6000806000806060858703121561032357600080fd5b843561032e81610467565b9350602085013567ffffffffffffffff81111561034a57600080fd5b610356878288016102a0565b9598909750949560400135949350505050565b6000806000806060858703121561037f57600080fd5b843561038a81610467565b935060208501359250604085013567ffffffffffffffff8111156103ad57600080fd5b6103b9878288016102a0565b95989497509550505050565b81835281816020850137506000828201602090810191909152601f909101601f19169091010190565b6000825160005b8181101561040f57602081860181015185830152016103f5565b8181111561041e576000828501525b509190910192915050565b60408152600061043d6040830185876103c5565b9050826020830152949350505050565b8381526040602082015260006101516040830184866103c5565b6001600160a01b038116811461047c57600080fd5b5056fea2646970667358221220c9c940a645630b888fd4845c51b71798534e88a720ae296f2f6f36db6cb2931f64736f6c63430008070033",
+    "sourceMap": "222:1136:39:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;521:225;;;;;;:::i;:::-;;:::i;:::-;;;-1:-1:-1;;;;;2722:32:46;;;2704:51;;2692:2;2677:18;521:225:39;;;;;;;;1093:262;;;;;;:::i;:::-;;:::i;:::-;;;2931:14:46;;2924:22;2906:41;;2894:2;2879:18;1093:262:39;2766:187:46;337:178:39;;;;;;:::i;:::-;;:::i;:::-;;837:250;;;;;;:::i;:::-;;:::i;521:225::-;677:62;;-1:-1:-1;;;677:62:39;;641:17;;-1:-1:-1;;;;;677:43:39;;;;;:62;;721:10;;;;733:5;;677:62;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;670:69;521:225;-1:-1:-1;;;;;521:225:39:o;1093:262::-;1217:8;1248;-1:-1:-1;;;;;1248:13:39;1285:42;;;1329:10;;1341:5;1262:85;;;;;;;;;;:::i;:::-;;;;-1:-1:-1;;1262:85:39;;;;;;;;;;;;;;-1:-1:-1;;;;;1262:85:39;-1:-1:-1;;;;;;1262:85:39;;;;;;;;;;1248:100;;;;1262:85;1248:100;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;1237:111:39;;1093:262;-1:-1:-1;;;;;;1093:262:39:o;337:178::-;452:56;;-1:-1:-1;;;452:56:39;;-1:-1:-1;;;;;452:32:39;;;;;:56;;485:10;;497;;;;452:56;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;337:178;;;;:::o;837:250::-;955:8;986:9;-1:-1:-1;;;;;986:14:39;1024:30;;;1056:10;1068;;1001:78;;;;;;;;;;:::i;14:347:46:-;65:8;75:6;129:3;122:4;114:6;110:17;106:27;96:55;;147:1;144;137:12;96:55;-1:-1:-1;170:20:46;;213:18;202:30;;199:50;;;245:1;242;235:12;199:50;282:4;274:6;270:17;258:29;;334:3;327:4;318:6;310;306:19;302:30;299:39;296:59;;;351:1;348;341:12;296:59;14:347;;;;;:::o;366:251::-;436:6;489:2;477:9;468:7;464:23;460:32;457:52;;;505:1;502;495:12;457:52;537:9;531:16;556:31;581:5;556:31;:::i;:::-;606:5;366:251;-1:-1:-1;;;366:251:46:o;622:612::-;710:6;718;726;734;787:2;775:9;766:7;762:23;758:32;755:52;;;803:1;800;793:12;755:52;842:9;829:23;861:31;886:5;861:31;:::i;:::-;911:5;-1:-1:-1;967:2:46;952:18;;939:32;994:18;983:30;;980:50;;;1026:1;1023;1016:12;980:50;1065:58;1115:7;1106:6;1095:9;1091:22;1065:58;:::i;:::-;622:612;;1142:8;;-1:-1:-1;1039:84:46;;1224:2;1209:18;1196:32;;622:612;-1:-1:-1;;;;622:612:46:o;1239:::-;1327:6;1335;1343;1351;1404:2;1392:9;1383:7;1379:23;1375:32;1372:52;;;1420:1;1417;1410:12;1372:52;1459:9;1446:23;1478:31;1503:5;1478:31;:::i;:::-;1528:5;-1:-1:-1;1580:2:46;1565:18;;1552:32;;-1:-1:-1;1635:2:46;1620:18;;1607:32;1662:18;1651:30;;1648:50;;;1694:1;1691;1684:12;1648:50;1733:58;1783:7;1774:6;1763:9;1759:22;1733:58;:::i;:::-;1239:612;;;;-1:-1:-1;1810:8:46;-1:-1:-1;;;;1239:612:46:o;1856:266::-;1944:6;1939:3;1932:19;1996:6;1989:5;1982:4;1977:3;1973:14;1960:43;-1:-1:-1;2048:1:46;2023:16;;;2041:4;2019:27;;;2012:38;;;;2104:2;2083:15;;;-1:-1:-1;;2079:29:46;2070:39;;;2066:50;;1856:266::o;2127:426::-;2256:3;2294:6;2288:13;2319:1;2329:129;2343:6;2340:1;2337:13;2329:129;;;2441:4;2425:14;;;2421:25;;2415:32;2402:11;;;2395:53;2358:12;2329:129;;;2476:6;2473:1;2470:13;2467:48;;;2511:1;2502:6;2497:3;2493:16;2486:27;2467:48;-1:-1:-1;2531:16:46;;;;;2127:426;-1:-1:-1;;2127:426:46:o;2958:315::-;3143:2;3132:9;3125:21;3106:4;3163:61;3220:2;3209:9;3205:18;3197:6;3189;3163:61;:::i;:::-;3155:69;;3260:6;3255:2;3244:9;3240:18;3233:34;2958:315;;;;;;:::o;3278:::-;3463:6;3452:9;3445:25;3506:2;3501;3490:9;3486:18;3479:30;3426:4;3526:61;3583:2;3572:9;3568:18;3560:6;3552;3526:61;:::i;3598:131::-;-1:-1:-1;;;;;3673:31:46;;3663:42;;3653:70;;3719:1;3716;3709:12;3653:70;3598:131;:::o",
+    "linkReferences": {}
+  },
+  "ast": {
+    "absolutePath": "/private/var/folders/l5/lprhf87s6xv8djgd017f0b2h0000gn/T/loanrlNgGg/modules/maple-proxy-factory/contracts/test/accounts/User.sol",
+    "exportedSymbols": {
+      "IMapleProxied": [
+        43542
+      ],
+      "IMapleProxyFactory": [
+        43721
+      ],
+      "User": [
+        44059
+      ]
+    },
+    "id": 44060,
+    "license": "AGPL-3.0-or-later",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 43962,
+        "literals": [
+          "solidity",
+          "0.8",
+          ".7"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "46:22:39"
+      },
+      {
+        "absolutePath": "/private/var/folders/l5/lprhf87s6xv8djgd017f0b2h0000gn/T/loanrlNgGg/modules/maple-proxy-factory/contracts/interfaces/IMapleProxied.sol",
+        "file": "../../interfaces/IMapleProxied.sol",
+        "id": 43964,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 44060,
+        "sourceUnit": 43543,
+        "src": "70:72:39",
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 43963,
+              "name": "IMapleProxied",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "src": "79:13:39",
+              "typeDescriptions": {}
+            },
+            "nameLocation": "-1:-1:-1"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/private/var/folders/l5/lprhf87s6xv8djgd017f0b2h0000gn/T/loanrlNgGg/modules/maple-proxy-factory/contracts/interfaces/IMapleProxyFactory.sol",
+        "file": "../../interfaces/IMapleProxyFactory.sol",
+        "id": 43966,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 44060,
+        "sourceUnit": 43722,
+        "src": "143:77:39",
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 43965,
+              "name": "IMapleProxyFactory",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "src": "152:18:39",
+              "typeDescriptions": {}
+            },
+            "nameLocation": "-1:-1:-1"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 44059,
+        "linearizedBaseContracts": [
+          44059
+        ],
+        "name": "User",
+        "nameLocation": "231:4:39",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 43983,
+              "nodeType": "Block",
+              "src": "442:73:39",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "id": 43979,
+                        "name": "toVersion_",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 43970,
+                        "src": "485:10:39",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "id": 43980,
+                        "name": "arguments_",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 43972,
+                        "src": "497:10:39",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_calldata_ptr",
+                          "typeString": "bytes calldata"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_bytes_calldata_ptr",
+                          "typeString": "bytes calldata"
+                        }
+                      ],
+                      "expression": {
+                        "arguments": [
+                          {
+                            "id": 43976,
+                            "name": "instance_",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 43968,
+                            "src": "466:9:39",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          ],
+                          "id": 43975,
+                          "name": "IMapleProxied",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 43542,
+                          "src": "452:13:39",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_contract$_IMapleProxied_$43542_$",
+                            "typeString": "type(contract IMapleProxied)"
+                          }
+                        },
+                        "id": 43977,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "typeConversion",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "452:24:39",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IMapleProxied_$43542",
+                          "typeString": "contract IMapleProxied"
+                        }
+                      },
+                      "id": 43978,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "upgrade",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 43541,
+                      "src": "452:32:39",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_nonpayable$_t_uint256_$_t_bytes_memory_ptr_$returns$__$",
+                        "typeString": "function (uint256,bytes memory) external"
+                      }
+                    },
+                    "id": 43981,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "452:56:39",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 43982,
+                  "nodeType": "ExpressionStatement",
+                  "src": "452:56:39"
+                }
+              ]
+            },
+            "functionSelector": "b501482f",
+            "id": 43984,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "mapleProxied_upgrade",
+            "nameLocation": "346:20:39",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 43973,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 43968,
+                  "mutability": "mutable",
+                  "name": "instance_",
+                  "nameLocation": "375:9:39",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 43984,
+                  "src": "367:17:39",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 43967,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "367:7:39",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 43970,
+                  "mutability": "mutable",
+                  "name": "toVersion_",
+                  "nameLocation": "394:10:39",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 43984,
+                  "src": "386:18:39",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 43969,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "386:7:39",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 43972,
+                  "mutability": "mutable",
+                  "name": "arguments_",
+                  "nameLocation": "421:10:39",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 43984,
+                  "src": "406:25:39",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_calldata_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 43971,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "406:5:39",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "366:66:39"
+            },
+            "returnParameters": {
+              "id": 43974,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "442:0:39"
+            },
+            "scope": 44059,
+            "src": "337:178:39",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 44003,
+              "nodeType": "Block",
+              "src": "660:86:39",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "id": 43999,
+                        "name": "arguments_",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 43988,
+                        "src": "721:10:39",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_calldata_ptr",
+                          "typeString": "bytes calldata"
+                        }
+                      },
+                      {
+                        "id": 44000,
+                        "name": "salt_",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 43990,
+                        "src": "733:5:39",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bytes_calldata_ptr",
+                          "typeString": "bytes calldata"
+                        },
+                        {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      ],
+                      "expression": {
+                        "arguments": [
+                          {
+                            "id": 43996,
+                            "name": "factory_",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 43986,
+                            "src": "696:8:39",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          ],
+                          "id": 43995,
+                          "name": "IMapleProxyFactory",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 43721,
+                          "src": "677:18:39",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_contract$_IMapleProxyFactory_$43721_$",
+                            "typeString": "type(contract IMapleProxyFactory)"
+                          }
+                        },
+                        "id": 43997,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "typeConversion",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "677:28:39",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IMapleProxyFactory_$43721",
+                          "typeString": "contract IMapleProxyFactory"
+                        }
+                      },
+                      "id": 43998,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "createInstance",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 43636,
+                      "src": "677:43:39",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_nonpayable$_t_bytes_memory_ptr_$_t_bytes32_$returns$_t_address_$",
+                        "typeString": "function (bytes memory,bytes32) external returns (address)"
+                      }
+                    },
+                    "id": 44001,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "677:62:39",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "functionReturnParameters": 43994,
+                  "id": 44002,
+                  "nodeType": "Return",
+                  "src": "670:69:39"
+                }
+              ]
+            },
+            "functionSelector": "48b4e6bc",
+            "id": 44004,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "mapleProxyFactory_createInstance",
+            "nameLocation": "530:32:39",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 43991,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 43986,
+                  "mutability": "mutable",
+                  "name": "factory_",
+                  "nameLocation": "571:8:39",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44004,
+                  "src": "563:16:39",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 43985,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "563:7:39",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 43988,
+                  "mutability": "mutable",
+                  "name": "arguments_",
+                  "nameLocation": "596:10:39",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44004,
+                  "src": "581:25:39",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_calldata_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 43987,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "581:5:39",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 43990,
+                  "mutability": "mutable",
+                  "name": "salt_",
+                  "nameLocation": "616:5:39",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44004,
+                  "src": "608:13:39",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 43989,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "608:7:39",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "562:60:39"
+            },
+            "returnParameters": {
+              "id": 43994,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 43993,
+                  "mutability": "mutable",
+                  "name": "instance_",
+                  "nameLocation": "649:9:39",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44004,
+                  "src": "641:17:39",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 43992,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "641:7:39",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "640:19:39"
+            },
+            "scope": 44059,
+            "src": "521:225:39",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 44030,
+              "nodeType": "Block",
+              "src": "965:122:39",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 44028,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "components": [
+                        {
+                          "id": 44015,
+                          "name": "ok_",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 44013,
+                          "src": "977:3:39",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        null
+                      ],
+                      "id": 44016,
+                      "isConstant": false,
+                      "isInlineArray": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "TupleExpression",
+                      "src": "975:8:39",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_tuple$_t_bool_$__$",
+                        "typeString": "tuple(bool,)"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "arguments": [
+                        {
+                          "arguments": [
+                            {
+                              "expression": {
+                                "expression": {
+                                  "id": 44021,
+                                  "name": "IMapleProxied",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 43542,
+                                  "src": "1024:13:39",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_type$_t_contract$_IMapleProxied_$43542_$",
+                                    "typeString": "type(contract IMapleProxied)"
+                                  }
+                                },
+                                "id": 44022,
+                                "isConstant": false,
+                                "isLValue": false,
+                                "isPure": true,
+                                "lValueRequested": false,
+                                "memberName": "upgrade",
+                                "nodeType": "MemberAccess",
+                                "referencedDeclaration": 43541,
+                                "src": "1024:21:39",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_function_declaration_nonpayable$_t_uint256_$_t_bytes_calldata_ptr_$returns$__$",
+                                  "typeString": "function IMapleProxied.upgrade(uint256,bytes calldata)"
+                                }
+                              },
+                              "id": 44023,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "memberName": "selector",
+                              "nodeType": "MemberAccess",
+                              "src": "1024:30:39",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_bytes4",
+                                "typeString": "bytes4"
+                              }
+                            },
+                            {
+                              "id": 44024,
+                              "name": "toVersion_",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 44008,
+                              "src": "1056:10:39",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            },
+                            {
+                              "id": 44025,
+                              "name": "arguments_",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 44010,
+                              "src": "1068:10:39",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_bytes_calldata_ptr",
+                                "typeString": "bytes calldata"
+                              }
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_bytes4",
+                                "typeString": "bytes4"
+                              },
+                              {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              },
+                              {
+                                "typeIdentifier": "t_bytes_calldata_ptr",
+                                "typeString": "bytes calldata"
+                              }
+                            ],
+                            "expression": {
+                              "id": 44019,
+                              "name": "abi",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": -1,
+                              "src": "1001:3:39",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_magic_abi",
+                                "typeString": "abi"
+                              }
+                            },
+                            "id": 44020,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "lValueRequested": false,
+                            "memberName": "encodeWithSelector",
+                            "nodeType": "MemberAccess",
+                            "src": "1001:22:39",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_abiencodewithselector_pure$_t_bytes4_$returns$_t_bytes_memory_ptr_$",
+                              "typeString": "function (bytes4) pure returns (bytes memory)"
+                            }
+                          },
+                          "id": 44026,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "1001:78:39",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes_memory_ptr",
+                            "typeString": "bytes memory"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_bytes_memory_ptr",
+                            "typeString": "bytes memory"
+                          }
+                        ],
+                        "expression": {
+                          "id": 44017,
+                          "name": "instance_",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 44006,
+                          "src": "986:9:39",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "id": 44018,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "call",
+                        "nodeType": "MemberAccess",
+                        "src": "986:14:39",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_barecall_payable$_t_bytes_memory_ptr_$returns$_t_bool_$_t_bytes_memory_ptr_$",
+                          "typeString": "function (bytes memory) payable returns (bool,bytes memory)"
+                        }
+                      },
+                      "id": 44027,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "986:94:39",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_tuple$_t_bool_$_t_bytes_memory_ptr_$",
+                        "typeString": "tuple(bool,bytes memory)"
+                      }
+                    },
+                    "src": "975:105:39",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 44029,
+                  "nodeType": "ExpressionStatement",
+                  "src": "975:105:39"
+                }
+              ]
+            },
+            "functionSelector": "e5743b4f",
+            "id": 44031,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "try_mapleProxied_upgrade",
+            "nameLocation": "846:24:39",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 44011,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 44006,
+                  "mutability": "mutable",
+                  "name": "instance_",
+                  "nameLocation": "879:9:39",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44031,
+                  "src": "871:17:39",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 44005,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "871:7:39",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 44008,
+                  "mutability": "mutable",
+                  "name": "toVersion_",
+                  "nameLocation": "898:10:39",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44031,
+                  "src": "890:18:39",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 44007,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "890:7:39",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 44010,
+                  "mutability": "mutable",
+                  "name": "arguments_",
+                  "nameLocation": "925:10:39",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44031,
+                  "src": "910:25:39",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_calldata_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 44009,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "910:5:39",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "870:66:39"
+            },
+            "returnParameters": {
+              "id": 44014,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 44013,
+                  "mutability": "mutable",
+                  "name": "ok_",
+                  "nameLocation": "960:3:39",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44031,
+                  "src": "955:8:39",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 44012,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "955:4:39",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "954:10:39"
+            },
+            "scope": 44059,
+            "src": "837:250:39",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 44057,
+              "nodeType": "Block",
+              "src": "1227:128:39",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 44055,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "components": [
+                        {
+                          "id": 44042,
+                          "name": "ok_",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 44040,
+                          "src": "1239:3:39",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        null
+                      ],
+                      "id": 44043,
+                      "isConstant": false,
+                      "isInlineArray": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "TupleExpression",
+                      "src": "1237:8:39",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_tuple$_t_bool_$__$",
+                        "typeString": "tuple(bool,)"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "arguments": [
+                        {
+                          "arguments": [
+                            {
+                              "expression": {
+                                "expression": {
+                                  "id": 44048,
+                                  "name": "IMapleProxyFactory",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 43721,
+                                  "src": "1285:18:39",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_type$_t_contract$_IMapleProxyFactory_$43721_$",
+                                    "typeString": "type(contract IMapleProxyFactory)"
+                                  }
+                                },
+                                "id": 44049,
+                                "isConstant": false,
+                                "isLValue": false,
+                                "isPure": true,
+                                "lValueRequested": false,
+                                "memberName": "createInstance",
+                                "nodeType": "MemberAccess",
+                                "referencedDeclaration": 43636,
+                                "src": "1285:33:39",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_function_declaration_nonpayable$_t_bytes_calldata_ptr_$_t_bytes32_$returns$_t_address_$",
+                                  "typeString": "function IMapleProxyFactory.createInstance(bytes calldata,bytes32) returns (address)"
+                                }
+                              },
+                              "id": 44050,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "memberName": "selector",
+                              "nodeType": "MemberAccess",
+                              "src": "1285:42:39",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_bytes4",
+                                "typeString": "bytes4"
+                              }
+                            },
+                            {
+                              "id": 44051,
+                              "name": "arguments_",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 44035,
+                              "src": "1329:10:39",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_bytes_calldata_ptr",
+                                "typeString": "bytes calldata"
+                              }
+                            },
+                            {
+                              "id": 44052,
+                              "name": "salt_",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 44037,
+                              "src": "1341:5:39",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_bytes32",
+                                "typeString": "bytes32"
+                              }
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_bytes4",
+                                "typeString": "bytes4"
+                              },
+                              {
+                                "typeIdentifier": "t_bytes_calldata_ptr",
+                                "typeString": "bytes calldata"
+                              },
+                              {
+                                "typeIdentifier": "t_bytes32",
+                                "typeString": "bytes32"
+                              }
+                            ],
+                            "expression": {
+                              "id": 44046,
+                              "name": "abi",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": -1,
+                              "src": "1262:3:39",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_magic_abi",
+                                "typeString": "abi"
+                              }
+                            },
+                            "id": 44047,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "lValueRequested": false,
+                            "memberName": "encodeWithSelector",
+                            "nodeType": "MemberAccess",
+                            "src": "1262:22:39",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_abiencodewithselector_pure$_t_bytes4_$returns$_t_bytes_memory_ptr_$",
+                              "typeString": "function (bytes4) pure returns (bytes memory)"
+                            }
+                          },
+                          "id": 44053,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "1262:85:39",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes_memory_ptr",
+                            "typeString": "bytes memory"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_bytes_memory_ptr",
+                            "typeString": "bytes memory"
+                          }
+                        ],
+                        "expression": {
+                          "id": 44044,
+                          "name": "factory_",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 44033,
+                          "src": "1248:8:39",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "id": 44045,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "call",
+                        "nodeType": "MemberAccess",
+                        "src": "1248:13:39",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_barecall_payable$_t_bytes_memory_ptr_$returns$_t_bool_$_t_bytes_memory_ptr_$",
+                          "typeString": "function (bytes memory) payable returns (bool,bytes memory)"
+                        }
+                      },
+                      "id": 44054,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "1248:100:39",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_tuple$_t_bool_$_t_bytes_memory_ptr_$",
+                        "typeString": "tuple(bool,bytes memory)"
+                      }
+                    },
+                    "src": "1237:111:39",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 44056,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1237:111:39"
+                }
+              ]
+            },
+            "functionSelector": "99c96d4c",
+            "id": 44058,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "try_mapleProxyFactory_createInstance",
+            "nameLocation": "1102:36:39",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 44038,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 44033,
+                  "mutability": "mutable",
+                  "name": "factory_",
+                  "nameLocation": "1147:8:39",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44058,
+                  "src": "1139:16:39",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 44032,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1139:7:39",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 44035,
+                  "mutability": "mutable",
+                  "name": "arguments_",
+                  "nameLocation": "1172:10:39",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44058,
+                  "src": "1157:25:39",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_calldata_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 44034,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1157:5:39",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 44037,
+                  "mutability": "mutable",
+                  "name": "salt_",
+                  "nameLocation": "1192:5:39",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44058,
+                  "src": "1184:13:39",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 44036,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1184:7:39",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1138:60:39"
+            },
+            "returnParameters": {
+              "id": 44041,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 44040,
+                  "mutability": "mutable",
+                  "name": "ok_",
+                  "nameLocation": "1222:3:39",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44058,
+                  "src": "1217:8:39",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 44039,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1217:4:39",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1216:10:39"
+            },
+            "scope": 44059,
+            "src": "1093:262:39",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 44060,
+        "src": "222:1136:39",
+        "usedErrors": []
+      }
+    ],
+    "src": "46:1313:39"
+  }
+}

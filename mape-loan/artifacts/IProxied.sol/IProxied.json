@@ -1,0 +1,396 @@
+{
+  "abi": [
+    {
+      "inputs": [],
+      "name": "factory",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "factory_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "implementation",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "implementation_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "migrator_",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes",
+          "name": "arguments_",
+          "type": "bytes"
+        }
+      ],
+      "name": "migrate",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newImplementation_",
+          "type": "address"
+        }
+      ],
+      "name": "setImplementation",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "ast": {
+    "absolutePath": "/private/var/folders/l5/lprhf87s6xv8djgd017f0b2h0000gn/T/loanrlNgGg/modules/maple-proxy-factory/modules/proxy-factory/contracts/interfaces/IProxied.sol",
+    "exportedSymbols": {
+      "IProxied": [
+        44918
+      ]
+    },
+    "id": 44919,
+    "license": "AGPL-3.0-only",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 44890,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".7"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "42:23:45"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 44891,
+          "nodeType": "StructuredDocumentation",
+          "src": "67:77:45",
+          "text": "@title An implementation that is to be proxied, must implement IProxied."
+        },
+        "fullyImplemented": false,
+        "id": 44918,
+        "linearizedBaseContracts": [
+          44918
+        ],
+        "name": "IProxied",
+        "nameLocation": "154:8:45",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "documentation": {
+              "id": 44892,
+              "nodeType": "StructuredDocumentation",
+              "src": "170:58:45",
+              "text": "  @dev The address of the proxy factory."
+            },
+            "functionSelector": "c45a0155",
+            "id": 44897,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "factory",
+            "nameLocation": "242:7:45",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 44893,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "249:2:45"
+            },
+            "returnParameters": {
+              "id": 44896,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 44895,
+                  "mutability": "mutable",
+                  "name": "factory_",
+                  "nameLocation": "283:8:45",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44897,
+                  "src": "275:16:45",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 44894,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "275:7:45",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "274:18:45"
+            },
+            "scope": 44918,
+            "src": "233:60:45",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 44898,
+              "nodeType": "StructuredDocumentation",
+              "src": "299:82:45",
+              "text": "  @dev The address of the implementation contract being proxied."
+            },
+            "functionSelector": "5c60da1b",
+            "id": 44903,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "implementation",
+            "nameLocation": "395:14:45",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 44899,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "409:2:45"
+            },
+            "returnParameters": {
+              "id": 44902,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 44901,
+                  "mutability": "mutable",
+                  "name": "implementation_",
+                  "nameLocation": "443:15:45",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44903,
+                  "src": "435:23:45",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 44900,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "435:7:45",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "434:25:45"
+            },
+            "scope": 44918,
+            "src": "386:74:45",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 44904,
+              "nodeType": "StructuredDocumentation",
+              "src": "466:148:45",
+              "text": "  @dev   Modifies the proxy's implementation address.\n  @param newImplementation_ The address of an implementation contract."
+            },
+            "functionSelector": "d784d426",
+            "id": 44909,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setImplementation",
+            "nameLocation": "628:17:45",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 44907,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 44906,
+                  "mutability": "mutable",
+                  "name": "newImplementation_",
+                  "nameLocation": "654:18:45",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44909,
+                  "src": "646:26:45",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 44905,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "646:7:45",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "645:28:45"
+            },
+            "returnParameters": {
+              "id": 44908,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "682:0:45"
+            },
+            "scope": 44918,
+            "src": "619:64:45",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 44910,
+              "nodeType": "StructuredDocumentation",
+              "src": "689:389:45",
+              "text": "  @dev   Modifies the proxy's storage by delegate-calling a migrator contract with some arguments.\n         Access control logic critical since caller can force a selfdestruct via a malicious `migrator_` which is delegatecalled.\n  @param migrator_  The address of a migrator contract.\n  @param arguments_ Some encoded arguments to use for the migration."
+            },
+            "functionSelector": "c3fbb6fd",
+            "id": 44917,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "migrate",
+            "nameLocation": "1092:7:45",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 44915,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 44912,
+                  "mutability": "mutable",
+                  "name": "migrator_",
+                  "nameLocation": "1108:9:45",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44917,
+                  "src": "1100:17:45",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 44911,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1100:7:45",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 44914,
+                  "mutability": "mutable",
+                  "name": "arguments_",
+                  "nameLocation": "1134:10:45",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44917,
+                  "src": "1119:25:45",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_calldata_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 44913,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1119:5:45",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1099:46:45"
+            },
+            "returnParameters": {
+              "id": 44916,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1154:0:45"
+            },
+            "scope": 44918,
+            "src": "1083:72:45",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 44919,
+        "src": "144:1014:45",
+        "usedErrors": []
+      }
+    ],
+    "src": "42:1117:45"
+  }
+}

@@ -1,0 +1,455 @@
+{
+  "abi": [
+    {
+      "inputs": [],
+      "name": "poolDelegate",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "poolDelegate_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "ast": {
+    "absolutePath": "/private/var/folders/l5/lprhf87s6xv8djgd017f0b2h0000gn/T/loanrlNgGg/contracts/interfaces/Interfaces.sol",
+    "exportedSymbols": {
+      "ILenderLike": [
+        4288
+      ],
+      "IMapleGlobalsLike": [
+        4319
+      ]
+    },
+    "id": 4320,
+    "license": "AGPL-3.0-or-later",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 4282,
+        "literals": [
+          "solidity",
+          "0.8",
+          ".7"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "46:22:11"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 4288,
+        "linearizedBaseContracts": [
+          4288
+        ],
+        "name": "ILenderLike",
+        "nameLocation": "80:11:11",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "functionSelector": "4046af2b",
+            "id": 4287,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "poolDelegate",
+            "nameLocation": "108:12:11",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4283,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "120:2:11"
+            },
+            "returnParameters": {
+              "id": 4286,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4285,
+                  "mutability": "mutable",
+                  "name": "poolDelegate_",
+                  "nameLocation": "154:13:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4287,
+                  "src": "146:21:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4284,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "146:7:11",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "145:23:11"
+            },
+            "scope": 4288,
+            "src": "99:70:11",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 4320,
+        "src": "70:102:11",
+        "usedErrors": []
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 4319,
+        "linearizedBaseContracts": [
+          4319
+        ],
+        "name": "IMapleGlobalsLike",
+        "nameLocation": "184:17:11",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "documentation": {
+              "id": 4289,
+              "nodeType": "StructuredDocumentation",
+              "src": "209:90:11",
+              "text": "@dev The address of the Governor responsible for management of global Maple variables."
+            },
+            "functionSelector": "0c340a24",
+            "id": 4294,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "governor",
+            "nameLocation": "313:8:11",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4290,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "321:2:11"
+            },
+            "returnParameters": {
+              "id": 4293,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4292,
+                  "mutability": "mutable",
+                  "name": "governor_",
+                  "nameLocation": "355:9:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4294,
+                  "src": "347:17:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4291,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "347:7:11",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "346:19:11"
+            },
+            "scope": 4319,
+            "src": "304:62:11",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 4295,
+              "nodeType": "StructuredDocumentation",
+              "src": "372:49:11",
+              "text": "@dev The fee rate directed to Pool Delegates."
+            },
+            "functionSelector": "16a12d7a",
+            "id": 4300,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "investorFee",
+            "nameLocation": "435:11:11",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4296,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "446:2:11"
+            },
+            "returnParameters": {
+              "id": 4299,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4298,
+                  "mutability": "mutable",
+                  "name": "investorFee_",
+                  "nameLocation": "480:12:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4300,
+                  "src": "472:20:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4297,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "472:7:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "471:22:11"
+            },
+            "scope": 4319,
+            "src": "426:68:11",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 4301,
+              "nodeType": "StructuredDocumentation",
+              "src": "500:88:11",
+              "text": "@dev The Treasury where all fees pass through for conversion, prior to distribution."
+            },
+            "functionSelector": "a5a27605",
+            "id": 4306,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "mapleTreasury",
+            "nameLocation": "602:13:11",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4302,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "615:2:11"
+            },
+            "returnParameters": {
+              "id": 4305,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4304,
+                  "mutability": "mutable",
+                  "name": "mapleTreasury_",
+                  "nameLocation": "649:14:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4306,
+                  "src": "641:22:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4303,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "641:7:11",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "640:24:11"
+            },
+            "scope": 4319,
+            "src": "593:72:11",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 4307,
+              "nodeType": "StructuredDocumentation",
+              "src": "671:61:11",
+              "text": "@dev A boolean indicating whether the protocol is paused."
+            },
+            "functionSelector": "425fad58",
+            "id": 4312,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "protocolPaused",
+            "nameLocation": "746:14:11",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4308,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "760:2:11"
+            },
+            "returnParameters": {
+              "id": 4311,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4310,
+                  "mutability": "mutable",
+                  "name": "paused_",
+                  "nameLocation": "791:7:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4312,
+                  "src": "786:12:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 4309,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "786:4:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "785:14:11"
+            },
+            "scope": 4319,
+            "src": "737:63:11",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 4313,
+              "nodeType": "StructuredDocumentation",
+              "src": "806:53:11",
+              "text": "@dev The fee rate directed to the Maple Treasury."
+            },
+            "functionSelector": "cc32d176",
+            "id": 4318,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "treasuryFee",
+            "nameLocation": "873:11:11",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4314,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "884:2:11"
+            },
+            "returnParameters": {
+              "id": 4317,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4316,
+                  "mutability": "mutable",
+                  "name": "treasuryFee_",
+                  "nameLocation": "918:12:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4318,
+                  "src": "910:20:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4315,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "910:7:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "909:22:11"
+            },
+            "scope": 4319,
+            "src": "864:68:11",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 4320,
+        "src": "174:761:11",
+        "usedErrors": []
+      }
+    ],
+    "src": "46:890:11"
+  }
+}

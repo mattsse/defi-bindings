@@ -1,0 +1,454 @@
+{
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "owner_",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipAccepted",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "account_",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferPending",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "acceptOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "owner_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "pendingOwner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "owner_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account_",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "ast": {
+    "absolutePath": "/private/var/folders/l5/lprhf87s6xv8djgd017f0b2h0000gn/T/loanrlNgGg/contracts/interfaces/IOwnable.sol",
+    "exportedSymbols": {
+      "IOwnable": [
+        4166
+      ]
+    },
+    "id": 4167,
+    "license": "AGPL-3.0-or-later",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 4132,
+        "literals": [
+          "solidity",
+          "0.8",
+          ".7"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "46:22:9"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 4133,
+          "nodeType": "StructuredDocumentation",
+          "src": "70:30:9",
+          "text": "@title Ownable interface."
+        },
+        "fullyImplemented": false,
+        "id": 4166,
+        "linearizedBaseContracts": [
+          4166
+        ],
+        "name": "IOwnable",
+        "nameLocation": "110:8:9",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "anonymous": false,
+            "documentation": {
+              "id": 4134,
+              "nodeType": "StructuredDocumentation",
+              "src": "126:162:9",
+              "text": "  @dev   Ownership of the contact has been transferred and is pending acceptance.\n  @param account_ The address that can accept ownership."
+            },
+            "id": 4138,
+            "name": "OwnershipTransferPending",
+            "nameLocation": "299:24:9",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 4137,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4136,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "account_",
+                  "nameLocation": "340:8:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4138,
+                  "src": "324:24:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4135,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "324:7:9",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "323:26:9"
+            },
+            "src": "293:57:9"
+          },
+          {
+            "anonymous": false,
+            "documentation": {
+              "id": 4139,
+              "nodeType": "StructuredDocumentation",
+              "src": "356:148:9",
+              "text": "  @dev   Ownership of the contact has been transferred.\n  @param owner_ The address that accepted ownership of the contract."
+            },
+            "id": 4143,
+            "name": "OwnershipAccepted",
+            "nameLocation": "515:17:9",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 4142,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4141,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "owner_",
+                  "nameLocation": "549:6:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4143,
+                  "src": "533:22:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4140,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "533:7:9",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "532:24:9"
+            },
+            "src": "509:48:9"
+          },
+          {
+            "documentation": {
+              "id": 4144,
+              "nodeType": "StructuredDocumentation",
+              "src": "563:51:9",
+              "text": "  @dev The owner of the contract."
+            },
+            "functionSelector": "8da5cb5b",
+            "id": 4149,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "owner",
+            "nameLocation": "628:5:9",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4145,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "633:2:9"
+            },
+            "returnParameters": {
+              "id": 4148,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4147,
+                  "mutability": "mutable",
+                  "name": "owner_",
+                  "nameLocation": "667:6:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4149,
+                  "src": "659:14:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4146,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "659:7:9",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "658:16:9"
+            },
+            "scope": 4166,
+            "src": "619:56:9",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 4150,
+              "nodeType": "StructuredDocumentation",
+              "src": "681:63:9",
+              "text": "  @dev The account that can accept ownership."
+            },
+            "functionSelector": "e30c3978",
+            "id": 4155,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "pendingOwner",
+            "nameLocation": "758:12:9",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4151,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "770:2:9"
+            },
+            "returnParameters": {
+              "id": 4154,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4153,
+                  "mutability": "mutable",
+                  "name": "owner_",
+                  "nameLocation": "804:6:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4155,
+                  "src": "796:14:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4152,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "796:7:9",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "795:16:9"
+            },
+            "scope": 4166,
+            "src": "749:63:9",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 4156,
+              "nodeType": "StructuredDocumentation",
+              "src": "818:158:9",
+              "text": "  @dev   Transfer the ownership of the contract to an account.\n  @param account_ The address to transfer ownership of the contract to."
+            },
+            "functionSelector": "f2fde38b",
+            "id": 4161,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "transferOwnership",
+            "nameLocation": "990:17:9",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4159,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4158,
+                  "mutability": "mutable",
+                  "name": "account_",
+                  "nameLocation": "1016:8:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4161,
+                  "src": "1008:16:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4157,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1008:7:9",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1007:18:9"
+            },
+            "returnParameters": {
+              "id": 4160,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1034:0:9"
+            },
+            "scope": 4166,
+            "src": "981:54:9",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 4162,
+              "nodeType": "StructuredDocumentation",
+              "src": "1041:62:9",
+              "text": "  @dev Accept the ownership of the contract."
+            },
+            "functionSelector": "79ba5097",
+            "id": 4165,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "acceptOwnership",
+            "nameLocation": "1117:15:9",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4163,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1132:2:9"
+            },
+            "returnParameters": {
+              "id": 4164,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1143:0:9"
+            },
+            "scope": 4166,
+            "src": "1108:36:9",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 4167,
+        "src": "100:1047:9",
+        "usedErrors": []
+      }
+    ],
+    "src": "46:1102:9"
+  }
+}

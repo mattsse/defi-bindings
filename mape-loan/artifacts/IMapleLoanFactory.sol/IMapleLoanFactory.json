@@ -1,0 +1,646 @@
+{
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "version_",
+          "type": "uint256"
+        }
+      ],
+      "name": "DefaultVersionSet",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "version_",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "implementationAddress_",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "initializer_",
+          "type": "address"
+        }
+      ],
+      "name": "ImplementationRegistered",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "version_",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "instance_",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes",
+          "name": "initializationArguments_",
+          "type": "bytes"
+        }
+      ],
+      "name": "InstanceDeployed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "instance_",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "fromVersion_",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "toVersion_",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes",
+          "name": "migrationArguments_",
+          "type": "bytes"
+        }
+      ],
+      "name": "InstanceUpgraded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "mapleGlobals_",
+          "type": "address"
+        }
+      ],
+      "name": "MapleGlobalsSet",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "fromVersion_",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "toVersion_",
+          "type": "uint256"
+        }
+      ],
+      "name": "UpgradePathDisabled",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "fromVersion_",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "toVersion_",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "migrator_",
+          "type": "address"
+        }
+      ],
+      "name": "UpgradePathEnabled",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes",
+          "name": "arguments_",
+          "type": "bytes"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "salt_",
+          "type": "bytes32"
+        }
+      ],
+      "name": "createInstance",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "instance_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "defaultImplementation",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "defaultImplementation_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "defaultVersion",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "defaultVersion_",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "fromVersion_",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "toVersion_",
+          "type": "uint256"
+        }
+      ],
+      "name": "disableUpgradePath",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "fromVersion_",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "toVersion_",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "migrator_",
+          "type": "address"
+        }
+      ],
+      "name": "enableUpgradePath",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes",
+          "name": "arguments_",
+          "type": "bytes"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "salt_",
+          "type": "bytes32"
+        }
+      ],
+      "name": "getInstanceAddress",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "instanceAddress_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "version_",
+          "type": "uint256"
+        }
+      ],
+      "name": "implementationOf",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "implementation_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "proxy_",
+          "type": "address"
+        }
+      ],
+      "name": "isLoan",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "isLoan_",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "mapleGlobals",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "mapleGlobals_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "oldVersion_",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "newVersion_",
+          "type": "uint256"
+        }
+      ],
+      "name": "migratorForPath",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "migrator_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "version_",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "implementationAddress_",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "initializer_",
+          "type": "address"
+        }
+      ],
+      "name": "registerImplementation",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "version_",
+          "type": "uint256"
+        }
+      ],
+      "name": "setDefaultVersion",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "mapleGlobals_",
+          "type": "address"
+        }
+      ],
+      "name": "setGlobals",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "toVersion_",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "fromVersion_",
+          "type": "uint256"
+        }
+      ],
+      "name": "upgradeEnabledForPath",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "allowed_",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "toVersion_",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "arguments_",
+          "type": "bytes"
+        }
+      ],
+      "name": "upgradeInstance",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "implementation_",
+          "type": "address"
+        }
+      ],
+      "name": "versionOf",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "version_",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "ast": {
+    "absolutePath": "/private/var/folders/l5/lprhf87s6xv8djgd017f0b2h0000gn/T/loanrlNgGg/contracts/interfaces/IMapleLoanFactory.sol",
+    "exportedSymbols": {
+      "IMapleLoanFactory": [
+        4076
+      ],
+      "IMapleProxyFactory": [
+        43721
+      ]
+    },
+    "id": 4077,
+    "license": "AGPL-3.0-or-later",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 4062,
+        "literals": [
+          "solidity",
+          "0.8",
+          ".7"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "46:22:7"
+      },
+      {
+        "absolutePath": "/private/var/folders/l5/lprhf87s6xv8djgd017f0b2h0000gn/T/loanrlNgGg/modules/maple-proxy-factory/contracts/interfaces/IMapleProxyFactory.sol",
+        "file": "../../modules/maple-proxy-factory/contracts/interfaces/IMapleProxyFactory.sol",
+        "id": 4064,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 4077,
+        "sourceUnit": 43722,
+        "src": "70:115:7",
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 4063,
+              "name": "IMapleProxyFactory",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "src": "79:18:7",
+              "typeDescriptions": {}
+            },
+            "nameLocation": "-1:-1:-1"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 4066,
+              "name": "IMapleProxyFactory",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 43721,
+              "src": "270:18:7"
+            },
+            "id": 4067,
+            "nodeType": "InheritanceSpecifier",
+            "src": "270:18:7"
+          }
+        ],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 4065,
+          "nodeType": "StructuredDocumentation",
+          "src": "187:52:7",
+          "text": "@title MapleLoanFactory deploys Loan instances."
+        },
+        "fullyImplemented": false,
+        "id": 4076,
+        "linearizedBaseContracts": [
+          4076,
+          43721,
+          44888
+        ],
+        "name": "IMapleLoanFactory",
+        "nameLocation": "249:17:7",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "documentation": {
+              "id": 4068,
+              "nodeType": "StructuredDocumentation",
+              "src": "296:228:7",
+              "text": "  @dev    Whether the proxy is a MapleLoan deployed by this factory.\n  @param  proxy_  The address of the proxy contract.\n  @return isLoan_ Whether the proxy is a MapleLoan deployed by this factory."
+            },
+            "functionSelector": "2819cbc2",
+            "id": 4075,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "isLoan",
+            "nameLocation": "538:6:7",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4071,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4070,
+                  "mutability": "mutable",
+                  "name": "proxy_",
+                  "nameLocation": "553:6:7",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4075,
+                  "src": "545:14:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4069,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "545:7:7",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "544:16:7"
+            },
+            "returnParameters": {
+              "id": 4074,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4073,
+                  "mutability": "mutable",
+                  "name": "isLoan_",
+                  "nameLocation": "589:7:7",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4075,
+                  "src": "584:12:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 4072,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "584:4:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "583:14:7"
+            },
+            "scope": 4076,
+            "src": "529:69:7",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 4077,
+        "src": "239:362:7",
+        "usedErrors": []
+      }
+    ],
+    "src": "46:556:7"
+  }
+}
