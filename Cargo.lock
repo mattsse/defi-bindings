@@ -927,7 +927,7 @@ dependencies = [
 [[package]]
 name = "ethers-contract-abigen"
 version = "0.6.0"
-source = "git+https://github.com/gakonst/ethers-rs#9206efa46c07fa95216b521b7423c35d46500deb"
+source = "git+https://github.com/gakonst/ethers-rs#02ad93a1cfb7b62eb051c77c61dc4c0218428e4a"
 dependencies = [
  "Inflector",
  "cfg-if",
@@ -949,7 +949,7 @@ dependencies = [
 [[package]]
 name = "ethers-contract-derive"
 version = "0.6.0"
-source = "git+https://github.com/gakonst/ethers-rs#9206efa46c07fa95216b521b7423c35d46500deb"
+source = "git+https://github.com/gakonst/ethers-rs#02ad93a1cfb7b62eb051c77c61dc4c0218428e4a"
 dependencies = [
  "ethers-contract-abigen",
  "ethers-core",
