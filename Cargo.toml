@@ -10,6 +10,3 @@ members = [
     "maple-loan",
     "uniswap-v3-periphery",
 ]
-
-[patch."https://github.com/gakonst/foundry"]
-foundry-binder = { git = "https://github.com/mattsse/dapptools-rs", branch = "matt/add-foundry-binder" }

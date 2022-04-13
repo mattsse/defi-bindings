@@ -1192,7 +1192,7 @@ dependencies = [
 [[package]]
 name = "foundry-binder"
 version = "0.1.0"
-source = "git+https://github.com/mattsse/dapptools-rs?branch=matt/add-foundry-binder#88c0fa90062cea4e9aa872daf0503cbaa239f1fa"
+source = "git+https://github.com/gakonst/foundry#64231467e6e852c0e1d2af5eadda999422c8be3b"
 dependencies = [
  "curl",
  "ethers-contract",
@@ -1208,7 +1208,7 @@ dependencies = [
 [[package]]
 name = "foundry-config"
 version = "0.2.0"
-source = "git+https://github.com/mattsse/dapptools-rs?branch=matt/add-foundry-binder#88c0fa90062cea4e9aa872daf0503cbaa239f1fa"
+source = "git+https://github.com/gakonst/foundry#64231467e6e852c0e1d2af5eadda999422c8be3b"
 dependencies = [
  "Inflector",
  "dirs-next",
