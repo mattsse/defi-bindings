@@ -19,7 +19,6 @@ which has following deps in its `Cargo.toml`
 ```toml
 [dependencies]
 ethers = { git = "https://github.com/gakonst/ethers-rs", features = ["abigen"] }
-serde_json = "1.0"
 
 [build-dependencies]
 foundry-binder = { git = "https://github.com/gakonst/foundry" }
