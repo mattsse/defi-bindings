@@ -1,6 +1,6 @@
-pub use percentagemath_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod percentagemath_mod {
+pub use percentage_math::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod percentage_math {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -17,14 +17,20 @@ mod percentagemath_mod {
     #[doc = "PercentageMath was auto-generated with ethers-rs Abigen. More information at: https://github.com/gakonst/ethers-rs"]
     use std::sync::Arc;
     pub static PERCENTAGEMATH_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
-        ethers::contract::Lazy::new(|| serde_json::from_str("[]").expect("invalid abi"));
+        ethers::contract::Lazy::new(|| {
+            ethers::core::utils::__serde_json::from_str("[]").expect("invalid abi")
+        });
     #[doc = r" Bytecode of the #name contract"]
     pub static PERCENTAGEMATH_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
         ethers::contract::Lazy::new(|| {
-            "0x60566037600b82828239805160001a607314602a57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea26469706673582212207fb12aa9dcbd67b8c2d55ebd2535acdfd231e7bb06577050d5bf224edc62586264736f6c634300080a0033" . parse () . expect ("invalid bytecode")
+            "0x60566037600b82828239805160001a607314602a57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220ed74f792b2c0f3843ad9b1ea642db5f70d0df7a79d59351ff0a9a208d2e50e5364736f6c634300080a0033" . parse () . expect ("invalid bytecode")
         });
-    #[derive(Clone)]
     pub struct PercentageMath<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for PercentageMath<M> {
+        fn clone(&self) -> Self {
+            PercentageMath(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for PercentageMath<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -38,7 +44,7 @@ mod percentagemath_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> PercentageMath<M> {
+    impl<M: ethers::providers::Middleware> PercentageMath<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -75,7 +81,7 @@ mod percentagemath_mod {
         pub fn deploy<T: ethers::core::abi::Tokenize>(
             client: ::std::sync::Arc<M>,
             constructor_args: T,
-        ) -> Result<
+        ) -> ::std::result::Result<
             ethers::contract::builders::ContractDeployer<M, Self>,
             ethers::contract::ContractError<M>,
         > {

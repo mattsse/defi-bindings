@@ -1,6 +1,6 @@
-pub use comptrollerg1_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod comptrollerg1_mod {
+pub use comptroller_g1::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod comptroller_g1 {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,15 +18,19 @@ mod comptrollerg1_mod {
     use std::sync::Arc;
     pub static COMPTROLLERG1_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"error\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"info\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"detail\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"Failure\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"contract CToken\",\"name\":\"cToken\",\"type\":\"address\",\"components\":[],\"indexed\":false},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"MarketEntered\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"contract CToken\",\"name\":\"cToken\",\"type\":\"address\",\"components\":[],\"indexed\":false},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"MarketExited\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"contract CToken\",\"name\":\"cToken\",\"type\":\"address\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"MarketListed\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"oldCloseFactorMantissa\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"newCloseFactorMantissa\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"NewCloseFactor\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"contract CToken\",\"name\":\"cToken\",\"type\":\"address\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"oldCollateralFactorMantissa\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"newCollateralFactorMantissa\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"NewCollateralFactor\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"oldLiquidationIncentiveMantissa\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"newLiquidationIncentiveMantissa\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"NewLiquidationIncentive\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"oldMaxAssets\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"newMaxAssets\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"NewMaxAssets\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"contract PriceOracle\",\"name\":\"oldPriceOracle\",\"type\":\"address\",\"components\":[],\"indexed\":false},{\"internalType\":\"contract PriceOracle\",\"name\":\"newPriceOracle\",\"type\":\"address\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"NewPriceOracle\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"contract Unitroller\",\"name\":\"unitroller\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"contract PriceOracle\",\"name\":\"_oracle\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"_closeFactorMantissa\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"_maxAssets\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"reinitializing\",\"type\":\"bool\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"_become\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"newCloseFactorMantissa\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"_setCloseFactor\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"contract CToken\",\"name\":\"cToken\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"newCollateralFactorMantissa\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"_setCollateralFactor\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"newLiquidationIncentiveMantissa\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"_setLiquidationIncentive\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"newMaxAssets\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"_setMaxAssets\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"contract PriceOracle\",\"name\":\"newOracle\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"_setPriceOracle\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"contract CToken\",\"name\":\"cToken\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"_supportMarket\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"accountAssets\",\"outputs\":[{\"internalType\":\"contract CToken\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"admin\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"cToken\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"borrower\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"borrowAmount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"borrowAllowed\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"cToken\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"borrower\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"borrowAmount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"borrowVerify\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"contract CToken\",\"name\":\"cToken\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"checkMembership\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"closeFactorMantissa\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"comptrollerImplementation\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"cTokens\",\"type\":\"address[]\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"enterMarkets\",\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"\",\"type\":\"uint256[]\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"cTokenAddress\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"exitMarket\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getAccountLiquidity\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getAssetsIn\",\"outputs\":[{\"internalType\":\"contract CToken[]\",\"name\":\"\",\"type\":\"address[]\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"isComptroller\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"cTokenBorrowed\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"cTokenCollateral\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"liquidator\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"borrower\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"repayAmount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"liquidateBorrowAllowed\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"cTokenBorrowed\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"cTokenCollateral\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"liquidator\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"borrower\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"repayAmount\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"seizeTokens\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"liquidateBorrowVerify\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"cTokenBorrowed\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"cTokenCollateral\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"repayAmount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"liquidateCalculateSeizeTokens\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"liquidationIncentiveMantissa\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"markets\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"isListed\",\"type\":\"bool\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"collateralFactorMantissa\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"maxAssets\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"cToken\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"minter\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"mintAmount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"mintAllowed\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"cToken\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"minter\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"mintAmount\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"mintTokens\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"mintVerify\",\"outputs\":[]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"oracle\",\"outputs\":[{\"internalType\":\"contract PriceOracle\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"pendingAdmin\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"pendingComptrollerImplementation\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"cToken\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"redeemer\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"redeemTokens\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"redeemAllowed\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"cToken\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"redeemer\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"redeemAmount\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"redeemTokens\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"redeemVerify\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"cToken\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"payer\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"borrower\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"repayAmount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"repayBorrowAllowed\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"cToken\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"payer\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"borrower\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"repayAmount\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"borrowerIndex\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"repayBorrowVerify\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"cTokenCollateral\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"cTokenBorrowed\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"liquidator\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"borrower\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"seizeTokens\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"seizeAllowed\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"cTokenCollateral\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"cTokenBorrowed\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"liquidator\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"borrower\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"seizeTokens\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"seizeVerify\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"cToken\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"src\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"dst\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"transferTokens\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"transferAllowed\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"cToken\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"src\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"dst\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"transferTokens\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"transferVerify\",\"outputs\":[]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"error\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"info\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"detail\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"Failure\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"contract CToken\",\"name\":\"cToken\",\"type\":\"address\",\"components\":[],\"indexed\":false},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"MarketEntered\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"contract CToken\",\"name\":\"cToken\",\"type\":\"address\",\"components\":[],\"indexed\":false},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"MarketExited\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"contract CToken\",\"name\":\"cToken\",\"type\":\"address\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"MarketListed\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"oldCloseFactorMantissa\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"newCloseFactorMantissa\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"NewCloseFactor\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"contract CToken\",\"name\":\"cToken\",\"type\":\"address\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"oldCollateralFactorMantissa\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"newCollateralFactorMantissa\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"NewCollateralFactor\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"oldLiquidationIncentiveMantissa\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"newLiquidationIncentiveMantissa\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"NewLiquidationIncentive\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"oldMaxAssets\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"newMaxAssets\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"NewMaxAssets\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"contract PriceOracle\",\"name\":\"oldPriceOracle\",\"type\":\"address\",\"components\":[],\"indexed\":false},{\"internalType\":\"contract PriceOracle\",\"name\":\"newPriceOracle\",\"type\":\"address\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"NewPriceOracle\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"contract Unitroller\",\"name\":\"unitroller\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"contract PriceOracle\",\"name\":\"_oracle\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"_closeFactorMantissa\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"_maxAssets\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"reinitializing\",\"type\":\"bool\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"_become\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"newCloseFactorMantissa\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"_setCloseFactor\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"contract CToken\",\"name\":\"cToken\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"newCollateralFactorMantissa\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"_setCollateralFactor\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"newLiquidationIncentiveMantissa\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"_setLiquidationIncentive\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"newMaxAssets\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"_setMaxAssets\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"contract PriceOracle\",\"name\":\"newOracle\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"_setPriceOracle\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"contract CToken\",\"name\":\"cToken\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"_supportMarket\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"accountAssets\",\"outputs\":[{\"internalType\":\"contract CToken\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"admin\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"cToken\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"borrower\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"borrowAmount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"borrowAllowed\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"cToken\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"borrower\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"borrowAmount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"borrowVerify\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"contract CToken\",\"name\":\"cToken\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"checkMembership\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"closeFactorMantissa\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"comptrollerImplementation\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"cTokens\",\"type\":\"address[]\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"enterMarkets\",\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"\",\"type\":\"uint256[]\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"cTokenAddress\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"exitMarket\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getAccountLiquidity\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getAssetsIn\",\"outputs\":[{\"internalType\":\"contract CToken[]\",\"name\":\"\",\"type\":\"address[]\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"isComptroller\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"cTokenBorrowed\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"cTokenCollateral\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"liquidator\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"borrower\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"repayAmount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"liquidateBorrowAllowed\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"cTokenBorrowed\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"cTokenCollateral\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"liquidator\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"borrower\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"repayAmount\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"seizeTokens\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"liquidateBorrowVerify\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"cTokenBorrowed\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"cTokenCollateral\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"repayAmount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"liquidateCalculateSeizeTokens\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"liquidationIncentiveMantissa\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"markets\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"isListed\",\"type\":\"bool\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"collateralFactorMantissa\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"maxAssets\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"cToken\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"minter\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"mintAmount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"mintAllowed\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"cToken\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"minter\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"mintAmount\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"mintTokens\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"mintVerify\",\"outputs\":[]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"oracle\",\"outputs\":[{\"internalType\":\"contract PriceOracle\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"pendingAdmin\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"pendingComptrollerImplementation\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"cToken\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"redeemer\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"redeemTokens\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"redeemAllowed\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"cToken\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"redeemer\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"redeemAmount\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"redeemTokens\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"redeemVerify\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"cToken\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"payer\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"borrower\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"repayAmount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"repayBorrowAllowed\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"cToken\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"payer\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"borrower\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"repayAmount\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"borrowerIndex\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"repayBorrowVerify\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"cTokenCollateral\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"cTokenBorrowed\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"liquidator\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"borrower\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"seizeTokens\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"seizeAllowed\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"cTokenCollateral\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"cTokenBorrowed\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"liquidator\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"borrower\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"seizeTokens\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"seizeVerify\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"cToken\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"src\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"dst\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"transferTokens\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"transferAllowed\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"cToken\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"src\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"dst\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"transferTokens\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"transferVerify\",\"outputs\":[]}]") . expect ("invalid abi")
         });
     #[doc = r" Bytecode of the #name contract"]
     pub static COMPTROLLERG1_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
         ethers::contract::Lazy::new(|| {
-            "0x608060405234801561001057600080fd5b50600080546001600160a01b03191633179055612cca806100326000396000f3fe608060405234801561001057600080fd5b50600436106102315760003560e01c80638e8f294b11610130578063d02f7351116100b8578063e4028eee1161007c578063e4028eee1461090e578063e87554461461093a578063eabe7d9114610942578063ede4edd014610978578063f851a4401461099e57610231565b8063d02f735114610841578063d9226ced14610887578063da3d454c146108a4578063dce15449146108da578063dcfbc0c71461090657610231565b8063abfceffc116100ff578063abfceffc14610695578063bb82aa5e1461070b578063bdcdc25814610713578063c29982381461074f578063c488847b146107f257610231565b80638e8f294b146105f8578063929fe9a11461063957806394b2294b14610667578063a76b3fda1461066f57610231565b80634ef4c3e1116101be5780635ec88c79116101825780635ec88c79146104e45780635fc7e71e146105285780636a56947e1461056e5780636d35bf91146105aa5780637dc0d1d0146105f057610231565b80634ef4c3e1146103f95780634fd42e171461042f57806351dff9891461044c57806355ee1fe1146104885780635c778605146104ae57610231565b8063317b0b7711610205578063317b0b771461030857806332000e001461032557806341c728b91461036957806347ef3b3b146103a55780634ada90af146103f157610231565b80627e3dd2146102365780631ededc911461025257806324008a621461029657806326782247146102e4575b600080fd5b61023e6109a6565b604080519115158252519081900360200190f35b610294600480360360a081101561026857600080fd5b506001600160a01b038135811691602081013582169160408201351690606081013590608001356109ab565b005b6102d2600480360360808110156102ac57600080fd5b506001600160a01b038135811691602081013582169160408201351690606001356109b2565b60408051918252519081900360200190f35b6102ec6109e8565b604080516001600160a01b039092168252519081900360200190f35b6102d26004803603602081101561031e57600080fd5b50356109f7565b610294600480360360a081101561033b57600080fd5b506001600160a01b038135811691602081013590911690604081013590606081013590608001351515610b05565b6102946004803603608081101561037f57600080fd5b506001600160a01b03813581169160208101359091169060408101359060600135610f9d565b610294600480360360c08110156103bb57600080fd5b506001600160a01b0381358116916020810135821691604082013581169160608101359091169060808101359060a00135610fa3565b6102d2610fa8565b6102d26004803603606081101561040f57600080fd5b506001600160a01b03813581169160208101359091169060400135610fae565b6102d26004803603602081101561044557600080fd5b5035610fe5565b6102946004803603608081101561046257600080fd5b506001600160a01b038135811691602081013590911690604081013590606001356110d4565b6102d26004803603602081101561049e57600080fd5b50356001600160a01b0316611128565b610294600480360360608110156104c457600080fd5b506001600160a01b038135811691602081013590911690604001356111aa565b61050a600480360360208110156104fa57600080fd5b50356001600160a01b03166111af565b60408051938452602084019290925282820152519081900360600190f35b6102d2600480360360a081101561053e57600080fd5b506001600160a01b03813581169160208101358216916040820135811691606081013590911690608001356111e4565b6102946004803603608081101561058457600080fd5b506001600160a01b03813581169160208101358216916040820135169060600135610f9d565b610294600480360360a08110156105c057600080fd5b506001600160a01b03813581169160208101358216916040820135811691606081013590911690608001356109ab565b6102ec61136b565b61061e6004803603602081101561060e57600080fd5b50356001600160a01b031661137a565b60408051921515835260208301919091528051918290030190f35b61023e6004803603604081101561064f57600080fd5b506001600160a01b0381358116916020013516611399565b6102d26113cd565b6102d26004803603602081101561068557600080fd5b50356001600160a01b03166113d3565b6106bb600480360360208110156106ab57600080fd5b50356001600160a01b0316611502565b60408051602080825283518183015283519192839290830191858101910280838360005b838110156106f75781810151838201526020016106df565b505050509050019250505060405180910390f35b6102ec61158b565b6102d26004803603608081101561072957600080fd5b506001600160a01b0381358116916020810135821691604082013516906060013561159a565b6106bb6004803603602081101561076557600080fd5b81019060208101813564010000000081111561078057600080fd5b82018360208201111561079257600080fd5b803590602001918460208302840111640100000000831117156107b457600080fd5b9190808060200260200160405190810160405280939291908181526020018383602002808284376000920191909152509295506115a7945050505050565b6108286004803603606081101561080857600080fd5b506001600160a01b0381358116916020810135909116906040013561174b565b6040805192835260208301919091528051918290030190f35b6102d2600480360360a081101561085757600080fd5b506001600160a01b03813581169160208101358216916040820135811691606081013590911690608001356119c0565b6102d26004803603602081101561089d57600080fd5b5035611b03565b6102d2600480360360608110156108ba57600080fd5b506001600160a01b03813581169160208101359091169060400135611b67565b6102ec600480360360408110156108f057600080fd5b506001600160a01b038135169060200135611c9b565b6102ec611cd0565b6102d26004803603604081101561092457600080fd5b506001600160a01b038135169060200135611cdf565b6102d2611e8f565b6102d26004803603606081101561095857600080fd5b506001600160a01b03813581169160208101359091169060400135611e95565b6102d26004803603602081101561098e57600080fd5b50356001600160a01b0316611ea2565b6102ec6121b5565b600181565b5050505050565b6001600160a01b03841660009081526009602052604081205460ff166109da575060096109e0565b60005b90505b949350505050565b6001546001600160a01b031681565b6000610a016121c4565b610a1857610a116001600461220f565b9050610b00565b610a20612b8a565b506040805160208101909152828152610a37612b8a565b50604080516020810190915266b1a2bc2ec500008152610a578282612275565b15610a7057610a6760058061220f565b92505050610b00565b610a78612b8a565b506040805160208101909152670c7d713b49da00008152610a99818461227d565b15610ab357610aa960058061220f565b9350505050610b00565b6005805490869055604080518281526020810188905281517f3b9670cf975d26958e754b57098eaa2ac914d8d2a31b83257997b9f346110fd9929181900390910190a160005b9450505050505b919050565b846001600160a01b031663f851a4406040518163ffffffff1660e01b815260040160206040518083038186803b158015610b3e57600080fd5b505afa158015610b52573d6000803e3d6000fd5b505050506040513d6020811015610b6857600080fd5b50516001600160a01b03163314610bb05760405162461bcd60e51b8152600401808060200182810382526027815260200180612c6f6027913960400191505060405180910390fd5b6000856001600160a01b031663c1e803346040518163ffffffff1660e01b8152600401602060405180830381600087803b158015610bed57600080fd5b505af1158015610c01573d6000803e3d6000fd5b505050506040513d6020811015610c1757600080fd5b505190508015610c66576040805162461bcd60e51b815260206004820152601560248201527418da185b99d9481b9bdd08185d5d1a1bdc9a5e9959605a1b604482015290519081900360640190fd5b81610f955760008690506000816001600160a01b03166355ee1fe1886040518263ffffffff1660e01b815260040180826001600160a01b03166001600160a01b03168152602001915050602060405180830381600087803b158015610cca57600080fd5b505af1158015610cde573d6000803e3d6000fd5b505050506040513d6020811015610cf457600080fd5b505190508015610d44576040805162461bcd60e51b815260206004820152601660248201527539b2ba10383934b1b29037b930b1b6329032b93937b960511b604482015290519081900360640190fd5b816001600160a01b031663317b0b77876040518263ffffffff1660e01b815260040180828152602001915050602060405180830381600087803b158015610d8a57600080fd5b505af1158015610d9e573d6000803e3d6000fd5b505050506040513d6020811015610db457600080fd5b505190508015610e04576040805162461bcd60e51b815260206004820152601660248201527539b2ba1031b637b9b2903330b1ba37b91032b93937b960511b604482015290519081900360640190fd5b816001600160a01b031663d9226ced866040518263ffffffff1660e01b815260040180828152602001915050602060405180830381600087803b158015610e4a57600080fd5b505af1158015610e5e573d6000803e3d6000fd5b505050506040513d6020811015610e7457600080fd5b505190508015610ec3576040805162461bcd60e51b815260206004820152601560248201527439b2ba1036b0bc1030b9b9b9b2ba399032b93937b960591b604482015290519081900360640190fd5b816001600160a01b0316634fd42e17670de0b6b3a76400006040518263ffffffff1660e01b815260040180828152602001915050602060405180830381600087803b158015610f1157600080fd5b505af1158015610f25573d6000803e3d6000fd5b505050506040513d6020811015610f3b57600080fd5b505190508015610f92576040805162461bcd60e51b815260206004820152601f60248201527f736574206c69717569646174696f6e20696e63656e74697665206572726f7200604482015290519081900360640190fd5b50505b505050505050565b50505050565b610f95565b60065481565b6001600160a01b03831660009081526009602052604081205460ff16610fd85760095b9050610fde565b60005b90505b9392505050565b6000610fef6121c4565b610fff57610a116001600b61220f565b611007612b8a565b50604080516020810190915282815261101e612b8a565b506040805160208101909152670de0b6b3a7640000815261103f828261227d565b1561105057610a676007600c61220f565b611058612b8a565b5060408051602081019091526714d1120d7b1600008152611079818461227d565b1561108a57610aa96007600c61220f565b6006805490869055604080518281526020810188905281517faeba5a6c40a8ac138134bff1aaa65debf25971188a58804bad717f82f0ec1316929181900390910190a16000610af9565b801580156110e25750600082115b15610f9d576040805162461bcd60e51b815260206004820152601160248201527072656465656d546f6b656e73207a65726f60781b604482015290519081900360640190fd5b60006111326121c4565b61114257610a116001601061220f565b600480546001600160a01b038481166001600160a01b0319831681179093556040805191909216808252602082019390935281517fd52b2b9b7e9ee655fcb95d2e5b9e0c9f69e7ef2b8e9d2d0ea78402d576d22e22929181900390910190a160009392505050565b505050565b6000806000806000806111c6876000806000612284565b9250925092508260118111156111d857fe5b97919650945092505050565b6001600160a01b03851660009081526009602052604081205460ff16158061122557506001600160a01b03851660009081526009602052604090205460ff16155b156112345760095b9050611362565b600080611240856126a9565b9193509091506000905082601181111561125657fe5b146112705781601181111561126757fe5b92505050611362565b8061127c576003611267565b6000886001600160a01b03166395dd9193876040518263ffffffff1660e01b815260040180826001600160a01b03166001600160a01b0316815260200191505060206040518083038186803b1580156112d457600080fd5b505afa1580156112e8573d6000803e3d6000fd5b505050506040513d60208110156112fe57600080fd5b505160408051602081019091526005548152909150600090819061132290846126c9565b9092509050600082600381111561133557fe5b1461134957600b5b95505050505050611362565b8087111561135857601161133d565b6000955050505050505b95945050505050565b6004546001600160a01b031681565b6009602052600090815260409020805460019091015460ff9091169082565b6001600160a01b038082166000908152600960209081526040808320938616835260029093019052205460ff165b92915050565b60075481565b600080546001600160a01b031633146113f257610a116001601261220f565b6001600160a01b03821660009081526009602052604090205460ff161561141f57610a11600a601161220f565b816001600160a01b031663fe9c44ae6040518163ffffffff1660e01b815260040160206040518083038186803b15801561145857600080fd5b505afa15801561146c573d6000803e3d6000fd5b505050506040513d602081101561148257600080fd5b50506040805180820182526001808252600060208084018281526001600160a01b03881680845260098352928690209451855460ff1916901515178555519390920192909255825191825291517fcf583bb0c569eb967f806b11601c4cb93c10310485c67add5f8362c2f212321f929181900390910190a1600092915050565b60608060086000846001600160a01b03166001600160a01b0316815260200190815260200160002080548060200260200160405190810160405280929190818152602001828054801561157e57602002820191906000526020600020905b81546001600160a01b03168152600190910190602001808311611560575b5093979650505050505050565b6002546001600160a01b031681565b60006109dd85858461271d565b60606000825190506060816040519080825280602002602001820160405280156115db578160200160208202803883390190505b50905060005b828110156117435760008582815181106115f757fe5b6020908102919091018101516001600160a01b03811660009081526009909252604090912080549192509060ff1661164b5760095b84848151811061163857fe5b602002602001018181525050505061173b565b33600090815260028201602052604090205460ff1615156001141561167157600061162c565b600754336000908152600860205260409020541061169057601061162c565b3360008181526002830160209081526040808320805460ff19166001908117909155600883528184208054918201815584529282902090920180546001600160a01b0387166001600160a01b0319909116811790915582519081529081019290925280517f3ab23ab0d51cccc0c3085aec51f99228625aa1a922b3a8ca89a26b0f2027a1a59281900390910190a1600084848151811061172c57fe5b60200260200101818152505050505b6001016115e1565b509392505050565b600480546040805163fc57d4df60e01b81526001600160a01b038781169482019490945290516000938493849391169163fc57d4df91602480820192602092909190829003018186803b1580156117a157600080fd5b505afa1580156117b5573d6000803e3d6000fd5b505050506040513d60208110156117cb57600080fd5b5051600480546040805163fc57d4df60e01b81526001600160a01b038a8116948201949094529051939450600093929091169163fc57d4df91602480820192602092909190829003018186803b15801561182457600080fd5b505afa158015611838573d6000803e3d6000fd5b505050506040513d602081101561184e57600080fd5b5051905081158061185d575080155b1561187257600d9350600092506119b8915050565b6000866001600160a01b031663182df0f56040518163ffffffff1660e01b815260040160206040518083038186803b1580156118ad57600080fd5b505afa1580156118c1573d6000803e3d6000fd5b505050506040513d60208110156118d757600080fd5b5051905060006118e5612b8a565b6118ed612b8a565b6118f5612b8a565b60006119036006548961278c565b94509050600081600381111561191557fe5b1461193157600b5b9950600098506119b8975050505050505050565b61193b878761278c565b93509050600081600381111561194d57fe5b1461195957600b61191d565b61196384846127c7565b92509050600081600381111561197557fe5b1461198157600b61191d565b61198b828c6126c9565b95509050600081600381111561199d57fe5b146119a957600b61191d565b60009950939750505050505050505b935093915050565b6001600160a01b03851660009081526009602052604081205460ff161580611a0157506001600160a01b03851660009081526009602052604090205460ff16155b15611a0d57600961122d565b846001600160a01b0316635fe3b5676040518163ffffffff1660e01b815260040160206040518083038186803b158015611a4657600080fd5b505afa158015611a5a573d6000803e3d6000fd5b505050506040513d6020811015611a7057600080fd5b505160408051635fe3b56760e01b815290516001600160a01b0392831692891691635fe3b567916004808301926020929190829003018186803b158015611ab657600080fd5b505afa158015611aca573d6000803e3d6000fd5b505050506040513d6020811015611ae057600080fd5b50516001600160a01b031614611af757600261122d565b60009695505050505050565b6000611b0d6121c4565b611b1d57610a116001600d61220f565b6007805490839055604080518281526020810185905281517f7093cf1eb653f749c3ff531d6df7f92764536a7fa0d13530cd26e070780c32ea929181900390910190a16000610fde565b6001600160a01b03831660009081526009602052604081205460ff16611b8e576009610fd1565b6001600160a01b038085166000908152600960209081526040808320938716835260029093019052205460ff16611bc6576008610fd1565b600480546040805163fc57d4df60e01b81526001600160a01b03888116948201949094529051929091169163fc57d4df91602480820192602092909190829003018186803b158015611c1757600080fd5b505afa158015611c2b573d6000803e3d6000fd5b505050506040513d6020811015611c4157600080fd5b5051611c4e57600d610fd1565b600080611c5e8587600087612284565b91935090915060009050826011811115611c7457fe5b14611c8e57816011811115611c8557fe5b92505050610fde565b8015611af7576004611c85565b60086020528160005260406000208181548110611cb457fe5b6000918252602090912001546001600160a01b03169150829050565b6003546001600160a01b031681565b600080546001600160a01b03163314611d0557611cfe6001600661220f565b90506113c7565b6001600160a01b0383166000908152600960205260409020805460ff16611d3a57611d326009600761220f565b9150506113c7565b611d42612b8a565b506040805160208101909152838152611d59612b8a565b506040805160208101909152670c7d713b49da00008152611d7a818361227d565b15611d9557611d8b6006600861220f565b93505050506113c7565b8415801590611e1e5750600480546040805163fc57d4df60e01b81526001600160a01b038a8116948201949094529051929091169163fc57d4df91602480820192602092909190829003018186803b158015611df057600080fd5b505afa158015611e04573d6000803e3d6000fd5b505050506040513d6020811015611e1a57600080fd5b5051155b15611e2f57611d8b600d600961220f565b60018301805490869055604080516001600160a01b03891681526020810183905280820188905290517f70483e6592cd5182d45ac970e05bc62cdcc90e9d8ef2c2dbe686cf383bcd7fc59181900360600190a16000979650505050505050565b60055481565b6000610fdb84848461271d565b6000808290506000806000836001600160a01b031663c37f68e2336040518263ffffffff1660e01b815260040180826001600160a01b03166001600160a01b0316815260200191505060806040518083038186803b158015611f0357600080fd5b505afa158015611f17573d6000803e3d6000fd5b505050506040513d6080811015611f2d57600080fd5b508051602082015160409092015190945090925090508215611f805760405162461bcd60e51b8152600401808060200182810382526025815260200180612c4a6025913960400191505060405180910390fd5b8015611f9d57611f92600c600261220f565b945050505050610b00565b6000611faa87338561271d565b90508015611fcb57611fbf600e6003836127df565b95505050505050610b00565b6001600160a01b0385166000908152600960209081526040808320338452600281019092529091205460ff1661200a5760009650505050505050610b00565b3360009081526002820160209081526040808320805460ff19169055600882529182902080548351818402810184019094528084526060939283018282801561207c57602002820191906000526020600020905b81546001600160a01b0316815260019091019060200180831161205e575b5050835193945083925060009150505b828110156120d157896001600160a01b03168482815181106120aa57fe5b60200260200101516001600160a01b031614156120c9578091506120d1565b60010161208c565b508181106120db57fe5b3360009081526008602052604090208054819060001981019081106120fc57fe5b9060005260206000200160009054906101000a90046001600160a01b031681838154811061212657fe5b600091825260209091200180546001600160a01b0319166001600160a01b0392909216919091179055805461215f826000198301612b9d565b50604080516001600160a01b038c16815233602082015281517fe699a64c18b07ac5b7301aa273f36a2287239eb9501d81950672794afba29a0d929181900390910190a160009c9b505050505050505050505050565b6000546001600160a01b031681565b60025460009081906001600160a01b0316331480156121ed57506000546001600160a01b031632145b6000549091506001600160a01b0316331480806122075750815b925050505b90565b60007f45b96fe442630264581b197e84bbada861235052c5a1aadfff9ea4e40a969aa083601181111561223e57fe5b83601381111561224a57fe5b604080519283526020830191909152600082820152519081900360600190a1826011811115610fde57fe5b519051111590565b5190511090565b6000806000612291612bc1565b6001600160a01b0388166000908152600860209081526040808320805482518185028101850190935280835284936060939291908301828280156122fe57602002820191906000526020600020905b81546001600160a01b031681526001909101906020018083116122e0575b50939450600093505050505b815181101561265a57600082828151811061232157fe5b60200260200101519050806001600160a01b031663c37f68e28e6040518263ffffffff1660e01b815260040180826001600160a01b03166001600160a01b0316815260200191505060806040518083038186803b15801561238157600080fd5b505afa158015612395573d6000803e3d6000fd5b505050506040513d60808110156123ab57600080fd5b508051602082015160408084015160609485015160808c0152938a019390935291880191909152945084156123f15750600f97506000965086955061269f945050505050565b60408051602080820183526001600160a01b0380851660008181526009845285902060010154845260c08b01939093528351808301855260808b0151815260e08b015260048054855163fc57d4df60e01b815291820194909452935192169263fc57d4df9260248083019392829003018186803b15801561247157600080fd5b505afa158015612485573d6000803e3d6000fd5b505050506040513d602081101561249b57600080fd5b505160a087018190526124bf5750600d97506000965086955061269f945050505050565b604080516020810190915260a08701518152610100870181905260c087015160e08801516124ec92612845565b6101208801529350600084600381111561250257fe5b1461251e5750600b97506000965086955061269f945050505050565b6125368661012001518760400151886000015161289d565b87529350600084600381111561254857fe5b146125645750600b97506000965086955061269f945050505050565b61257c8661010001518760600151886020015161289d565b60208801529350600084600381111561259157fe5b146125ad5750600b97506000965086955061269f945050505050565b8b6001600160a01b0316816001600160a01b03161415612651576125db8661012001518c886020015161289d565b6020880152935060008460038111156125f057fe5b1461260c5750600b97506000965086955061269f945050505050565b6126208661010001518b886020015161289d565b60208801529350600084600381111561263557fe5b146126515750600b97506000965086955061269f945050505050565b5060010161230a565b5060208401518451111561268157505050602081015190516000945003915082905061269f565b505081516020909201516000955085945091909103915061269f9050565b9450945094915050565b60008060006126bc846000806000612284565b9250925092509193909250565b60008060006126d6612b8a565b6126e086866128ea565b909250905060008260038111156126f357fe5b146127045750915060009050612716565b600061270f82612952565b9350935050505b9250929050565b6001600160a01b03831660009081526009602052604081205460ff16612744576009610fd1565b6001600160a01b038085166000908152600960209081526040808320938716835260029093019052205460ff1661277c576000610fd1565b600080611c5e8587866000612284565b6000612796612b8a565b6127bc604051806020016040528086815250604051806020016040528086815250612961565b915091509250929050565b60006127d1612b8a565b835183516127bc9190612a4a565b60007f45b96fe442630264581b197e84bbada861235052c5a1aadfff9ea4e40a969aa084601181111561280e57fe5b84601381111561281a57fe5b604080519283526020830191909152818101859052519081900360600190a1836011811115610fdb57fe5b600061284f612b8a565b6000612859612b8a565b6128638787612961565b9092509050600082600381111561287657fe5b146128855790925090506119b8565b61288f8186612961565b935093505050935093915050565b60008060006128aa612b8a565b6128b487876128ea565b909250905060008260038111156128c757fe5b146128d857509150600090506119b8565b61288f6128e482612952565b86612afa565b60006128f4612b8a565b600080612905866000015186612b20565b9092509050600082600381111561291857fe5b1461293757506040805160208101909152600081529092509050612716565b60408051602081019091529081526000969095509350505050565b51670de0b6b3a7640000900490565b600061296b612b8a565b60008061298086600001518660000151612b20565b9092509050600082600381111561299357fe5b146129b257506040805160208101909152600081529092509050612716565b6000806129c76706f05b59d3b2000084612afa565b909250905060008260038111156129da57fe5b146129fc57506040805160208101909152600081529094509250612716915050565b600080612a1183670de0b6b3a7640000612b5f565b90925090506000826003811115612a2457fe5b14612a2b57fe5b604080516020810190915290815260009a909950975050505050505050565b6000612a54612b8a565b600080612a6986670de0b6b3a7640000612b20565b90925090506000826003811115612a7c57fe5b14612a9b57506040805160208101909152600081529092509050612716565b600080612aa88388612b5f565b90925090506000826003811115612abb57fe5b14612add57506040805160208101909152600081529094509250612716915050565b604080516020810190915290815260009890975095505050505050565b600080838301848110612b1257600092509050612716565b506002915060009050612716565b60008083612b3357506000905080612716565b83830283858281612b4057fe5b0414612b5457506002915060009050612716565b600092509050612716565b60008082612b735750600190506000612716565b6000838581612b7e57fe5b04915091509250929050565b6040518060200160405280600081525090565b8154818355818111156111aa576000838152602090206111aa918101908301612c2b565b604051806101400160405280600081526020016000815260200160008152602001600081526020016000815260200160008152602001612bff612b8a565b8152602001612c0c612b8a565b8152602001612c19612b8a565b8152602001612c26612b8a565b905290565b61220c91905b80821115612c455760008155600101612c31565b509056fe657869744d61726b65743a206765744163636f756e74536e617073686f74206661696c65646f6e6c7920756e6974726f6c6c65722061646d696e2063616e206368616e676520627261696e73a265627a7a72315820e24777b403c4f2b4e7daedf579a766b1d23529e74d810cc003a2e664120fca1364736f6c63430005110032" . parse () . expect ("invalid bytecode")
+            "0x608060405234801561001057600080fd5b50600080546001600160a01b03191633179055612cca806100326000396000f3fe608060405234801561001057600080fd5b50600436106102315760003560e01c80638e8f294b11610130578063d02f7351116100b8578063e4028eee1161007c578063e4028eee1461090e578063e87554461461093a578063eabe7d9114610942578063ede4edd014610978578063f851a4401461099e57610231565b8063d02f735114610841578063d9226ced14610887578063da3d454c146108a4578063dce15449146108da578063dcfbc0c71461090657610231565b8063abfceffc116100ff578063abfceffc14610695578063bb82aa5e1461070b578063bdcdc25814610713578063c29982381461074f578063c488847b146107f257610231565b80638e8f294b146105f8578063929fe9a11461063957806394b2294b14610667578063a76b3fda1461066f57610231565b80634ef4c3e1116101be5780635ec88c79116101825780635ec88c79146104e45780635fc7e71e146105285780636a56947e1461056e5780636d35bf91146105aa5780637dc0d1d0146105f057610231565b80634ef4c3e1146103f95780634fd42e171461042f57806351dff9891461044c57806355ee1fe1146104885780635c778605146104ae57610231565b8063317b0b7711610205578063317b0b771461030857806332000e001461032557806341c728b91461036957806347ef3b3b146103a55780634ada90af146103f157610231565b80627e3dd2146102365780631ededc911461025257806324008a621461029657806326782247146102e4575b600080fd5b61023e6109a6565b604080519115158252519081900360200190f35b610294600480360360a081101561026857600080fd5b506001600160a01b038135811691602081013582169160408201351690606081013590608001356109ab565b005b6102d2600480360360808110156102ac57600080fd5b506001600160a01b038135811691602081013582169160408201351690606001356109b2565b60408051918252519081900360200190f35b6102ec6109e8565b604080516001600160a01b039092168252519081900360200190f35b6102d26004803603602081101561031e57600080fd5b50356109f7565b610294600480360360a081101561033b57600080fd5b506001600160a01b038135811691602081013590911690604081013590606081013590608001351515610b05565b6102946004803603608081101561037f57600080fd5b506001600160a01b03813581169160208101359091169060408101359060600135610f9d565b610294600480360360c08110156103bb57600080fd5b506001600160a01b0381358116916020810135821691604082013581169160608101359091169060808101359060a00135610fa3565b6102d2610fa8565b6102d26004803603606081101561040f57600080fd5b506001600160a01b03813581169160208101359091169060400135610fae565b6102d26004803603602081101561044557600080fd5b5035610fe5565b6102946004803603608081101561046257600080fd5b506001600160a01b038135811691602081013590911690604081013590606001356110d4565b6102d26004803603602081101561049e57600080fd5b50356001600160a01b0316611128565b610294600480360360608110156104c457600080fd5b506001600160a01b038135811691602081013590911690604001356111aa565b61050a600480360360208110156104fa57600080fd5b50356001600160a01b03166111af565b60408051938452602084019290925282820152519081900360600190f35b6102d2600480360360a081101561053e57600080fd5b506001600160a01b03813581169160208101358216916040820135811691606081013590911690608001356111e4565b6102946004803603608081101561058457600080fd5b506001600160a01b03813581169160208101358216916040820135169060600135610f9d565b610294600480360360a08110156105c057600080fd5b506001600160a01b03813581169160208101358216916040820135811691606081013590911690608001356109ab565b6102ec61136b565b61061e6004803603602081101561060e57600080fd5b50356001600160a01b031661137a565b60408051921515835260208301919091528051918290030190f35b61023e6004803603604081101561064f57600080fd5b506001600160a01b0381358116916020013516611399565b6102d26113cd565b6102d26004803603602081101561068557600080fd5b50356001600160a01b03166113d3565b6106bb600480360360208110156106ab57600080fd5b50356001600160a01b0316611502565b60408051602080825283518183015283519192839290830191858101910280838360005b838110156106f75781810151838201526020016106df565b505050509050019250505060405180910390f35b6102ec61158b565b6102d26004803603608081101561072957600080fd5b506001600160a01b0381358116916020810135821691604082013516906060013561159a565b6106bb6004803603602081101561076557600080fd5b81019060208101813564010000000081111561078057600080fd5b82018360208201111561079257600080fd5b803590602001918460208302840111640100000000831117156107b457600080fd5b9190808060200260200160405190810160405280939291908181526020018383602002808284376000920191909152509295506115a7945050505050565b6108286004803603606081101561080857600080fd5b506001600160a01b0381358116916020810135909116906040013561174b565b6040805192835260208301919091528051918290030190f35b6102d2600480360360a081101561085757600080fd5b506001600160a01b03813581169160208101358216916040820135811691606081013590911690608001356119c0565b6102d26004803603602081101561089d57600080fd5b5035611b03565b6102d2600480360360608110156108ba57600080fd5b506001600160a01b03813581169160208101359091169060400135611b67565b6102ec600480360360408110156108f057600080fd5b506001600160a01b038135169060200135611c9b565b6102ec611cd0565b6102d26004803603604081101561092457600080fd5b506001600160a01b038135169060200135611cdf565b6102d2611e8f565b6102d26004803603606081101561095857600080fd5b506001600160a01b03813581169160208101359091169060400135611e95565b6102d26004803603602081101561098e57600080fd5b50356001600160a01b0316611ea2565b6102ec6121b5565b600181565b5050505050565b6001600160a01b03841660009081526009602052604081205460ff166109da575060096109e0565b60005b90505b949350505050565b6001546001600160a01b031681565b6000610a016121c4565b610a1857610a116001600461220f565b9050610b00565b610a20612b8a565b506040805160208101909152828152610a37612b8a565b50604080516020810190915266b1a2bc2ec500008152610a578282612275565b15610a7057610a6760058061220f565b92505050610b00565b610a78612b8a565b506040805160208101909152670c7d713b49da00008152610a99818461227d565b15610ab357610aa960058061220f565b9350505050610b00565b6005805490869055604080518281526020810188905281517f3b9670cf975d26958e754b57098eaa2ac914d8d2a31b83257997b9f346110fd9929181900390910190a160005b9450505050505b919050565b846001600160a01b031663f851a4406040518163ffffffff1660e01b815260040160206040518083038186803b158015610b3e57600080fd5b505afa158015610b52573d6000803e3d6000fd5b505050506040513d6020811015610b6857600080fd5b50516001600160a01b03163314610bb05760405162461bcd60e51b8152600401808060200182810382526027815260200180612c6f6027913960400191505060405180910390fd5b6000856001600160a01b031663c1e803346040518163ffffffff1660e01b8152600401602060405180830381600087803b158015610bed57600080fd5b505af1158015610c01573d6000803e3d6000fd5b505050506040513d6020811015610c1757600080fd5b505190508015610c66576040805162461bcd60e51b815260206004820152601560248201527418da185b99d9481b9bdd08185d5d1a1bdc9a5e9959605a1b604482015290519081900360640190fd5b81610f955760008690506000816001600160a01b03166355ee1fe1886040518263ffffffff1660e01b815260040180826001600160a01b03166001600160a01b03168152602001915050602060405180830381600087803b158015610cca57600080fd5b505af1158015610cde573d6000803e3d6000fd5b505050506040513d6020811015610cf457600080fd5b505190508015610d44576040805162461bcd60e51b815260206004820152601660248201527539b2ba10383934b1b29037b930b1b6329032b93937b960511b604482015290519081900360640190fd5b816001600160a01b031663317b0b77876040518263ffffffff1660e01b815260040180828152602001915050602060405180830381600087803b158015610d8a57600080fd5b505af1158015610d9e573d6000803e3d6000fd5b505050506040513d6020811015610db457600080fd5b505190508015610e04576040805162461bcd60e51b815260206004820152601660248201527539b2ba1031b637b9b2903330b1ba37b91032b93937b960511b604482015290519081900360640190fd5b816001600160a01b031663d9226ced866040518263ffffffff1660e01b815260040180828152602001915050602060405180830381600087803b158015610e4a57600080fd5b505af1158015610e5e573d6000803e3d6000fd5b505050506040513d6020811015610e7457600080fd5b505190508015610ec3576040805162461bcd60e51b815260206004820152601560248201527439b2ba1036b0bc1030b9b9b9b2ba399032b93937b960591b604482015290519081900360640190fd5b816001600160a01b0316634fd42e17670de0b6b3a76400006040518263ffffffff1660e01b815260040180828152602001915050602060405180830381600087803b158015610f1157600080fd5b505af1158015610f25573d6000803e3d6000fd5b505050506040513d6020811015610f3b57600080fd5b505190508015610f92576040805162461bcd60e51b815260206004820152601f60248201527f736574206c69717569646174696f6e20696e63656e74697665206572726f7200604482015290519081900360640190fd5b50505b505050505050565b50505050565b610f95565b60065481565b6001600160a01b03831660009081526009602052604081205460ff16610fd85760095b9050610fde565b60005b90505b9392505050565b6000610fef6121c4565b610fff57610a116001600b61220f565b611007612b8a565b50604080516020810190915282815261101e612b8a565b506040805160208101909152670de0b6b3a7640000815261103f828261227d565b1561105057610a676007600c61220f565b611058612b8a565b5060408051602081019091526714d1120d7b1600008152611079818461227d565b1561108a57610aa96007600c61220f565b6006805490869055604080518281526020810188905281517faeba5a6c40a8ac138134bff1aaa65debf25971188a58804bad717f82f0ec1316929181900390910190a16000610af9565b801580156110e25750600082115b15610f9d576040805162461bcd60e51b815260206004820152601160248201527072656465656d546f6b656e73207a65726f60781b604482015290519081900360640190fd5b60006111326121c4565b61114257610a116001601061220f565b600480546001600160a01b038481166001600160a01b0319831681179093556040805191909216808252602082019390935281517fd52b2b9b7e9ee655fcb95d2e5b9e0c9f69e7ef2b8e9d2d0ea78402d576d22e22929181900390910190a160009392505050565b505050565b6000806000806000806111c6876000806000612284565b9250925092508260118111156111d857fe5b97919650945092505050565b6001600160a01b03851660009081526009602052604081205460ff16158061122557506001600160a01b03851660009081526009602052604090205460ff16155b156112345760095b9050611362565b600080611240856126a9565b9193509091506000905082601181111561125657fe5b146112705781601181111561126757fe5b92505050611362565b8061127c576003611267565b6000886001600160a01b03166395dd9193876040518263ffffffff1660e01b815260040180826001600160a01b03166001600160a01b0316815260200191505060206040518083038186803b1580156112d457600080fd5b505afa1580156112e8573d6000803e3d6000fd5b505050506040513d60208110156112fe57600080fd5b505160408051602081019091526005548152909150600090819061132290846126c9565b9092509050600082600381111561133557fe5b1461134957600b5b95505050505050611362565b8087111561135857601161133d565b6000955050505050505b95945050505050565b6004546001600160a01b031681565b6009602052600090815260409020805460019091015460ff9091169082565b6001600160a01b038082166000908152600960209081526040808320938616835260029093019052205460ff165b92915050565b60075481565b600080546001600160a01b031633146113f257610a116001601261220f565b6001600160a01b03821660009081526009602052604090205460ff161561141f57610a11600a601161220f565b816001600160a01b031663fe9c44ae6040518163ffffffff1660e01b815260040160206040518083038186803b15801561145857600080fd5b505afa15801561146c573d6000803e3d6000fd5b505050506040513d602081101561148257600080fd5b50506040805180820182526001808252600060208084018281526001600160a01b03881680845260098352928690209451855460ff1916901515178555519390920192909255825191825291517fcf583bb0c569eb967f806b11601c4cb93c10310485c67add5f8362c2f212321f929181900390910190a1600092915050565b60608060086000846001600160a01b03166001600160a01b0316815260200190815260200160002080548060200260200160405190810160405280929190818152602001828054801561157e57602002820191906000526020600020905b81546001600160a01b03168152600190910190602001808311611560575b5093979650505050505050565b6002546001600160a01b031681565b60006109dd85858461271d565b60606000825190506060816040519080825280602002602001820160405280156115db578160200160208202803883390190505b50905060005b828110156117435760008582815181106115f757fe5b6020908102919091018101516001600160a01b03811660009081526009909252604090912080549192509060ff1661164b5760095b84848151811061163857fe5b602002602001018181525050505061173b565b33600090815260028201602052604090205460ff1615156001141561167157600061162c565b600754336000908152600860205260409020541061169057601061162c565b3360008181526002830160209081526040808320805460ff19166001908117909155600883528184208054918201815584529282902090920180546001600160a01b0387166001600160a01b0319909116811790915582519081529081019290925280517f3ab23ab0d51cccc0c3085aec51f99228625aa1a922b3a8ca89a26b0f2027a1a59281900390910190a1600084848151811061172c57fe5b60200260200101818152505050505b6001016115e1565b509392505050565b600480546040805163fc57d4df60e01b81526001600160a01b038781169482019490945290516000938493849391169163fc57d4df91602480820192602092909190829003018186803b1580156117a157600080fd5b505afa1580156117b5573d6000803e3d6000fd5b505050506040513d60208110156117cb57600080fd5b5051600480546040805163fc57d4df60e01b81526001600160a01b038a8116948201949094529051939450600093929091169163fc57d4df91602480820192602092909190829003018186803b15801561182457600080fd5b505afa158015611838573d6000803e3d6000fd5b505050506040513d602081101561184e57600080fd5b5051905081158061185d575080155b1561187257600d9350600092506119b8915050565b6000866001600160a01b031663182df0f56040518163ffffffff1660e01b815260040160206040518083038186803b1580156118ad57600080fd5b505afa1580156118c1573d6000803e3d6000fd5b505050506040513d60208110156118d757600080fd5b5051905060006118e5612b8a565b6118ed612b8a565b6118f5612b8a565b60006119036006548961278c565b94509050600081600381111561191557fe5b1461193157600b5b9950600098506119b8975050505050505050565b61193b878761278c565b93509050600081600381111561194d57fe5b1461195957600b61191d565b61196384846127c7565b92509050600081600381111561197557fe5b1461198157600b61191d565b61198b828c6126c9565b95509050600081600381111561199d57fe5b146119a957600b61191d565b60009950939750505050505050505b935093915050565b6001600160a01b03851660009081526009602052604081205460ff161580611a0157506001600160a01b03851660009081526009602052604090205460ff16155b15611a0d57600961122d565b846001600160a01b0316635fe3b5676040518163ffffffff1660e01b815260040160206040518083038186803b158015611a4657600080fd5b505afa158015611a5a573d6000803e3d6000fd5b505050506040513d6020811015611a7057600080fd5b505160408051635fe3b56760e01b815290516001600160a01b0392831692891691635fe3b567916004808301926020929190829003018186803b158015611ab657600080fd5b505afa158015611aca573d6000803e3d6000fd5b505050506040513d6020811015611ae057600080fd5b50516001600160a01b031614611af757600261122d565b60009695505050505050565b6000611b0d6121c4565b611b1d57610a116001600d61220f565b6007805490839055604080518281526020810185905281517f7093cf1eb653f749c3ff531d6df7f92764536a7fa0d13530cd26e070780c32ea929181900390910190a16000610fde565b6001600160a01b03831660009081526009602052604081205460ff16611b8e576009610fd1565b6001600160a01b038085166000908152600960209081526040808320938716835260029093019052205460ff16611bc6576008610fd1565b600480546040805163fc57d4df60e01b81526001600160a01b03888116948201949094529051929091169163fc57d4df91602480820192602092909190829003018186803b158015611c1757600080fd5b505afa158015611c2b573d6000803e3d6000fd5b505050506040513d6020811015611c4157600080fd5b5051611c4e57600d610fd1565b600080611c5e8587600087612284565b91935090915060009050826011811115611c7457fe5b14611c8e57816011811115611c8557fe5b92505050610fde565b8015611af7576004611c85565b60086020528160005260406000208181548110611cb457fe5b6000918252602090912001546001600160a01b03169150829050565b6003546001600160a01b031681565b600080546001600160a01b03163314611d0557611cfe6001600661220f565b90506113c7565b6001600160a01b0383166000908152600960205260409020805460ff16611d3a57611d326009600761220f565b9150506113c7565b611d42612b8a565b506040805160208101909152838152611d59612b8a565b506040805160208101909152670c7d713b49da00008152611d7a818361227d565b15611d9557611d8b6006600861220f565b93505050506113c7565b8415801590611e1e5750600480546040805163fc57d4df60e01b81526001600160a01b038a8116948201949094529051929091169163fc57d4df91602480820192602092909190829003018186803b158015611df057600080fd5b505afa158015611e04573d6000803e3d6000fd5b505050506040513d6020811015611e1a57600080fd5b5051155b15611e2f57611d8b600d600961220f565b60018301805490869055604080516001600160a01b03891681526020810183905280820188905290517f70483e6592cd5182d45ac970e05bc62cdcc90e9d8ef2c2dbe686cf383bcd7fc59181900360600190a16000979650505050505050565b60055481565b6000610fdb84848461271d565b6000808290506000806000836001600160a01b031663c37f68e2336040518263ffffffff1660e01b815260040180826001600160a01b03166001600160a01b0316815260200191505060806040518083038186803b158015611f0357600080fd5b505afa158015611f17573d6000803e3d6000fd5b505050506040513d6080811015611f2d57600080fd5b508051602082015160409092015190945090925090508215611f805760405162461bcd60e51b8152600401808060200182810382526025815260200180612c4a6025913960400191505060405180910390fd5b8015611f9d57611f92600c600261220f565b945050505050610b00565b6000611faa87338561271d565b90508015611fcb57611fbf600e6003836127df565b95505050505050610b00565b6001600160a01b0385166000908152600960209081526040808320338452600281019092529091205460ff1661200a5760009650505050505050610b00565b3360009081526002820160209081526040808320805460ff19169055600882529182902080548351818402810184019094528084526060939283018282801561207c57602002820191906000526020600020905b81546001600160a01b0316815260019091019060200180831161205e575b5050835193945083925060009150505b828110156120d157896001600160a01b03168482815181106120aa57fe5b60200260200101516001600160a01b031614156120c9578091506120d1565b60010161208c565b508181106120db57fe5b3360009081526008602052604090208054819060001981019081106120fc57fe5b9060005260206000200160009054906101000a90046001600160a01b031681838154811061212657fe5b600091825260209091200180546001600160a01b0319166001600160a01b0392909216919091179055805461215f826000198301612b9d565b50604080516001600160a01b038c16815233602082015281517fe699a64c18b07ac5b7301aa273f36a2287239eb9501d81950672794afba29a0d929181900390910190a160009c9b505050505050505050505050565b6000546001600160a01b031681565b60025460009081906001600160a01b0316331480156121ed57506000546001600160a01b031632145b6000549091506001600160a01b0316331480806122075750815b925050505b90565b60007f45b96fe442630264581b197e84bbada861235052c5a1aadfff9ea4e40a969aa083601181111561223e57fe5b83601381111561224a57fe5b604080519283526020830191909152600082820152519081900360600190a1826011811115610fde57fe5b519051111590565b5190511090565b6000806000612291612bc1565b6001600160a01b0388166000908152600860209081526040808320805482518185028101850190935280835284936060939291908301828280156122fe57602002820191906000526020600020905b81546001600160a01b031681526001909101906020018083116122e0575b50939450600093505050505b815181101561265a57600082828151811061232157fe5b60200260200101519050806001600160a01b031663c37f68e28e6040518263ffffffff1660e01b815260040180826001600160a01b03166001600160a01b0316815260200191505060806040518083038186803b15801561238157600080fd5b505afa158015612395573d6000803e3d6000fd5b505050506040513d60808110156123ab57600080fd5b508051602082015160408084015160609485015160808c0152938a019390935291880191909152945084156123f15750600f97506000965086955061269f945050505050565b60408051602080820183526001600160a01b0380851660008181526009845285902060010154845260c08b01939093528351808301855260808b0151815260e08b015260048054855163fc57d4df60e01b815291820194909452935192169263fc57d4df9260248083019392829003018186803b15801561247157600080fd5b505afa158015612485573d6000803e3d6000fd5b505050506040513d602081101561249b57600080fd5b505160a087018190526124bf5750600d97506000965086955061269f945050505050565b604080516020810190915260a08701518152610100870181905260c087015160e08801516124ec92612845565b6101208801529350600084600381111561250257fe5b1461251e5750600b97506000965086955061269f945050505050565b6125368661012001518760400151886000015161289d565b87529350600084600381111561254857fe5b146125645750600b97506000965086955061269f945050505050565b61257c8661010001518760600151886020015161289d565b60208801529350600084600381111561259157fe5b146125ad5750600b97506000965086955061269f945050505050565b8b6001600160a01b0316816001600160a01b03161415612651576125db8661012001518c886020015161289d565b6020880152935060008460038111156125f057fe5b1461260c5750600b97506000965086955061269f945050505050565b6126208661010001518b886020015161289d565b60208801529350600084600381111561263557fe5b146126515750600b97506000965086955061269f945050505050565b5060010161230a565b5060208401518451111561268157505050602081015190516000945003915082905061269f565b505081516020909201516000955085945091909103915061269f9050565b9450945094915050565b60008060006126bc846000806000612284565b9250925092509193909250565b60008060006126d6612b8a565b6126e086866128ea565b909250905060008260038111156126f357fe5b146127045750915060009050612716565b600061270f82612952565b9350935050505b9250929050565b6001600160a01b03831660009081526009602052604081205460ff16612744576009610fd1565b6001600160a01b038085166000908152600960209081526040808320938716835260029093019052205460ff1661277c576000610fd1565b600080611c5e8587866000612284565b6000612796612b8a565b6127bc604051806020016040528086815250604051806020016040528086815250612961565b915091509250929050565b60006127d1612b8a565b835183516127bc9190612a4a565b60007f45b96fe442630264581b197e84bbada861235052c5a1aadfff9ea4e40a969aa084601181111561280e57fe5b84601381111561281a57fe5b604080519283526020830191909152818101859052519081900360600190a1836011811115610fdb57fe5b600061284f612b8a565b6000612859612b8a565b6128638787612961565b9092509050600082600381111561287657fe5b146128855790925090506119b8565b61288f8186612961565b935093505050935093915050565b60008060006128aa612b8a565b6128b487876128ea565b909250905060008260038111156128c757fe5b146128d857509150600090506119b8565b61288f6128e482612952565b86612afa565b60006128f4612b8a565b600080612905866000015186612b20565b9092509050600082600381111561291857fe5b1461293757506040805160208101909152600081529092509050612716565b60408051602081019091529081526000969095509350505050565b51670de0b6b3a7640000900490565b600061296b612b8a565b60008061298086600001518660000151612b20565b9092509050600082600381111561299357fe5b146129b257506040805160208101909152600081529092509050612716565b6000806129c76706f05b59d3b2000084612afa565b909250905060008260038111156129da57fe5b146129fc57506040805160208101909152600081529094509250612716915050565b600080612a1183670de0b6b3a7640000612b5f565b90925090506000826003811115612a2457fe5b14612a2b57fe5b604080516020810190915290815260009a909950975050505050505050565b6000612a54612b8a565b600080612a6986670de0b6b3a7640000612b20565b90925090506000826003811115612a7c57fe5b14612a9b57506040805160208101909152600081529092509050612716565b600080612aa88388612b5f565b90925090506000826003811115612abb57fe5b14612add57506040805160208101909152600081529094509250612716915050565b604080516020810190915290815260009890975095505050505050565b600080838301848110612b1257600092509050612716565b506002915060009050612716565b60008083612b3357506000905080612716565b83830283858281612b4057fe5b0414612b5457506002915060009050612716565b600092509050612716565b60008082612b735750600190506000612716565b6000838581612b7e57fe5b04915091509250929050565b6040518060200160405280600081525090565b8154818355818111156111aa576000838152602090206111aa918101908301612c2b565b604051806101400160405280600081526020016000815260200160008152602001600081526020016000815260200160008152602001612bff612b8a565b8152602001612c0c612b8a565b8152602001612c19612b8a565b8152602001612c26612b8a565b905290565b61220c91905b80821115612c455760008155600101612c31565b509056fe657869744d61726b65743a206765744163636f756e74536e617073686f74206661696c65646f6e6c7920756e6974726f6c6c65722061646d696e2063616e206368616e676520627261696e73a265627a7a72315820bd3d37c2bf03b5c59994faf426fbab0f7298a5b13012483de04a3cde596ff0db64736f6c63430005110032" . parse () . expect ("invalid bytecode")
         });
-    #[derive(Clone)]
     pub struct ComptrollerG1<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for ComptrollerG1<M> {
+        fn clone(&self) -> Self {
+            ComptrollerG1(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for ComptrollerG1<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -40,7 +44,7 @@ mod comptrollerg1_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> ComptrollerG1<M> {
+    impl<M: ethers::providers::Middleware> ComptrollerG1<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -77,7 +81,7 @@ mod comptrollerg1_mod {
         pub fn deploy<T: ethers::core::abi::Tokenize>(
             client: ::std::sync::Arc<M>,
             constructor_args: T,
-        ) -> Result<
+        ) -> ::std::result::Result<
             ethers::contract::builders::ContractDeployer<M, Self>,
             ethers::contract::ContractError<M>,
         > {
@@ -758,7 +762,9 @@ mod comptrollerg1_mod {
         NewPriceOracleFilter(NewPriceOracleFilter),
     }
     impl ethers::contract::EthLogDecode for ComptrollerG1Events {
-        fn decode_log(log: &ethers::core::abi::RawLog) -> Result<Self, ethers::core::abi::Error>
+        fn decode_log(
+            log: &ethers::core::abi::RawLog,
+        ) -> ::std::result::Result<Self, ethers::core::abi::Error>
         where
             Self: Sized,
         {
@@ -807,7 +813,7 @@ mod comptrollerg1_mod {
             }
         }
     }
-    #[doc = "Container type for all input parameters for the `_become`function with signature `_become(address,address,uint256,uint256,bool)` and selector `[50, 0, 14, 0]`"]
+    #[doc = "Container type for all input parameters for the `_become` function with signature `_become(address,address,uint256,uint256,bool)` and selector `[50, 0, 14, 0]`"]
     #[derive(
         Clone,
         Debug,
@@ -828,7 +834,7 @@ mod comptrollerg1_mod {
         pub max_assets: ethers::core::types::U256,
         pub reinitializing: bool,
     }
-    #[doc = "Container type for all input parameters for the `_setCloseFactor`function with signature `_setCloseFactor(uint256)` and selector `[49, 123, 11, 119]`"]
+    #[doc = "Container type for all input parameters for the `_setCloseFactor` function with signature `_setCloseFactor(uint256)` and selector `[49, 123, 11, 119]`"]
     #[derive(
         Clone,
         Debug,
@@ -842,7 +848,7 @@ mod comptrollerg1_mod {
     pub struct SetCloseFactorCall {
         pub new_close_factor_mantissa: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `_setCollateralFactor`function with signature `_setCollateralFactor(address,uint256)` and selector `[228, 2, 142, 238]`"]
+    #[doc = "Container type for all input parameters for the `_setCollateralFactor` function with signature `_setCollateralFactor(address,uint256)` and selector `[228, 2, 142, 238]`"]
     #[derive(
         Clone,
         Debug,
@@ -860,7 +866,7 @@ mod comptrollerg1_mod {
         pub c_token: ethers::core::types::Address,
         pub new_collateral_factor_mantissa: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `_setLiquidationIncentive`function with signature `_setLiquidationIncentive(uint256)` and selector `[79, 212, 46, 23]`"]
+    #[doc = "Container type for all input parameters for the `_setLiquidationIncentive` function with signature `_setLiquidationIncentive(uint256)` and selector `[79, 212, 46, 23]`"]
     #[derive(
         Clone,
         Debug,
@@ -877,7 +883,7 @@ mod comptrollerg1_mod {
     pub struct SetLiquidationIncentiveCall {
         pub new_liquidation_incentive_mantissa: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `_setMaxAssets`function with signature `_setMaxAssets(uint256)` and selector `[217, 34, 108, 237]`"]
+    #[doc = "Container type for all input parameters for the `_setMaxAssets` function with signature `_setMaxAssets(uint256)` and selector `[217, 34, 108, 237]`"]
     #[derive(
         Clone,
         Debug,
@@ -891,7 +897,7 @@ mod comptrollerg1_mod {
     pub struct SetMaxAssetsCall {
         pub new_max_assets: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `_setPriceOracle`function with signature `_setPriceOracle(address)` and selector `[85, 238, 31, 225]`"]
+    #[doc = "Container type for all input parameters for the `_setPriceOracle` function with signature `_setPriceOracle(address)` and selector `[85, 238, 31, 225]`"]
     #[derive(
         Clone,
         Debug,
@@ -905,7 +911,7 @@ mod comptrollerg1_mod {
     pub struct SetPriceOracleCall {
         pub new_oracle: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `_supportMarket`function with signature `_supportMarket(address)` and selector `[167, 107, 63, 218]`"]
+    #[doc = "Container type for all input parameters for the `_supportMarket` function with signature `_supportMarket(address)` and selector `[167, 107, 63, 218]`"]
     #[derive(
         Clone,
         Debug,
@@ -919,7 +925,7 @@ mod comptrollerg1_mod {
     pub struct SupportMarketCall {
         pub c_token: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `accountAssets`function with signature `accountAssets(address,uint256)` and selector `[220, 225, 84, 73]`"]
+    #[doc = "Container type for all input parameters for the `accountAssets` function with signature `accountAssets(address,uint256)` and selector `[220, 225, 84, 73]`"]
     #[derive(
         Clone,
         Debug,
@@ -934,7 +940,7 @@ mod comptrollerg1_mod {
         pub ethers::core::types::Address,
         pub ethers::core::types::U256,
     );
-    #[doc = "Container type for all input parameters for the `admin`function with signature `admin()` and selector `[248, 81, 164, 64]`"]
+    #[doc = "Container type for all input parameters for the `admin` function with signature `admin()` and selector `[248, 81, 164, 64]`"]
     #[derive(
         Clone,
         Debug,
@@ -946,7 +952,7 @@ mod comptrollerg1_mod {
     )]
     #[ethcall(name = "admin", abi = "admin()")]
     pub struct AdminCall;
-    #[doc = "Container type for all input parameters for the `borrowAllowed`function with signature `borrowAllowed(address,address,uint256)` and selector `[218, 61, 69, 76]`"]
+    #[doc = "Container type for all input parameters for the `borrowAllowed` function with signature `borrowAllowed(address,address,uint256)` and selector `[218, 61, 69, 76]`"]
     #[derive(
         Clone,
         Debug,
@@ -962,7 +968,7 @@ mod comptrollerg1_mod {
         pub borrower: ethers::core::types::Address,
         pub borrow_amount: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `borrowVerify`function with signature `borrowVerify(address,address,uint256)` and selector `[92, 119, 134, 5]`"]
+    #[doc = "Container type for all input parameters for the `borrowVerify` function with signature `borrowVerify(address,address,uint256)` and selector `[92, 119, 134, 5]`"]
     #[derive(
         Clone,
         Debug,
@@ -978,7 +984,7 @@ mod comptrollerg1_mod {
         pub borrower: ethers::core::types::Address,
         pub borrow_amount: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `checkMembership`function with signature `checkMembership(address,address)` and selector `[146, 159, 233, 161]`"]
+    #[doc = "Container type for all input parameters for the `checkMembership` function with signature `checkMembership(address,address)` and selector `[146, 159, 233, 161]`"]
     #[derive(
         Clone,
         Debug,
@@ -993,7 +999,7 @@ mod comptrollerg1_mod {
         pub account: ethers::core::types::Address,
         pub c_token: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `closeFactorMantissa`function with signature `closeFactorMantissa()` and selector `[232, 117, 84, 70]`"]
+    #[doc = "Container type for all input parameters for the `closeFactorMantissa` function with signature `closeFactorMantissa()` and selector `[232, 117, 84, 70]`"]
     #[derive(
         Clone,
         Debug,
@@ -1005,7 +1011,7 @@ mod comptrollerg1_mod {
     )]
     #[ethcall(name = "closeFactorMantissa", abi = "closeFactorMantissa()")]
     pub struct CloseFactorMantissaCall;
-    #[doc = "Container type for all input parameters for the `comptrollerImplementation`function with signature `comptrollerImplementation()` and selector `[187, 130, 170, 94]`"]
+    #[doc = "Container type for all input parameters for the `comptrollerImplementation` function with signature `comptrollerImplementation()` and selector `[187, 130, 170, 94]`"]
     #[derive(
         Clone,
         Debug,
@@ -1020,7 +1026,7 @@ mod comptrollerg1_mod {
         abi = "comptrollerImplementation()"
     )]
     pub struct ComptrollerImplementationCall;
-    #[doc = "Container type for all input parameters for the `enterMarkets`function with signature `enterMarkets(address[])` and selector `[194, 153, 130, 56]`"]
+    #[doc = "Container type for all input parameters for the `enterMarkets` function with signature `enterMarkets(address[])` and selector `[194, 153, 130, 56]`"]
     #[derive(
         Clone,
         Debug,
@@ -1034,7 +1040,7 @@ mod comptrollerg1_mod {
     pub struct EnterMarketsCall {
         pub c_tokens: ::std::vec::Vec<ethers::core::types::Address>,
     }
-    #[doc = "Container type for all input parameters for the `exitMarket`function with signature `exitMarket(address)` and selector `[237, 228, 237, 208]`"]
+    #[doc = "Container type for all input parameters for the `exitMarket` function with signature `exitMarket(address)` and selector `[237, 228, 237, 208]`"]
     #[derive(
         Clone,
         Debug,
@@ -1048,7 +1054,7 @@ mod comptrollerg1_mod {
     pub struct ExitMarketCall {
         pub c_token_address: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `getAccountLiquidity`function with signature `getAccountLiquidity(address)` and selector `[94, 200, 140, 121]`"]
+    #[doc = "Container type for all input parameters for the `getAccountLiquidity` function with signature `getAccountLiquidity(address)` and selector `[94, 200, 140, 121]`"]
     #[derive(
         Clone,
         Debug,
@@ -1062,7 +1068,7 @@ mod comptrollerg1_mod {
     pub struct GetAccountLiquidityCall {
         pub account: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `getAssetsIn`function with signature `getAssetsIn(address)` and selector `[171, 252, 239, 252]`"]
+    #[doc = "Container type for all input parameters for the `getAssetsIn` function with signature `getAssetsIn(address)` and selector `[171, 252, 239, 252]`"]
     #[derive(
         Clone,
         Debug,
@@ -1076,7 +1082,7 @@ mod comptrollerg1_mod {
     pub struct GetAssetsInCall {
         pub account: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `isComptroller`function with signature `isComptroller()` and selector `[0, 126, 61, 210]`"]
+    #[doc = "Container type for all input parameters for the `isComptroller` function with signature `isComptroller()` and selector `[0, 126, 61, 210]`"]
     #[derive(
         Clone,
         Debug,
@@ -1088,7 +1094,7 @@ mod comptrollerg1_mod {
     )]
     #[ethcall(name = "isComptroller", abi = "isComptroller()")]
     pub struct IsComptrollerCall;
-    #[doc = "Container type for all input parameters for the `liquidateBorrowAllowed`function with signature `liquidateBorrowAllowed(address,address,address,address,uint256)` and selector `[95, 199, 231, 30]`"]
+    #[doc = "Container type for all input parameters for the `liquidateBorrowAllowed` function with signature `liquidateBorrowAllowed(address,address,address,address,uint256)` and selector `[95, 199, 231, 30]`"]
     #[derive(
         Clone,
         Debug,
@@ -1109,7 +1115,7 @@ mod comptrollerg1_mod {
         pub borrower: ethers::core::types::Address,
         pub repay_amount: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `liquidateBorrowVerify`function with signature `liquidateBorrowVerify(address,address,address,address,uint256,uint256)` and selector `[71, 239, 59, 59]`"]
+    #[doc = "Container type for all input parameters for the `liquidateBorrowVerify` function with signature `liquidateBorrowVerify(address,address,address,address,uint256,uint256)` and selector `[71, 239, 59, 59]`"]
     #[derive(
         Clone,
         Debug,
@@ -1131,7 +1137,7 @@ mod comptrollerg1_mod {
         pub repay_amount: ethers::core::types::U256,
         pub seize_tokens: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `liquidateCalculateSeizeTokens`function with signature `liquidateCalculateSeizeTokens(address,address,uint256)` and selector `[196, 136, 132, 123]`"]
+    #[doc = "Container type for all input parameters for the `liquidateCalculateSeizeTokens` function with signature `liquidateCalculateSeizeTokens(address,address,uint256)` and selector `[196, 136, 132, 123]`"]
     #[derive(
         Clone,
         Debug,
@@ -1150,7 +1156,7 @@ mod comptrollerg1_mod {
         pub c_token_collateral: ethers::core::types::Address,
         pub repay_amount: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `liquidationIncentiveMantissa`function with signature `liquidationIncentiveMantissa()` and selector `[74, 218, 144, 175]`"]
+    #[doc = "Container type for all input parameters for the `liquidationIncentiveMantissa` function with signature `liquidationIncentiveMantissa()` and selector `[74, 218, 144, 175]`"]
     #[derive(
         Clone,
         Debug,
@@ -1165,7 +1171,7 @@ mod comptrollerg1_mod {
         abi = "liquidationIncentiveMantissa()"
     )]
     pub struct LiquidationIncentiveMantissaCall;
-    #[doc = "Container type for all input parameters for the `markets`function with signature `markets(address)` and selector `[142, 143, 41, 75]`"]
+    #[doc = "Container type for all input parameters for the `markets` function with signature `markets(address)` and selector `[142, 143, 41, 75]`"]
     #[derive(
         Clone,
         Debug,
@@ -1177,7 +1183,7 @@ mod comptrollerg1_mod {
     )]
     #[ethcall(name = "markets", abi = "markets(address)")]
     pub struct MarketsCall(pub ethers::core::types::Address);
-    #[doc = "Container type for all input parameters for the `maxAssets`function with signature `maxAssets()` and selector `[148, 178, 41, 75]`"]
+    #[doc = "Container type for all input parameters for the `maxAssets` function with signature `maxAssets()` and selector `[148, 178, 41, 75]`"]
     #[derive(
         Clone,
         Debug,
@@ -1189,7 +1195,7 @@ mod comptrollerg1_mod {
     )]
     #[ethcall(name = "maxAssets", abi = "maxAssets()")]
     pub struct MaxAssetsCall;
-    #[doc = "Container type for all input parameters for the `mintAllowed`function with signature `mintAllowed(address,address,uint256)` and selector `[78, 244, 195, 225]`"]
+    #[doc = "Container type for all input parameters for the `mintAllowed` function with signature `mintAllowed(address,address,uint256)` and selector `[78, 244, 195, 225]`"]
     #[derive(
         Clone,
         Debug,
@@ -1205,7 +1211,7 @@ mod comptrollerg1_mod {
         pub minter: ethers::core::types::Address,
         pub mint_amount: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `mintVerify`function with signature `mintVerify(address,address,uint256,uint256)` and selector `[65, 199, 40, 185]`"]
+    #[doc = "Container type for all input parameters for the `mintVerify` function with signature `mintVerify(address,address,uint256,uint256)` and selector `[65, 199, 40, 185]`"]
     #[derive(
         Clone,
         Debug,
@@ -1225,7 +1231,7 @@ mod comptrollerg1_mod {
         pub mint_amount: ethers::core::types::U256,
         pub mint_tokens: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `oracle`function with signature `oracle()` and selector `[125, 192, 209, 208]`"]
+    #[doc = "Container type for all input parameters for the `oracle` function with signature `oracle()` and selector `[125, 192, 209, 208]`"]
     #[derive(
         Clone,
         Debug,
@@ -1237,7 +1243,7 @@ mod comptrollerg1_mod {
     )]
     #[ethcall(name = "oracle", abi = "oracle()")]
     pub struct OracleCall;
-    #[doc = "Container type for all input parameters for the `pendingAdmin`function with signature `pendingAdmin()` and selector `[38, 120, 34, 71]`"]
+    #[doc = "Container type for all input parameters for the `pendingAdmin` function with signature `pendingAdmin()` and selector `[38, 120, 34, 71]`"]
     #[derive(
         Clone,
         Debug,
@@ -1249,7 +1255,7 @@ mod comptrollerg1_mod {
     )]
     #[ethcall(name = "pendingAdmin", abi = "pendingAdmin()")]
     pub struct PendingAdminCall;
-    #[doc = "Container type for all input parameters for the `pendingComptrollerImplementation`function with signature `pendingComptrollerImplementation()` and selector `[220, 251, 192, 199]`"]
+    #[doc = "Container type for all input parameters for the `pendingComptrollerImplementation` function with signature `pendingComptrollerImplementation()` and selector `[220, 251, 192, 199]`"]
     #[derive(
         Clone,
         Debug,
@@ -1264,7 +1270,7 @@ mod comptrollerg1_mod {
         abi = "pendingComptrollerImplementation()"
     )]
     pub struct PendingComptrollerImplementationCall;
-    #[doc = "Container type for all input parameters for the `redeemAllowed`function with signature `redeemAllowed(address,address,uint256)` and selector `[234, 190, 125, 145]`"]
+    #[doc = "Container type for all input parameters for the `redeemAllowed` function with signature `redeemAllowed(address,address,uint256)` and selector `[234, 190, 125, 145]`"]
     #[derive(
         Clone,
         Debug,
@@ -1280,7 +1286,7 @@ mod comptrollerg1_mod {
         pub redeemer: ethers::core::types::Address,
         pub redeem_tokens: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `redeemVerify`function with signature `redeemVerify(address,address,uint256,uint256)` and selector `[81, 223, 249, 137]`"]
+    #[doc = "Container type for all input parameters for the `redeemVerify` function with signature `redeemVerify(address,address,uint256,uint256)` and selector `[81, 223, 249, 137]`"]
     #[derive(
         Clone,
         Debug,
@@ -1300,7 +1306,7 @@ mod comptrollerg1_mod {
         pub redeem_amount: ethers::core::types::U256,
         pub redeem_tokens: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `repayBorrowAllowed`function with signature `repayBorrowAllowed(address,address,address,uint256)` and selector `[36, 0, 138, 98]`"]
+    #[doc = "Container type for all input parameters for the `repayBorrowAllowed` function with signature `repayBorrowAllowed(address,address,address,uint256)` and selector `[36, 0, 138, 98]`"]
     #[derive(
         Clone,
         Debug,
@@ -1320,7 +1326,7 @@ mod comptrollerg1_mod {
         pub borrower: ethers::core::types::Address,
         pub repay_amount: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `repayBorrowVerify`function with signature `repayBorrowVerify(address,address,address,uint256,uint256)` and selector `[30, 222, 220, 145]`"]
+    #[doc = "Container type for all input parameters for the `repayBorrowVerify` function with signature `repayBorrowVerify(address,address,address,uint256,uint256)` and selector `[30, 222, 220, 145]`"]
     #[derive(
         Clone,
         Debug,
@@ -1341,7 +1347,7 @@ mod comptrollerg1_mod {
         pub repay_amount: ethers::core::types::U256,
         pub borrower_index: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `seizeAllowed`function with signature `seizeAllowed(address,address,address,address,uint256)` and selector `[208, 47, 115, 81]`"]
+    #[doc = "Container type for all input parameters for the `seizeAllowed` function with signature `seizeAllowed(address,address,address,address,uint256)` and selector `[208, 47, 115, 81]`"]
     #[derive(
         Clone,
         Debug,
@@ -1362,7 +1368,7 @@ mod comptrollerg1_mod {
         pub borrower: ethers::core::types::Address,
         pub seize_tokens: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `seizeVerify`function with signature `seizeVerify(address,address,address,address,uint256)` and selector `[109, 53, 191, 145]`"]
+    #[doc = "Container type for all input parameters for the `seizeVerify` function with signature `seizeVerify(address,address,address,address,uint256)` and selector `[109, 53, 191, 145]`"]
     #[derive(
         Clone,
         Debug,
@@ -1383,7 +1389,7 @@ mod comptrollerg1_mod {
         pub borrower: ethers::core::types::Address,
         pub seize_tokens: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `transferAllowed`function with signature `transferAllowed(address,address,address,uint256)` and selector `[189, 205, 194, 88]`"]
+    #[doc = "Container type for all input parameters for the `transferAllowed` function with signature `transferAllowed(address,address,address,uint256)` and selector `[189, 205, 194, 88]`"]
     #[derive(
         Clone,
         Debug,
@@ -1403,7 +1409,7 @@ mod comptrollerg1_mod {
         pub dst: ethers::core::types::Address,
         pub transfer_tokens: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `transferVerify`function with signature `transferVerify(address,address,address,uint256)` and selector `[106, 86, 148, 126]`"]
+    #[doc = "Container type for all input parameters for the `transferVerify` function with signature `transferVerify(address,address,address,uint256)` and selector `[106, 86, 148, 126]`"]
     #[derive(
         Clone,
         Debug,
@@ -1465,7 +1471,9 @@ mod comptrollerg1_mod {
         TransferVerify(TransferVerifyCall),
     }
     impl ethers::core::abi::AbiDecode for ComptrollerG1Calls {
-        fn decode(data: impl AsRef<[u8]>) -> Result<Self, ethers::core::abi::AbiError> {
+        fn decode(
+            data: impl AsRef<[u8]>,
+        ) -> ::std::result::Result<Self, ethers::core::abi::AbiError> {
             if let Ok(decoded) = <BecomeCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
                 return Ok(ComptrollerG1Calls::Become(decoded));
@@ -1944,4 +1952,344 @@ mod comptrollerg1_mod {
             ComptrollerG1Calls::TransferVerify(var)
         }
     }
+    #[doc = "Container type for all return fields from the `_setCloseFactor` function with signature `_setCloseFactor(uint256)` and selector `[49, 123, 11, 119]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct SetCloseFactorReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `_setCollateralFactor` function with signature `_setCollateralFactor(address,uint256)` and selector `[228, 2, 142, 238]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct SetCollateralFactorReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `_setLiquidationIncentive` function with signature `_setLiquidationIncentive(uint256)` and selector `[79, 212, 46, 23]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct SetLiquidationIncentiveReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `_setMaxAssets` function with signature `_setMaxAssets(uint256)` and selector `[217, 34, 108, 237]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct SetMaxAssetsReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `_setPriceOracle` function with signature `_setPriceOracle(address)` and selector `[85, 238, 31, 225]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct SetPriceOracleReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `_supportMarket` function with signature `_supportMarket(address)` and selector `[167, 107, 63, 218]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct SupportMarketReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `accountAssets` function with signature `accountAssets(address,uint256)` and selector `[220, 225, 84, 73]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct AccountAssetsReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `admin` function with signature `admin()` and selector `[248, 81, 164, 64]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct AdminReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `borrowAllowed` function with signature `borrowAllowed(address,address,uint256)` and selector `[218, 61, 69, 76]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct BorrowAllowedReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `checkMembership` function with signature `checkMembership(address,address)` and selector `[146, 159, 233, 161]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct CheckMembershipReturn(pub bool);
+    #[doc = "Container type for all return fields from the `closeFactorMantissa` function with signature `closeFactorMantissa()` and selector `[232, 117, 84, 70]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct CloseFactorMantissaReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `comptrollerImplementation` function with signature `comptrollerImplementation()` and selector `[187, 130, 170, 94]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct ComptrollerImplementationReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `enterMarkets` function with signature `enterMarkets(address[])` and selector `[194, 153, 130, 56]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct EnterMarketsReturn(pub ::std::vec::Vec<ethers::core::types::U256>);
+    #[doc = "Container type for all return fields from the `exitMarket` function with signature `exitMarket(address)` and selector `[237, 228, 237, 208]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct ExitMarketReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `getAccountLiquidity` function with signature `getAccountLiquidity(address)` and selector `[94, 200, 140, 121]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetAccountLiquidityReturn(
+        pub ethers::core::types::U256,
+        pub ethers::core::types::U256,
+        pub ethers::core::types::U256,
+    );
+    #[doc = "Container type for all return fields from the `getAssetsIn` function with signature `getAssetsIn(address)` and selector `[171, 252, 239, 252]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetAssetsInReturn(pub ::std::vec::Vec<ethers::core::types::Address>);
+    #[doc = "Container type for all return fields from the `isComptroller` function with signature `isComptroller()` and selector `[0, 126, 61, 210]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct IsComptrollerReturn(pub bool);
+    #[doc = "Container type for all return fields from the `liquidateBorrowAllowed` function with signature `liquidateBorrowAllowed(address,address,address,address,uint256)` and selector `[95, 199, 231, 30]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct LiquidateBorrowAllowedReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `liquidateCalculateSeizeTokens` function with signature `liquidateCalculateSeizeTokens(address,address,uint256)` and selector `[196, 136, 132, 123]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct LiquidateCalculateSeizeTokensReturn(
+        pub ethers::core::types::U256,
+        pub ethers::core::types::U256,
+    );
+    #[doc = "Container type for all return fields from the `liquidationIncentiveMantissa` function with signature `liquidationIncentiveMantissa()` and selector `[74, 218, 144, 175]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct LiquidationIncentiveMantissaReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `markets` function with signature `markets(address)` and selector `[142, 143, 41, 75]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct MarketsReturn {
+        pub is_listed: bool,
+        pub collateral_factor_mantissa: ethers::core::types::U256,
+    }
+    #[doc = "Container type for all return fields from the `maxAssets` function with signature `maxAssets()` and selector `[148, 178, 41, 75]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct MaxAssetsReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `mintAllowed` function with signature `mintAllowed(address,address,uint256)` and selector `[78, 244, 195, 225]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct MintAllowedReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `oracle` function with signature `oracle()` and selector `[125, 192, 209, 208]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct OracleReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `pendingAdmin` function with signature `pendingAdmin()` and selector `[38, 120, 34, 71]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct PendingAdminReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `pendingComptrollerImplementation` function with signature `pendingComptrollerImplementation()` and selector `[220, 251, 192, 199]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct PendingComptrollerImplementationReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `redeemAllowed` function with signature `redeemAllowed(address,address,uint256)` and selector `[234, 190, 125, 145]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct RedeemAllowedReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `repayBorrowAllowed` function with signature `repayBorrowAllowed(address,address,address,uint256)` and selector `[36, 0, 138, 98]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct RepayBorrowAllowedReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `seizeAllowed` function with signature `seizeAllowed(address,address,address,address,uint256)` and selector `[208, 47, 115, 81]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct SeizeAllowedReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `transferAllowed` function with signature `transferAllowed(address,address,address,uint256)` and selector `[189, 205, 194, 88]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct TransferAllowedReturn(pub ethers::core::types::U256);
 }

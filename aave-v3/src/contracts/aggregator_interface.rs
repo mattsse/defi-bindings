@@ -1,6 +1,6 @@
-pub use aggregatorinterface_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod aggregatorinterface_mod {
+pub use aggregator_interface::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod aggregator_interface {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,13 +18,14 @@ mod aggregatorinterface_mod {
     use std::sync::Arc;
     pub static AGGREGATORINTERFACE_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"current\",\"type\":\"int256\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"roundId\",\"type\":\"uint256\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"updatedAt\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"AnswerUpdated\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"roundId\",\"type\":\"uint256\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"startedBy\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"startedAt\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"NewRound\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"roundId\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getAnswer\",\"outputs\":[{\"internalType\":\"int256\",\"name\":\"\",\"type\":\"int256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"roundId\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getTimestamp\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"latestAnswer\",\"outputs\":[{\"internalType\":\"int256\",\"name\":\"\",\"type\":\"int256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"latestRound\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"latestTimestamp\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"current\",\"type\":\"int256\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"roundId\",\"type\":\"uint256\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"updatedAt\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"AnswerUpdated\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"roundId\",\"type\":\"uint256\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"startedBy\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"startedAt\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"NewRound\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"roundId\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getAnswer\",\"outputs\":[{\"internalType\":\"int256\",\"name\":\"\",\"type\":\"int256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"roundId\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getTimestamp\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"latestAnswer\",\"outputs\":[{\"internalType\":\"int256\",\"name\":\"\",\"type\":\"int256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"latestRound\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"latestTimestamp\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]}]") . expect ("invalid abi")
         });
-    #[doc = r" Bytecode of the #name contract"]
-    pub static AGGREGATORINTERFACE_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
-        ethers::contract::Lazy::new(|| "0x".parse().expect("invalid bytecode"));
-    #[derive(Clone)]
     pub struct AggregatorInterface<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for AggregatorInterface<M> {
+        fn clone(&self) -> Self {
+            AggregatorInterface(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for AggregatorInterface<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -38,7 +39,7 @@ mod aggregatorinterface_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> AggregatorInterface<M> {
+    impl<M: ethers::providers::Middleware> AggregatorInterface<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -48,45 +49,6 @@ mod aggregatorinterface_mod {
         ) -> Self {
             ethers::contract::Contract::new(address.into(), AGGREGATORINTERFACE_ABI.clone(), client)
                 .into()
-        }
-        #[doc = r" Constructs the general purpose `Deployer` instance based on the provided constructor arguments and sends it."]
-        #[doc = r" Returns a new instance of a deployer that returns an instance of this contract after sending the transaction"]
-        #[doc = r""]
-        #[doc = r" Notes:"]
-        #[doc = r" 1. If there are no constructor arguments, you should pass `()` as the argument."]
-        #[doc = r" 1. The default poll duration is 7 seconds."]
-        #[doc = r" 1. The default number of confirmations is 1 block."]
-        #[doc = r""]
-        #[doc = r""]
-        #[doc = r" # Example"]
-        #[doc = r""]
-        #[doc = r" Generate contract bindings with `abigen!` and deploy a new contract instance."]
-        #[doc = r""]
-        #[doc = r" *Note*: this requires a `bytecode` and `abi` object in the `greeter.json` artifact."]
-        #[doc = r""]
-        #[doc = r" ```ignore"]
-        #[doc = r" # async fn deploy<M: ethers::providers::Middleware>(client: ::std::sync::Arc<M>) {"]
-        #[doc = r#"     abigen!(Greeter,"../greeter.json");"#]
-        #[doc = r""]
-        #[doc = r#"    let greeter_contract = Greeter::deploy(client, "Hello world!".to_string()).unwrap().send().await.unwrap();"#]
-        #[doc = r"    let msg = greeter_contract.greet().call().await.unwrap();"]
-        #[doc = r" # }"]
-        #[doc = r" ```"]
-        pub fn deploy<T: ethers::core::abi::Tokenize>(
-            client: ::std::sync::Arc<M>,
-            constructor_args: T,
-        ) -> Result<
-            ethers::contract::builders::ContractDeployer<M, Self>,
-            ethers::contract::ContractError<M>,
-        > {
-            let factory = ethers::contract::ContractFactory::new(
-                AGGREGATORINTERFACE_ABI.clone(),
-                AGGREGATORINTERFACE_BYTECODE.clone().into(),
-                client,
-            );
-            let deployer = factory.deploy(constructor_args)?;
-            let deployer = ethers::contract::ContractDeployer::new(deployer);
-            Ok(deployer)
         }
         #[doc = "Calls the contract's `getAnswer` (0xb5ab58dc) function"]
         pub fn get_answer(
@@ -190,7 +152,9 @@ mod aggregatorinterface_mod {
         NewRoundFilter(NewRoundFilter),
     }
     impl ethers::contract::EthLogDecode for AggregatorInterfaceEvents {
-        fn decode_log(log: &ethers::core::abi::RawLog) -> Result<Self, ethers::core::abi::Error>
+        fn decode_log(
+            log: &ethers::core::abi::RawLog,
+        ) -> ::std::result::Result<Self, ethers::core::abi::Error>
         where
             Self: Sized,
         {
@@ -211,7 +175,7 @@ mod aggregatorinterface_mod {
             }
         }
     }
-    #[doc = "Container type for all input parameters for the `getAnswer`function with signature `getAnswer(uint256)` and selector `[181, 171, 88, 220]`"]
+    #[doc = "Container type for all input parameters for the `getAnswer` function with signature `getAnswer(uint256)` and selector `[181, 171, 88, 220]`"]
     #[derive(
         Clone,
         Debug,
@@ -225,7 +189,7 @@ mod aggregatorinterface_mod {
     pub struct GetAnswerCall {
         pub round_id: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `getTimestamp`function with signature `getTimestamp(uint256)` and selector `[182, 51, 98, 12]`"]
+    #[doc = "Container type for all input parameters for the `getTimestamp` function with signature `getTimestamp(uint256)` and selector `[182, 51, 98, 12]`"]
     #[derive(
         Clone,
         Debug,
@@ -239,7 +203,7 @@ mod aggregatorinterface_mod {
     pub struct GetTimestampCall {
         pub round_id: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `latestAnswer`function with signature `latestAnswer()` and selector `[80, 210, 91, 205]`"]
+    #[doc = "Container type for all input parameters for the `latestAnswer` function with signature `latestAnswer()` and selector `[80, 210, 91, 205]`"]
     #[derive(
         Clone,
         Debug,
@@ -251,7 +215,7 @@ mod aggregatorinterface_mod {
     )]
     #[ethcall(name = "latestAnswer", abi = "latestAnswer()")]
     pub struct LatestAnswerCall;
-    #[doc = "Container type for all input parameters for the `latestRound`function with signature `latestRound()` and selector `[102, 138, 15, 2]`"]
+    #[doc = "Container type for all input parameters for the `latestRound` function with signature `latestRound()` and selector `[102, 138, 15, 2]`"]
     #[derive(
         Clone,
         Debug,
@@ -263,7 +227,7 @@ mod aggregatorinterface_mod {
     )]
     #[ethcall(name = "latestRound", abi = "latestRound()")]
     pub struct LatestRoundCall;
-    #[doc = "Container type for all input parameters for the `latestTimestamp`function with signature `latestTimestamp()` and selector `[130, 5, 191, 106]`"]
+    #[doc = "Container type for all input parameters for the `latestTimestamp` function with signature `latestTimestamp()` and selector `[130, 5, 191, 106]`"]
     #[derive(
         Clone,
         Debug,
@@ -284,7 +248,9 @@ mod aggregatorinterface_mod {
         LatestTimestamp(LatestTimestampCall),
     }
     impl ethers::core::abi::AbiDecode for AggregatorInterfaceCalls {
-        fn decode(data: impl AsRef<[u8]>) -> Result<Self, ethers::core::abi::AbiError> {
+        fn decode(
+            data: impl AsRef<[u8]>,
+        ) -> ::std::result::Result<Self, ethers::core::abi::AbiError> {
             if let Ok(decoded) =
                 <GetAnswerCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
@@ -360,4 +326,59 @@ mod aggregatorinterface_mod {
             AggregatorInterfaceCalls::LatestTimestamp(var)
         }
     }
+    #[doc = "Container type for all return fields from the `getAnswer` function with signature `getAnswer(uint256)` and selector `[181, 171, 88, 220]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetAnswerReturn(pub I256);
+    #[doc = "Container type for all return fields from the `getTimestamp` function with signature `getTimestamp(uint256)` and selector `[182, 51, 98, 12]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetTimestampReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `latestAnswer` function with signature `latestAnswer()` and selector `[80, 210, 91, 205]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct LatestAnswerReturn(pub I256);
+    #[doc = "Container type for all return fields from the `latestRound` function with signature `latestRound()` and selector `[102, 138, 15, 2]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct LatestRoundReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `latestTimestamp` function with signature `latestTimestamp()` and selector `[130, 5, 191, 106]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct LatestTimestampReturn(pub ethers::core::types::U256);
 }

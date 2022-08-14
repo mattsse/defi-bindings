@@ -1,6 +1,6 @@
-pub use juglike_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod juglike_mod {
+pub use jug_like::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod jug_like {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,15 +18,19 @@ mod juglike_mod {
     use std::sync::Arc;
     pub static JUGLIKE_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"base\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"ilks\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"duty\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"rho\",\"type\":\"uint256\",\"components\":[]}]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"base\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"ilks\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"duty\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"rho\",\"type\":\"uint256\",\"components\":[]}]}]") . expect ("invalid abi")
         });
     #[doc = r" Bytecode of the #name contract"]
     pub static JUGLIKE_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
         ethers::contract::Lazy::new(|| {
-            "0x608060405234801561001057600080fd5b5060d68061001f6000396000f3fe6080604052348015600f57600080fd5b506004361060325760003560e01c80635001f3b5146037578063d9638d3614604f575b600080fd5b603d6082565b60408051918252519081900360200190f35b606960048036036020811015606357600080fd5b50356088565b6040805192835260208301919091528051918290030190f35b60015481565b600060208190529081526040902080546001909101548256fea265627a7a7231582088305a8005f65d20b95a58304a814d1e6c275d96198ed2d30b83e8d89629bb2364736f6c63430005110032" . parse () . expect ("invalid bytecode")
+            "0x608060405234801561001057600080fd5b5060d68061001f6000396000f3fe6080604052348015600f57600080fd5b506004361060325760003560e01c80635001f3b5146037578063d9638d3614604f575b600080fd5b603d6082565b60408051918252519081900360200190f35b606960048036036020811015606357600080fd5b50356088565b6040805192835260208301919091528051918290030190f35b60015481565b600060208190529081526040902080546001909101548256fea265627a7a723158203f97f6f2b7ee2199ee9384402fe11721b5b7c2ca73d015f330ad31b2df5bddbe64736f6c63430005110032" . parse () . expect ("invalid bytecode")
         });
-    #[derive(Clone)]
     pub struct JugLike<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for JugLike<M> {
+        fn clone(&self) -> Self {
+            JugLike(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for JugLike<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -40,7 +44,7 @@ mod juglike_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> JugLike<M> {
+    impl<M: ethers::providers::Middleware> JugLike<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -76,7 +80,7 @@ mod juglike_mod {
         pub fn deploy<T: ethers::core::abi::Tokenize>(
             client: ::std::sync::Arc<M>,
             constructor_args: T,
-        ) -> Result<
+        ) -> ::std::result::Result<
             ethers::contract::builders::ContractDeployer<M, Self>,
             ethers::contract::ContractError<M>,
         > {
@@ -115,7 +119,7 @@ mod juglike_mod {
             Self(contract)
         }
     }
-    #[doc = "Container type for all input parameters for the `base`function with signature `base()` and selector `[80, 1, 243, 181]`"]
+    #[doc = "Container type for all input parameters for the `base` function with signature `base()` and selector `[80, 1, 243, 181]`"]
     #[derive(
         Clone,
         Debug,
@@ -127,7 +131,7 @@ mod juglike_mod {
     )]
     #[ethcall(name = "base", abi = "base()")]
     pub struct BaseCall;
-    #[doc = "Container type for all input parameters for the `ilks`function with signature `ilks(bytes32)` and selector `[217, 99, 141, 54]`"]
+    #[doc = "Container type for all input parameters for the `ilks` function with signature `ilks(bytes32)` and selector `[217, 99, 141, 54]`"]
     #[derive(
         Clone,
         Debug,
@@ -145,7 +149,9 @@ mod juglike_mod {
         Ilks(IlksCall),
     }
     impl ethers::core::abi::AbiDecode for JugLikeCalls {
-        fn decode(data: impl AsRef<[u8]>) -> Result<Self, ethers::core::abi::AbiError> {
+        fn decode(
+            data: impl AsRef<[u8]>,
+        ) -> ::std::result::Result<Self, ethers::core::abi::AbiError> {
             if let Ok(decoded) = <BaseCall as ethers::core::abi::AbiDecode>::decode(data.as_ref()) {
                 return Ok(JugLikeCalls::Base(decoded));
             }
@@ -180,5 +186,30 @@ mod juglike_mod {
         fn from(var: IlksCall) -> Self {
             JugLikeCalls::Ilks(var)
         }
+    }
+    #[doc = "Container type for all return fields from the `base` function with signature `base()` and selector `[80, 1, 243, 181]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct BaseReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `ilks` function with signature `ilks(bytes32)` and selector `[217, 99, 141, 54]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct IlksReturn {
+        pub duty: ethers::core::types::U256,
+        pub rho: ethers::core::types::U256,
     }
 }

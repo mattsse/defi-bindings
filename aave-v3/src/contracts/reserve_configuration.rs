@@ -1,6 +1,6 @@
-pub use reserveconfiguration_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod reserveconfiguration_mod {
+pub use reserve_configuration::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod reserve_configuration {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,15 +18,19 @@ mod reserveconfiguration_mod {
     use std::sync::Arc;
     pub static RESERVECONFIGURATION_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"DEBT_CEILING_DECIMALS\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"MAX_RESERVES_COUNT\",\"outputs\":[{\"internalType\":\"uint16\",\"name\":\"\",\"type\":\"uint16\",\"components\":[]}]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"DEBT_CEILING_DECIMALS\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"MAX_RESERVES_COUNT\",\"outputs\":[{\"internalType\":\"uint16\",\"name\":\"\",\"type\":\"uint16\",\"components\":[]}]}]") . expect ("invalid abi")
         });
     #[doc = r" Bytecode of the #name contract"]
     pub static RESERVECONFIGURATION_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
         ethers::contract::Lazy::new(|| {
-            "0x60ab610038600b82828239805160001a607314602b57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe7300000000000000000000000000000000000000003014608060405260043610603d5760003560e01c8063280d5de914604257806331b561ba14605c575b600080fd5b6049600281565b6040519081526020015b60405180910390f35b6063608081565b60405161ffff9091168152602001605356fea26469706673582212202369be01fb82b2c8ecf0d05ea1d2bc7cc67c6bff147a60cf2c8109f08660591864736f6c634300080a0033" . parse () . expect ("invalid bytecode")
+            "0x60ab610038600b82828239805160001a607314602b57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe7300000000000000000000000000000000000000003014608060405260043610603d5760003560e01c8063280d5de914604257806331b561ba14605c575b600080fd5b6049600281565b6040519081526020015b60405180910390f35b6063608081565b60405161ffff9091168152602001605356fea264697066735822122042aa30c0daf94e082a73620a5f8ea50c0785db9b59c6b16bfbcb7b631f08235064736f6c634300080a0033" . parse () . expect ("invalid bytecode")
         });
-    #[derive(Clone)]
     pub struct ReserveConfiguration<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for ReserveConfiguration<M> {
+        fn clone(&self) -> Self {
+            ReserveConfiguration(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for ReserveConfiguration<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -40,7 +44,7 @@ mod reserveconfiguration_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> ReserveConfiguration<M> {
+    impl<M: ethers::providers::Middleware> ReserveConfiguration<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -81,7 +85,7 @@ mod reserveconfiguration_mod {
         pub fn deploy<T: ethers::core::abi::Tokenize>(
             client: ::std::sync::Arc<M>,
             constructor_args: T,
-        ) -> Result<
+        ) -> ::std::result::Result<
             ethers::contract::builders::ContractDeployer<M, Self>,
             ethers::contract::ContractError<M>,
         > {
@@ -116,7 +120,7 @@ mod reserveconfiguration_mod {
             Self(contract)
         }
     }
-    #[doc = "Container type for all input parameters for the `DEBT_CEILING_DECIMALS`function with signature `DEBT_CEILING_DECIMALS()` and selector `[40, 13, 93, 233]`"]
+    #[doc = "Container type for all input parameters for the `DEBT_CEILING_DECIMALS` function with signature `DEBT_CEILING_DECIMALS()` and selector `[40, 13, 93, 233]`"]
     #[derive(
         Clone,
         Debug,
@@ -128,7 +132,7 @@ mod reserveconfiguration_mod {
     )]
     #[ethcall(name = "DEBT_CEILING_DECIMALS", abi = "DEBT_CEILING_DECIMALS()")]
     pub struct DebtCeilingDecimalsCall;
-    #[doc = "Container type for all input parameters for the `MAX_RESERVES_COUNT`function with signature `MAX_RESERVES_COUNT()` and selector `[49, 181, 97, 186]`"]
+    #[doc = "Container type for all input parameters for the `MAX_RESERVES_COUNT` function with signature `MAX_RESERVES_COUNT()` and selector `[49, 181, 97, 186]`"]
     #[derive(
         Clone,
         Debug,
@@ -146,7 +150,9 @@ mod reserveconfiguration_mod {
         MaxReservesCount(MaxReservesCountCall),
     }
     impl ethers::core::abi::AbiDecode for ReserveConfigurationCalls {
-        fn decode(data: impl AsRef<[u8]>) -> Result<Self, ethers::core::abi::AbiError> {
+        fn decode(
+            data: impl AsRef<[u8]>,
+        ) -> ::std::result::Result<Self, ethers::core::abi::AbiError> {
             if let Ok(decoded) =
                 <DebtCeilingDecimalsCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
@@ -186,4 +192,26 @@ mod reserveconfiguration_mod {
             ReserveConfigurationCalls::MaxReservesCount(var)
         }
     }
+    #[doc = "Container type for all return fields from the `DEBT_CEILING_DECIMALS` function with signature `DEBT_CEILING_DECIMALS()` and selector `[40, 13, 93, 233]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct DebtCeilingDecimalsReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `MAX_RESERVES_COUNT` function with signature `MAX_RESERVES_COUNT()` and selector `[49, 181, 97, 186]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct MaxReservesCountReturn(pub u16);
 }

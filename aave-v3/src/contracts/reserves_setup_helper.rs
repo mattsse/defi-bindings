@@ -1,6 +1,6 @@
-pub use reservessetuphelper_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod reservessetuphelper_mod {
+pub use reserves_setup_helper::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod reserves_setup_helper {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,15 +18,19 @@ mod reservessetuphelper_mod {
     use std::sync::Arc;
     pub static RESERVESSETUPHELPER_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"OwnershipTransferred\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"contract PoolConfigurator\",\"name\":\"configurator\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"struct ReservesSetupHelper.ConfigureReserveInput[]\",\"name\":\"inputParams\",\"type\":\"tuple[]\",\"components\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"baseLTV\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"liquidationThreshold\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"liquidationBonus\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"reserveFactor\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"borrowCap\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"supplyCap\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"stableBorrowingEnabled\",\"type\":\"bool\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"borrowingEnabled\",\"type\":\"bool\",\"components\":[]}]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"configureReserves\",\"outputs\":[]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"renounceOwnership\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"transferOwnership\",\"outputs\":[]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"OwnershipTransferred\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"contract PoolConfigurator\",\"name\":\"configurator\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"struct ReservesSetupHelper.ConfigureReserveInput[]\",\"name\":\"inputParams\",\"type\":\"tuple[]\",\"components\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"baseLTV\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"liquidationThreshold\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"liquidationBonus\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"reserveFactor\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"borrowCap\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"supplyCap\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"stableBorrowingEnabled\",\"type\":\"bool\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"borrowingEnabled\",\"type\":\"bool\",\"components\":[]}]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"configureReserves\",\"outputs\":[]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"renounceOwnership\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"transferOwnership\",\"outputs\":[]}]") . expect ("invalid abi")
         });
     #[doc = r" Bytecode of the #name contract"]
     pub static RESERVESSETUPHELPER_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
         ethers::contract::Lazy::new(|| {
-            "0x608060405234801561001057600080fd5b50600080546001600160a01b031916339081178255604051909182917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908290a350610899806100616000396000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c8063715018a614610051578063778128311461005b5780638da5cb5b1461006e578063f2fde38b1461008d575b600080fd5b6100596100a0565b005b610059610069366004610720565b61011d565b600054604080516001600160a01b039092168252519081900360200190f35b61005961009b3660046107a9565b61061e565b6000546001600160a01b031633146100d35760405162461bcd60e51b81526004016100ca906107cd565b60405180910390fd5b600080546040516001600160a01b03909116907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908390a3600080546001600160a01b0319169055565b6000546001600160a01b031633146101475760405162461bcd60e51b81526004016100ca906107cd565b60005b8181101561061857836001600160a01b0316637c4e560b84848481811061017357610173610802565b61018a9260206101209092020190810191506107a9565b85858581811061019c5761019c610802565b90506101200201602001358686868181106101b9576101b9610802565b90506101200201604001358787878181106101d6576101d6610802565b6040516001600160e01b031960e089901b1681526001600160a01b039096166004870152602486019490945250604484019190915260606101209092020101356064820152608401600060405180830381600087803b15801561023857600080fd5b505af115801561024c573d6000803e3d6000fd5b5050505082828281811061026257610262610802565b9050610120020161010001602081019061027c9190610818565b1561049557836001600160a01b031663682cf2648484848181106102a2576102a2610802565b6102b99260206101209092020190810191506107a9565b6040516001600160e01b031960e084901b1681526001600160a01b03909116600482015260016024820152604401600060405180830381600087803b15801561030157600080fd5b505af1158015610315573d6000803e3d6000fd5b50505050836001600160a01b031663d14a098384848481811061033a5761033a610802565b6103519260206101209092020190810191506107a9565b85858581811061036357610363610802565b9050610120020160a001356040518363ffffffff1660e01b815260040161039f9291906001600160a01b03929092168252602082015260400190565b600060405180830381600087803b1580156103b957600080fd5b505af11580156103cd573d6000803e3d6000fd5b50505050836001600160a01b0316638a751a608484848181106103f2576103f2610802565b6104099260206101209092020190810191506107a9565b85858581811061041b5761041b610802565b9050610120020160e00160208101906104349190610818565b6040516001600160e01b031960e085901b1681526001600160a01b03909216600483015215156024820152604401600060405180830381600087803b15801561047c57600080fd5b505af1158015610490573d6000803e3d6000fd5b505050505b836001600160a01b031663571f03e58484848181106104b6576104b6610802565b6104cd9260206101209092020190810191506107a9565b8585858181106104df576104df610802565b9050610120020160c001356040518363ffffffff1660e01b815260040161051b9291906001600160a01b03929092168252602082015260400190565b600060405180830381600087803b15801561053557600080fd5b505af1158015610549573d6000803e3d6000fd5b50505050836001600160a01b0316634b4e675384848481811061056e5761056e610802565b6105859260206101209092020190810191506107a9565b85858581811061059757610597610802565b90506101200201608001356040518363ffffffff1660e01b81526004016105d39291906001600160a01b03929092168252602082015260400190565b600060405180830381600087803b1580156105ed57600080fd5b505af1158015610601573d6000803e3d6000fd5b5050505080806106109061083a565b91505061014a565b50505050565b6000546001600160a01b031633146106485760405162461bcd60e51b81526004016100ca906107cd565b6001600160a01b0381166106ad5760405162461bcd60e51b815260206004820152602660248201527f4f776e61626c653a206e6577206f776e657220697320746865207a65726f206160448201526564647265737360d01b60648201526084016100ca565b600080546040516001600160a01b03808516939216917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e091a3600080546001600160a01b0319166001600160a01b0392909216919091179055565b6001600160a01b038116811461071d57600080fd5b50565b60008060006040848603121561073557600080fd5b833561074081610708565b9250602084013567ffffffffffffffff8082111561075d57600080fd5b818601915086601f83011261077157600080fd5b81358181111561078057600080fd5b8760206101208302850101111561079657600080fd5b6020830194508093505050509250925092565b6000602082840312156107bb57600080fd5b81356107c681610708565b9392505050565b6020808252818101527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604082015260600190565b634e487b7160e01b600052603260045260246000fd5b60006020828403121561082a57600080fd5b813580151581146107c657600080fd5b600060001982141561085c57634e487b7160e01b600052601160045260246000fd5b506001019056fea264697066735822122001e4e09253dffca9e7ac718220ee68bad97842b2132c0e60b5b12e42be1370bd64736f6c634300080a0033" . parse () . expect ("invalid bytecode")
+            "0x608060405234801561001057600080fd5b50600080546001600160a01b031916339081178255604051909182917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908290a350610899806100616000396000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c8063715018a614610051578063778128311461005b5780638da5cb5b1461006e578063f2fde38b1461008d575b600080fd5b6100596100a0565b005b610059610069366004610720565b61011d565b600054604080516001600160a01b039092168252519081900360200190f35b61005961009b3660046107a9565b61061e565b6000546001600160a01b031633146100d35760405162461bcd60e51b81526004016100ca906107cd565b60405180910390fd5b600080546040516001600160a01b03909116907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908390a3600080546001600160a01b0319169055565b6000546001600160a01b031633146101475760405162461bcd60e51b81526004016100ca906107cd565b60005b8181101561061857836001600160a01b0316637c4e560b84848481811061017357610173610802565b61018a9260206101209092020190810191506107a9565b85858581811061019c5761019c610802565b90506101200201602001358686868181106101b9576101b9610802565b90506101200201604001358787878181106101d6576101d6610802565b6040516001600160e01b031960e089901b1681526001600160a01b039096166004870152602486019490945250604484019190915260606101209092020101356064820152608401600060405180830381600087803b15801561023857600080fd5b505af115801561024c573d6000803e3d6000fd5b5050505082828281811061026257610262610802565b9050610120020161010001602081019061027c9190610818565b1561049557836001600160a01b031663682cf2648484848181106102a2576102a2610802565b6102b99260206101209092020190810191506107a9565b6040516001600160e01b031960e084901b1681526001600160a01b03909116600482015260016024820152604401600060405180830381600087803b15801561030157600080fd5b505af1158015610315573d6000803e3d6000fd5b50505050836001600160a01b031663d14a098384848481811061033a5761033a610802565b6103519260206101209092020190810191506107a9565b85858581811061036357610363610802565b9050610120020160a001356040518363ffffffff1660e01b815260040161039f9291906001600160a01b03929092168252602082015260400190565b600060405180830381600087803b1580156103b957600080fd5b505af11580156103cd573d6000803e3d6000fd5b50505050836001600160a01b0316638a751a608484848181106103f2576103f2610802565b6104099260206101209092020190810191506107a9565b85858581811061041b5761041b610802565b9050610120020160e00160208101906104349190610818565b6040516001600160e01b031960e085901b1681526001600160a01b03909216600483015215156024820152604401600060405180830381600087803b15801561047c57600080fd5b505af1158015610490573d6000803e3d6000fd5b505050505b836001600160a01b031663571f03e58484848181106104b6576104b6610802565b6104cd9260206101209092020190810191506107a9565b8585858181106104df576104df610802565b9050610120020160c001356040518363ffffffff1660e01b815260040161051b9291906001600160a01b03929092168252602082015260400190565b600060405180830381600087803b15801561053557600080fd5b505af1158015610549573d6000803e3d6000fd5b50505050836001600160a01b0316634b4e675384848481811061056e5761056e610802565b6105859260206101209092020190810191506107a9565b85858581811061059757610597610802565b90506101200201608001356040518363ffffffff1660e01b81526004016105d39291906001600160a01b03929092168252602082015260400190565b600060405180830381600087803b1580156105ed57600080fd5b505af1158015610601573d6000803e3d6000fd5b5050505080806106109061083a565b91505061014a565b50505050565b6000546001600160a01b031633146106485760405162461bcd60e51b81526004016100ca906107cd565b6001600160a01b0381166106ad5760405162461bcd60e51b815260206004820152602660248201527f4f776e61626c653a206e6577206f776e657220697320746865207a65726f206160448201526564647265737360d01b60648201526084016100ca565b600080546040516001600160a01b03808516939216917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e091a3600080546001600160a01b0319166001600160a01b0392909216919091179055565b6001600160a01b038116811461071d57600080fd5b50565b60008060006040848603121561073557600080fd5b833561074081610708565b9250602084013567ffffffffffffffff8082111561075d57600080fd5b818601915086601f83011261077157600080fd5b81358181111561078057600080fd5b8760206101208302850101111561079657600080fd5b6020830194508093505050509250925092565b6000602082840312156107bb57600080fd5b81356107c681610708565b9392505050565b6020808252818101527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604082015260600190565b634e487b7160e01b600052603260045260246000fd5b60006020828403121561082a57600080fd5b813580151581146107c657600080fd5b600060001982141561085c57634e487b7160e01b600052601160045260246000fd5b506001019056fea2646970667358221220337503eb52ebaedee9664b15c08da50483305c9f28d6f0abeaf1ddc3954b8f4a64736f6c634300080a0033" . parse () . expect ("invalid bytecode")
         });
-    #[derive(Clone)]
     pub struct ReservesSetupHelper<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for ReservesSetupHelper<M> {
+        fn clone(&self) -> Self {
+            ReservesSetupHelper(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for ReservesSetupHelper<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -40,7 +44,7 @@ mod reservessetuphelper_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> ReservesSetupHelper<M> {
+    impl<M: ethers::providers::Middleware> ReservesSetupHelper<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -77,7 +81,7 @@ mod reservessetuphelper_mod {
         pub fn deploy<T: ethers::core::abi::Tokenize>(
             client: ::std::sync::Arc<M>,
             constructor_args: T,
-        ) -> Result<
+        ) -> ::std::result::Result<
             ethers::contract::builders::ContractDeployer<M, Self>,
             ethers::contract::ContractError<M>,
         > {
@@ -160,7 +164,7 @@ mod reservessetuphelper_mod {
         #[ethevent(indexed)]
         pub new_owner: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `configureReserves`function with signature `configureReserves(address,(address,uint256,uint256,uint256,uint256,uint256,uint256,bool,bool)[])` and selector `[119, 129, 40, 49]`"]
+    #[doc = "Container type for all input parameters for the `configureReserves` function with signature `configureReserves(address,(address,uint256,uint256,uint256,uint256,uint256,uint256,bool,bool)[])` and selector `[119, 129, 40, 49]`"]
     #[derive(
         Clone,
         Debug,
@@ -178,7 +182,7 @@ mod reservessetuphelper_mod {
         pub configurator: ethers::core::types::Address,
         pub input_params: ::std::vec::Vec<ConfigureReserveInput>,
     }
-    #[doc = "Container type for all input parameters for the `owner`function with signature `owner()` and selector `[141, 165, 203, 91]`"]
+    #[doc = "Container type for all input parameters for the `owner` function with signature `owner()` and selector `[141, 165, 203, 91]`"]
     #[derive(
         Clone,
         Debug,
@@ -190,7 +194,7 @@ mod reservessetuphelper_mod {
     )]
     #[ethcall(name = "owner", abi = "owner()")]
     pub struct OwnerCall;
-    #[doc = "Container type for all input parameters for the `renounceOwnership`function with signature `renounceOwnership()` and selector `[113, 80, 24, 166]`"]
+    #[doc = "Container type for all input parameters for the `renounceOwnership` function with signature `renounceOwnership()` and selector `[113, 80, 24, 166]`"]
     #[derive(
         Clone,
         Debug,
@@ -202,7 +206,7 @@ mod reservessetuphelper_mod {
     )]
     #[ethcall(name = "renounceOwnership", abi = "renounceOwnership()")]
     pub struct RenounceOwnershipCall;
-    #[doc = "Container type for all input parameters for the `transferOwnership`function with signature `transferOwnership(address)` and selector `[242, 253, 227, 139]`"]
+    #[doc = "Container type for all input parameters for the `transferOwnership` function with signature `transferOwnership(address)` and selector `[242, 253, 227, 139]`"]
     #[derive(
         Clone,
         Debug,
@@ -224,7 +228,9 @@ mod reservessetuphelper_mod {
         TransferOwnership(TransferOwnershipCall),
     }
     impl ethers::core::abi::AbiDecode for ReservesSetupHelperCalls {
-        fn decode(data: impl AsRef<[u8]>) -> Result<Self, ethers::core::abi::AbiError> {
+        fn decode(
+            data: impl AsRef<[u8]>,
+        ) -> ::std::result::Result<Self, ethers::core::abi::AbiError> {
             if let Ok(decoded) =
                 <ConfigureReservesCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
@@ -287,6 +293,17 @@ mod reservessetuphelper_mod {
             ReservesSetupHelperCalls::TransferOwnership(var)
         }
     }
+    #[doc = "Container type for all return fields from the `owner` function with signature `owner()` and selector `[141, 165, 203, 91]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct OwnerReturn(pub ethers::core::types::Address);
     #[doc = "`ConfigureReserveInput(address,uint256,uint256,uint256,uint256,uint256,uint256,bool,bool)`"]
     #[derive(
         Clone,

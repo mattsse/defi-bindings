@@ -1,6 +1,6 @@
-pub use mockincentivescontroller_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod mockincentivescontroller_mod {
+pub use mock_incentives_controller::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod mock_incentives_controller {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,16 +18,20 @@ mod mockincentivescontroller_mod {
     use std::sync::Arc;
     pub static MOCKINCENTIVESCONTROLLER_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"claimer\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"ClaimerSet\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"RewardsAccrued\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"RewardsClaimed\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"claimer\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"RewardsClaimed\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"DISTRIBUTION_END\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"PRECISION\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"REWARD_TOKEN\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"assets\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\",\"components\":[]},{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"claimRewards\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"claimRewardsOnBehalf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\",\"components\":[]},{\"internalType\":\"uint256[]\",\"name\":\"\",\"type\":\"uint256[]\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"configureAssets\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"getAssetData\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"getClaimer\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"getRewardsBalance\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"getUserAssetData\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"getUserUnclaimedRewards\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"handleAction\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setClaimer\",\"outputs\":[]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"claimer\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"ClaimerSet\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"RewardsAccrued\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"RewardsClaimed\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"claimer\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"RewardsClaimed\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"DISTRIBUTION_END\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"PRECISION\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"REWARD_TOKEN\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"assets\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\",\"components\":[]},{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"claimRewards\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"claimRewardsOnBehalf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\",\"components\":[]},{\"internalType\":\"uint256[]\",\"name\":\"\",\"type\":\"uint256[]\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"configureAssets\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"getAssetData\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"getClaimer\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"getRewardsBalance\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"getUserAssetData\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"getUserUnclaimedRewards\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"handleAction\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setClaimer\",\"outputs\":[]}]") . expect ("invalid abi")
         });
     #[doc = r" Bytecode of the #name contract"]
     pub static MOCKINCENTIVESCONTROLLER_BYTECODE: ethers::contract::Lazy<
         ethers::core::types::Bytes,
     > = ethers::contract::Lazy::new(|| {
-        "0x608060405234801561001057600080fd5b50610519806100206000396000f3fe608060405234801561001057600080fd5b50600436106100ea5760003560e01c806379f171b21161008c57806399248ea71161006657806399248ea714610203578063aaf5eb681461020a578063f11b818814610219578063f5cf673b1461025657600080fd5b806379f171b2146101d15780638b599f26146101e5578063919cd40f146101fc57600080fd5b806331873e2e116100c857806331873e2e146101615780633373ee4c146101765780636d34b96e1461018c57806374d945ec146101a557600080fd5b80631652e7b7146100ef578063198fa81e146101275780633111e7b314610149575b600080fd5b6101076100fd366004610284565b5060009081908190565b604080519384526020840192909252908201526060015b60405180910390f35b61013b610135366004610284565b50600090565b60405190815260200161011e565b61013b6101573660046102f2565b6000949350505050565b61017461016f36600461034f565b505050565b005b61013b610184366004610382565b600092915050565b61013b61019a3660046103b5565b600095945050505050565b6101b96101b3366004610284565b50600190565b6040516001600160a01b03909116815260200161011e565b6101746101df366004610423565b50505050565b61013b6101f336600461048f565b60009392505050565b600061013b565b60006101b9565b6040516000815260200161011e565b6102276100fd366004610284565b604080516fffffffffffffffffffffffffffffffff94851681529390921660208401529082015260600161011e565b610174610264366004610382565b5050565b80356001600160a01b038116811461027f57600080fd5b919050565b60006020828403121561029657600080fd5b61029f82610268565b9392505050565b60008083601f8401126102b857600080fd5b50813567ffffffffffffffff8111156102d057600080fd5b6020830191508360208260051b85010111156102eb57600080fd5b9250929050565b6000806000806060858703121561030857600080fd5b843567ffffffffffffffff81111561031f57600080fd5b61032b878288016102a6565b9095509350506020850135915061034460408601610268565b905092959194509250565b60008060006060848603121561036457600080fd5b61036d84610268565b95602085013595506040909401359392505050565b6000806040838503121561039557600080fd5b61039e83610268565b91506103ac60208401610268565b90509250929050565b6000806000806000608086880312156103cd57600080fd5b853567ffffffffffffffff8111156103e457600080fd5b6103f0888289016102a6565b9096509450506020860135925061040960408701610268565b915061041760608701610268565b90509295509295909350565b6000806000806040858703121561043957600080fd5b843567ffffffffffffffff8082111561045157600080fd5b61045d888389016102a6565b9096509450602087013591508082111561047657600080fd5b50610483878288016102a6565b95989497509550505050565b6000806000604084860312156104a457600080fd5b833567ffffffffffffffff8111156104bb57600080fd5b6104c7868287016102a6565b90945092506104da905060208501610268565b9050925092509256fea2646970667358221220ba9a7fbdfbe89ef26cab26425d798d50a1b13feb2ce5836568377e0b76e12aee64736f6c634300080a0033" . parse () . expect ("invalid bytecode")
+        "0x608060405234801561001057600080fd5b50610519806100206000396000f3fe608060405234801561001057600080fd5b50600436106100ea5760003560e01c806379f171b21161008c57806399248ea71161006657806399248ea714610203578063aaf5eb681461020a578063f11b818814610219578063f5cf673b1461025657600080fd5b806379f171b2146101d15780638b599f26146101e5578063919cd40f146101fc57600080fd5b806331873e2e116100c857806331873e2e146101615780633373ee4c146101765780636d34b96e1461018c57806374d945ec146101a557600080fd5b80631652e7b7146100ef578063198fa81e146101275780633111e7b314610149575b600080fd5b6101076100fd366004610284565b5060009081908190565b604080519384526020840192909252908201526060015b60405180910390f35b61013b610135366004610284565b50600090565b60405190815260200161011e565b61013b6101573660046102f2565b6000949350505050565b61017461016f36600461034f565b505050565b005b61013b610184366004610382565b600092915050565b61013b61019a3660046103b5565b600095945050505050565b6101b96101b3366004610284565b50600190565b6040516001600160a01b03909116815260200161011e565b6101746101df366004610423565b50505050565b61013b6101f336600461048f565b60009392505050565b600061013b565b60006101b9565b6040516000815260200161011e565b6102276100fd366004610284565b604080516fffffffffffffffffffffffffffffffff94851681529390921660208401529082015260600161011e565b610174610264366004610382565b5050565b80356001600160a01b038116811461027f57600080fd5b919050565b60006020828403121561029657600080fd5b61029f82610268565b9392505050565b60008083601f8401126102b857600080fd5b50813567ffffffffffffffff8111156102d057600080fd5b6020830191508360208260051b85010111156102eb57600080fd5b9250929050565b6000806000806060858703121561030857600080fd5b843567ffffffffffffffff81111561031f57600080fd5b61032b878288016102a6565b9095509350506020850135915061034460408601610268565b905092959194509250565b60008060006060848603121561036457600080fd5b61036d84610268565b95602085013595506040909401359392505050565b6000806040838503121561039557600080fd5b61039e83610268565b91506103ac60208401610268565b90509250929050565b6000806000806000608086880312156103cd57600080fd5b853567ffffffffffffffff8111156103e457600080fd5b6103f0888289016102a6565b9096509450506020860135925061040960408701610268565b915061041760608701610268565b90509295509295909350565b6000806000806040858703121561043957600080fd5b843567ffffffffffffffff8082111561045157600080fd5b61045d888389016102a6565b9096509450602087013591508082111561047657600080fd5b50610483878288016102a6565b95989497509550505050565b6000806000604084860312156104a457600080fd5b833567ffffffffffffffff8111156104bb57600080fd5b6104c7868287016102a6565b90945092506104da905060208501610268565b9050925092509256fea2646970667358221220af1d4b0a896dafdeaeefa735fba9352f13d908aba1acdf1900f7dfc20020b42764736f6c634300080a0033" . parse () . expect ("invalid bytecode")
     });
-    #[derive(Clone)]
     pub struct MockIncentivesController<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for MockIncentivesController<M> {
+        fn clone(&self) -> Self {
+            MockIncentivesController(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for MockIncentivesController<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -41,7 +45,7 @@ mod mockincentivescontroller_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> MockIncentivesController<M> {
+    impl<M: ethers::providers::Middleware> MockIncentivesController<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -82,7 +86,7 @@ mod mockincentivescontroller_mod {
         pub fn deploy<T: ethers::core::abi::Tokenize>(
             client: ::std::sync::Arc<M>,
             constructor_args: T,
-        ) -> Result<
+        ) -> ::std::result::Result<
             ethers::contract::builders::ContractDeployer<M, Self>,
             ethers::contract::ContractError<M>,
         > {
@@ -246,9 +250,15 @@ mod mockincentivescontroller_mod {
             self.0.event()
         }
         #[doc = "Gets the contract's `RewardsClaimed` event"]
-        pub fn rewards_claimed_filter(
+        pub fn rewards_claimed_1_filter(
             &self,
-        ) -> ethers::contract::builders::Event<M, RewardsClaimedFilter> {
+        ) -> ethers::contract::builders::Event<M, RewardsClaimed1Filter> {
+            self.0.event()
+        }
+        #[doc = "Gets the contract's `RewardsClaimed` event"]
+        pub fn rewards_claimed_2_filter(
+            &self,
+        ) -> ethers::contract::builders::Event<M, RewardsClaimed2Filter> {
             self.0.event()
         }
         #[doc = r" Returns an [`Event`](#ethers_contract::builders::Event) builder for all events of this contract"]
@@ -309,21 +319,46 @@ mod mockincentivescontroller_mod {
         name = "RewardsClaimed",
         abi = "RewardsClaimed(address,address,uint256)"
     )]
-    pub struct RewardsClaimedFilter {
+    pub struct RewardsClaimed1Filter {
         #[ethevent(indexed)]
         pub user: ethers::core::types::Address,
         #[ethevent(indexed)]
         pub to: ethers::core::types::Address,
         pub amount: ethers::core::types::U256,
     }
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthEvent,
+        ethers :: contract :: EthDisplay,
+    )]
+    #[ethevent(
+        name = "RewardsClaimed",
+        abi = "RewardsClaimed(address,address,address,uint256)"
+    )]
+    pub struct RewardsClaimed2Filter {
+        #[ethevent(indexed)]
+        pub user: ethers::core::types::Address,
+        #[ethevent(indexed)]
+        pub to: ethers::core::types::Address,
+        #[ethevent(indexed)]
+        pub claimer: ethers::core::types::Address,
+        pub amount: ethers::core::types::U256,
+    }
     #[derive(Debug, Clone, PartialEq, Eq, ethers :: contract :: EthAbiType)]
     pub enum MockIncentivesControllerEvents {
         ClaimerSetFilter(ClaimerSetFilter),
         RewardsAccruedFilter(RewardsAccruedFilter),
-        RewardsClaimedFilter(RewardsClaimedFilter),
+        RewardsClaimed1Filter(RewardsClaimed1Filter),
+        RewardsClaimed2Filter(RewardsClaimed2Filter),
     }
     impl ethers::contract::EthLogDecode for MockIncentivesControllerEvents {
-        fn decode_log(log: &ethers::core::abi::RawLog) -> Result<Self, ethers::core::abi::Error>
+        fn decode_log(
+            log: &ethers::core::abi::RawLog,
+        ) -> ::std::result::Result<Self, ethers::core::abi::Error>
         where
             Self: Sized,
         {
@@ -335,13 +370,13 @@ mod mockincentivescontroller_mod {
                     decoded,
                 ));
             }
-            if let Ok(decoded) = RewardsClaimedFilter::decode_log(log) {
-                return Ok(MockIncentivesControllerEvents::RewardsClaimedFilter(
+            if let Ok(decoded) = RewardsClaimed1Filter::decode_log(log) {
+                return Ok(MockIncentivesControllerEvents::RewardsClaimed1Filter(
                     decoded,
                 ));
             }
-            if let Ok(decoded) = RewardsClaimedFilter::decode_log(log) {
-                return Ok(MockIncentivesControllerEvents::RewardsClaimedFilter(
+            if let Ok(decoded) = RewardsClaimed2Filter::decode_log(log) {
+                return Ok(MockIncentivesControllerEvents::RewardsClaimed2Filter(
                     decoded,
                 ));
             }
@@ -353,12 +388,12 @@ mod mockincentivescontroller_mod {
             match self {
                 MockIncentivesControllerEvents::ClaimerSetFilter(element) => element.fmt(f),
                 MockIncentivesControllerEvents::RewardsAccruedFilter(element) => element.fmt(f),
-                MockIncentivesControllerEvents::RewardsClaimedFilter(element) => element.fmt(f),
-                MockIncentivesControllerEvents::RewardsClaimedFilter(element) => element.fmt(f),
+                MockIncentivesControllerEvents::RewardsClaimed1Filter(element) => element.fmt(f),
+                MockIncentivesControllerEvents::RewardsClaimed2Filter(element) => element.fmt(f),
             }
         }
     }
-    #[doc = "Container type for all input parameters for the `DISTRIBUTION_END`function with signature `DISTRIBUTION_END()` and selector `[145, 156, 212, 15]`"]
+    #[doc = "Container type for all input parameters for the `DISTRIBUTION_END` function with signature `DISTRIBUTION_END()` and selector `[145, 156, 212, 15]`"]
     #[derive(
         Clone,
         Debug,
@@ -370,7 +405,7 @@ mod mockincentivescontroller_mod {
     )]
     #[ethcall(name = "DISTRIBUTION_END", abi = "DISTRIBUTION_END()")]
     pub struct DistributionEndCall;
-    #[doc = "Container type for all input parameters for the `PRECISION`function with signature `PRECISION()` and selector `[170, 245, 235, 104]`"]
+    #[doc = "Container type for all input parameters for the `PRECISION` function with signature `PRECISION()` and selector `[170, 245, 235, 104]`"]
     #[derive(
         Clone,
         Debug,
@@ -382,7 +417,7 @@ mod mockincentivescontroller_mod {
     )]
     #[ethcall(name = "PRECISION", abi = "PRECISION()")]
     pub struct PrecisionCall;
-    #[doc = "Container type for all input parameters for the `REWARD_TOKEN`function with signature `REWARD_TOKEN()` and selector `[153, 36, 142, 167]`"]
+    #[doc = "Container type for all input parameters for the `REWARD_TOKEN` function with signature `REWARD_TOKEN()` and selector `[153, 36, 142, 167]`"]
     #[derive(
         Clone,
         Debug,
@@ -394,7 +429,7 @@ mod mockincentivescontroller_mod {
     )]
     #[ethcall(name = "REWARD_TOKEN", abi = "REWARD_TOKEN()")]
     pub struct RewardTokenCall;
-    #[doc = "Container type for all input parameters for the `assets`function with signature `assets(address)` and selector `[241, 27, 129, 136]`"]
+    #[doc = "Container type for all input parameters for the `assets` function with signature `assets(address)` and selector `[241, 27, 129, 136]`"]
     #[derive(
         Clone,
         Debug,
@@ -406,7 +441,7 @@ mod mockincentivescontroller_mod {
     )]
     #[ethcall(name = "assets", abi = "assets(address)")]
     pub struct AssetsCall(pub ethers::core::types::Address);
-    #[doc = "Container type for all input parameters for the `claimRewards`function with signature `claimRewards(address[],uint256,address)` and selector `[49, 17, 231, 179]`"]
+    #[doc = "Container type for all input parameters for the `claimRewards` function with signature `claimRewards(address[],uint256,address)` and selector `[49, 17, 231, 179]`"]
     #[derive(
         Clone,
         Debug,
@@ -422,7 +457,7 @@ mod mockincentivescontroller_mod {
         pub ethers::core::types::U256,
         pub ethers::core::types::Address,
     );
-    #[doc = "Container type for all input parameters for the `claimRewardsOnBehalf`function with signature `claimRewardsOnBehalf(address[],uint256,address,address)` and selector `[109, 52, 185, 110]`"]
+    #[doc = "Container type for all input parameters for the `claimRewardsOnBehalf` function with signature `claimRewardsOnBehalf(address[],uint256,address,address)` and selector `[109, 52, 185, 110]`"]
     #[derive(
         Clone,
         Debug,
@@ -442,7 +477,7 @@ mod mockincentivescontroller_mod {
         pub ethers::core::types::Address,
         pub ethers::core::types::Address,
     );
-    #[doc = "Container type for all input parameters for the `configureAssets`function with signature `configureAssets(address[],uint256[])` and selector `[121, 241, 113, 178]`"]
+    #[doc = "Container type for all input parameters for the `configureAssets` function with signature `configureAssets(address[],uint256[])` and selector `[121, 241, 113, 178]`"]
     #[derive(
         Clone,
         Debug,
@@ -457,7 +492,7 @@ mod mockincentivescontroller_mod {
         pub ::std::vec::Vec<ethers::core::types::Address>,
         pub ::std::vec::Vec<ethers::core::types::U256>,
     );
-    #[doc = "Container type for all input parameters for the `getAssetData`function with signature `getAssetData(address)` and selector `[22, 82, 231, 183]`"]
+    #[doc = "Container type for all input parameters for the `getAssetData` function with signature `getAssetData(address)` and selector `[22, 82, 231, 183]`"]
     #[derive(
         Clone,
         Debug,
@@ -469,7 +504,7 @@ mod mockincentivescontroller_mod {
     )]
     #[ethcall(name = "getAssetData", abi = "getAssetData(address)")]
     pub struct GetAssetDataCall(pub ethers::core::types::Address);
-    #[doc = "Container type for all input parameters for the `getClaimer`function with signature `getClaimer(address)` and selector `[116, 217, 69, 236]`"]
+    #[doc = "Container type for all input parameters for the `getClaimer` function with signature `getClaimer(address)` and selector `[116, 217, 69, 236]`"]
     #[derive(
         Clone,
         Debug,
@@ -481,7 +516,7 @@ mod mockincentivescontroller_mod {
     )]
     #[ethcall(name = "getClaimer", abi = "getClaimer(address)")]
     pub struct GetClaimerCall(pub ethers::core::types::Address);
-    #[doc = "Container type for all input parameters for the `getRewardsBalance`function with signature `getRewardsBalance(address[],address)` and selector `[139, 89, 159, 38]`"]
+    #[doc = "Container type for all input parameters for the `getRewardsBalance` function with signature `getRewardsBalance(address[],address)` and selector `[139, 89, 159, 38]`"]
     #[derive(
         Clone,
         Debug,
@@ -499,7 +534,7 @@ mod mockincentivescontroller_mod {
         pub ::std::vec::Vec<ethers::core::types::Address>,
         pub ethers::core::types::Address,
     );
-    #[doc = "Container type for all input parameters for the `getUserAssetData`function with signature `getUserAssetData(address,address)` and selector `[51, 115, 238, 76]`"]
+    #[doc = "Container type for all input parameters for the `getUserAssetData` function with signature `getUserAssetData(address,address)` and selector `[51, 115, 238, 76]`"]
     #[derive(
         Clone,
         Debug,
@@ -514,7 +549,7 @@ mod mockincentivescontroller_mod {
         pub ethers::core::types::Address,
         pub ethers::core::types::Address,
     );
-    #[doc = "Container type for all input parameters for the `getUserUnclaimedRewards`function with signature `getUserUnclaimedRewards(address)` and selector `[25, 143, 168, 30]`"]
+    #[doc = "Container type for all input parameters for the `getUserUnclaimedRewards` function with signature `getUserUnclaimedRewards(address)` and selector `[25, 143, 168, 30]`"]
     #[derive(
         Clone,
         Debug,
@@ -529,7 +564,7 @@ mod mockincentivescontroller_mod {
         abi = "getUserUnclaimedRewards(address)"
     )]
     pub struct GetUserUnclaimedRewardsCall(pub ethers::core::types::Address);
-    #[doc = "Container type for all input parameters for the `handleAction`function with signature `handleAction(address,uint256,uint256)` and selector `[49, 135, 62, 46]`"]
+    #[doc = "Container type for all input parameters for the `handleAction` function with signature `handleAction(address,uint256,uint256)` and selector `[49, 135, 62, 46]`"]
     #[derive(
         Clone,
         Debug,
@@ -545,7 +580,7 @@ mod mockincentivescontroller_mod {
         pub ethers::core::types::U256,
         pub ethers::core::types::U256,
     );
-    #[doc = "Container type for all input parameters for the `setClaimer`function with signature `setClaimer(address,address)` and selector `[245, 207, 103, 59]`"]
+    #[doc = "Container type for all input parameters for the `setClaimer` function with signature `setClaimer(address,address)` and selector `[245, 207, 103, 59]`"]
     #[derive(
         Clone,
         Debug,
@@ -578,7 +613,9 @@ mod mockincentivescontroller_mod {
         SetClaimer(SetClaimerCall),
     }
     impl ethers::core::abi::AbiDecode for MockIncentivesControllerCalls {
-        fn decode(data: impl AsRef<[u8]>) -> Result<Self, ethers::core::abi::AbiError> {
+        fn decode(
+            data: impl AsRef<[u8]>,
+        ) -> ::std::result::Result<Self, ethers::core::abi::AbiError> {
             if let Ok(decoded) =
                 <DistributionEndCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
@@ -763,4 +800,129 @@ mod mockincentivescontroller_mod {
             MockIncentivesControllerCalls::SetClaimer(var)
         }
     }
+    #[doc = "Container type for all return fields from the `DISTRIBUTION_END` function with signature `DISTRIBUTION_END()` and selector `[145, 156, 212, 15]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct DistributionEndReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `PRECISION` function with signature `PRECISION()` and selector `[170, 245, 235, 104]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct PrecisionReturn(pub u8);
+    #[doc = "Container type for all return fields from the `REWARD_TOKEN` function with signature `REWARD_TOKEN()` and selector `[153, 36, 142, 167]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct RewardTokenReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `assets` function with signature `assets(address)` and selector `[241, 27, 129, 136]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct AssetsReturn(pub u128, pub u128, pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `claimRewards` function with signature `claimRewards(address[],uint256,address)` and selector `[49, 17, 231, 179]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct ClaimRewardsReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `claimRewardsOnBehalf` function with signature `claimRewardsOnBehalf(address[],uint256,address,address)` and selector `[109, 52, 185, 110]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct ClaimRewardsOnBehalfReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `getAssetData` function with signature `getAssetData(address)` and selector `[22, 82, 231, 183]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetAssetDataReturn(
+        pub ethers::core::types::U256,
+        pub ethers::core::types::U256,
+        pub ethers::core::types::U256,
+    );
+    #[doc = "Container type for all return fields from the `getClaimer` function with signature `getClaimer(address)` and selector `[116, 217, 69, 236]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetClaimerReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `getRewardsBalance` function with signature `getRewardsBalance(address[],address)` and selector `[139, 89, 159, 38]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetRewardsBalanceReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `getUserAssetData` function with signature `getUserAssetData(address,address)` and selector `[51, 115, 238, 76]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetUserAssetDataReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `getUserUnclaimedRewards` function with signature `getUserUnclaimedRewards(address)` and selector `[25, 143, 168, 30]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetUserUnclaimedRewardsReturn(pub ethers::core::types::U256);
 }

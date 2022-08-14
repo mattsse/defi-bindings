@@ -1,6 +1,6 @@
-pub use isolationmodelogic_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod isolationmodelogic_mod {
+pub use isolation_mode_logic::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod isolation_mode_logic {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,15 +18,19 @@ mod isolationmodelogic_mod {
     use std::sync::Arc;
     pub static ISOLATIONMODELOGIC_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"totalDebt\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"IsolationModeTotalDebtUpdated\",\"outputs\":[],\"anonymous\":false}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"totalDebt\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"IsolationModeTotalDebtUpdated\",\"outputs\":[],\"anonymous\":false}]") . expect ("invalid abi")
         });
     #[doc = r" Bytecode of the #name contract"]
     pub static ISOLATIONMODELOGIC_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
         ethers::contract::Lazy::new(|| {
-            "0x60566037600b82828239805160001a607314602a57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220a3b544fc2b470fc630d30126d3cbe4aec5e9fb464e943bb9ecb347c3ea2311a664736f6c634300080a0033" . parse () . expect ("invalid bytecode")
+            "0x60566037600b82828239805160001a607314602a57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea26469706673582212209498989520f8f7538ce765168970d0819cf1627a3d4841e164883f09a606334e64736f6c634300080a0033" . parse () . expect ("invalid bytecode")
         });
-    #[derive(Clone)]
     pub struct IsolationModeLogic<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for IsolationModeLogic<M> {
+        fn clone(&self) -> Self {
+            IsolationModeLogic(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for IsolationModeLogic<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -40,7 +44,7 @@ mod isolationmodelogic_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> IsolationModeLogic<M> {
+    impl<M: ethers::providers::Middleware> IsolationModeLogic<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -77,7 +81,7 @@ mod isolationmodelogic_mod {
         pub fn deploy<T: ethers::core::abi::Tokenize>(
             client: ::std::sync::Arc<M>,
             constructor_args: T,
-        ) -> Result<
+        ) -> ::std::result::Result<
             ethers::contract::builders::ContractDeployer<M, Self>,
             ethers::contract::ContractError<M>,
         > {

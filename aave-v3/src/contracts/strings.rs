@@ -1,6 +1,6 @@
-pub use strings_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod strings_mod {
+pub use strings::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod strings {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -17,14 +17,20 @@ mod strings_mod {
     #[doc = "Strings was auto-generated with ethers-rs Abigen. More information at: https://github.com/gakonst/ethers-rs"]
     use std::sync::Arc;
     pub static STRINGS_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
-        ethers::contract::Lazy::new(|| serde_json::from_str("[]").expect("invalid abi"));
+        ethers::contract::Lazy::new(|| {
+            ethers::core::utils::__serde_json::from_str("[]").expect("invalid abi")
+        });
     #[doc = r" Bytecode of the #name contract"]
     pub static STRINGS_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
         ethers::contract::Lazy::new(|| {
-            "0x60566037600b82828239805160001a607314602a57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220fe0e2b2dc51033cec33fde622ca0476611aa61e814a18a3db0b26d2e0fe3412a64736f6c634300080a0033" . parse () . expect ("invalid bytecode")
+            "0x60566037600b82828239805160001a607314602a57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea26469706673582212207bbbd485213b9ea860ceb6b13f4470fd5e0a16701468f5f8d56d4c556822d0b664736f6c634300080a0033" . parse () . expect ("invalid bytecode")
         });
-    #[derive(Clone)]
     pub struct Strings<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for Strings<M> {
+        fn clone(&self) -> Self {
+            Strings(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for Strings<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -38,7 +44,7 @@ mod strings_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> Strings<M> {
+    impl<M: ethers::providers::Middleware> Strings<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -74,7 +80,7 @@ mod strings_mod {
         pub fn deploy<T: ethers::core::abi::Tokenize>(
             client: ::std::sync::Arc<M>,
             constructor_args: T,
-        ) -> Result<
+        ) -> ::std::result::Result<
             ethers::contract::builders::ContractDeployer<M, Self>,
             ethers::contract::ContractError<M>,
         > {

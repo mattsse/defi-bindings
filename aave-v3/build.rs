@@ -5,7 +5,7 @@ use foundry_binder::{Binder, RepositoryBuilder, Url};
 const REPO_URL: &str = "https://github.com/aave/aave-v3-core";
 
 // the release tag for which to generate bindings for
-const RELEASE_TAG: &str = "v1.16.0";
+const RELEASE_TAG: &str = "v1.16.2";
 
 fn generate() {
     let binder =

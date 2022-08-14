@@ -1,12 +1,11 @@
 [package]
 name = "defi-bindings"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2021"
 
 [workspace]
 members = [
     "aave-v3",
     "compound",
-    "maple-loan",
     "uniswap-v3-periphery",
 ]

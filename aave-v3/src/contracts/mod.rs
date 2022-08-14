@@ -88,6 +88,8 @@ pub mod mock_initializable_from_constructor_imple;
 pub mod mock_initializable_imple;
 pub mod mock_initializable_imple_v2;
 pub mod mock_l2_pool;
+pub mod mock_periphery_contract_v1;
+pub mod mock_periphery_contract_v2;
 pub mod mock_pool;
 pub mod mock_pool_inherited;
 pub mod mock_reentrant_initializable_imple;

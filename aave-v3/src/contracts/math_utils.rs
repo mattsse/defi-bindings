@@ -1,6 +1,6 @@
-pub use mathutils_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod mathutils_mod {
+pub use math_utils::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod math_utils {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -17,14 +17,20 @@ mod mathutils_mod {
     #[doc = "MathUtils was auto-generated with ethers-rs Abigen. More information at: https://github.com/gakonst/ethers-rs"]
     use std::sync::Arc;
     pub static MATHUTILS_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
-        ethers::contract::Lazy::new(|| serde_json::from_str("[]").expect("invalid abi"));
+        ethers::contract::Lazy::new(|| {
+            ethers::core::utils::__serde_json::from_str("[]").expect("invalid abi")
+        });
     #[doc = r" Bytecode of the #name contract"]
     pub static MATHUTILS_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
         ethers::contract::Lazy::new(|| {
-            "0x60566037600b82828239805160001a607314602a57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220b6482d894c77a881f4a18bc56f08bf2a16372b1bbcc45eafc3245353be62382064736f6c634300080a0033" . parse () . expect ("invalid bytecode")
+            "0x60566037600b82828239805160001a607314602a57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea26469706673582212201f2cb935ff53b5b2b3cf377e4a1505ad7686c2d7404b59d9c591f281a8f0eafa64736f6c634300080a0033" . parse () . expect ("invalid bytecode")
         });
-    #[derive(Clone)]
     pub struct MathUtils<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for MathUtils<M> {
+        fn clone(&self) -> Self {
+            MathUtils(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for MathUtils<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -38,7 +44,7 @@ mod mathutils_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> MathUtils<M> {
+    impl<M: ethers::providers::Middleware> MathUtils<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -74,7 +80,7 @@ mod mathutils_mod {
         pub fn deploy<T: ethers::core::abi::Tokenize>(
             client: ::std::sync::Arc<M>,
             constructor_args: T,
-        ) -> Result<
+        ) -> ::std::result::Result<
             ethers::contract::builders::ContractDeployer<M, Self>,
             ethers::contract::ContractError<M>,
         > {

@@ -1,6 +1,6 @@
-pub use iaaveincentivescontroller_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod iaaveincentivescontroller_mod {
+pub use i_aave_incentives_controller::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod i_aave_incentives_controller {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,14 +18,14 @@ mod iaaveincentivescontroller_mod {
     use std::sync::Arc;
     pub static IAAVEINCENTIVESCONTROLLER_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"claimer\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"ClaimerSet\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"RewardsAccrued\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"RewardsClaimed\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"claimer\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"RewardsClaimed\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"DISTRIBUTION_END\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"PRECISION\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"REWARD_TOKEN\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"assets\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\",\"components\":[]},{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"assets\",\"type\":\"address[]\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"claimRewards\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"assets\",\"type\":\"address[]\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"claimRewardsOnBehalf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"assets\",\"type\":\"address[]\",\"components\":[]},{\"internalType\":\"uint256[]\",\"name\":\"emissionsPerSecond\",\"type\":\"uint256[]\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"configureAssets\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getAssetData\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getClaimer\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"assets\",\"type\":\"address[]\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getRewardsBalance\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getUserAssetData\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getUserUnclaimedRewards\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"userBalance\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"totalSupply\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"handleAction\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"claimer\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setClaimer\",\"outputs\":[]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"claimer\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"ClaimerSet\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"RewardsAccrued\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"RewardsClaimed\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"claimer\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"RewardsClaimed\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"DISTRIBUTION_END\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"PRECISION\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"REWARD_TOKEN\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"assets\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\",\"components\":[]},{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"assets\",\"type\":\"address[]\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"claimRewards\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"assets\",\"type\":\"address[]\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"claimRewardsOnBehalf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"assets\",\"type\":\"address[]\",\"components\":[]},{\"internalType\":\"uint256[]\",\"name\":\"emissionsPerSecond\",\"type\":\"uint256[]\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"configureAssets\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getAssetData\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getClaimer\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"assets\",\"type\":\"address[]\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getRewardsBalance\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getUserAssetData\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getUserUnclaimedRewards\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"userBalance\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"totalSupply\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"handleAction\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"claimer\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setClaimer\",\"outputs\":[]}]") . expect ("invalid abi")
         });
-    #[doc = r" Bytecode of the #name contract"]
-    pub static IAAVEINCENTIVESCONTROLLER_BYTECODE: ethers::contract::Lazy<
-        ethers::core::types::Bytes,
-    > = ethers::contract::Lazy::new(|| "0x".parse().expect("invalid bytecode"));
-    #[derive(Clone)]
     pub struct IAaveIncentivesController<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for IAaveIncentivesController<M> {
+        fn clone(&self) -> Self {
+            IAaveIncentivesController(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for IAaveIncentivesController<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -39,7 +39,7 @@ mod iaaveincentivescontroller_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> IAaveIncentivesController<M> {
+    impl<M: ethers::providers::Middleware> IAaveIncentivesController<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -53,45 +53,6 @@ mod iaaveincentivescontroller_mod {
                 client,
             )
             .into()
-        }
-        #[doc = r" Constructs the general purpose `Deployer` instance based on the provided constructor arguments and sends it."]
-        #[doc = r" Returns a new instance of a deployer that returns an instance of this contract after sending the transaction"]
-        #[doc = r""]
-        #[doc = r" Notes:"]
-        #[doc = r" 1. If there are no constructor arguments, you should pass `()` as the argument."]
-        #[doc = r" 1. The default poll duration is 7 seconds."]
-        #[doc = r" 1. The default number of confirmations is 1 block."]
-        #[doc = r""]
-        #[doc = r""]
-        #[doc = r" # Example"]
-        #[doc = r""]
-        #[doc = r" Generate contract bindings with `abigen!` and deploy a new contract instance."]
-        #[doc = r""]
-        #[doc = r" *Note*: this requires a `bytecode` and `abi` object in the `greeter.json` artifact."]
-        #[doc = r""]
-        #[doc = r" ```ignore"]
-        #[doc = r" # async fn deploy<M: ethers::providers::Middleware>(client: ::std::sync::Arc<M>) {"]
-        #[doc = r#"     abigen!(Greeter,"../greeter.json");"#]
-        #[doc = r""]
-        #[doc = r#"    let greeter_contract = Greeter::deploy(client, "Hello world!".to_string()).unwrap().send().await.unwrap();"#]
-        #[doc = r"    let msg = greeter_contract.greet().call().await.unwrap();"]
-        #[doc = r" # }"]
-        #[doc = r" ```"]
-        pub fn deploy<T: ethers::core::abi::Tokenize>(
-            client: ::std::sync::Arc<M>,
-            constructor_args: T,
-        ) -> Result<
-            ethers::contract::builders::ContractDeployer<M, Self>,
-            ethers::contract::ContractError<M>,
-        > {
-            let factory = ethers::contract::ContractFactory::new(
-                IAAVEINCENTIVESCONTROLLER_ABI.clone(),
-                IAAVEINCENTIVESCONTROLLER_BYTECODE.clone().into(),
-                client,
-            );
-            let deployer = factory.deploy(constructor_args)?;
-            let deployer = ethers::contract::ContractDeployer::new(deployer);
-            Ok(deployer)
         }
         #[doc = "Calls the contract's `DISTRIBUTION_END` (0x919cd40f) function"]
         pub fn distribution_end(
@@ -244,9 +205,15 @@ mod iaaveincentivescontroller_mod {
             self.0.event()
         }
         #[doc = "Gets the contract's `RewardsClaimed` event"]
-        pub fn rewards_claimed_filter(
+        pub fn rewards_claimed_1_filter(
             &self,
-        ) -> ethers::contract::builders::Event<M, RewardsClaimedFilter> {
+        ) -> ethers::contract::builders::Event<M, RewardsClaimed1Filter> {
+            self.0.event()
+        }
+        #[doc = "Gets the contract's `RewardsClaimed` event"]
+        pub fn rewards_claimed_2_filter(
+            &self,
+        ) -> ethers::contract::builders::Event<M, RewardsClaimed2Filter> {
             self.0.event()
         }
         #[doc = r" Returns an [`Event`](#ethers_contract::builders::Event) builder for all events of this contract"]
@@ -305,9 +272,29 @@ mod iaaveincentivescontroller_mod {
     )]
     #[ethevent(
         name = "RewardsClaimed",
+        abi = "RewardsClaimed(address,address,uint256)"
+    )]
+    pub struct RewardsClaimed1Filter {
+        #[ethevent(indexed)]
+        pub user: ethers::core::types::Address,
+        #[ethevent(indexed)]
+        pub to: ethers::core::types::Address,
+        pub amount: ethers::core::types::U256,
+    }
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthEvent,
+        ethers :: contract :: EthDisplay,
+    )]
+    #[ethevent(
+        name = "RewardsClaimed",
         abi = "RewardsClaimed(address,address,address,uint256)"
     )]
-    pub struct RewardsClaimedFilter {
+    pub struct RewardsClaimed2Filter {
         #[ethevent(indexed)]
         pub user: ethers::core::types::Address,
         #[ethevent(indexed)]
@@ -320,10 +307,13 @@ mod iaaveincentivescontroller_mod {
     pub enum IAaveIncentivesControllerEvents {
         ClaimerSetFilter(ClaimerSetFilter),
         RewardsAccruedFilter(RewardsAccruedFilter),
-        RewardsClaimedFilter(RewardsClaimedFilter),
+        RewardsClaimed1Filter(RewardsClaimed1Filter),
+        RewardsClaimed2Filter(RewardsClaimed2Filter),
     }
     impl ethers::contract::EthLogDecode for IAaveIncentivesControllerEvents {
-        fn decode_log(log: &ethers::core::abi::RawLog) -> Result<Self, ethers::core::abi::Error>
+        fn decode_log(
+            log: &ethers::core::abi::RawLog,
+        ) -> ::std::result::Result<Self, ethers::core::abi::Error>
         where
             Self: Sized,
         {
@@ -335,13 +325,13 @@ mod iaaveincentivescontroller_mod {
                     decoded,
                 ));
             }
-            if let Ok(decoded) = RewardsClaimedFilter::decode_log(log) {
-                return Ok(IAaveIncentivesControllerEvents::RewardsClaimedFilter(
+            if let Ok(decoded) = RewardsClaimed1Filter::decode_log(log) {
+                return Ok(IAaveIncentivesControllerEvents::RewardsClaimed1Filter(
                     decoded,
                 ));
             }
-            if let Ok(decoded) = RewardsClaimedFilter::decode_log(log) {
-                return Ok(IAaveIncentivesControllerEvents::RewardsClaimedFilter(
+            if let Ok(decoded) = RewardsClaimed2Filter::decode_log(log) {
+                return Ok(IAaveIncentivesControllerEvents::RewardsClaimed2Filter(
                     decoded,
                 ));
             }
@@ -353,11 +343,12 @@ mod iaaveincentivescontroller_mod {
             match self {
                 IAaveIncentivesControllerEvents::ClaimerSetFilter(element) => element.fmt(f),
                 IAaveIncentivesControllerEvents::RewardsAccruedFilter(element) => element.fmt(f),
-                IAaveIncentivesControllerEvents::RewardsClaimedFilter(element) => element.fmt(f),
+                IAaveIncentivesControllerEvents::RewardsClaimed1Filter(element) => element.fmt(f),
+                IAaveIncentivesControllerEvents::RewardsClaimed2Filter(element) => element.fmt(f),
             }
         }
     }
-    #[doc = "Container type for all input parameters for the `DISTRIBUTION_END`function with signature `DISTRIBUTION_END()` and selector `[145, 156, 212, 15]`"]
+    #[doc = "Container type for all input parameters for the `DISTRIBUTION_END` function with signature `DISTRIBUTION_END()` and selector `[145, 156, 212, 15]`"]
     #[derive(
         Clone,
         Debug,
@@ -369,7 +360,7 @@ mod iaaveincentivescontroller_mod {
     )]
     #[ethcall(name = "DISTRIBUTION_END", abi = "DISTRIBUTION_END()")]
     pub struct DistributionEndCall;
-    #[doc = "Container type for all input parameters for the `PRECISION`function with signature `PRECISION()` and selector `[170, 245, 235, 104]`"]
+    #[doc = "Container type for all input parameters for the `PRECISION` function with signature `PRECISION()` and selector `[170, 245, 235, 104]`"]
     #[derive(
         Clone,
         Debug,
@@ -381,7 +372,7 @@ mod iaaveincentivescontroller_mod {
     )]
     #[ethcall(name = "PRECISION", abi = "PRECISION()")]
     pub struct PrecisionCall;
-    #[doc = "Container type for all input parameters for the `REWARD_TOKEN`function with signature `REWARD_TOKEN()` and selector `[153, 36, 142, 167]`"]
+    #[doc = "Container type for all input parameters for the `REWARD_TOKEN` function with signature `REWARD_TOKEN()` and selector `[153, 36, 142, 167]`"]
     #[derive(
         Clone,
         Debug,
@@ -393,7 +384,7 @@ mod iaaveincentivescontroller_mod {
     )]
     #[ethcall(name = "REWARD_TOKEN", abi = "REWARD_TOKEN()")]
     pub struct RewardTokenCall;
-    #[doc = "Container type for all input parameters for the `assets`function with signature `assets(address)` and selector `[241, 27, 129, 136]`"]
+    #[doc = "Container type for all input parameters for the `assets` function with signature `assets(address)` and selector `[241, 27, 129, 136]`"]
     #[derive(
         Clone,
         Debug,
@@ -407,7 +398,7 @@ mod iaaveincentivescontroller_mod {
     pub struct AssetsCall {
         pub asset: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `claimRewards`function with signature `claimRewards(address[],uint256,address)` and selector `[49, 17, 231, 179]`"]
+    #[doc = "Container type for all input parameters for the `claimRewards` function with signature `claimRewards(address[],uint256,address)` and selector `[49, 17, 231, 179]`"]
     #[derive(
         Clone,
         Debug,
@@ -423,7 +414,7 @@ mod iaaveincentivescontroller_mod {
         pub amount: ethers::core::types::U256,
         pub to: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `claimRewardsOnBehalf`function with signature `claimRewardsOnBehalf(address[],uint256,address,address)` and selector `[109, 52, 185, 110]`"]
+    #[doc = "Container type for all input parameters for the `claimRewardsOnBehalf` function with signature `claimRewardsOnBehalf(address[],uint256,address,address)` and selector `[109, 52, 185, 110]`"]
     #[derive(
         Clone,
         Debug,
@@ -443,7 +434,7 @@ mod iaaveincentivescontroller_mod {
         pub user: ethers::core::types::Address,
         pub to: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `configureAssets`function with signature `configureAssets(address[],uint256[])` and selector `[121, 241, 113, 178]`"]
+    #[doc = "Container type for all input parameters for the `configureAssets` function with signature `configureAssets(address[],uint256[])` and selector `[121, 241, 113, 178]`"]
     #[derive(
         Clone,
         Debug,
@@ -458,7 +449,7 @@ mod iaaveincentivescontroller_mod {
         pub assets: ::std::vec::Vec<ethers::core::types::Address>,
         pub emissions_per_second: ::std::vec::Vec<ethers::core::types::U256>,
     }
-    #[doc = "Container type for all input parameters for the `getAssetData`function with signature `getAssetData(address)` and selector `[22, 82, 231, 183]`"]
+    #[doc = "Container type for all input parameters for the `getAssetData` function with signature `getAssetData(address)` and selector `[22, 82, 231, 183]`"]
     #[derive(
         Clone,
         Debug,
@@ -472,7 +463,7 @@ mod iaaveincentivescontroller_mod {
     pub struct GetAssetDataCall {
         pub asset: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `getClaimer`function with signature `getClaimer(address)` and selector `[116, 217, 69, 236]`"]
+    #[doc = "Container type for all input parameters for the `getClaimer` function with signature `getClaimer(address)` and selector `[116, 217, 69, 236]`"]
     #[derive(
         Clone,
         Debug,
@@ -486,7 +477,7 @@ mod iaaveincentivescontroller_mod {
     pub struct GetClaimerCall {
         pub user: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `getRewardsBalance`function with signature `getRewardsBalance(address[],address)` and selector `[139, 89, 159, 38]`"]
+    #[doc = "Container type for all input parameters for the `getRewardsBalance` function with signature `getRewardsBalance(address[],address)` and selector `[139, 89, 159, 38]`"]
     #[derive(
         Clone,
         Debug,
@@ -504,7 +495,7 @@ mod iaaveincentivescontroller_mod {
         pub assets: ::std::vec::Vec<ethers::core::types::Address>,
         pub user: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `getUserAssetData`function with signature `getUserAssetData(address,address)` and selector `[51, 115, 238, 76]`"]
+    #[doc = "Container type for all input parameters for the `getUserAssetData` function with signature `getUserAssetData(address,address)` and selector `[51, 115, 238, 76]`"]
     #[derive(
         Clone,
         Debug,
@@ -519,7 +510,7 @@ mod iaaveincentivescontroller_mod {
         pub user: ethers::core::types::Address,
         pub asset: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `getUserUnclaimedRewards`function with signature `getUserUnclaimedRewards(address)` and selector `[25, 143, 168, 30]`"]
+    #[doc = "Container type for all input parameters for the `getUserUnclaimedRewards` function with signature `getUserUnclaimedRewards(address)` and selector `[25, 143, 168, 30]`"]
     #[derive(
         Clone,
         Debug,
@@ -536,7 +527,7 @@ mod iaaveincentivescontroller_mod {
     pub struct GetUserUnclaimedRewardsCall {
         pub user: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `handleAction`function with signature `handleAction(address,uint256,uint256)` and selector `[49, 135, 62, 46]`"]
+    #[doc = "Container type for all input parameters for the `handleAction` function with signature `handleAction(address,uint256,uint256)` and selector `[49, 135, 62, 46]`"]
     #[derive(
         Clone,
         Debug,
@@ -552,7 +543,7 @@ mod iaaveincentivescontroller_mod {
         pub user_balance: ethers::core::types::U256,
         pub total_supply: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `setClaimer`function with signature `setClaimer(address,address)` and selector `[245, 207, 103, 59]`"]
+    #[doc = "Container type for all input parameters for the `setClaimer` function with signature `setClaimer(address,address)` and selector `[245, 207, 103, 59]`"]
     #[derive(
         Clone,
         Debug,
@@ -585,7 +576,9 @@ mod iaaveincentivescontroller_mod {
         SetClaimer(SetClaimerCall),
     }
     impl ethers::core::abi::AbiDecode for IAaveIncentivesControllerCalls {
-        fn decode(data: impl AsRef<[u8]>) -> Result<Self, ethers::core::abi::AbiError> {
+        fn decode(
+            data: impl AsRef<[u8]>,
+        ) -> ::std::result::Result<Self, ethers::core::abi::AbiError> {
             if let Ok(decoded) =
                 <DistributionEndCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
@@ -774,4 +767,129 @@ mod iaaveincentivescontroller_mod {
             IAaveIncentivesControllerCalls::SetClaimer(var)
         }
     }
+    #[doc = "Container type for all return fields from the `DISTRIBUTION_END` function with signature `DISTRIBUTION_END()` and selector `[145, 156, 212, 15]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct DistributionEndReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `PRECISION` function with signature `PRECISION()` and selector `[170, 245, 235, 104]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct PrecisionReturn(pub u8);
+    #[doc = "Container type for all return fields from the `REWARD_TOKEN` function with signature `REWARD_TOKEN()` and selector `[153, 36, 142, 167]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct RewardTokenReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `assets` function with signature `assets(address)` and selector `[241, 27, 129, 136]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct AssetsReturn(pub u128, pub u128, pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `claimRewards` function with signature `claimRewards(address[],uint256,address)` and selector `[49, 17, 231, 179]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct ClaimRewardsReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `claimRewardsOnBehalf` function with signature `claimRewardsOnBehalf(address[],uint256,address,address)` and selector `[109, 52, 185, 110]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct ClaimRewardsOnBehalfReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `getAssetData` function with signature `getAssetData(address)` and selector `[22, 82, 231, 183]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetAssetDataReturn(
+        pub ethers::core::types::U256,
+        pub ethers::core::types::U256,
+        pub ethers::core::types::U256,
+    );
+    #[doc = "Container type for all return fields from the `getClaimer` function with signature `getClaimer(address)` and selector `[116, 217, 69, 236]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetClaimerReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `getRewardsBalance` function with signature `getRewardsBalance(address[],address)` and selector `[139, 89, 159, 38]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetRewardsBalanceReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `getUserAssetData` function with signature `getUserAssetData(address,address)` and selector `[51, 115, 238, 76]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetUserAssetDataReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `getUserUnclaimedRewards` function with signature `getUserUnclaimedRewards(address)` and selector `[25, 143, 168, 30]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetUserUnclaimedRewardsReturn(pub ethers::core::types::U256);
 }

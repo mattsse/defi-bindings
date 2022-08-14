@@ -1,6 +1,6 @@
-pub use defaultreserveinterestratestrategy_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod defaultreserveinterestratestrategy_mod {
+pub use default_reserve_interest_rate_strategy::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod default_reserve_interest_rate_strategy {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -20,16 +20,20 @@ mod defaultreserveinterestratestrategy_mod {
     pub static DEFAULTRESERVEINTERESTRATESTRATEGY_ABI: ethers::contract::Lazy<
         ethers::core::abi::Abi,
     > = ethers::contract::Lazy::new(|| {
-        serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"contract IPoolAddressesProvider\",\"name\":\"provider\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"optimalUsageRatio\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"baseVariableBorrowRate\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"variableRateSlope1\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"variableRateSlope2\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"stableRateSlope1\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"stableRateSlope2\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"baseStableRateOffset\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"stableRateExcessOffset\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"optimalStableToTotalDebtRatio\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\",\"outputs\":[]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"ADDRESSES_PROVIDER\",\"outputs\":[{\"internalType\":\"contract IPoolAddressesProvider\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"MAX_EXCESS_STABLE_TO_TOTAL_DEBT_RATIO\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"MAX_EXCESS_USAGE_RATIO\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"OPTIMAL_STABLE_TO_TOTAL_DEBT_RATIO\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"OPTIMAL_USAGE_RATIO\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"struct DataTypes.CalculateInterestRatesParams\",\"name\":\"params\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"uint256\",\"name\":\"unbacked\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"liquidityAdded\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"liquidityTaken\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"totalStableDebt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"totalVariableDebt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"averageStableBorrowRate\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"reserveFactor\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"reserve\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"aToken\",\"type\":\"address\",\"components\":[]}]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"calculateInterestRates\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getBaseStableBorrowRate\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getBaseVariableBorrowRate\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getMaxVariableBorrowRate\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getStableRateExcessOffset\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getStableRateSlope1\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getStableRateSlope2\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getVariableRateSlope1\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getVariableRateSlope2\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]}]") . expect ("invalid abi")
+        ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"contract IPoolAddressesProvider\",\"name\":\"provider\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"optimalUsageRatio\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"baseVariableBorrowRate\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"variableRateSlope1\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"variableRateSlope2\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"stableRateSlope1\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"stableRateSlope2\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"baseStableRateOffset\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"stableRateExcessOffset\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"optimalStableToTotalDebtRatio\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\",\"outputs\":[]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"ADDRESSES_PROVIDER\",\"outputs\":[{\"internalType\":\"contract IPoolAddressesProvider\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"MAX_EXCESS_STABLE_TO_TOTAL_DEBT_RATIO\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"MAX_EXCESS_USAGE_RATIO\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"OPTIMAL_STABLE_TO_TOTAL_DEBT_RATIO\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"OPTIMAL_USAGE_RATIO\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"struct DataTypes.CalculateInterestRatesParams\",\"name\":\"params\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"uint256\",\"name\":\"unbacked\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"liquidityAdded\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"liquidityTaken\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"totalStableDebt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"totalVariableDebt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"averageStableBorrowRate\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"reserveFactor\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"reserve\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"aToken\",\"type\":\"address\",\"components\":[]}]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"calculateInterestRates\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getBaseStableBorrowRate\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getBaseVariableBorrowRate\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getMaxVariableBorrowRate\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getStableRateExcessOffset\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getStableRateSlope1\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getStableRateSlope2\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getVariableRateSlope1\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getVariableRateSlope2\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]}]") . expect ("invalid abi")
     });
     #[doc = r" Bytecode of the #name contract"]
     pub static DEFAULTRESERVEINTERESTRATESTRATEGY_BYTECODE: ethers::contract::Lazy<
         ethers::core::types::Bytes,
     > = ethers::contract::Lazy::new(|| {
-        "0x61020060405234801561001157600080fd5b50604051610e68380380610e6883398101604081905261003091610144565b886b033b2e3c9fd0803ce8000000101560405180604001604052806002815260200161383360f01b815250906100825760405162461bcd60e51b815260040161007991906101cf565b60405180910390fd5b50806b033b2e3c9fd0803ce80000001015604051806040016040528060028152602001610e0d60f21b815250906100cc5760405162461bcd60e51b815260040161007991906101cf565b5060808990526100e8896b033b2e3c9fd0803ce8000000610224565b60c05260a0819052610106816b033b2e3c9fd0803ce8000000610224565b60e052506001600160a01b0390981661010052610120959095526101409390935261016091909152610180526101a0526101c052506101e052610249565b6000806000806000806000806000806101408b8d03121561016457600080fd5b8a516001600160a01b038116811461017b57600080fd5b809a505060208b0151985060408b0151975060608b0151965060808b0151955060a08b0151945060c08b0151935060e08b015192506101008b015191506101208b015190509295989b9194979a5092959850565b600060208083528351808285015260005b818110156101fc578581018301518582016040015282016101e0565b8181111561020e576000604083870101525b50601f01601f1916929092016040019392505050565b60008282101561024457634e487b7160e01b600052601160045260246000fd5b500390565b60805160a05160c05160e05161010051610120516101405161016051610180516101a0516101c0516101e051610b03610365600039600081816102640152610813015260006108b601526000818161016501526105de01526000818161028a0152818161060901526106de0152600081816102b0015281816102ff015261064601526000818161013501528181610323015281816106710152818161075001526108d701526000818161018b0152818161034401526103eb0152600060f40152600081816102d901526107bd01526000818161023801526105820152600081816101db0152818161078c01526107de0152600081816101b401528181610551015281816105a3015281816106b5015261072a0152610b036000f3fe608060405234801561001057600080fd5b50600436106100ea5760003560e01c8063a58987091161008c578063bc62690811610066578063bc62690814610262578063d5cd739114610288578063f4202409146102ae578063fe5fd698146102d457600080fd5b8063a589870914610205578063a9c622f814610233578063acd786861461025a57600080fd5b806334762ca5116100c857806334762ca51461018957806354c365c6146101af5780636fb92589146101d657806380031e37146101fd57600080fd5b80630542975c146100ef5780630b3429a21461013357806314e32da414610163575b600080fd5b6101167f000000000000000000000000000000000000000000000000000000000000000081565b6040516001600160a01b0390911681526020015b60405180910390f35b7f00000000000000000000000000000000000000000000000000000000000000005b60405190815260200161012a565b7f0000000000000000000000000000000000000000000000000000000000000000610155565b7f0000000000000000000000000000000000000000000000000000000000000000610155565b6101557f000000000000000000000000000000000000000000000000000000000000000081565b6101557f000000000000000000000000000000000000000000000000000000000000000081565b6101556102fb565b610218610213366004610a26565b610377565b6040805193845260208401929092529082015260600161012a565b6101557f000000000000000000000000000000000000000000000000000000000000000081565b6101556108af565b7f0000000000000000000000000000000000000000000000000000000000000000610155565b7f0000000000000000000000000000000000000000000000000000000000000000610155565b7f0000000000000000000000000000000000000000000000000000000000000000610155565b6101557f000000000000000000000000000000000000000000000000000000000000000081565b60007f00000000000000000000000000000000000000000000000000000000000000006103687f00000000000000000000000000000000000000000000000000000000000000007f0000000000000000000000000000000000000000000000000000000000000000610a55565b6103729190610a55565b905090565b60008060006103cb6040518061012001604052806000815260200160008152602001600081526020016000815260200160008152602001600081526020016000815260200160008152602001600081525090565b6103dd60808601356060870135610a55565b6020820152600060808201527f000000000000000000000000000000000000000000000000000000000000000060408201526104176108af565b606082015260208101511561054f57602081015161043a906060870135906108fb565b8160e0018181525050846040013585602001358660e00160208101906104609190610a6d565b6001600160a01b03166370a082316104806101208a016101008b01610a6d565b6040516001600160e01b031960e084901b1681526001600160a01b039091166004820152602401602060405180830381865afa1580156104c4573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906104e89190610a9d565b6104f29190610a55565b6104fc9190610ab6565b808252602082015161050d91610a55565b61010082018190526020820151610523916108fb565b60a08201526101008101516105499061053e90873590610a55565b6020830151906108fb565b60c08201525b7f00000000000000000000000000000000000000000000000000000000000000008160a0015111156106b05760006105d77f00000000000000000000000000000000000000000000000000000000000000007f00000000000000000000000000000000000000000000000000000000000000008460a001516105d19190610ab6565b906108fb565b90506106037f00000000000000000000000000000000000000000000000000000000000000008261093a565b61062d907f0000000000000000000000000000000000000000000000000000000000000000610a55565b8260600181815161063e9190610a55565b90525061066b7f00000000000000000000000000000000000000000000000000000000000000008261093a565b610695907f0000000000000000000000000000000000000000000000000000000000000000610a55565b826040018181516106a69190610a55565b90525061078a9050565b61070b7f00000000000000000000000000000000000000000000000000000000000000006105d18360a001517f000000000000000000000000000000000000000000000000000000000000000061093a90919063ffffffff16565b8160600181815161071c9190610a55565b90525060a0810151610775907f0000000000000000000000000000000000000000000000000000000000000000906105d1907f00000000000000000000000000000000000000000000000000000000000000009061093a565b816040018181516107869190610a55565b9052505b7f00000000000000000000000000000000000000000000000000000000000000008160e00151111561084e57600061080c7f00000000000000000000000000000000000000000000000000000000000000007f00000000000000000000000000000000000000000000000000000000000000008460e001516105d19190610ab6565b90506108387f00000000000000000000000000000000000000000000000000000000000000008261093a565b826060018181516108499190610a55565b905250505b61089161086160c0870135612710610ab6565b61088b8360c0015161088589606001358a6080013587604001518c60a0013561097e565b9061093a565b906109e5565b60808201819052606082015160409092015190969195509350915050565b60006103727f00000000000000000000000000000000000000000000000000000000000000007f0000000000000000000000000000000000000000000000000000000000000000610a55565b600081156b033b2e3c9fd0803ce80000006002840419048411171561091f57600080fd5b506b033b2e3c9fd0803ce80000009190910260028204010490565b600081156b019d971e4fe8401e74000000198390048411151761095c57600080fd5b506b033b2e3c9fd0803ce800000091026b019d971e4fe8401e74000000010490565b60008061098b8587610a55565b90508061099c5760009150506109dd565b60006109ab8561088588610a0b565b905060006109bc856108858a610a0b565b905060006109d66109cc85610a0b565b6105d18486610a55565b9450505050505b949350505050565b6000811561138819839004841115176109fd57600080fd5b506127109102611388010490565b633b9aca008181029081048214610a2157600080fd5b919050565b60006101208284031215610a3957600080fd5b50919050565b634e487b7160e01b600052601160045260246000fd5b60008219821115610a6857610a68610a3f565b500190565b600060208284031215610a7f57600080fd5b81356001600160a01b0381168114610a9657600080fd5b9392505050565b600060208284031215610aaf57600080fd5b5051919050565b600082821015610ac857610ac8610a3f565b50039056fea2646970667358221220a74a27b9d8b6a6d7054b532399c673256b44bf75cf4374e4a9e0f715f4e3f91d64736f6c634300080a0033" . parse () . expect ("invalid bytecode")
+        "0x61020060405234801561001157600080fd5b50604051610e68380380610e6883398101604081905261003091610144565b886b033b2e3c9fd0803ce8000000101560405180604001604052806002815260200161383360f01b815250906100825760405162461bcd60e51b815260040161007991906101cf565b60405180910390fd5b50806b033b2e3c9fd0803ce80000001015604051806040016040528060028152602001610e0d60f21b815250906100cc5760405162461bcd60e51b815260040161007991906101cf565b5060808990526100e8896b033b2e3c9fd0803ce8000000610224565b60c05260a0819052610106816b033b2e3c9fd0803ce8000000610224565b60e052506001600160a01b0390981661010052610120959095526101409390935261016091909152610180526101a0526101c052506101e052610249565b6000806000806000806000806000806101408b8d03121561016457600080fd5b8a516001600160a01b038116811461017b57600080fd5b809a505060208b0151985060408b0151975060608b0151965060808b0151955060a08b0151945060c08b0151935060e08b015192506101008b015191506101208b015190509295989b9194979a5092959850565b600060208083528351808285015260005b818110156101fc578581018301518582016040015282016101e0565b8181111561020e576000604083870101525b50601f01601f1916929092016040019392505050565b60008282101561024457634e487b7160e01b600052601160045260246000fd5b500390565b60805160a05160c05160e05161010051610120516101405161016051610180516101a0516101c0516101e051610b03610365600039600081816102640152610813015260006108b601526000818161016501526105de01526000818161028a0152818161060901526106de0152600081816102b0015281816102ff015261064601526000818161013501528181610323015281816106710152818161075001526108d701526000818161018b0152818161034401526103eb0152600060f40152600081816102d901526107bd01526000818161023801526105820152600081816101db0152818161078c01526107de0152600081816101b401528181610551015281816105a3015281816106b5015261072a0152610b036000f3fe608060405234801561001057600080fd5b50600436106100ea5760003560e01c8063a58987091161008c578063bc62690811610066578063bc62690814610262578063d5cd739114610288578063f4202409146102ae578063fe5fd698146102d457600080fd5b8063a589870914610205578063a9c622f814610233578063acd786861461025a57600080fd5b806334762ca5116100c857806334762ca51461018957806354c365c6146101af5780636fb92589146101d657806380031e37146101fd57600080fd5b80630542975c146100ef5780630b3429a21461013357806314e32da414610163575b600080fd5b6101167f000000000000000000000000000000000000000000000000000000000000000081565b6040516001600160a01b0390911681526020015b60405180910390f35b7f00000000000000000000000000000000000000000000000000000000000000005b60405190815260200161012a565b7f0000000000000000000000000000000000000000000000000000000000000000610155565b7f0000000000000000000000000000000000000000000000000000000000000000610155565b6101557f000000000000000000000000000000000000000000000000000000000000000081565b6101557f000000000000000000000000000000000000000000000000000000000000000081565b6101556102fb565b610218610213366004610a26565b610377565b6040805193845260208401929092529082015260600161012a565b6101557f000000000000000000000000000000000000000000000000000000000000000081565b6101556108af565b7f0000000000000000000000000000000000000000000000000000000000000000610155565b7f0000000000000000000000000000000000000000000000000000000000000000610155565b7f0000000000000000000000000000000000000000000000000000000000000000610155565b6101557f000000000000000000000000000000000000000000000000000000000000000081565b60007f00000000000000000000000000000000000000000000000000000000000000006103687f00000000000000000000000000000000000000000000000000000000000000007f0000000000000000000000000000000000000000000000000000000000000000610a55565b6103729190610a55565b905090565b60008060006103cb6040518061012001604052806000815260200160008152602001600081526020016000815260200160008152602001600081526020016000815260200160008152602001600081525090565b6103dd60808601356060870135610a55565b6020820152600060808201527f000000000000000000000000000000000000000000000000000000000000000060408201526104176108af565b606082015260208101511561054f57602081015161043a906060870135906108fb565b8160e0018181525050846040013585602001358660e00160208101906104609190610a6d565b6001600160a01b03166370a082316104806101208a016101008b01610a6d565b6040516001600160e01b031960e084901b1681526001600160a01b039091166004820152602401602060405180830381865afa1580156104c4573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906104e89190610a9d565b6104f29190610a55565b6104fc9190610ab6565b808252602082015161050d91610a55565b61010082018190526020820151610523916108fb565b60a08201526101008101516105499061053e90873590610a55565b6020830151906108fb565b60c08201525b7f00000000000000000000000000000000000000000000000000000000000000008160a0015111156106b05760006105d77f00000000000000000000000000000000000000000000000000000000000000007f00000000000000000000000000000000000000000000000000000000000000008460a001516105d19190610ab6565b906108fb565b90506106037f00000000000000000000000000000000000000000000000000000000000000008261093a565b61062d907f0000000000000000000000000000000000000000000000000000000000000000610a55565b8260600181815161063e9190610a55565b90525061066b7f00000000000000000000000000000000000000000000000000000000000000008261093a565b610695907f0000000000000000000000000000000000000000000000000000000000000000610a55565b826040018181516106a69190610a55565b90525061078a9050565b61070b7f00000000000000000000000000000000000000000000000000000000000000006105d18360a001517f000000000000000000000000000000000000000000000000000000000000000061093a90919063ffffffff16565b8160600181815161071c9190610a55565b90525060a0810151610775907f0000000000000000000000000000000000000000000000000000000000000000906105d1907f00000000000000000000000000000000000000000000000000000000000000009061093a565b816040018181516107869190610a55565b9052505b7f00000000000000000000000000000000000000000000000000000000000000008160e00151111561084e57600061080c7f00000000000000000000000000000000000000000000000000000000000000007f00000000000000000000000000000000000000000000000000000000000000008460e001516105d19190610ab6565b90506108387f00000000000000000000000000000000000000000000000000000000000000008261093a565b826060018181516108499190610a55565b905250505b61089161086160c0870135612710610ab6565b61088b8360c0015161088589606001358a6080013587604001518c60a0013561097e565b9061093a565b906109e5565b60808201819052606082015160409092015190969195509350915050565b60006103727f00000000000000000000000000000000000000000000000000000000000000007f0000000000000000000000000000000000000000000000000000000000000000610a55565b600081156b033b2e3c9fd0803ce80000006002840419048411171561091f57600080fd5b506b033b2e3c9fd0803ce80000009190910260028204010490565b600081156b019d971e4fe8401e74000000198390048411151761095c57600080fd5b506b033b2e3c9fd0803ce800000091026b019d971e4fe8401e74000000010490565b60008061098b8587610a55565b90508061099c5760009150506109dd565b60006109ab8561088588610a0b565b905060006109bc856108858a610a0b565b905060006109d66109cc85610a0b565b6105d18486610a55565b9450505050505b949350505050565b6000811561138819839004841115176109fd57600080fd5b506127109102611388010490565b633b9aca008181029081048214610a2157600080fd5b919050565b60006101208284031215610a3957600080fd5b50919050565b634e487b7160e01b600052601160045260246000fd5b60008219821115610a6857610a68610a3f565b500190565b600060208284031215610a7f57600080fd5b81356001600160a01b0381168114610a9657600080fd5b9392505050565b600060208284031215610aaf57600080fd5b5051919050565b600082821015610ac857610ac8610a3f565b50039056fea26469706673582212205b8f7b03cabc9b57c63cb5157c518250640366a43d8a710708f91b220f08a17c64736f6c634300080a0033" . parse () . expect ("invalid bytecode")
     });
-    #[derive(Clone)]
     pub struct DefaultReserveInterestRateStrategy<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for DefaultReserveInterestRateStrategy<M> {
+        fn clone(&self) -> Self {
+            DefaultReserveInterestRateStrategy(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for DefaultReserveInterestRateStrategy<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -43,7 +47,7 @@ mod defaultreserveinterestratestrategy_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> DefaultReserveInterestRateStrategy<M> {
+    impl<M: ethers::providers::Middleware> DefaultReserveInterestRateStrategy<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -84,7 +88,7 @@ mod defaultreserveinterestratestrategy_mod {
         pub fn deploy<T: ethers::core::abi::Tokenize>(
             client: ::std::sync::Arc<M>,
             constructor_args: T,
-        ) -> Result<
+        ) -> ::std::result::Result<
             ethers::contract::builders::ContractDeployer<M, Self>,
             ethers::contract::ContractError<M>,
         > {
@@ -225,7 +229,7 @@ mod defaultreserveinterestratestrategy_mod {
             Self(contract)
         }
     }
-    #[doc = "Container type for all input parameters for the `ADDRESSES_PROVIDER`function with signature `ADDRESSES_PROVIDER()` and selector `[5, 66, 151, 92]`"]
+    #[doc = "Container type for all input parameters for the `ADDRESSES_PROVIDER` function with signature `ADDRESSES_PROVIDER()` and selector `[5, 66, 151, 92]`"]
     #[derive(
         Clone,
         Debug,
@@ -237,7 +241,7 @@ mod defaultreserveinterestratestrategy_mod {
     )]
     #[ethcall(name = "ADDRESSES_PROVIDER", abi = "ADDRESSES_PROVIDER()")]
     pub struct AddressesProviderCall;
-    #[doc = "Container type for all input parameters for the `MAX_EXCESS_STABLE_TO_TOTAL_DEBT_RATIO`function with signature `MAX_EXCESS_STABLE_TO_TOTAL_DEBT_RATIO()` and selector `[254, 95, 214, 152]`"]
+    #[doc = "Container type for all input parameters for the `MAX_EXCESS_STABLE_TO_TOTAL_DEBT_RATIO` function with signature `MAX_EXCESS_STABLE_TO_TOTAL_DEBT_RATIO()` and selector `[254, 95, 214, 152]`"]
     #[derive(
         Clone,
         Debug,
@@ -252,7 +256,7 @@ mod defaultreserveinterestratestrategy_mod {
         abi = "MAX_EXCESS_STABLE_TO_TOTAL_DEBT_RATIO()"
     )]
     pub struct MaxExcessStableToTotalDebtRatioCall;
-    #[doc = "Container type for all input parameters for the `MAX_EXCESS_USAGE_RATIO`function with signature `MAX_EXCESS_USAGE_RATIO()` and selector `[169, 198, 34, 248]`"]
+    #[doc = "Container type for all input parameters for the `MAX_EXCESS_USAGE_RATIO` function with signature `MAX_EXCESS_USAGE_RATIO()` and selector `[169, 198, 34, 248]`"]
     #[derive(
         Clone,
         Debug,
@@ -264,7 +268,7 @@ mod defaultreserveinterestratestrategy_mod {
     )]
     #[ethcall(name = "MAX_EXCESS_USAGE_RATIO", abi = "MAX_EXCESS_USAGE_RATIO()")]
     pub struct MaxExcessUsageRatioCall;
-    #[doc = "Container type for all input parameters for the `OPTIMAL_STABLE_TO_TOTAL_DEBT_RATIO`function with signature `OPTIMAL_STABLE_TO_TOTAL_DEBT_RATIO()` and selector `[111, 185, 37, 137]`"]
+    #[doc = "Container type for all input parameters for the `OPTIMAL_STABLE_TO_TOTAL_DEBT_RATIO` function with signature `OPTIMAL_STABLE_TO_TOTAL_DEBT_RATIO()` and selector `[111, 185, 37, 137]`"]
     #[derive(
         Clone,
         Debug,
@@ -279,7 +283,7 @@ mod defaultreserveinterestratestrategy_mod {
         abi = "OPTIMAL_STABLE_TO_TOTAL_DEBT_RATIO()"
     )]
     pub struct OptimalStableToTotalDebtRatioCall;
-    #[doc = "Container type for all input parameters for the `OPTIMAL_USAGE_RATIO`function with signature `OPTIMAL_USAGE_RATIO()` and selector `[84, 195, 101, 198]`"]
+    #[doc = "Container type for all input parameters for the `OPTIMAL_USAGE_RATIO` function with signature `OPTIMAL_USAGE_RATIO()` and selector `[84, 195, 101, 198]`"]
     #[derive(
         Clone,
         Debug,
@@ -291,7 +295,7 @@ mod defaultreserveinterestratestrategy_mod {
     )]
     #[ethcall(name = "OPTIMAL_USAGE_RATIO", abi = "OPTIMAL_USAGE_RATIO()")]
     pub struct OptimalUsageRatioCall;
-    #[doc = "Container type for all input parameters for the `calculateInterestRates`function with signature `calculateInterestRates((uint256,uint256,uint256,uint256,uint256,uint256,uint256,address,address))` and selector `[165, 137, 135, 9]`"]
+    #[doc = "Container type for all input parameters for the `calculateInterestRates` function with signature `calculateInterestRates((uint256,uint256,uint256,uint256,uint256,uint256,uint256,address,address))` and selector `[165, 137, 135, 9]`"]
     #[derive(
         Clone,
         Debug,
@@ -308,7 +312,7 @@ mod defaultreserveinterestratestrategy_mod {
     pub struct CalculateInterestRatesCall {
         pub params: CalculateInterestRatesParams,
     }
-    #[doc = "Container type for all input parameters for the `getBaseStableBorrowRate`function with signature `getBaseStableBorrowRate()` and selector `[172, 215, 134, 134]`"]
+    #[doc = "Container type for all input parameters for the `getBaseStableBorrowRate` function with signature `getBaseStableBorrowRate()` and selector `[172, 215, 134, 134]`"]
     #[derive(
         Clone,
         Debug,
@@ -320,7 +324,7 @@ mod defaultreserveinterestratestrategy_mod {
     )]
     #[ethcall(name = "getBaseStableBorrowRate", abi = "getBaseStableBorrowRate()")]
     pub struct GetBaseStableBorrowRateCall;
-    #[doc = "Container type for all input parameters for the `getBaseVariableBorrowRate`function with signature `getBaseVariableBorrowRate()` and selector `[52, 118, 44, 165]`"]
+    #[doc = "Container type for all input parameters for the `getBaseVariableBorrowRate` function with signature `getBaseVariableBorrowRate()` and selector `[52, 118, 44, 165]`"]
     #[derive(
         Clone,
         Debug,
@@ -335,7 +339,7 @@ mod defaultreserveinterestratestrategy_mod {
         abi = "getBaseVariableBorrowRate()"
     )]
     pub struct GetBaseVariableBorrowRateCall;
-    #[doc = "Container type for all input parameters for the `getMaxVariableBorrowRate`function with signature `getMaxVariableBorrowRate()` and selector `[128, 3, 30, 55]`"]
+    #[doc = "Container type for all input parameters for the `getMaxVariableBorrowRate` function with signature `getMaxVariableBorrowRate()` and selector `[128, 3, 30, 55]`"]
     #[derive(
         Clone,
         Debug,
@@ -347,7 +351,7 @@ mod defaultreserveinterestratestrategy_mod {
     )]
     #[ethcall(name = "getMaxVariableBorrowRate", abi = "getMaxVariableBorrowRate()")]
     pub struct GetMaxVariableBorrowRateCall;
-    #[doc = "Container type for all input parameters for the `getStableRateExcessOffset`function with signature `getStableRateExcessOffset()` and selector `[188, 98, 105, 8]`"]
+    #[doc = "Container type for all input parameters for the `getStableRateExcessOffset` function with signature `getStableRateExcessOffset()` and selector `[188, 98, 105, 8]`"]
     #[derive(
         Clone,
         Debug,
@@ -362,7 +366,7 @@ mod defaultreserveinterestratestrategy_mod {
         abi = "getStableRateExcessOffset()"
     )]
     pub struct GetStableRateExcessOffsetCall;
-    #[doc = "Container type for all input parameters for the `getStableRateSlope1`function with signature `getStableRateSlope1()` and selector `[213, 205, 115, 145]`"]
+    #[doc = "Container type for all input parameters for the `getStableRateSlope1` function with signature `getStableRateSlope1()` and selector `[213, 205, 115, 145]`"]
     #[derive(
         Clone,
         Debug,
@@ -374,7 +378,7 @@ mod defaultreserveinterestratestrategy_mod {
     )]
     #[ethcall(name = "getStableRateSlope1", abi = "getStableRateSlope1()")]
     pub struct GetStableRateSlope1Call;
-    #[doc = "Container type for all input parameters for the `getStableRateSlope2`function with signature `getStableRateSlope2()` and selector `[20, 227, 45, 164]`"]
+    #[doc = "Container type for all input parameters for the `getStableRateSlope2` function with signature `getStableRateSlope2()` and selector `[20, 227, 45, 164]`"]
     #[derive(
         Clone,
         Debug,
@@ -386,7 +390,7 @@ mod defaultreserveinterestratestrategy_mod {
     )]
     #[ethcall(name = "getStableRateSlope2", abi = "getStableRateSlope2()")]
     pub struct GetStableRateSlope2Call;
-    #[doc = "Container type for all input parameters for the `getVariableRateSlope1`function with signature `getVariableRateSlope1()` and selector `[11, 52, 41, 162]`"]
+    #[doc = "Container type for all input parameters for the `getVariableRateSlope1` function with signature `getVariableRateSlope1()` and selector `[11, 52, 41, 162]`"]
     #[derive(
         Clone,
         Debug,
@@ -398,7 +402,7 @@ mod defaultreserveinterestratestrategy_mod {
     )]
     #[ethcall(name = "getVariableRateSlope1", abi = "getVariableRateSlope1()")]
     pub struct GetVariableRateSlope1Call;
-    #[doc = "Container type for all input parameters for the `getVariableRateSlope2`function with signature `getVariableRateSlope2()` and selector `[244, 32, 36, 9]`"]
+    #[doc = "Container type for all input parameters for the `getVariableRateSlope2` function with signature `getVariableRateSlope2()` and selector `[244, 32, 36, 9]`"]
     #[derive(
         Clone,
         Debug,
@@ -428,7 +432,9 @@ mod defaultreserveinterestratestrategy_mod {
         GetVariableRateSlope2(GetVariableRateSlope2Call),
     }
     impl ethers::core::abi::AbiDecode for DefaultReserveInterestRateStrategyCalls {
-        fn decode(data: impl AsRef<[u8]>) -> Result<Self, ethers::core::abi::AbiError> {
+        fn decode(
+            data: impl AsRef<[u8]>,
+        ) -> ::std::result::Result<Self, ethers::core::abi::AbiError> {
             if let Ok(decoded) =
                 <AddressesProviderCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
@@ -471,9 +477,7 @@ mod defaultreserveinterestratestrategy_mod {
             if let Ok(decoded) =
                 <CalculateInterestRatesCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
-                return Ok(
-                    DefaultReserveInterestRateStrategyCalls::CalculateInterestRates(decoded),
-                );
+                return Ok(DefaultReserveInterestRateStrategyCalls::CalculateInterestRates(decoded));
             }
             if let Ok(decoded) =
                 <GetBaseStableBorrowRateCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
@@ -708,4 +712,162 @@ mod defaultreserveinterestratestrategy_mod {
             DefaultReserveInterestRateStrategyCalls::GetVariableRateSlope2(var)
         }
     }
+    #[doc = "Container type for all return fields from the `ADDRESSES_PROVIDER` function with signature `ADDRESSES_PROVIDER()` and selector `[5, 66, 151, 92]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct AddressesProviderReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `MAX_EXCESS_STABLE_TO_TOTAL_DEBT_RATIO` function with signature `MAX_EXCESS_STABLE_TO_TOTAL_DEBT_RATIO()` and selector `[254, 95, 214, 152]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct MaxExcessStableToTotalDebtRatioReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `MAX_EXCESS_USAGE_RATIO` function with signature `MAX_EXCESS_USAGE_RATIO()` and selector `[169, 198, 34, 248]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct MaxExcessUsageRatioReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `OPTIMAL_STABLE_TO_TOTAL_DEBT_RATIO` function with signature `OPTIMAL_STABLE_TO_TOTAL_DEBT_RATIO()` and selector `[111, 185, 37, 137]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct OptimalStableToTotalDebtRatioReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `OPTIMAL_USAGE_RATIO` function with signature `OPTIMAL_USAGE_RATIO()` and selector `[84, 195, 101, 198]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct OptimalUsageRatioReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `calculateInterestRates` function with signature `calculateInterestRates((uint256,uint256,uint256,uint256,uint256,uint256,uint256,address,address))` and selector `[165, 137, 135, 9]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct CalculateInterestRatesReturn(
+        pub ethers::core::types::U256,
+        pub ethers::core::types::U256,
+        pub ethers::core::types::U256,
+    );
+    #[doc = "Container type for all return fields from the `getBaseStableBorrowRate` function with signature `getBaseStableBorrowRate()` and selector `[172, 215, 134, 134]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetBaseStableBorrowRateReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `getBaseVariableBorrowRate` function with signature `getBaseVariableBorrowRate()` and selector `[52, 118, 44, 165]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetBaseVariableBorrowRateReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `getMaxVariableBorrowRate` function with signature `getMaxVariableBorrowRate()` and selector `[128, 3, 30, 55]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetMaxVariableBorrowRateReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `getStableRateExcessOffset` function with signature `getStableRateExcessOffset()` and selector `[188, 98, 105, 8]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetStableRateExcessOffsetReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `getStableRateSlope1` function with signature `getStableRateSlope1()` and selector `[213, 205, 115, 145]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetStableRateSlope1Return(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `getStableRateSlope2` function with signature `getStableRateSlope2()` and selector `[20, 227, 45, 164]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetStableRateSlope2Return(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `getVariableRateSlope1` function with signature `getVariableRateSlope1()` and selector `[11, 52, 41, 162]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetVariableRateSlope1Return(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `getVariableRateSlope2` function with signature `getVariableRateSlope2()` and selector `[244, 32, 36, 9]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetVariableRateSlope2Return(pub ethers::core::types::U256);
 }

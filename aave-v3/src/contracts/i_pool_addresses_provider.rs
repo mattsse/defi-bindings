@@ -1,6 +1,6 @@
-pub use ipooladdressesprovider_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod ipooladdressesprovider_mod {
+pub use i_pool_addresses_provider::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod i_pool_addresses_provider {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,13 +18,14 @@ mod ipooladdressesprovider_mod {
     use std::sync::Arc;
     pub static IPOOLADDRESSESPROVIDER_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"oldAddress\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"newAddress\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"ACLAdminUpdated\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"oldAddress\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"newAddress\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"ACLManagerUpdated\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"oldAddress\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"newAddress\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"AddressSet\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"proxyAddress\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"oldImplementationAddress\",\"type\":\"address\",\"components\":[],\"indexed\":false},{\"internalType\":\"address\",\"name\":\"newImplementationAddress\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"AddressSetAsProxy\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"oldMarketId\",\"type\":\"string\",\"components\":[],\"indexed\":true},{\"internalType\":\"string\",\"name\":\"newMarketId\",\"type\":\"string\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"MarketIdSet\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"oldAddress\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"newAddress\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"PoolConfiguratorUpdated\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"oldAddress\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"newAddress\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"PoolDataProviderUpdated\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"oldAddress\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"newAddress\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"PoolUpdated\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"oldAddress\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"newAddress\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"PriceOracleSentinelUpdated\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"oldAddress\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"newAddress\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"PriceOracleUpdated\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"proxyAddress\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"implementationAddress\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"ProxyCreated\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getACLAdmin\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getACLManager\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getMarketId\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getPool\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getPoolConfigurator\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getPoolDataProvider\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getPriceOracle\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getPriceOracleSentinel\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newAclAdmin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setACLAdmin\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newAclManager\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setACLManager\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"newAddress\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setAddress\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"newImplementationAddress\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setAddressAsProxy\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"newMarketId\",\"type\":\"string\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setMarketId\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newPoolConfiguratorImpl\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setPoolConfiguratorImpl\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newDataProvider\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setPoolDataProvider\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newPoolImpl\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setPoolImpl\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newPriceOracle\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setPriceOracle\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newPriceOracleSentinel\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setPriceOracleSentinel\",\"outputs\":[]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"oldAddress\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"newAddress\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"ACLAdminUpdated\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"oldAddress\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"newAddress\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"ACLManagerUpdated\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"oldAddress\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"newAddress\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"AddressSet\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"proxyAddress\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"oldImplementationAddress\",\"type\":\"address\",\"components\":[],\"indexed\":false},{\"internalType\":\"address\",\"name\":\"newImplementationAddress\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"AddressSetAsProxy\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"oldMarketId\",\"type\":\"string\",\"components\":[],\"indexed\":true},{\"internalType\":\"string\",\"name\":\"newMarketId\",\"type\":\"string\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"MarketIdSet\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"oldAddress\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"newAddress\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"PoolConfiguratorUpdated\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"oldAddress\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"newAddress\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"PoolDataProviderUpdated\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"oldAddress\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"newAddress\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"PoolUpdated\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"oldAddress\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"newAddress\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"PriceOracleSentinelUpdated\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"oldAddress\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"newAddress\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"PriceOracleUpdated\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"proxyAddress\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"implementationAddress\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"ProxyCreated\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getACLAdmin\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getACLManager\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getMarketId\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getPool\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getPoolConfigurator\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getPoolDataProvider\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getPriceOracle\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getPriceOracleSentinel\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newAclAdmin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setACLAdmin\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newAclManager\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setACLManager\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"newAddress\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setAddress\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"newImplementationAddress\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setAddressAsProxy\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"newMarketId\",\"type\":\"string\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setMarketId\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newPoolConfiguratorImpl\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setPoolConfiguratorImpl\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newDataProvider\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setPoolDataProvider\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newPoolImpl\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setPoolImpl\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newPriceOracle\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setPriceOracle\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newPriceOracleSentinel\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setPriceOracleSentinel\",\"outputs\":[]}]") . expect ("invalid abi")
         });
-    #[doc = r" Bytecode of the #name contract"]
-    pub static IPOOLADDRESSESPROVIDER_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
-        ethers::contract::Lazy::new(|| "0x".parse().expect("invalid bytecode"));
-    #[derive(Clone)]
     pub struct IPoolAddressesProvider<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for IPoolAddressesProvider<M> {
+        fn clone(&self) -> Self {
+            IPoolAddressesProvider(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for IPoolAddressesProvider<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -38,7 +39,7 @@ mod ipooladdressesprovider_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> IPoolAddressesProvider<M> {
+    impl<M: ethers::providers::Middleware> IPoolAddressesProvider<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -52,45 +53,6 @@ mod ipooladdressesprovider_mod {
                 client,
             )
             .into()
-        }
-        #[doc = r" Constructs the general purpose `Deployer` instance based on the provided constructor arguments and sends it."]
-        #[doc = r" Returns a new instance of a deployer that returns an instance of this contract after sending the transaction"]
-        #[doc = r""]
-        #[doc = r" Notes:"]
-        #[doc = r" 1. If there are no constructor arguments, you should pass `()` as the argument."]
-        #[doc = r" 1. The default poll duration is 7 seconds."]
-        #[doc = r" 1. The default number of confirmations is 1 block."]
-        #[doc = r""]
-        #[doc = r""]
-        #[doc = r" # Example"]
-        #[doc = r""]
-        #[doc = r" Generate contract bindings with `abigen!` and deploy a new contract instance."]
-        #[doc = r""]
-        #[doc = r" *Note*: this requires a `bytecode` and `abi` object in the `greeter.json` artifact."]
-        #[doc = r""]
-        #[doc = r" ```ignore"]
-        #[doc = r" # async fn deploy<M: ethers::providers::Middleware>(client: ::std::sync::Arc<M>) {"]
-        #[doc = r#"     abigen!(Greeter,"../greeter.json");"#]
-        #[doc = r""]
-        #[doc = r#"    let greeter_contract = Greeter::deploy(client, "Hello world!".to_string()).unwrap().send().await.unwrap();"#]
-        #[doc = r"    let msg = greeter_contract.greet().call().await.unwrap();"]
-        #[doc = r" # }"]
-        #[doc = r" ```"]
-        pub fn deploy<T: ethers::core::abi::Tokenize>(
-            client: ::std::sync::Arc<M>,
-            constructor_args: T,
-        ) -> Result<
-            ethers::contract::builders::ContractDeployer<M, Self>,
-            ethers::contract::ContractError<M>,
-        > {
-            let factory = ethers::contract::ContractFactory::new(
-                IPOOLADDRESSESPROVIDER_ABI.clone(),
-                IPOOLADDRESSESPROVIDER_BYTECODE.clone().into(),
-                client,
-            );
-            let deployer = factory.deploy(constructor_args)?;
-            let deployer = ethers::contract::ContractDeployer::new(deployer);
-            Ok(deployer)
         }
         #[doc = "Calls the contract's `getACLAdmin` (0x0e67178c) function"]
         pub fn get_acl_admin(
@@ -544,7 +506,9 @@ mod ipooladdressesprovider_mod {
         ProxyCreatedFilter(ProxyCreatedFilter),
     }
     impl ethers::contract::EthLogDecode for IPoolAddressesProviderEvents {
-        fn decode_log(log: &ethers::core::abi::RawLog) -> Result<Self, ethers::core::abi::Error>
+        fn decode_log(
+            log: &ethers::core::abi::RawLog,
+        ) -> ::std::result::Result<Self, ethers::core::abi::Error>
         where
             Self: Sized,
         {
@@ -617,7 +581,7 @@ mod ipooladdressesprovider_mod {
             }
         }
     }
-    #[doc = "Container type for all input parameters for the `getACLAdmin`function with signature `getACLAdmin()` and selector `[14, 103, 23, 140]`"]
+    #[doc = "Container type for all input parameters for the `getACLAdmin` function with signature `getACLAdmin()` and selector `[14, 103, 23, 140]`"]
     #[derive(
         Clone,
         Debug,
@@ -629,7 +593,7 @@ mod ipooladdressesprovider_mod {
     )]
     #[ethcall(name = "getACLAdmin", abi = "getACLAdmin()")]
     pub struct GetACLAdminCall;
-    #[doc = "Container type for all input parameters for the `getACLManager`function with signature `getACLManager()` and selector `[112, 124, 215, 22]`"]
+    #[doc = "Container type for all input parameters for the `getACLManager` function with signature `getACLManager()` and selector `[112, 124, 215, 22]`"]
     #[derive(
         Clone,
         Debug,
@@ -641,7 +605,7 @@ mod ipooladdressesprovider_mod {
     )]
     #[ethcall(name = "getACLManager", abi = "getACLManager()")]
     pub struct GetACLManagerCall;
-    #[doc = "Container type for all input parameters for the `getAddress`function with signature `getAddress(bytes32)` and selector `[33, 248, 167, 33]`"]
+    #[doc = "Container type for all input parameters for the `getAddress` function with signature `getAddress(bytes32)` and selector `[33, 248, 167, 33]`"]
     #[derive(
         Clone,
         Debug,
@@ -655,7 +619,7 @@ mod ipooladdressesprovider_mod {
     pub struct GetAddressCall {
         pub id: [u8; 32],
     }
-    #[doc = "Container type for all input parameters for the `getMarketId`function with signature `getMarketId()` and selector `[86, 142, 244, 112]`"]
+    #[doc = "Container type for all input parameters for the `getMarketId` function with signature `getMarketId()` and selector `[86, 142, 244, 112]`"]
     #[derive(
         Clone,
         Debug,
@@ -667,7 +631,7 @@ mod ipooladdressesprovider_mod {
     )]
     #[ethcall(name = "getMarketId", abi = "getMarketId()")]
     pub struct GetMarketIdCall;
-    #[doc = "Container type for all input parameters for the `getPool`function with signature `getPool()` and selector `[2, 107, 29, 95]`"]
+    #[doc = "Container type for all input parameters for the `getPool` function with signature `getPool()` and selector `[2, 107, 29, 95]`"]
     #[derive(
         Clone,
         Debug,
@@ -679,7 +643,7 @@ mod ipooladdressesprovider_mod {
     )]
     #[ethcall(name = "getPool", abi = "getPool()")]
     pub struct GetPoolCall;
-    #[doc = "Container type for all input parameters for the `getPoolConfigurator`function with signature `getPoolConfigurator()` and selector `[99, 26, 223, 202]`"]
+    #[doc = "Container type for all input parameters for the `getPoolConfigurator` function with signature `getPoolConfigurator()` and selector `[99, 26, 223, 202]`"]
     #[derive(
         Clone,
         Debug,
@@ -691,7 +655,7 @@ mod ipooladdressesprovider_mod {
     )]
     #[ethcall(name = "getPoolConfigurator", abi = "getPoolConfigurator()")]
     pub struct GetPoolConfiguratorCall;
-    #[doc = "Container type for all input parameters for the `getPoolDataProvider`function with signature `getPoolDataProvider()` and selector `[232, 96, 172, 203]`"]
+    #[doc = "Container type for all input parameters for the `getPoolDataProvider` function with signature `getPoolDataProvider()` and selector `[232, 96, 172, 203]`"]
     #[derive(
         Clone,
         Debug,
@@ -703,7 +667,7 @@ mod ipooladdressesprovider_mod {
     )]
     #[ethcall(name = "getPoolDataProvider", abi = "getPoolDataProvider()")]
     pub struct GetPoolDataProviderCall;
-    #[doc = "Container type for all input parameters for the `getPriceOracle`function with signature `getPriceOracle()` and selector `[252, 165, 19, 168]`"]
+    #[doc = "Container type for all input parameters for the `getPriceOracle` function with signature `getPriceOracle()` and selector `[252, 165, 19, 168]`"]
     #[derive(
         Clone,
         Debug,
@@ -715,7 +679,7 @@ mod ipooladdressesprovider_mod {
     )]
     #[ethcall(name = "getPriceOracle", abi = "getPriceOracle()")]
     pub struct GetPriceOracleCall;
-    #[doc = "Container type for all input parameters for the `getPriceOracleSentinel`function with signature `getPriceOracleSentinel()` and selector `[94, 184, 141, 61]`"]
+    #[doc = "Container type for all input parameters for the `getPriceOracleSentinel` function with signature `getPriceOracleSentinel()` and selector `[94, 184, 141, 61]`"]
     #[derive(
         Clone,
         Debug,
@@ -727,7 +691,7 @@ mod ipooladdressesprovider_mod {
     )]
     #[ethcall(name = "getPriceOracleSentinel", abi = "getPriceOracleSentinel()")]
     pub struct GetPriceOracleSentinelCall;
-    #[doc = "Container type for all input parameters for the `setACLAdmin`function with signature `setACLAdmin(address)` and selector `[118, 216, 79, 252]`"]
+    #[doc = "Container type for all input parameters for the `setACLAdmin` function with signature `setACLAdmin(address)` and selector `[118, 216, 79, 252]`"]
     #[derive(
         Clone,
         Debug,
@@ -741,7 +705,7 @@ mod ipooladdressesprovider_mod {
     pub struct SetACLAdminCall {
         pub new_acl_admin: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `setACLManager`function with signature `setACLManager(address)` and selector `[237, 48, 28, 169]`"]
+    #[doc = "Container type for all input parameters for the `setACLManager` function with signature `setACLManager(address)` and selector `[237, 48, 28, 169]`"]
     #[derive(
         Clone,
         Debug,
@@ -755,7 +719,7 @@ mod ipooladdressesprovider_mod {
     pub struct SetACLManagerCall {
         pub new_acl_manager: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `setAddress`function with signature `setAddress(bytes32,address)` and selector `[202, 68, 109, 217]`"]
+    #[doc = "Container type for all input parameters for the `setAddress` function with signature `setAddress(bytes32,address)` and selector `[202, 68, 109, 217]`"]
     #[derive(
         Clone,
         Debug,
@@ -770,7 +734,7 @@ mod ipooladdressesprovider_mod {
         pub id: [u8; 32],
         pub new_address: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `setAddressAsProxy`function with signature `setAddressAsProxy(bytes32,address)` and selector `[93, 204, 82, 140]`"]
+    #[doc = "Container type for all input parameters for the `setAddressAsProxy` function with signature `setAddressAsProxy(bytes32,address)` and selector `[93, 204, 82, 140]`"]
     #[derive(
         Clone,
         Debug,
@@ -785,7 +749,7 @@ mod ipooladdressesprovider_mod {
         pub id: [u8; 32],
         pub new_implementation_address: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `setMarketId`function with signature `setMarketId(string)` and selector `[246, 123, 24, 71]`"]
+    #[doc = "Container type for all input parameters for the `setMarketId` function with signature `setMarketId(string)` and selector `[246, 123, 24, 71]`"]
     #[derive(
         Clone,
         Debug,
@@ -799,7 +763,7 @@ mod ipooladdressesprovider_mod {
     pub struct SetMarketIdCall {
         pub new_market_id: String,
     }
-    #[doc = "Container type for all input parameters for the `setPoolConfiguratorImpl`function with signature `setPoolConfiguratorImpl(address)` and selector `[228, 202, 40, 183]`"]
+    #[doc = "Container type for all input parameters for the `setPoolConfiguratorImpl` function with signature `setPoolConfiguratorImpl(address)` and selector `[228, 202, 40, 183]`"]
     #[derive(
         Clone,
         Debug,
@@ -816,7 +780,7 @@ mod ipooladdressesprovider_mod {
     pub struct SetPoolConfiguratorImplCall {
         pub new_pool_configurator_impl: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `setPoolDataProvider`function with signature `setPoolDataProvider(address)` and selector `[228, 78, 158, 209]`"]
+    #[doc = "Container type for all input parameters for the `setPoolDataProvider` function with signature `setPoolDataProvider(address)` and selector `[228, 78, 158, 209]`"]
     #[derive(
         Clone,
         Debug,
@@ -830,7 +794,7 @@ mod ipooladdressesprovider_mod {
     pub struct SetPoolDataProviderCall {
         pub new_data_provider: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `setPoolImpl`function with signature `setPoolImpl(address)` and selector `[161, 86, 68, 6]`"]
+    #[doc = "Container type for all input parameters for the `setPoolImpl` function with signature `setPoolImpl(address)` and selector `[161, 86, 68, 6]`"]
     #[derive(
         Clone,
         Debug,
@@ -844,7 +808,7 @@ mod ipooladdressesprovider_mod {
     pub struct SetPoolImplCall {
         pub new_pool_impl: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `setPriceOracle`function with signature `setPriceOracle(address)` and selector `[83, 14, 120, 79]`"]
+    #[doc = "Container type for all input parameters for the `setPriceOracle` function with signature `setPriceOracle(address)` and selector `[83, 14, 120, 79]`"]
     #[derive(
         Clone,
         Debug,
@@ -858,7 +822,7 @@ mod ipooladdressesprovider_mod {
     pub struct SetPriceOracleCall {
         pub new_price_oracle: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `setPriceOracleSentinel`function with signature `setPriceOracleSentinel(address)` and selector `[116, 148, 76, 236]`"]
+    #[doc = "Container type for all input parameters for the `setPriceOracleSentinel` function with signature `setPriceOracleSentinel(address)` and selector `[116, 148, 76, 236]`"]
     #[derive(
         Clone,
         Debug,
@@ -898,7 +862,9 @@ mod ipooladdressesprovider_mod {
         SetPriceOracleSentinel(SetPriceOracleSentinelCall),
     }
     impl ethers::core::abi::AbiDecode for IPoolAddressesProviderCalls {
-        fn decode(data: impl AsRef<[u8]>) -> Result<Self, ethers::core::abi::AbiError> {
+        fn decode(
+            data: impl AsRef<[u8]>,
+        ) -> ::std::result::Result<Self, ethers::core::abi::AbiError> {
             if let Ok(decoded) =
                 <GetACLAdminCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
@@ -1144,4 +1110,103 @@ mod ipooladdressesprovider_mod {
             IPoolAddressesProviderCalls::SetPriceOracleSentinel(var)
         }
     }
+    #[doc = "Container type for all return fields from the `getACLAdmin` function with signature `getACLAdmin()` and selector `[14, 103, 23, 140]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetACLAdminReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `getACLManager` function with signature `getACLManager()` and selector `[112, 124, 215, 22]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetACLManagerReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `getAddress` function with signature `getAddress(bytes32)` and selector `[33, 248, 167, 33]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetAddressReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `getMarketId` function with signature `getMarketId()` and selector `[86, 142, 244, 112]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetMarketIdReturn(pub String);
+    #[doc = "Container type for all return fields from the `getPool` function with signature `getPool()` and selector `[2, 107, 29, 95]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetPoolReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `getPoolConfigurator` function with signature `getPoolConfigurator()` and selector `[99, 26, 223, 202]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetPoolConfiguratorReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `getPoolDataProvider` function with signature `getPoolDataProvider()` and selector `[232, 96, 172, 203]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetPoolDataProviderReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `getPriceOracle` function with signature `getPriceOracle()` and selector `[252, 165, 19, 168]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetPriceOracleReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `getPriceOracleSentinel` function with signature `getPriceOracleSentinel()` and selector `[94, 184, 141, 61]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetPriceOracleSentinelReturn(pub ethers::core::types::Address);
 }

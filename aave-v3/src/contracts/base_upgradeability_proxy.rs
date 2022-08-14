@@ -1,6 +1,6 @@
-pub use baseupgradeabilityproxy_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod baseupgradeabilityproxy_mod {
+pub use base_upgradeability_proxy::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod base_upgradeability_proxy {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,16 +18,20 @@ mod baseupgradeabilityproxy_mod {
     use std::sync::Arc;
     pub static BASEUPGRADEABILITYPROXY_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"implementation\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"Upgraded\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[],\"stateMutability\":\"payable\",\"type\":\"fallback\",\"outputs\":[]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"implementation\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"Upgraded\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[],\"stateMutability\":\"payable\",\"type\":\"fallback\",\"outputs\":[]}]") . expect ("invalid abi")
         });
     #[doc = r" Bytecode of the #name contract"]
     pub static BASEUPGRADEABILITYPROXY_BYTECODE: ethers::contract::Lazy<
         ethers::core::types::Bytes,
     > = ethers::contract::Lazy::new(|| {
-        "0x6080604052348015600f57600080fd5b5060948061001e6000396000f3fe6080604052600a600c565b005b603960357f360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc5490565b603b565b565b3660008037600080366000845af43d6000803e8080156059573d6000f35b3d6000fdfea26469706673582212209d30f74fe9a3a5b92905f6552916c09b259e5f92dba99ca1df89a57cbcb6844164736f6c634300080a0033" . parse () . expect ("invalid bytecode")
+        "0x6080604052348015600f57600080fd5b5060948061001e6000396000f3fe6080604052600a600c565b005b603960357f360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc5490565b603b565b565b3660008037600080366000845af43d6000803e8080156059573d6000f35b3d6000fdfea2646970667358221220cc45cfde4ecffc2b59c346a11698b92584546f25516dc381866214a193bb11c464736f6c634300080a0033" . parse () . expect ("invalid bytecode")
     });
-    #[derive(Clone)]
     pub struct BaseUpgradeabilityProxy<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for BaseUpgradeabilityProxy<M> {
+        fn clone(&self) -> Self {
+            BaseUpgradeabilityProxy(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for BaseUpgradeabilityProxy<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -41,7 +45,7 @@ mod baseupgradeabilityproxy_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> BaseUpgradeabilityProxy<M> {
+    impl<M: ethers::providers::Middleware> BaseUpgradeabilityProxy<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -82,7 +86,7 @@ mod baseupgradeabilityproxy_mod {
         pub fn deploy<T: ethers::core::abi::Tokenize>(
             client: ::std::sync::Arc<M>,
             constructor_args: T,
-        ) -> Result<
+        ) -> ::std::result::Result<
             ethers::contract::builders::ContractDeployer<M, Self>,
             ethers::contract::ContractError<M>,
         > {

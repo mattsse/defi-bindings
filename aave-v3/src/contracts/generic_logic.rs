@@ -1,6 +1,6 @@
-pub use genericlogic_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod genericlogic_mod {
+pub use generic_logic::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod generic_logic {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -17,14 +17,20 @@ mod genericlogic_mod {
     #[doc = "GenericLogic was auto-generated with ethers-rs Abigen. More information at: https://github.com/gakonst/ethers-rs"]
     use std::sync::Arc;
     pub static GENERICLOGIC_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
-        ethers::contract::Lazy::new(|| serde_json::from_str("[]").expect("invalid abi"));
+        ethers::contract::Lazy::new(|| {
+            ethers::core::utils::__serde_json::from_str("[]").expect("invalid abi")
+        });
     #[doc = r" Bytecode of the #name contract"]
     pub static GENERICLOGIC_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
         ethers::contract::Lazy::new(|| {
-            "0x60566037600b82828239805160001a607314602a57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea26469706673582212209b3d58b04566767a5fab37ce36be4a92ce56d401867862acde91acdd0bb6224c64736f6c634300080a0033" . parse () . expect ("invalid bytecode")
+            "0x60566037600b82828239805160001a607314602a57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea264697066735822122089e267f2b1b00382f1599d6f8e5fe20c2ce9e456dff0b8a3ee19ca9dfc0f667764736f6c634300080a0033" . parse () . expect ("invalid bytecode")
         });
-    #[derive(Clone)]
     pub struct GenericLogic<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for GenericLogic<M> {
+        fn clone(&self) -> Self {
+            GenericLogic(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for GenericLogic<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -38,7 +44,7 @@ mod genericlogic_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> GenericLogic<M> {
+    impl<M: ethers::providers::Middleware> GenericLogic<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -74,7 +80,7 @@ mod genericlogic_mod {
         pub fn deploy<T: ethers::core::abi::Tokenize>(
             client: ::std::sync::Arc<M>,
             constructor_args: T,
-        ) -> Result<
+        ) -> ::std::result::Result<
             ethers::contract::builders::ContractDeployer<M, Self>,
             ethers::contract::ContractError<M>,
         > {

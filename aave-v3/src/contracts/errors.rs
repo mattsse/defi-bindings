@@ -1,6 +1,6 @@
-pub use errors_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod errors_mod {
+pub use errors::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod errors {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,15 +18,19 @@ mod errors_mod {
     use std::sync::Arc;
     pub static ERRORS_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"ACL_ADMIN_CANNOT_BE_ZERO\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"ADDRESSES_PROVIDER_ALREADY_ADDED\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"ADDRESSES_PROVIDER_NOT_REGISTERED\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"AMOUNT_BIGGER_THAN_MAX_LOAN_SIZE_STABLE\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"ASSET_NOT_BORROWABLE_IN_ISOLATION\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"ASSET_NOT_LISTED\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"ATOKEN_SUPPLY_NOT_ZERO\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"BORROWING_NOT_ENABLED\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"BORROW_CAP_EXCEEDED\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"BRIDGE_PROTOCOL_FEE_INVALID\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"CALLER_MUST_BE_POOL\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"CALLER_NOT_ASSET_LISTING_OR_POOL_ADMIN\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"CALLER_NOT_ATOKEN\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"CALLER_NOT_BRIDGE\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"CALLER_NOT_EMERGENCY_ADMIN\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"CALLER_NOT_POOL_ADMIN\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"CALLER_NOT_POOL_CONFIGURATOR\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"CALLER_NOT_POOL_OR_EMERGENCY_ADMIN\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"CALLER_NOT_RISK_OR_POOL_ADMIN\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"COLLATERAL_BALANCE_IS_ZERO\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"COLLATERAL_CANNOT_BE_LIQUIDATED\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"COLLATERAL_CANNOT_COVER_NEW_BORROW\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"COLLATERAL_SAME_AS_BORROWING_CURRENCY\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"DEBT_CEILING_EXCEEDED\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"DEBT_CEILING_NOT_ZERO\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"EMODE_CATEGORY_RESERVED\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"FLASHLOAN_PREMIUM_INVALID\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"HEALTH_FACTOR_LOWER_THAN_LIQUIDATION_THRESHOLD\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"HEALTH_FACTOR_NOT_BELOW_THRESHOLD\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INCONSISTENT_EMODE_CATEGORY\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INCONSISTENT_FLASHLOAN_PARAMS\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INCONSISTENT_PARAMS_LENGTH\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INTEREST_RATE_REBALANCE_CONDITIONS_NOT_MET\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_ADDRESSES_PROVIDER\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_ADDRESSES_PROVIDER_ID\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_AMOUNT\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_BORROW_CAP\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_BURN_AMOUNT\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_DEBT_CEILING\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_DECIMALS\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_EMODE_CATEGORY\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_EMODE_CATEGORY_ASSIGNMENT\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_EMODE_CATEGORY_PARAMS\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_EXPIRATION\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_FLASHLOAN_EXECUTOR_RETURN\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_INTEREST_RATE_MODE_SELECTED\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_LIQUIDATION_PROTOCOL_FEE\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_LIQ_BONUS\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_LIQ_THRESHOLD\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_LTV\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_MINT_AMOUNT\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_OPTIMAL_STABLE_TO_TOTAL_DEBT_RATIO\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_OPTIMAL_USAGE_RATIO\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_RESERVE_FACTOR\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_RESERVE_INDEX\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_RESERVE_PARAMS\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_SIGNATURE\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_SUPPLY_CAP\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_UNBACKED_MINT_CAP\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"LTV_VALIDATION_FAILED\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"NOT_CONTRACT\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"NOT_ENOUGH_AVAILABLE_USER_BALANCE\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"NO_DEBT_OF_SELECTED_TYPE\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"NO_EXPLICIT_AMOUNT_TO_REPAY_ON_BEHALF\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"NO_MORE_RESERVES_ALLOWED\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"NO_OUTSTANDING_STABLE_DEBT\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"NO_OUTSTANDING_VARIABLE_DEBT\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"OPERATION_NOT_SUPPORTED\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"POOL_ADDRESSES_DO_NOT_MATCH\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"PRICE_ORACLE_SENTINEL_CHECK_FAILED\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"RESERVE_ALREADY_ADDED\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"RESERVE_ALREADY_INITIALIZED\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"RESERVE_DEBT_NOT_ZERO\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"RESERVE_FROZEN\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"RESERVE_INACTIVE\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"RESERVE_LIQUIDITY_NOT_ZERO\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"RESERVE_PAUSED\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"SAME_BLOCK_BORROW_REPAY\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"SILOED_BORROWING_VIOLATION\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"SPECIFIED_CURRENCY_NOT_BORROWED_BY_USER\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"STABLE_BORROWING_ENABLED\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"STABLE_BORROWING_NOT_ENABLED\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"STABLE_DEBT_NOT_ZERO\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"SUPPLY_CAP_EXCEEDED\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"UNBACKED_MINT_CAP_EXCEEDED\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"UNDERLYING_BALANCE_ZERO\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"UNDERLYING_CANNOT_BE_RESCUED\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"USER_IN_ISOLATION_MODE\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"VARIABLE_DEBT_SUPPLY_NOT_ZERO\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"ZERO_ADDRESS_NOT_VALID\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"ACL_ADMIN_CANNOT_BE_ZERO\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"ADDRESSES_PROVIDER_ALREADY_ADDED\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"ADDRESSES_PROVIDER_NOT_REGISTERED\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"AMOUNT_BIGGER_THAN_MAX_LOAN_SIZE_STABLE\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"ASSET_NOT_BORROWABLE_IN_ISOLATION\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"ASSET_NOT_LISTED\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"ATOKEN_SUPPLY_NOT_ZERO\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"BORROWING_NOT_ENABLED\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"BORROW_CAP_EXCEEDED\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"BRIDGE_PROTOCOL_FEE_INVALID\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"CALLER_MUST_BE_POOL\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"CALLER_NOT_ASSET_LISTING_OR_POOL_ADMIN\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"CALLER_NOT_ATOKEN\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"CALLER_NOT_BRIDGE\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"CALLER_NOT_EMERGENCY_ADMIN\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"CALLER_NOT_POOL_ADMIN\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"CALLER_NOT_POOL_CONFIGURATOR\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"CALLER_NOT_POOL_OR_EMERGENCY_ADMIN\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"CALLER_NOT_RISK_OR_POOL_ADMIN\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"COLLATERAL_BALANCE_IS_ZERO\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"COLLATERAL_CANNOT_BE_LIQUIDATED\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"COLLATERAL_CANNOT_COVER_NEW_BORROW\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"COLLATERAL_SAME_AS_BORROWING_CURRENCY\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"DEBT_CEILING_EXCEEDED\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"DEBT_CEILING_NOT_ZERO\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"EMODE_CATEGORY_RESERVED\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"FLASHLOAN_PREMIUM_INVALID\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"HEALTH_FACTOR_LOWER_THAN_LIQUIDATION_THRESHOLD\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"HEALTH_FACTOR_NOT_BELOW_THRESHOLD\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INCONSISTENT_EMODE_CATEGORY\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INCONSISTENT_FLASHLOAN_PARAMS\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INCONSISTENT_PARAMS_LENGTH\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INTEREST_RATE_REBALANCE_CONDITIONS_NOT_MET\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_ADDRESSES_PROVIDER\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_ADDRESSES_PROVIDER_ID\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_AMOUNT\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_BORROW_CAP\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_BURN_AMOUNT\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_DEBT_CEILING\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_DECIMALS\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_EMODE_CATEGORY\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_EMODE_CATEGORY_ASSIGNMENT\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_EMODE_CATEGORY_PARAMS\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_EXPIRATION\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_FLASHLOAN_EXECUTOR_RETURN\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_INTEREST_RATE_MODE_SELECTED\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_LIQUIDATION_PROTOCOL_FEE\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_LIQ_BONUS\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_LIQ_THRESHOLD\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_LTV\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_MINT_AMOUNT\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_OPTIMAL_STABLE_TO_TOTAL_DEBT_RATIO\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_OPTIMAL_USAGE_RATIO\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_RESERVE_FACTOR\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_RESERVE_INDEX\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_RESERVE_PARAMS\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_SIGNATURE\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_SUPPLY_CAP\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"INVALID_UNBACKED_MINT_CAP\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"LTV_VALIDATION_FAILED\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"NOT_CONTRACT\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"NOT_ENOUGH_AVAILABLE_USER_BALANCE\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"NO_DEBT_OF_SELECTED_TYPE\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"NO_EXPLICIT_AMOUNT_TO_REPAY_ON_BEHALF\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"NO_MORE_RESERVES_ALLOWED\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"NO_OUTSTANDING_STABLE_DEBT\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"NO_OUTSTANDING_VARIABLE_DEBT\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"OPERATION_NOT_SUPPORTED\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"POOL_ADDRESSES_DO_NOT_MATCH\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"PRICE_ORACLE_SENTINEL_CHECK_FAILED\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"RESERVE_ALREADY_ADDED\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"RESERVE_ALREADY_INITIALIZED\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"RESERVE_DEBT_NOT_ZERO\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"RESERVE_FROZEN\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"RESERVE_INACTIVE\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"RESERVE_LIQUIDITY_NOT_ZERO\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"RESERVE_PAUSED\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"SAME_BLOCK_BORROW_REPAY\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"SILOED_BORROWING_VIOLATION\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"SPECIFIED_CURRENCY_NOT_BORROWED_BY_USER\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"STABLE_BORROWING_ENABLED\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"STABLE_BORROWING_NOT_ENABLED\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"STABLE_DEBT_NOT_ZERO\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"SUPPLY_CAP_EXCEEDED\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"UNBACKED_MINT_CAP_EXCEEDED\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"UNDERLYING_BALANCE_ZERO\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"UNDERLYING_CANNOT_BE_RESCUED\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"USER_IN_ISOLATION_MODE\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"VARIABLE_DEBT_SUPPLY_NOT_ZERO\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"ZERO_ADDRESS_NOT_VALID\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]}]") . expect ("invalid abi")
         });
     #[doc = r" Bytecode of the #name contract"]
     pub static ERRORS_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
         ethers::contract::Lazy::new(|| {
-            "0x61112f61003a600b82828239805160001a60731461002d57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600436106104f85760003560e01c806389c5d45f11610298578063bad8308c11610171578063dd1dd95f116100e3578063f07f67851161009c578063f07f678514610fde578063f10727db14610fff578063f479ea1114611020578063fa163a8314611041578063fae8279114611062578063fd1828ff1461108357600080fd5b8063dd1dd95f14610f19578063de24948c14610f3a578063e02f07ee14610f5b578063e3fa20f514610f7b578063e4dd8b7414610f9c578063e981483a14610fbd57600080fd5b8063d14bb17a11610135578063d14bb17a14610e53578063d1cd8b1d14610e74578063d6f9fcde14610e95578063d9adda8514610eb6578063dc191bd914610ed7578063dcc56db614610ef857600080fd5b8063bad8308c14610dae578063c08a114614610dcf578063c863808214610df0578063c899301a14610e11578063cd23367c14610e3257600080fd5b8063a4868dca1161020a578063b0510054116101ce578063b051005414610ce9578063b4a4573014610d0a578063b5e7936614610d2b578063b68774e914610d4b578063b7f5e22414610d6c578063b87041c214610d8d57600080fd5b8063a4868dca14610c45578063a8c9785314610c66578063ab883ca014610c87578063abd351b114610ca8578063ac75323614610cc957600080fd5b8063952633c51161025c578063952633c514610b7f5780639527e9d914610ba057806399ce53f314610bc1578063a2797c8014610be2578063a2e976c614610c03578063a3402a3814610c2457600080fd5b806389c5d45f14610ada5780638a34400014610afb5780638b8b98d714610b1c5780638eda46bd14610b3d5780638f7722b214610b5e57600080fd5b80634e3aed37116103d55780636b3f7cc711610347578063747fa55611610300578063747fa55614610a1457806376ae8fca14610a355780637aa0767e14610a565780637fea6f3614610a775780638596aad514610a98578063895f7dc814610ab957600080fd5b80636b3f7cc71461094e5780636cd3cfbc1461096f578063712f536a1461099057806373dea5e3146109b1578063744465cc146109d257806374459b14146109f357600080fd5b8063570e354711610399578063570e3547146108895780635d9c76c0146108aa57806360c3de80146108cb57806361c111d2146108eb57806365a83bab1461090c57806365e7ef4c1461092d57600080fd5b80634e3aed37146107e55780634ef999ff146108065780634f77647b14610827578063512674501461084757806352ba9dbe1461086857600080fd5b80632eed17e81161046e578063471df68511610432578063471df6851461072057806347ba93d81461074157806347cf152314610762578063485c8ff6146107835780634d86f393146107a35780634e01e3c1146107c457600080fd5b80632eed17e81461067b578063335763de1461069c578063366eb54d146106bd57806337930782146106de57806343e97c6b146106ff57600080fd5b80631abbb001116104c05780631abbb001146105b757806322a73446146105d857806326bbd053146105f957806326e7b3121461061a5780632926c9711461063a5780632c8e3b4c1461065b57600080fd5b8063084dfa0d146104fd57806311d7b0061461053457806312dcade81461055457806314dcfbbc14610575578063198d6a6b14610596575b600080fd5b61051e60405180604001604052806002815260200161062760f31b81525081565b60405161052b91906110a4565b60405180910390f35b61051e604051806040016040528060018152602001603960f81b81525081565b61051e604051806040016040528060028152602001610c4d60f21b81525081565b61051e604051806040016040528060028152602001611c1b60f11b81525081565b61051e60405180604001604052806002815260200161070760f31b81525081565b61051e60405180604001604052806002815260200161383760f01b81525081565b61051e60405180604001604052806002815260200161343760f01b81525081565b61051e60405180604001604052806002815260200161363960f01b81525081565b61051e604051806040016040528060018152602001603360f81b81525081565b61051e604051806040016040528060028152602001610d0d60f21b81525081565b61051e604051806040016040528060018152602001603560f81b81525081565b61051e60405180604001604052806002815260200161035360f41b81525081565b61051e60405180604001604052806002815260200161032360f41b81525081565b61051e60405180604001604052806002815260200161333560f01b81525081565b61051e60405180604001604052806002815260200161189960f11b81525081565b61051e604051806040016040528060028152602001610d4d60f21b81525081565b61051e60405180604001604052806002815260200161323360f01b81525081565b61051e604051806040016040528060028152602001611b9960f11b81525081565b61051e60405180604001604052806002815260200161323160f01b81525081565b61051e604051806040016040528060018152602001601960f91b81525081565b61051e60405180604001604052806002815260200161333160f01b81525081565b61051e604051806040016040528060028152602001610ccd60f21b81525081565b61051e60405180604001604052806002815260200161383360f01b81525081565b61051e60405180604001604052806002815260200161033360f41b81525081565b61051e604051806040016040528060018152602001601b60f91b81525081565b61051e60405180604001604052806002815260200161323560f01b81525081565b61051e60405180604001604052806002815260200161323760f01b81525081565b61051e60405180604001604052806002815260200161068760f31b81525081565b61051e60405180604001604052806002815260200161313760f01b81525081565b61051e604051806040016040528060018152602001600760fb1b81525081565b61051e60405180604001604052806002815260200161031360f41b81525081565b61051e60405180604001604052806002815260200161353360f01b81525081565b61051e60405180604001604052806002815260200161353560f01b81525081565b61051e604051806040016040528060028152602001611a9960f11b81525081565b61051e60405180604001604052806002815260200161064760f31b81525081565b61051e60405180604001604052806002815260200161034360f41b81525081565b61051e60405180604001604052806002815260200161343960f01b81525081565b61051e604051806040016040528060028152602001611b1960f11b81525081565b61051e60405180604001604052806002815260200161343160f01b81525081565b61051e60405180604001604052806002815260200161313960f01b81525081565b61051e60405180604001604052806002815260200161313560f01b81525081565b61051e60405180604001604052806002815260200161191960f11b81525081565b61051e60405180604001604052806002815260200161313360f01b81525081565b61051e60405180604001604052806002815260200161036360f41b81525081565b61051e604051806040016040528060028152602001611a1b60f11b81525081565b61051e60405180604001604052806002815260200161333360f01b81525081565b61051e60405180604001604052806002815260200161333760f01b81525081565b61051e60405180604001604052806002815260200161038360f41b81525081565b61051e60405180604001604052806002815260200161037360f41b81525081565b61051e6040518060400160405280600281526020016106a760f31b81525081565b61051e60405180604001604052806002815260200161343560f01b81525081565b61051e60405180604001604052806002815260200161363560f01b81525081565b61051e60405180604001604052806002815260200161363360f01b81525081565b61051e60405180604001604052806002815260200161343360f01b81525081565b61051e60405180604001604052806002815260200161313160f01b81525081565b61051e60405180604001604052806002815260200161373960f01b81525081565b61051e60405180604001604052806002815260200161363760f01b81525081565b61051e60405180604001604052806002815260200161373160f01b81525081565b61051e60405180604001604052806002815260200161383560f01b81525081565b61051e604051806040016040528060028152602001610c8d60f21b81525081565b61051e604051806040016040528060018152602001603160f81b81525081565b61051e60405180604001604052806002815260200161353160f01b81525081565b61051e604051806040016040528060028152602001611a1960f11b81525081565b61051e604051806040016040528060018152602001600d60fa1b81525081565b61051e60405180604001604052806002815260200161323960f01b81525081565b61051e60405180604001604052806002815260200161199960f11b81525081565b61051e60405180604001604052806002815260200161353760f01b81525081565b61051e604051806040016040528060028152602001611b9b60f11b81525081565b61051e6040518060400160405280600281526020016106e760f31b81525081565b61051e60405180604001604052806002815260200161353960f01b81525081565b61051e604051806040016040528060028152602001610e0d60f21b81525081565b61051e604051806040016040528060028152602001611c1960f11b81525081565b61051e60405180604001604052806002815260200161373760f01b81525081565b61051e604051806040016040528060028152602001610dcd60f21b81525081565b61051e6040518060400160405280600281526020016106c760f31b81525081565b61051e60405180604001604052806002815260200161363160f01b81525081565b61051e60405180604001604052806002815260200161333960f01b81525081565b61051e60405180604001604052806002815260200161373360f01b81525081565b61051e604051806040016040528060028152602001610d8d60f21b81525081565b61051e60405180604001604052806002815260200161383960f01b81525081565b61051e604051806040016040528060018152602001603760f81b81525081565b61051e60405180604001604052806002815260200161199b60f11b81525081565b61051e60405180604001604052806002815260200161383160f01b81525081565b61051e60405180604001604052806002815260200161039360f41b81525081565b61051e60405180604001604052806002815260200161066760f31b81525081565b61051e604051806040016040528060028152602001611a9b60f11b81525081565b61051e60405180604001604052806002815260200161189b60f11b81525081565b61051e604051806040016040528060028152602001611b1b60f11b81525081565b61051e60405180604001604052806002815260200161191b60f11b81525081565b61051e60405180604001604052806002815260200161373560f01b81525081565b600060208083528351808285015260005b818110156110d1578581018301518582016040015282016110b5565b818111156110e3576000604083870101525b50601f01601f191692909201604001939250505056fea264697066735822122071ab11db712d5342731b76d998abf9456d911ce887c0df7d39f71bf19ca6f1e764736f6c634300080a0033" . parse () . expect ("invalid bytecode")
+            "0x61112f61003a600b82828239805160001a60731461002d57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600436106104f85760003560e01c806389c5d45f11610298578063bad8308c11610171578063dd1dd95f116100e3578063f07f67851161009c578063f07f678514610fde578063f10727db14610fff578063f479ea1114611020578063fa163a8314611041578063fae8279114611062578063fd1828ff1461108357600080fd5b8063dd1dd95f14610f19578063de24948c14610f3a578063e02f07ee14610f5b578063e3fa20f514610f7b578063e4dd8b7414610f9c578063e981483a14610fbd57600080fd5b8063d14bb17a11610135578063d14bb17a14610e53578063d1cd8b1d14610e74578063d6f9fcde14610e95578063d9adda8514610eb6578063dc191bd914610ed7578063dcc56db614610ef857600080fd5b8063bad8308c14610dae578063c08a114614610dcf578063c863808214610df0578063c899301a14610e11578063cd23367c14610e3257600080fd5b8063a4868dca1161020a578063b0510054116101ce578063b051005414610ce9578063b4a4573014610d0a578063b5e7936614610d2b578063b68774e914610d4b578063b7f5e22414610d6c578063b87041c214610d8d57600080fd5b8063a4868dca14610c45578063a8c9785314610c66578063ab883ca014610c87578063abd351b114610ca8578063ac75323614610cc957600080fd5b8063952633c51161025c578063952633c514610b7f5780639527e9d914610ba057806399ce53f314610bc1578063a2797c8014610be2578063a2e976c614610c03578063a3402a3814610c2457600080fd5b806389c5d45f14610ada5780638a34400014610afb5780638b8b98d714610b1c5780638eda46bd14610b3d5780638f7722b214610b5e57600080fd5b80634e3aed37116103d55780636b3f7cc711610347578063747fa55611610300578063747fa55614610a1457806376ae8fca14610a355780637aa0767e14610a565780637fea6f3614610a775780638596aad514610a98578063895f7dc814610ab957600080fd5b80636b3f7cc71461094e5780636cd3cfbc1461096f578063712f536a1461099057806373dea5e3146109b1578063744465cc146109d257806374459b14146109f357600080fd5b8063570e354711610399578063570e3547146108895780635d9c76c0146108aa57806360c3de80146108cb57806361c111d2146108eb57806365a83bab1461090c57806365e7ef4c1461092d57600080fd5b80634e3aed37146107e55780634ef999ff146108065780634f77647b14610827578063512674501461084757806352ba9dbe1461086857600080fd5b80632eed17e81161046e578063471df68511610432578063471df6851461072057806347ba93d81461074157806347cf152314610762578063485c8ff6146107835780634d86f393146107a35780634e01e3c1146107c457600080fd5b80632eed17e81461067b578063335763de1461069c578063366eb54d146106bd57806337930782146106de57806343e97c6b146106ff57600080fd5b80631abbb001116104c05780631abbb001146105b757806322a73446146105d857806326bbd053146105f957806326e7b3121461061a5780632926c9711461063a5780632c8e3b4c1461065b57600080fd5b8063084dfa0d146104fd57806311d7b0061461053457806312dcade81461055457806314dcfbbc14610575578063198d6a6b14610596575b600080fd5b61051e60405180604001604052806002815260200161062760f31b81525081565b60405161052b91906110a4565b60405180910390f35b61051e604051806040016040528060018152602001603960f81b81525081565b61051e604051806040016040528060028152602001610c4d60f21b81525081565b61051e604051806040016040528060028152602001611c1b60f11b81525081565b61051e60405180604001604052806002815260200161070760f31b81525081565b61051e60405180604001604052806002815260200161383760f01b81525081565b61051e60405180604001604052806002815260200161343760f01b81525081565b61051e60405180604001604052806002815260200161363960f01b81525081565b61051e604051806040016040528060018152602001603360f81b81525081565b61051e604051806040016040528060028152602001610d0d60f21b81525081565b61051e604051806040016040528060018152602001603560f81b81525081565b61051e60405180604001604052806002815260200161035360f41b81525081565b61051e60405180604001604052806002815260200161032360f41b81525081565b61051e60405180604001604052806002815260200161333560f01b81525081565b61051e60405180604001604052806002815260200161189960f11b81525081565b61051e604051806040016040528060028152602001610d4d60f21b81525081565b61051e60405180604001604052806002815260200161323360f01b81525081565b61051e604051806040016040528060028152602001611b9960f11b81525081565b61051e60405180604001604052806002815260200161323160f01b81525081565b61051e604051806040016040528060018152602001601960f91b81525081565b61051e60405180604001604052806002815260200161333160f01b81525081565b61051e604051806040016040528060028152602001610ccd60f21b81525081565b61051e60405180604001604052806002815260200161383360f01b81525081565b61051e60405180604001604052806002815260200161033360f41b81525081565b61051e604051806040016040528060018152602001601b60f91b81525081565b61051e60405180604001604052806002815260200161323560f01b81525081565b61051e60405180604001604052806002815260200161323760f01b81525081565b61051e60405180604001604052806002815260200161068760f31b81525081565b61051e60405180604001604052806002815260200161313760f01b81525081565b61051e604051806040016040528060018152602001600760fb1b81525081565b61051e60405180604001604052806002815260200161031360f41b81525081565b61051e60405180604001604052806002815260200161353360f01b81525081565b61051e60405180604001604052806002815260200161353560f01b81525081565b61051e604051806040016040528060028152602001611a9960f11b81525081565b61051e60405180604001604052806002815260200161064760f31b81525081565b61051e60405180604001604052806002815260200161034360f41b81525081565b61051e60405180604001604052806002815260200161343960f01b81525081565b61051e604051806040016040528060028152602001611b1960f11b81525081565b61051e60405180604001604052806002815260200161343160f01b81525081565b61051e60405180604001604052806002815260200161313960f01b81525081565b61051e60405180604001604052806002815260200161313560f01b81525081565b61051e60405180604001604052806002815260200161191960f11b81525081565b61051e60405180604001604052806002815260200161313360f01b81525081565b61051e60405180604001604052806002815260200161036360f41b81525081565b61051e604051806040016040528060028152602001611a1b60f11b81525081565b61051e60405180604001604052806002815260200161333360f01b81525081565b61051e60405180604001604052806002815260200161333760f01b81525081565b61051e60405180604001604052806002815260200161038360f41b81525081565b61051e60405180604001604052806002815260200161037360f41b81525081565b61051e6040518060400160405280600281526020016106a760f31b81525081565b61051e60405180604001604052806002815260200161343560f01b81525081565b61051e60405180604001604052806002815260200161363560f01b81525081565b61051e60405180604001604052806002815260200161363360f01b81525081565b61051e60405180604001604052806002815260200161343360f01b81525081565b61051e60405180604001604052806002815260200161313160f01b81525081565b61051e60405180604001604052806002815260200161373960f01b81525081565b61051e60405180604001604052806002815260200161363760f01b81525081565b61051e60405180604001604052806002815260200161373160f01b81525081565b61051e60405180604001604052806002815260200161383560f01b81525081565b61051e604051806040016040528060028152602001610c8d60f21b81525081565b61051e604051806040016040528060018152602001603160f81b81525081565b61051e60405180604001604052806002815260200161353160f01b81525081565b61051e604051806040016040528060028152602001611a1960f11b81525081565b61051e604051806040016040528060018152602001600d60fa1b81525081565b61051e60405180604001604052806002815260200161323960f01b81525081565b61051e60405180604001604052806002815260200161199960f11b81525081565b61051e60405180604001604052806002815260200161353760f01b81525081565b61051e604051806040016040528060028152602001611b9b60f11b81525081565b61051e6040518060400160405280600281526020016106e760f31b81525081565b61051e60405180604001604052806002815260200161353960f01b81525081565b61051e604051806040016040528060028152602001610e0d60f21b81525081565b61051e604051806040016040528060028152602001611c1960f11b81525081565b61051e60405180604001604052806002815260200161373760f01b81525081565b61051e604051806040016040528060028152602001610dcd60f21b81525081565b61051e6040518060400160405280600281526020016106c760f31b81525081565b61051e60405180604001604052806002815260200161363160f01b81525081565b61051e60405180604001604052806002815260200161333960f01b81525081565b61051e60405180604001604052806002815260200161373360f01b81525081565b61051e604051806040016040528060028152602001610d8d60f21b81525081565b61051e60405180604001604052806002815260200161383960f01b81525081565b61051e604051806040016040528060018152602001603760f81b81525081565b61051e60405180604001604052806002815260200161199b60f11b81525081565b61051e60405180604001604052806002815260200161383160f01b81525081565b61051e60405180604001604052806002815260200161039360f41b81525081565b61051e60405180604001604052806002815260200161066760f31b81525081565b61051e604051806040016040528060028152602001611a9b60f11b81525081565b61051e60405180604001604052806002815260200161189b60f11b81525081565b61051e604051806040016040528060028152602001611b1b60f11b81525081565b61051e60405180604001604052806002815260200161191b60f11b81525081565b61051e60405180604001604052806002815260200161373560f01b81525081565b600060208083528351808285015260005b818110156110d1578581018301518582016040015282016110b5565b818111156110e3576000604083870101525b50601f01601f191692909201604001939250505056fea2646970667358221220884baee93f1e8971bdb808f7bd024079229b0b3a6383cff5c08dd292dde8503f64736f6c634300080a0033" . parse () . expect ("invalid bytecode")
         });
-    #[derive(Clone)]
     pub struct Errors<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for Errors<M> {
+        fn clone(&self) -> Self {
+            Errors(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for Errors<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -40,7 +44,7 @@ mod errors_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> Errors<M> {
+    impl<M: ethers::providers::Middleware> Errors<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -76,7 +80,7 @@ mod errors_mod {
         pub fn deploy<T: ethers::core::abi::Tokenize>(
             client: ::std::sync::Arc<M>,
             constructor_args: T,
-        ) -> Result<
+        ) -> ::std::result::Result<
             ethers::contract::builders::ContractDeployer<M, Self>,
             ethers::contract::ContractError<M>,
         > {
@@ -753,7 +757,7 @@ mod errors_mod {
             Self(contract)
         }
     }
-    #[doc = "Container type for all input parameters for the `ACL_ADMIN_CANNOT_BE_ZERO`function with signature `ACL_ADMIN_CANNOT_BE_ZERO()` and selector `[253, 24, 40, 255]`"]
+    #[doc = "Container type for all input parameters for the `ACL_ADMIN_CANNOT_BE_ZERO` function with signature `ACL_ADMIN_CANNOT_BE_ZERO()` and selector `[253, 24, 40, 255]`"]
     #[derive(
         Clone,
         Debug,
@@ -765,7 +769,7 @@ mod errors_mod {
     )]
     #[ethcall(name = "ACL_ADMIN_CANNOT_BE_ZERO", abi = "ACL_ADMIN_CANNOT_BE_ZERO()")]
     pub struct AclAdminCannotBeZeroCall;
-    #[doc = "Container type for all input parameters for the `ADDRESSES_PROVIDER_ALREADY_ADDED`function with signature `ADDRESSES_PROVIDER_ALREADY_ADDED()` and selector `[20, 220, 251, 188]`"]
+    #[doc = "Container type for all input parameters for the `ADDRESSES_PROVIDER_ALREADY_ADDED` function with signature `ADDRESSES_PROVIDER_ALREADY_ADDED()` and selector `[20, 220, 251, 188]`"]
     #[derive(
         Clone,
         Debug,
@@ -780,7 +784,7 @@ mod errors_mod {
         abi = "ADDRESSES_PROVIDER_ALREADY_ADDED()"
     )]
     pub struct AddressesProviderAlreadyAddedCall;
-    #[doc = "Container type for all input parameters for the `ADDRESSES_PROVIDER_NOT_REGISTERED`function with signature `ADDRESSES_PROVIDER_NOT_REGISTERED()` and selector `[224, 47, 7, 238]`"]
+    #[doc = "Container type for all input parameters for the `ADDRESSES_PROVIDER_NOT_REGISTERED` function with signature `ADDRESSES_PROVIDER_NOT_REGISTERED()` and selector `[224, 47, 7, 238]`"]
     #[derive(
         Clone,
         Debug,
@@ -795,7 +799,7 @@ mod errors_mod {
         abi = "ADDRESSES_PROVIDER_NOT_REGISTERED()"
     )]
     pub struct AddressesProviderNotRegisteredCall;
-    #[doc = "Container type for all input parameters for the `AMOUNT_BIGGER_THAN_MAX_LOAN_SIZE_STABLE`function with signature `AMOUNT_BIGGER_THAN_MAX_LOAN_SIZE_STABLE()` and selector `[240, 127, 103, 133]`"]
+    #[doc = "Container type for all input parameters for the `AMOUNT_BIGGER_THAN_MAX_LOAN_SIZE_STABLE` function with signature `AMOUNT_BIGGER_THAN_MAX_LOAN_SIZE_STABLE()` and selector `[240, 127, 103, 133]`"]
     #[derive(
         Clone,
         Debug,
@@ -810,7 +814,7 @@ mod errors_mod {
         abi = "AMOUNT_BIGGER_THAN_MAX_LOAN_SIZE_STABLE()"
     )]
     pub struct AmountBiggerThanMaxLoanSizeStableCall;
-    #[doc = "Container type for all input parameters for the `ASSET_NOT_BORROWABLE_IN_ISOLATION`function with signature `ASSET_NOT_BORROWABLE_IN_ISOLATION()` and selector `[133, 150, 170, 213]`"]
+    #[doc = "Container type for all input parameters for the `ASSET_NOT_BORROWABLE_IN_ISOLATION` function with signature `ASSET_NOT_BORROWABLE_IN_ISOLATION()` and selector `[133, 150, 170, 213]`"]
     #[derive(
         Clone,
         Debug,
@@ -825,7 +829,7 @@ mod errors_mod {
         abi = "ASSET_NOT_BORROWABLE_IN_ISOLATION()"
     )]
     pub struct AssetNotBorrowableInIsolationCall;
-    #[doc = "Container type for all input parameters for the `ASSET_NOT_LISTED`function with signature `ASSET_NOT_LISTED()` and selector `[205, 35, 54, 124]`"]
+    #[doc = "Container type for all input parameters for the `ASSET_NOT_LISTED` function with signature `ASSET_NOT_LISTED()` and selector `[205, 35, 54, 124]`"]
     #[derive(
         Clone,
         Debug,
@@ -837,7 +841,7 @@ mod errors_mod {
     )]
     #[ethcall(name = "ASSET_NOT_LISTED", abi = "ASSET_NOT_LISTED()")]
     pub struct AssetNotListedCall;
-    #[doc = "Container type for all input parameters for the `ATOKEN_SUPPLY_NOT_ZERO`function with signature `ATOKEN_SUPPLY_NOT_ZERO()` and selector `[67, 233, 124, 107]`"]
+    #[doc = "Container type for all input parameters for the `ATOKEN_SUPPLY_NOT_ZERO` function with signature `ATOKEN_SUPPLY_NOT_ZERO()` and selector `[67, 233, 124, 107]`"]
     #[derive(
         Clone,
         Debug,
@@ -849,7 +853,7 @@ mod errors_mod {
     )]
     #[ethcall(name = "ATOKEN_SUPPLY_NOT_ZERO", abi = "ATOKEN_SUPPLY_NOT_ZERO()")]
     pub struct AtokenSupplyNotZeroCall;
-    #[doc = "Container type for all input parameters for the `BORROWING_NOT_ENABLED`function with signature `BORROWING_NOT_ENABLED()` and selector `[78, 249, 153, 255]`"]
+    #[doc = "Container type for all input parameters for the `BORROWING_NOT_ENABLED` function with signature `BORROWING_NOT_ENABLED()` and selector `[78, 249, 153, 255]`"]
     #[derive(
         Clone,
         Debug,
@@ -861,7 +865,7 @@ mod errors_mod {
     )]
     #[ethcall(name = "BORROWING_NOT_ENABLED", abi = "BORROWING_NOT_ENABLED()")]
     pub struct BorrowingNotEnabledCall;
-    #[doc = "Container type for all input parameters for the `BORROW_CAP_EXCEEDED`function with signature `BORROW_CAP_EXCEEDED()` and selector `[46, 237, 23, 232]`"]
+    #[doc = "Container type for all input parameters for the `BORROW_CAP_EXCEEDED` function with signature `BORROW_CAP_EXCEEDED()` and selector `[46, 237, 23, 232]`"]
     #[derive(
         Clone,
         Debug,
@@ -873,7 +877,7 @@ mod errors_mod {
     )]
     #[ethcall(name = "BORROW_CAP_EXCEEDED", abi = "BORROW_CAP_EXCEEDED()")]
     pub struct BorrowCapExceededCall;
-    #[doc = "Container type for all input parameters for the `BRIDGE_PROTOCOL_FEE_INVALID`function with signature `BRIDGE_PROTOCOL_FEE_INVALID()` and selector `[122, 160, 118, 126]`"]
+    #[doc = "Container type for all input parameters for the `BRIDGE_PROTOCOL_FEE_INVALID` function with signature `BRIDGE_PROTOCOL_FEE_INVALID()` and selector `[122, 160, 118, 126]`"]
     #[derive(
         Clone,
         Debug,
@@ -888,7 +892,7 @@ mod errors_mod {
         abi = "BRIDGE_PROTOCOL_FEE_INVALID()"
     )]
     pub struct BridgeProtocolFeeInvalidCall;
-    #[doc = "Container type for all input parameters for the `CALLER_MUST_BE_POOL`function with signature `CALLER_MUST_BE_POOL()` and selector `[71, 29, 246, 133]`"]
+    #[doc = "Container type for all input parameters for the `CALLER_MUST_BE_POOL` function with signature `CALLER_MUST_BE_POOL()` and selector `[71, 29, 246, 133]`"]
     #[derive(
         Clone,
         Debug,
@@ -900,7 +904,7 @@ mod errors_mod {
     )]
     #[ethcall(name = "CALLER_MUST_BE_POOL", abi = "CALLER_MUST_BE_POOL()")]
     pub struct CallerMustBePoolCall;
-    #[doc = "Container type for all input parameters for the `CALLER_NOT_ASSET_LISTING_OR_POOL_ADMIN`function with signature `CALLER_NOT_ASSET_LISTING_OR_POOL_ADMIN()` and selector `[44, 142, 59, 76]`"]
+    #[doc = "Container type for all input parameters for the `CALLER_NOT_ASSET_LISTING_OR_POOL_ADMIN` function with signature `CALLER_NOT_ASSET_LISTING_OR_POOL_ADMIN()` and selector `[44, 142, 59, 76]`"]
     #[derive(
         Clone,
         Debug,
@@ -915,7 +919,7 @@ mod errors_mod {
         abi = "CALLER_NOT_ASSET_LISTING_OR_POOL_ADMIN()"
     )]
     pub struct CallerNotAssetListingOrPoolAdminCall;
-    #[doc = "Container type for all input parameters for the `CALLER_NOT_ATOKEN`function with signature `CALLER_NOT_ATOKEN()` and selector `[162, 233, 118, 198]`"]
+    #[doc = "Container type for all input parameters for the `CALLER_NOT_ATOKEN` function with signature `CALLER_NOT_ATOKEN()` and selector `[162, 233, 118, 198]`"]
     #[derive(
         Clone,
         Debug,
@@ -927,7 +931,7 @@ mod errors_mod {
     )]
     #[ethcall(name = "CALLER_NOT_ATOKEN", abi = "CALLER_NOT_ATOKEN()")]
     pub struct CallerNotAtokenCall;
-    #[doc = "Container type for all input parameters for the `CALLER_NOT_BRIDGE`function with signature `CALLER_NOT_BRIDGE()` and selector `[79, 119, 100, 123]`"]
+    #[doc = "Container type for all input parameters for the `CALLER_NOT_BRIDGE` function with signature `CALLER_NOT_BRIDGE()` and selector `[79, 119, 100, 123]`"]
     #[derive(
         Clone,
         Debug,
@@ -939,7 +943,7 @@ mod errors_mod {
     )]
     #[ethcall(name = "CALLER_NOT_BRIDGE", abi = "CALLER_NOT_BRIDGE()")]
     pub struct CallerNotBridgeCall;
-    #[doc = "Container type for all input parameters for the `CALLER_NOT_EMERGENCY_ADMIN`function with signature `CALLER_NOT_EMERGENCY_ADMIN()` and selector `[72, 92, 143, 246]`"]
+    #[doc = "Container type for all input parameters for the `CALLER_NOT_EMERGENCY_ADMIN` function with signature `CALLER_NOT_EMERGENCY_ADMIN()` and selector `[72, 92, 143, 246]`"]
     #[derive(
         Clone,
         Debug,
@@ -954,7 +958,7 @@ mod errors_mod {
         abi = "CALLER_NOT_EMERGENCY_ADMIN()"
     )]
     pub struct CallerNotEmergencyAdminCall;
-    #[doc = "Container type for all input parameters for the `CALLER_NOT_POOL_ADMIN`function with signature `CALLER_NOT_POOL_ADMIN()` and selector `[172, 117, 50, 54]`"]
+    #[doc = "Container type for all input parameters for the `CALLER_NOT_POOL_ADMIN` function with signature `CALLER_NOT_POOL_ADMIN()` and selector `[172, 117, 50, 54]`"]
     #[derive(
         Clone,
         Debug,
@@ -966,7 +970,7 @@ mod errors_mod {
     )]
     #[ethcall(name = "CALLER_NOT_POOL_ADMIN", abi = "CALLER_NOT_POOL_ADMIN()")]
     pub struct CallerNotPoolAdminCall;
-    #[doc = "Container type for all input parameters for the `CALLER_NOT_POOL_CONFIGURATOR`function with signature `CALLER_NOT_POOL_CONFIGURATOR()` and selector `[97, 193, 17, 210]`"]
+    #[doc = "Container type for all input parameters for the `CALLER_NOT_POOL_CONFIGURATOR` function with signature `CALLER_NOT_POOL_CONFIGURATOR()` and selector `[97, 193, 17, 210]`"]
     #[derive(
         Clone,
         Debug,
@@ -981,7 +985,7 @@ mod errors_mod {
         abi = "CALLER_NOT_POOL_CONFIGURATOR()"
     )]
     pub struct CallerNotPoolConfiguratorCall;
-    #[doc = "Container type for all input parameters for the `CALLER_NOT_POOL_OR_EMERGENCY_ADMIN`function with signature `CALLER_NOT_POOL_OR_EMERGENCY_ADMIN()` and selector `[38, 231, 179, 18]`"]
+    #[doc = "Container type for all input parameters for the `CALLER_NOT_POOL_OR_EMERGENCY_ADMIN` function with signature `CALLER_NOT_POOL_OR_EMERGENCY_ADMIN()` and selector `[38, 231, 179, 18]`"]
     #[derive(
         Clone,
         Debug,
@@ -996,7 +1000,7 @@ mod errors_mod {
         abi = "CALLER_NOT_POOL_OR_EMERGENCY_ADMIN()"
     )]
     pub struct CallerNotPoolOrEmergencyAdminCall;
-    #[doc = "Container type for all input parameters for the `CALLER_NOT_RISK_OR_POOL_ADMIN`function with signature `CALLER_NOT_RISK_OR_POOL_ADMIN()` and selector `[181, 231, 147, 102]`"]
+    #[doc = "Container type for all input parameters for the `CALLER_NOT_RISK_OR_POOL_ADMIN` function with signature `CALLER_NOT_RISK_OR_POOL_ADMIN()` and selector `[181, 231, 147, 102]`"]
     #[derive(
         Clone,
         Debug,
@@ -1011,7 +1015,7 @@ mod errors_mod {
         abi = "CALLER_NOT_RISK_OR_POOL_ADMIN()"
     )]
     pub struct CallerNotRiskOrPoolAdminCall;
-    #[doc = "Container type for all input parameters for the `COLLATERAL_BALANCE_IS_ZERO`function with signature `COLLATERAL_BALANCE_IS_ZERO()` and selector `[78, 1, 227, 193]`"]
+    #[doc = "Container type for all input parameters for the `COLLATERAL_BALANCE_IS_ZERO` function with signature `COLLATERAL_BALANCE_IS_ZERO()` and selector `[78, 1, 227, 193]`"]
     #[derive(
         Clone,
         Debug,
@@ -1026,7 +1030,7 @@ mod errors_mod {
         abi = "COLLATERAL_BALANCE_IS_ZERO()"
     )]
     pub struct CollateralBalanceIsZeroCall;
-    #[doc = "Container type for all input parameters for the `COLLATERAL_CANNOT_BE_LIQUIDATED`function with signature `COLLATERAL_CANNOT_BE_LIQUIDATED()` and selector `[137, 95, 125, 200]`"]
+    #[doc = "Container type for all input parameters for the `COLLATERAL_CANNOT_BE_LIQUIDATED` function with signature `COLLATERAL_CANNOT_BE_LIQUIDATED()` and selector `[137, 95, 125, 200]`"]
     #[derive(
         Clone,
         Debug,
@@ -1041,7 +1045,7 @@ mod errors_mod {
         abi = "COLLATERAL_CANNOT_BE_LIQUIDATED()"
     )]
     pub struct CollateralCannotBeLiquidatedCall;
-    #[doc = "Container type for all input parameters for the `COLLATERAL_CANNOT_COVER_NEW_BORROW`function with signature `COLLATERAL_CANNOT_COVER_NEW_BORROW()` and selector `[227, 250, 32, 245]`"]
+    #[doc = "Container type for all input parameters for the `COLLATERAL_CANNOT_COVER_NEW_BORROW` function with signature `COLLATERAL_CANNOT_COVER_NEW_BORROW()` and selector `[227, 250, 32, 245]`"]
     #[derive(
         Clone,
         Debug,
@@ -1056,7 +1060,7 @@ mod errors_mod {
         abi = "COLLATERAL_CANNOT_COVER_NEW_BORROW()"
     )]
     pub struct CollateralCannotCoverNewBorrowCall;
-    #[doc = "Container type for all input parameters for the `COLLATERAL_SAME_AS_BORROWING_CURRENCY`function with signature `COLLATERAL_SAME_AS_BORROWING_CURRENCY()` and selector `[138, 52, 64, 0]`"]
+    #[doc = "Container type for all input parameters for the `COLLATERAL_SAME_AS_BORROWING_CURRENCY` function with signature `COLLATERAL_SAME_AS_BORROWING_CURRENCY()` and selector `[138, 52, 64, 0]`"]
     #[derive(
         Clone,
         Debug,
@@ -1071,7 +1075,7 @@ mod errors_mod {
         abi = "COLLATERAL_SAME_AS_BORROWING_CURRENCY()"
     )]
     pub struct CollateralSameAsBorrowingCurrencyCall;
-    #[doc = "Container type for all input parameters for the `DEBT_CEILING_EXCEEDED`function with signature `DEBT_CEILING_EXCEEDED()` and selector `[101, 168, 59, 171]`"]
+    #[doc = "Container type for all input parameters for the `DEBT_CEILING_EXCEEDED` function with signature `DEBT_CEILING_EXCEEDED()` and selector `[101, 168, 59, 171]`"]
     #[derive(
         Clone,
         Debug,
@@ -1083,7 +1087,7 @@ mod errors_mod {
     )]
     #[ethcall(name = "DEBT_CEILING_EXCEEDED", abi = "DEBT_CEILING_EXCEEDED()")]
     pub struct DebtCeilingExceededCall;
-    #[doc = "Container type for all input parameters for the `DEBT_CEILING_NOT_ZERO`function with signature `DEBT_CEILING_NOT_ZERO()` and selector `[228, 221, 139, 116]`"]
+    #[doc = "Container type for all input parameters for the `DEBT_CEILING_NOT_ZERO` function with signature `DEBT_CEILING_NOT_ZERO()` and selector `[228, 221, 139, 116]`"]
     #[derive(
         Clone,
         Debug,
@@ -1095,7 +1099,7 @@ mod errors_mod {
     )]
     #[ethcall(name = "DEBT_CEILING_NOT_ZERO", abi = "DEBT_CEILING_NOT_ZERO()")]
     pub struct DebtCeilingNotZeroCall;
-    #[doc = "Container type for all input parameters for the `EMODE_CATEGORY_RESERVED`function with signature `EMODE_CATEGORY_RESERVED()` and selector `[244, 121, 234, 17]`"]
+    #[doc = "Container type for all input parameters for the `EMODE_CATEGORY_RESERVED` function with signature `EMODE_CATEGORY_RESERVED()` and selector `[244, 121, 234, 17]`"]
     #[derive(
         Clone,
         Debug,
@@ -1107,7 +1111,7 @@ mod errors_mod {
     )]
     #[ethcall(name = "EMODE_CATEGORY_RESERVED", abi = "EMODE_CATEGORY_RESERVED()")]
     pub struct EmodeCategoryReservedCall;
-    #[doc = "Container type for all input parameters for the `FLASHLOAN_PREMIUM_INVALID`function with signature `FLASHLOAN_PREMIUM_INVALID()` and selector `[116, 127, 165, 86]`"]
+    #[doc = "Container type for all input parameters for the `FLASHLOAN_PREMIUM_INVALID` function with signature `FLASHLOAN_PREMIUM_INVALID()` and selector `[116, 127, 165, 86]`"]
     #[derive(
         Clone,
         Debug,
@@ -1122,7 +1126,7 @@ mod errors_mod {
         abi = "FLASHLOAN_PREMIUM_INVALID()"
     )]
     pub struct FlashloanPremiumInvalidCall;
-    #[doc = "Container type for all input parameters for the `HEALTH_FACTOR_LOWER_THAN_LIQUIDATION_THRESHOLD`function with signature `HEALTH_FACTOR_LOWER_THAN_LIQUIDATION_THRESHOLD()` and selector `[54, 110, 181, 77]`"]
+    #[doc = "Container type for all input parameters for the `HEALTH_FACTOR_LOWER_THAN_LIQUIDATION_THRESHOLD` function with signature `HEALTH_FACTOR_LOWER_THAN_LIQUIDATION_THRESHOLD()` and selector `[54, 110, 181, 77]`"]
     #[derive(
         Clone,
         Debug,
@@ -1137,7 +1141,7 @@ mod errors_mod {
         abi = "HEALTH_FACTOR_LOWER_THAN_LIQUIDATION_THRESHOLD()"
     )]
     pub struct HealthFactorLowerThanLiquidationThresholdCall;
-    #[doc = "Container type for all input parameters for the `HEALTH_FACTOR_NOT_BELOW_THRESHOLD`function with signature `HEALTH_FACTOR_NOT_BELOW_THRESHOLD()` and selector `[149, 38, 51, 197]`"]
+    #[doc = "Container type for all input parameters for the `HEALTH_FACTOR_NOT_BELOW_THRESHOLD` function with signature `HEALTH_FACTOR_NOT_BELOW_THRESHOLD()` and selector `[149, 38, 51, 197]`"]
     #[derive(
         Clone,
         Debug,
@@ -1152,7 +1156,7 @@ mod errors_mod {
         abi = "HEALTH_FACTOR_NOT_BELOW_THRESHOLD()"
     )]
     pub struct HealthFactorNotBelowThresholdCall;
-    #[doc = "Container type for all input parameters for the `INCONSISTENT_EMODE_CATEGORY`function with signature `INCONSISTENT_EMODE_CATEGORY()` and selector `[143, 119, 34, 178]`"]
+    #[doc = "Container type for all input parameters for the `INCONSISTENT_EMODE_CATEGORY` function with signature `INCONSISTENT_EMODE_CATEGORY()` and selector `[143, 119, 34, 178]`"]
     #[derive(
         Clone,
         Debug,
@@ -1167,7 +1171,7 @@ mod errors_mod {
         abi = "INCONSISTENT_EMODE_CATEGORY()"
     )]
     pub struct InconsistentEmodeCategoryCall;
-    #[doc = "Container type for all input parameters for the `INCONSISTENT_FLASHLOAN_PARAMS`function with signature `INCONSISTENT_FLASHLOAN_PARAMS()` and selector `[115, 222, 165, 227]`"]
+    #[doc = "Container type for all input parameters for the `INCONSISTENT_FLASHLOAN_PARAMS` function with signature `INCONSISTENT_FLASHLOAN_PARAMS()` and selector `[115, 222, 165, 227]`"]
     #[derive(
         Clone,
         Debug,
@@ -1182,7 +1186,7 @@ mod errors_mod {
         abi = "INCONSISTENT_FLASHLOAN_PARAMS()"
     )]
     pub struct InconsistentFlashloanParamsCall;
-    #[doc = "Container type for all input parameters for the `INCONSISTENT_PARAMS_LENGTH`function with signature `INCONSISTENT_PARAMS_LENGTH()` and selector `[186, 216, 48, 140]`"]
+    #[doc = "Container type for all input parameters for the `INCONSISTENT_PARAMS_LENGTH` function with signature `INCONSISTENT_PARAMS_LENGTH()` and selector `[186, 216, 48, 140]`"]
     #[derive(
         Clone,
         Debug,
@@ -1197,7 +1201,7 @@ mod errors_mod {
         abi = "INCONSISTENT_PARAMS_LENGTH()"
     )]
     pub struct InconsistentParamsLengthCall;
-    #[doc = "Container type for all input parameters for the `INTEREST_RATE_REBALANCE_CONDITIONS_NOT_MET`function with signature `INTEREST_RATE_REBALANCE_CONDITIONS_NOT_MET()` and selector `[41, 38, 201, 113]`"]
+    #[doc = "Container type for all input parameters for the `INTEREST_RATE_REBALANCE_CONDITIONS_NOT_MET` function with signature `INTEREST_RATE_REBALANCE_CONDITIONS_NOT_MET()` and selector `[41, 38, 201, 113]`"]
     #[derive(
         Clone,
         Debug,
@@ -1212,7 +1216,7 @@ mod errors_mod {
         abi = "INTEREST_RATE_REBALANCE_CONDITIONS_NOT_MET()"
     )]
     pub struct InterestRateRebalanceConditionsNotMetCall;
-    #[doc = "Container type for all input parameters for the `INVALID_ADDRESSES_PROVIDER`function with signature `INVALID_ADDRESSES_PROVIDER()` and selector `[55, 147, 7, 130]`"]
+    #[doc = "Container type for all input parameters for the `INVALID_ADDRESSES_PROVIDER` function with signature `INVALID_ADDRESSES_PROVIDER()` and selector `[55, 147, 7, 130]`"]
     #[derive(
         Clone,
         Debug,
@@ -1227,7 +1231,7 @@ mod errors_mod {
         abi = "INVALID_ADDRESSES_PROVIDER()"
     )]
     pub struct InvalidAddressesProviderCall;
-    #[doc = "Container type for all input parameters for the `INVALID_ADDRESSES_PROVIDER_ID`function with signature `INVALID_ADDRESSES_PROVIDER_ID()` and selector `[96, 195, 222, 128]`"]
+    #[doc = "Container type for all input parameters for the `INVALID_ADDRESSES_PROVIDER_ID` function with signature `INVALID_ADDRESSES_PROVIDER_ID()` and selector `[96, 195, 222, 128]`"]
     #[derive(
         Clone,
         Debug,
@@ -1242,7 +1246,7 @@ mod errors_mod {
         abi = "INVALID_ADDRESSES_PROVIDER_ID()"
     )]
     pub struct InvalidAddressesProviderIdCall;
-    #[doc = "Container type for all input parameters for the `INVALID_AMOUNT`function with signature `INVALID_AMOUNT()` and selector `[250, 232, 39, 145]`"]
+    #[doc = "Container type for all input parameters for the `INVALID_AMOUNT` function with signature `INVALID_AMOUNT()` and selector `[250, 232, 39, 145]`"]
     #[derive(
         Clone,
         Debug,
@@ -1254,7 +1258,7 @@ mod errors_mod {
     )]
     #[ethcall(name = "INVALID_AMOUNT", abi = "INVALID_AMOUNT()")]
     pub struct InvalidAmountCall;
-    #[doc = "Container type for all input parameters for the `INVALID_BORROW_CAP`function with signature `INVALID_BORROW_CAP()` and selector `[214, 249, 252, 222]`"]
+    #[doc = "Container type for all input parameters for the `INVALID_BORROW_CAP` function with signature `INVALID_BORROW_CAP()` and selector `[214, 249, 252, 222]`"]
     #[derive(
         Clone,
         Debug,
@@ -1266,7 +1270,7 @@ mod errors_mod {
     )]
     #[ethcall(name = "INVALID_BORROW_CAP", abi = "INVALID_BORROW_CAP()")]
     pub struct InvalidBorrowCapCall;
-    #[doc = "Container type for all input parameters for the `INVALID_BURN_AMOUNT`function with signature `INVALID_BURN_AMOUNT()` and selector `[81, 38, 116, 80]`"]
+    #[doc = "Container type for all input parameters for the `INVALID_BURN_AMOUNT` function with signature `INVALID_BURN_AMOUNT()` and selector `[81, 38, 116, 80]`"]
     #[derive(
         Clone,
         Debug,
@@ -1278,7 +1282,7 @@ mod errors_mod {
     )]
     #[ethcall(name = "INVALID_BURN_AMOUNT", abi = "INVALID_BURN_AMOUNT()")]
     pub struct InvalidBurnAmountCall;
-    #[doc = "Container type for all input parameters for the `INVALID_DEBT_CEILING`function with signature `INVALID_DEBT_CEILING()` and selector `[220, 197, 109, 182]`"]
+    #[doc = "Container type for all input parameters for the `INVALID_DEBT_CEILING` function with signature `INVALID_DEBT_CEILING()` and selector `[220, 197, 109, 182]`"]
     #[derive(
         Clone,
         Debug,
@@ -1290,7 +1294,7 @@ mod errors_mod {
     )]
     #[ethcall(name = "INVALID_DEBT_CEILING", abi = "INVALID_DEBT_CEILING()")]
     pub struct InvalidDebtCeilingCall;
-    #[doc = "Container type for all input parameters for the `INVALID_DECIMALS`function with signature `INVALID_DECIMALS()` and selector `[250, 22, 58, 131]`"]
+    #[doc = "Container type for all input parameters for the `INVALID_DECIMALS` function with signature `INVALID_DECIMALS()` and selector `[250, 22, 58, 131]`"]
     #[derive(
         Clone,
         Debug,
@@ -1302,7 +1306,7 @@ mod errors_mod {
     )]
     #[ethcall(name = "INVALID_DECIMALS", abi = "INVALID_DECIMALS()")]
     pub struct InvalidDecimalsCall;
-    #[doc = "Container type for all input parameters for the `INVALID_EMODE_CATEGORY`function with signature `INVALID_EMODE_CATEGORY()` and selector `[168, 201, 120, 83]`"]
+    #[doc = "Container type for all input parameters for the `INVALID_EMODE_CATEGORY` function with signature `INVALID_EMODE_CATEGORY()` and selector `[168, 201, 120, 83]`"]
     #[derive(
         Clone,
         Debug,
@@ -1314,7 +1318,7 @@ mod errors_mod {
     )]
     #[ethcall(name = "INVALID_EMODE_CATEGORY", abi = "INVALID_EMODE_CATEGORY()")]
     pub struct InvalidEmodeCategoryCall;
-    #[doc = "Container type for all input parameters for the `INVALID_EMODE_CATEGORY_ASSIGNMENT`function with signature `INVALID_EMODE_CATEGORY_ASSIGNMENT()` and selector `[93, 156, 118, 192]`"]
+    #[doc = "Container type for all input parameters for the `INVALID_EMODE_CATEGORY_ASSIGNMENT` function with signature `INVALID_EMODE_CATEGORY_ASSIGNMENT()` and selector `[93, 156, 118, 192]`"]
     #[derive(
         Clone,
         Debug,
@@ -1329,7 +1333,7 @@ mod errors_mod {
         abi = "INVALID_EMODE_CATEGORY_ASSIGNMENT()"
     )]
     pub struct InvalidEmodeCategoryAssignmentCall;
-    #[doc = "Container type for all input parameters for the `INVALID_EMODE_CATEGORY_PARAMS`function with signature `INVALID_EMODE_CATEGORY_PARAMS()` and selector `[71, 207, 21, 35]`"]
+    #[doc = "Container type for all input parameters for the `INVALID_EMODE_CATEGORY_PARAMS` function with signature `INVALID_EMODE_CATEGORY_PARAMS()` and selector `[71, 207, 21, 35]`"]
     #[derive(
         Clone,
         Debug,
@@ -1344,7 +1348,7 @@ mod errors_mod {
         abi = "INVALID_EMODE_CATEGORY_PARAMS()"
     )]
     pub struct InvalidEmodeCategoryParamsCall;
-    #[doc = "Container type for all input parameters for the `INVALID_EXPIRATION`function with signature `INVALID_EXPIRATION()` and selector `[192, 138, 17, 70]`"]
+    #[doc = "Container type for all input parameters for the `INVALID_EXPIRATION` function with signature `INVALID_EXPIRATION()` and selector `[192, 138, 17, 70]`"]
     #[derive(
         Clone,
         Debug,
@@ -1356,7 +1360,7 @@ mod errors_mod {
     )]
     #[ethcall(name = "INVALID_EXPIRATION", abi = "INVALID_EXPIRATION()")]
     pub struct InvalidExpirationCall;
-    #[doc = "Container type for all input parameters for the `INVALID_FLASHLOAN_EXECUTOR_RETURN`function with signature `INVALID_FLASHLOAN_EXECUTOR_RETURN()` and selector `[127, 234, 111, 54]`"]
+    #[doc = "Container type for all input parameters for the `INVALID_FLASHLOAN_EXECUTOR_RETURN` function with signature `INVALID_FLASHLOAN_EXECUTOR_RETURN()` and selector `[127, 234, 111, 54]`"]
     #[derive(
         Clone,
         Debug,
@@ -1371,7 +1375,7 @@ mod errors_mod {
         abi = "INVALID_FLASHLOAN_EXECUTOR_RETURN()"
     )]
     pub struct InvalidFlashloanExecutorReturnCall;
-    #[doc = "Container type for all input parameters for the `INVALID_INTEREST_RATE_MODE_SELECTED`function with signature `INVALID_INTEREST_RATE_MODE_SELECTED()` and selector `[137, 197, 212, 95]`"]
+    #[doc = "Container type for all input parameters for the `INVALID_INTEREST_RATE_MODE_SELECTED` function with signature `INVALID_INTEREST_RATE_MODE_SELECTED()` and selector `[137, 197, 212, 95]`"]
     #[derive(
         Clone,
         Debug,
@@ -1386,7 +1390,7 @@ mod errors_mod {
         abi = "INVALID_INTEREST_RATE_MODE_SELECTED()"
     )]
     pub struct InvalidInterestRateModeSelectedCall;
-    #[doc = "Container type for all input parameters for the `INVALID_LIQUIDATION_PROTOCOL_FEE`function with signature `INVALID_LIQUIDATION_PROTOCOL_FEE()` and selector `[142, 218, 70, 189]`"]
+    #[doc = "Container type for all input parameters for the `INVALID_LIQUIDATION_PROTOCOL_FEE` function with signature `INVALID_LIQUIDATION_PROTOCOL_FEE()` and selector `[142, 218, 70, 189]`"]
     #[derive(
         Clone,
         Debug,
@@ -1401,7 +1405,7 @@ mod errors_mod {
         abi = "INVALID_LIQUIDATION_PROTOCOL_FEE()"
     )]
     pub struct InvalidLiquidationProtocolFeeCall;
-    #[doc = "Container type for all input parameters for the `INVALID_LIQ_BONUS`function with signature `INVALID_LIQ_BONUS()` and selector `[149, 39, 233, 217]`"]
+    #[doc = "Container type for all input parameters for the `INVALID_LIQ_BONUS` function with signature `INVALID_LIQ_BONUS()` and selector `[149, 39, 233, 217]`"]
     #[derive(
         Clone,
         Debug,
@@ -1413,7 +1417,7 @@ mod errors_mod {
     )]
     #[ethcall(name = "INVALID_LIQ_BONUS", abi = "INVALID_LIQ_BONUS()")]
     pub struct InvalidLiqBonusCall;
-    #[doc = "Container type for all input parameters for the `INVALID_LIQ_THRESHOLD`function with signature `INVALID_LIQ_THRESHOLD()` and selector `[221, 29, 217, 95]`"]
+    #[doc = "Container type for all input parameters for the `INVALID_LIQ_THRESHOLD` function with signature `INVALID_LIQ_THRESHOLD()` and selector `[221, 29, 217, 95]`"]
     #[derive(
         Clone,
         Debug,
@@ -1425,7 +1429,7 @@ mod errors_mod {
     )]
     #[ethcall(name = "INVALID_LIQ_THRESHOLD", abi = "INVALID_LIQ_THRESHOLD()")]
     pub struct InvalidLiqThresholdCall;
-    #[doc = "Container type for all input parameters for the `INVALID_LTV`function with signature `INVALID_LTV()` and selector `[153, 206, 83, 243]`"]
+    #[doc = "Container type for all input parameters for the `INVALID_LTV` function with signature `INVALID_LTV()` and selector `[153, 206, 83, 243]`"]
     #[derive(
         Clone,
         Debug,
@@ -1437,7 +1441,7 @@ mod errors_mod {
     )]
     #[ethcall(name = "INVALID_LTV", abi = "INVALID_LTV()")]
     pub struct InvalidLtvCall;
-    #[doc = "Container type for all input parameters for the `INVALID_MINT_AMOUNT`function with signature `INVALID_MINT_AMOUNT()` and selector `[171, 211, 81, 177]`"]
+    #[doc = "Container type for all input parameters for the `INVALID_MINT_AMOUNT` function with signature `INVALID_MINT_AMOUNT()` and selector `[171, 211, 81, 177]`"]
     #[derive(
         Clone,
         Debug,
@@ -1449,7 +1453,7 @@ mod errors_mod {
     )]
     #[ethcall(name = "INVALID_MINT_AMOUNT", abi = "INVALID_MINT_AMOUNT()")]
     pub struct InvalidMintAmountCall;
-    #[doc = "Container type for all input parameters for the `INVALID_OPTIMAL_STABLE_TO_TOTAL_DEBT_RATIO`function with signature `INVALID_OPTIMAL_STABLE_TO_TOTAL_DEBT_RATIO()` and selector `[200, 153, 48, 26]`"]
+    #[doc = "Container type for all input parameters for the `INVALID_OPTIMAL_STABLE_TO_TOTAL_DEBT_RATIO` function with signature `INVALID_OPTIMAL_STABLE_TO_TOTAL_DEBT_RATIO()` and selector `[200, 153, 48, 26]`"]
     #[derive(
         Clone,
         Debug,
@@ -1464,7 +1468,7 @@ mod errors_mod {
         abi = "INVALID_OPTIMAL_STABLE_TO_TOTAL_DEBT_RATIO()"
     )]
     pub struct InvalidOptimalStableToTotalDebtRatioCall;
-    #[doc = "Container type for all input parameters for the `INVALID_OPTIMAL_USAGE_RATIO`function with signature `INVALID_OPTIMAL_USAGE_RATIO()` and selector `[78, 58, 237, 55]`"]
+    #[doc = "Container type for all input parameters for the `INVALID_OPTIMAL_USAGE_RATIO` function with signature `INVALID_OPTIMAL_USAGE_RATIO()` and selector `[78, 58, 237, 55]`"]
     #[derive(
         Clone,
         Debug,
@@ -1479,7 +1483,7 @@ mod errors_mod {
         abi = "INVALID_OPTIMAL_USAGE_RATIO()"
     )]
     pub struct InvalidOptimalUsageRatioCall;
-    #[doc = "Container type for all input parameters for the `INVALID_RESERVE_FACTOR`function with signature `INVALID_RESERVE_FACTOR()` and selector `[164, 134, 141, 202]`"]
+    #[doc = "Container type for all input parameters for the `INVALID_RESERVE_FACTOR` function with signature `INVALID_RESERVE_FACTOR()` and selector `[164, 134, 141, 202]`"]
     #[derive(
         Clone,
         Debug,
@@ -1491,7 +1495,7 @@ mod errors_mod {
     )]
     #[ethcall(name = "INVALID_RESERVE_FACTOR", abi = "INVALID_RESERVE_FACTOR()")]
     pub struct InvalidReserveFactorCall;
-    #[doc = "Container type for all input parameters for the `INVALID_RESERVE_INDEX`function with signature `INVALID_RESERVE_INDEX()` and selector `[209, 205, 139, 29]`"]
+    #[doc = "Container type for all input parameters for the `INVALID_RESERVE_INDEX` function with signature `INVALID_RESERVE_INDEX()` and selector `[209, 205, 139, 29]`"]
     #[derive(
         Clone,
         Debug,
@@ -1503,7 +1507,7 @@ mod errors_mod {
     )]
     #[ethcall(name = "INVALID_RESERVE_INDEX", abi = "INVALID_RESERVE_INDEX()")]
     pub struct InvalidReserveIndexCall;
-    #[doc = "Container type for all input parameters for the `INVALID_RESERVE_PARAMS`function with signature `INVALID_RESERVE_PARAMS()` and selector `[51, 87, 99, 222]`"]
+    #[doc = "Container type for all input parameters for the `INVALID_RESERVE_PARAMS` function with signature `INVALID_RESERVE_PARAMS()` and selector `[51, 87, 99, 222]`"]
     #[derive(
         Clone,
         Debug,
@@ -1515,7 +1519,7 @@ mod errors_mod {
     )]
     #[ethcall(name = "INVALID_RESERVE_PARAMS", abi = "INVALID_RESERVE_PARAMS()")]
     pub struct InvalidReserveParamsCall;
-    #[doc = "Container type for all input parameters for the `INVALID_SIGNATURE`function with signature `INVALID_SIGNATURE()` and selector `[163, 64, 42, 56]`"]
+    #[doc = "Container type for all input parameters for the `INVALID_SIGNATURE` function with signature `INVALID_SIGNATURE()` and selector `[163, 64, 42, 56]`"]
     #[derive(
         Clone,
         Debug,
@@ -1527,7 +1531,7 @@ mod errors_mod {
     )]
     #[ethcall(name = "INVALID_SIGNATURE", abi = "INVALID_SIGNATURE()")]
     pub struct InvalidSignatureCall;
-    #[doc = "Container type for all input parameters for the `INVALID_SUPPLY_CAP`function with signature `INVALID_SUPPLY_CAP()` and selector `[38, 187, 208, 83]`"]
+    #[doc = "Container type for all input parameters for the `INVALID_SUPPLY_CAP` function with signature `INVALID_SUPPLY_CAP()` and selector `[38, 187, 208, 83]`"]
     #[derive(
         Clone,
         Debug,
@@ -1539,7 +1543,7 @@ mod errors_mod {
     )]
     #[ethcall(name = "INVALID_SUPPLY_CAP", abi = "INVALID_SUPPLY_CAP()")]
     pub struct InvalidSupplyCapCall;
-    #[doc = "Container type for all input parameters for the `INVALID_UNBACKED_MINT_CAP`function with signature `INVALID_UNBACKED_MINT_CAP()` and selector `[71, 186, 147, 216]`"]
+    #[doc = "Container type for all input parameters for the `INVALID_UNBACKED_MINT_CAP` function with signature `INVALID_UNBACKED_MINT_CAP()` and selector `[71, 186, 147, 216]`"]
     #[derive(
         Clone,
         Debug,
@@ -1554,7 +1558,7 @@ mod errors_mod {
         abi = "INVALID_UNBACKED_MINT_CAP()"
     )]
     pub struct InvalidUnbackedMintCapCall;
-    #[doc = "Container type for all input parameters for the `LTV_VALIDATION_FAILED`function with signature `LTV_VALIDATION_FAILED()` and selector `[184, 112, 65, 194]`"]
+    #[doc = "Container type for all input parameters for the `LTV_VALIDATION_FAILED` function with signature `LTV_VALIDATION_FAILED()` and selector `[184, 112, 65, 194]`"]
     #[derive(
         Clone,
         Debug,
@@ -1566,7 +1570,7 @@ mod errors_mod {
     )]
     #[ethcall(name = "LTV_VALIDATION_FAILED", abi = "LTV_VALIDATION_FAILED()")]
     pub struct LtvValidationFailedCall;
-    #[doc = "Container type for all input parameters for the `NOT_CONTRACT`function with signature `NOT_CONTRACT()` and selector `[17, 215, 176, 6]`"]
+    #[doc = "Container type for all input parameters for the `NOT_CONTRACT` function with signature `NOT_CONTRACT()` and selector `[17, 215, 176, 6]`"]
     #[derive(
         Clone,
         Debug,
@@ -1578,7 +1582,7 @@ mod errors_mod {
     )]
     #[ethcall(name = "NOT_CONTRACT", abi = "NOT_CONTRACT()")]
     pub struct NotContractCall;
-    #[doc = "Container type for all input parameters for the `NOT_ENOUGH_AVAILABLE_USER_BALANCE`function with signature `NOT_ENOUGH_AVAILABLE_USER_BALANCE()` and selector `[183, 245, 226, 36]`"]
+    #[doc = "Container type for all input parameters for the `NOT_ENOUGH_AVAILABLE_USER_BALANCE` function with signature `NOT_ENOUGH_AVAILABLE_USER_BALANCE()` and selector `[183, 245, 226, 36]`"]
     #[derive(
         Clone,
         Debug,
@@ -1593,7 +1597,7 @@ mod errors_mod {
         abi = "NOT_ENOUGH_AVAILABLE_USER_BALANCE()"
     )]
     pub struct NotEnoughAvailableUserBalanceCall;
-    #[doc = "Container type for all input parameters for the `NO_DEBT_OF_SELECTED_TYPE`function with signature `NO_DEBT_OF_SELECTED_TYPE()` and selector `[220, 25, 27, 217]`"]
+    #[doc = "Container type for all input parameters for the `NO_DEBT_OF_SELECTED_TYPE` function with signature `NO_DEBT_OF_SELECTED_TYPE()` and selector `[220, 25, 27, 217]`"]
     #[derive(
         Clone,
         Debug,
@@ -1605,7 +1609,7 @@ mod errors_mod {
     )]
     #[ethcall(name = "NO_DEBT_OF_SELECTED_TYPE", abi = "NO_DEBT_OF_SELECTED_TYPE()")]
     pub struct NoDebtOfSelectedTypeCall;
-    #[doc = "Container type for all input parameters for the `NO_EXPLICIT_AMOUNT_TO_REPAY_ON_BEHALF`function with signature `NO_EXPLICIT_AMOUNT_TO_REPAY_ON_BEHALF()` and selector `[113, 47, 83, 106]`"]
+    #[doc = "Container type for all input parameters for the `NO_EXPLICIT_AMOUNT_TO_REPAY_ON_BEHALF` function with signature `NO_EXPLICIT_AMOUNT_TO_REPAY_ON_BEHALF()` and selector `[113, 47, 83, 106]`"]
     #[derive(
         Clone,
         Debug,
@@ -1620,7 +1624,7 @@ mod errors_mod {
         abi = "NO_EXPLICIT_AMOUNT_TO_REPAY_ON_BEHALF()"
     )]
     pub struct NoExplicitAmountToRepayOnBehalfCall;
-    #[doc = "Container type for all input parameters for the `NO_MORE_RESERVES_ALLOWED`function with signature `NO_MORE_RESERVES_ALLOWED()` and selector `[118, 174, 143, 202]`"]
+    #[doc = "Container type for all input parameters for the `NO_MORE_RESERVES_ALLOWED` function with signature `NO_MORE_RESERVES_ALLOWED()` and selector `[118, 174, 143, 202]`"]
     #[derive(
         Clone,
         Debug,
@@ -1632,7 +1636,7 @@ mod errors_mod {
     )]
     #[ethcall(name = "NO_MORE_RESERVES_ALLOWED", abi = "NO_MORE_RESERVES_ALLOWED()")]
     pub struct NoMoreReservesAllowedCall;
-    #[doc = "Container type for all input parameters for the `NO_OUTSTANDING_STABLE_DEBT`function with signature `NO_OUTSTANDING_STABLE_DEBT()` and selector `[116, 69, 155, 20]`"]
+    #[doc = "Container type for all input parameters for the `NO_OUTSTANDING_STABLE_DEBT` function with signature `NO_OUTSTANDING_STABLE_DEBT()` and selector `[116, 69, 155, 20]`"]
     #[derive(
         Clone,
         Debug,
@@ -1647,7 +1651,7 @@ mod errors_mod {
         abi = "NO_OUTSTANDING_STABLE_DEBT()"
     )]
     pub struct NoOutstandingStableDebtCall;
-    #[doc = "Container type for all input parameters for the `NO_OUTSTANDING_VARIABLE_DEBT`function with signature `NO_OUTSTANDING_VARIABLE_DEBT()` and selector `[180, 164, 87, 48]`"]
+    #[doc = "Container type for all input parameters for the `NO_OUTSTANDING_VARIABLE_DEBT` function with signature `NO_OUTSTANDING_VARIABLE_DEBT()` and selector `[180, 164, 87, 48]`"]
     #[derive(
         Clone,
         Debug,
@@ -1662,7 +1666,7 @@ mod errors_mod {
         abi = "NO_OUTSTANDING_VARIABLE_DEBT()"
     )]
     pub struct NoOutstandingVariableDebtCall;
-    #[doc = "Container type for all input parameters for the `OPERATION_NOT_SUPPORTED`function with signature `OPERATION_NOT_SUPPORTED()` and selector `[139, 139, 152, 215]`"]
+    #[doc = "Container type for all input parameters for the `OPERATION_NOT_SUPPORTED` function with signature `OPERATION_NOT_SUPPORTED()` and selector `[139, 139, 152, 215]`"]
     #[derive(
         Clone,
         Debug,
@@ -1674,7 +1678,7 @@ mod errors_mod {
     )]
     #[ethcall(name = "OPERATION_NOT_SUPPORTED", abi = "OPERATION_NOT_SUPPORTED()")]
     pub struct OperationNotSupportedCall;
-    #[doc = "Container type for all input parameters for the `POOL_ADDRESSES_DO_NOT_MATCH`function with signature `POOL_ADDRESSES_DO_NOT_MATCH()` and selector `[26, 187, 176, 1]`"]
+    #[doc = "Container type for all input parameters for the `POOL_ADDRESSES_DO_NOT_MATCH` function with signature `POOL_ADDRESSES_DO_NOT_MATCH()` and selector `[26, 187, 176, 1]`"]
     #[derive(
         Clone,
         Debug,
@@ -1689,7 +1693,7 @@ mod errors_mod {
         abi = "POOL_ADDRESSES_DO_NOT_MATCH()"
     )]
     pub struct PoolAddressesDoNotMatchCall;
-    #[doc = "Container type for all input parameters for the `PRICE_ORACLE_SENTINEL_CHECK_FAILED`function with signature `PRICE_ORACLE_SENTINEL_CHECK_FAILED()` and selector `[200, 99, 128, 130]`"]
+    #[doc = "Container type for all input parameters for the `PRICE_ORACLE_SENTINEL_CHECK_FAILED` function with signature `PRICE_ORACLE_SENTINEL_CHECK_FAILED()` and selector `[200, 99, 128, 130]`"]
     #[derive(
         Clone,
         Debug,
@@ -1704,7 +1708,7 @@ mod errors_mod {
         abi = "PRICE_ORACLE_SENTINEL_CHECK_FAILED()"
     )]
     pub struct PriceOracleSentinelCheckFailedCall;
-    #[doc = "Container type for all input parameters for the `RESERVE_ALREADY_ADDED`function with signature `RESERVE_ALREADY_ADDED()` and selector `[18, 220, 173, 232]`"]
+    #[doc = "Container type for all input parameters for the `RESERVE_ALREADY_ADDED` function with signature `RESERVE_ALREADY_ADDED()` and selector `[18, 220, 173, 232]`"]
     #[derive(
         Clone,
         Debug,
@@ -1716,7 +1720,7 @@ mod errors_mod {
     )]
     #[ethcall(name = "RESERVE_ALREADY_ADDED", abi = "RESERVE_ALREADY_ADDED()")]
     pub struct ReserveAlreadyAddedCall;
-    #[doc = "Container type for all input parameters for the `RESERVE_ALREADY_INITIALIZED`function with signature `RESERVE_ALREADY_INITIALIZED()` and selector `[217, 173, 218, 133]`"]
+    #[doc = "Container type for all input parameters for the `RESERVE_ALREADY_INITIALIZED` function with signature `RESERVE_ALREADY_INITIALIZED()` and selector `[217, 173, 218, 133]`"]
     #[derive(
         Clone,
         Debug,
@@ -1731,7 +1735,7 @@ mod errors_mod {
         abi = "RESERVE_ALREADY_INITIALIZED()"
     )]
     pub struct ReserveAlreadyInitializedCall;
-    #[doc = "Container type for all input parameters for the `RESERVE_DEBT_NOT_ZERO`function with signature `RESERVE_DEBT_NOT_ZERO()` and selector `[233, 129, 72, 58]`"]
+    #[doc = "Container type for all input parameters for the `RESERVE_DEBT_NOT_ZERO` function with signature `RESERVE_DEBT_NOT_ZERO()` and selector `[233, 129, 72, 58]`"]
     #[derive(
         Clone,
         Debug,
@@ -1743,7 +1747,7 @@ mod errors_mod {
     )]
     #[ethcall(name = "RESERVE_DEBT_NOT_ZERO", abi = "RESERVE_DEBT_NOT_ZERO()")]
     pub struct ReserveDebtNotZeroCall;
-    #[doc = "Container type for all input parameters for the `RESERVE_FROZEN`function with signature `RESERVE_FROZEN()` and selector `[108, 211, 207, 188]`"]
+    #[doc = "Container type for all input parameters for the `RESERVE_FROZEN` function with signature `RESERVE_FROZEN()` and selector `[108, 211, 207, 188]`"]
     #[derive(
         Clone,
         Debug,
@@ -1755,7 +1759,7 @@ mod errors_mod {
     )]
     #[ethcall(name = "RESERVE_FROZEN", abi = "RESERVE_FROZEN()")]
     pub struct ReserveFrozenCall;
-    #[doc = "Container type for all input parameters for the `RESERVE_INACTIVE`function with signature `RESERVE_INACTIVE()` and selector `[82, 186, 157, 190]`"]
+    #[doc = "Container type for all input parameters for the `RESERVE_INACTIVE` function with signature `RESERVE_INACTIVE()` and selector `[82, 186, 157, 190]`"]
     #[derive(
         Clone,
         Debug,
@@ -1767,7 +1771,7 @@ mod errors_mod {
     )]
     #[ethcall(name = "RESERVE_INACTIVE", abi = "RESERVE_INACTIVE()")]
     pub struct ReserveInactiveCall;
-    #[doc = "Container type for all input parameters for the `RESERVE_LIQUIDITY_NOT_ZERO`function with signature `RESERVE_LIQUIDITY_NOT_ZERO()` and selector `[8, 77, 250, 13]`"]
+    #[doc = "Container type for all input parameters for the `RESERVE_LIQUIDITY_NOT_ZERO` function with signature `RESERVE_LIQUIDITY_NOT_ZERO()` and selector `[8, 77, 250, 13]`"]
     #[derive(
         Clone,
         Debug,
@@ -1782,7 +1786,7 @@ mod errors_mod {
         abi = "RESERVE_LIQUIDITY_NOT_ZERO()"
     )]
     pub struct ReserveLiquidityNotZeroCall;
-    #[doc = "Container type for all input parameters for the `RESERVE_PAUSED`function with signature `RESERVE_PAUSED()` and selector `[182, 135, 116, 233]`"]
+    #[doc = "Container type for all input parameters for the `RESERVE_PAUSED` function with signature `RESERVE_PAUSED()` and selector `[182, 135, 116, 233]`"]
     #[derive(
         Clone,
         Debug,
@@ -1794,7 +1798,7 @@ mod errors_mod {
     )]
     #[ethcall(name = "RESERVE_PAUSED", abi = "RESERVE_PAUSED()")]
     pub struct ReservePausedCall;
-    #[doc = "Container type for all input parameters for the `SAME_BLOCK_BORROW_REPAY`function with signature `SAME_BLOCK_BORROW_REPAY()` and selector `[87, 14, 53, 71]`"]
+    #[doc = "Container type for all input parameters for the `SAME_BLOCK_BORROW_REPAY` function with signature `SAME_BLOCK_BORROW_REPAY()` and selector `[87, 14, 53, 71]`"]
     #[derive(
         Clone,
         Debug,
@@ -1806,7 +1810,7 @@ mod errors_mod {
     )]
     #[ethcall(name = "SAME_BLOCK_BORROW_REPAY", abi = "SAME_BLOCK_BORROW_REPAY()")]
     pub struct SameBlockBorrowRepayCall;
-    #[doc = "Container type for all input parameters for the `SILOED_BORROWING_VIOLATION`function with signature `SILOED_BORROWING_VIOLATION()` and selector `[222, 36, 148, 140]`"]
+    #[doc = "Container type for all input parameters for the `SILOED_BORROWING_VIOLATION` function with signature `SILOED_BORROWING_VIOLATION()` and selector `[222, 36, 148, 140]`"]
     #[derive(
         Clone,
         Debug,
@@ -1821,7 +1825,7 @@ mod errors_mod {
         abi = "SILOED_BORROWING_VIOLATION()"
     )]
     pub struct SiloedBorrowingViolationCall;
-    #[doc = "Container type for all input parameters for the `SPECIFIED_CURRENCY_NOT_BORROWED_BY_USER`function with signature `SPECIFIED_CURRENCY_NOT_BORROWED_BY_USER()` and selector `[34, 167, 52, 70]`"]
+    #[doc = "Container type for all input parameters for the `SPECIFIED_CURRENCY_NOT_BORROWED_BY_USER` function with signature `SPECIFIED_CURRENCY_NOT_BORROWED_BY_USER()` and selector `[34, 167, 52, 70]`"]
     #[derive(
         Clone,
         Debug,
@@ -1836,7 +1840,7 @@ mod errors_mod {
         abi = "SPECIFIED_CURRENCY_NOT_BORROWED_BY_USER()"
     )]
     pub struct SpecifiedCurrencyNotBorrowedByUserCall;
-    #[doc = "Container type for all input parameters for the `STABLE_BORROWING_ENABLED`function with signature `STABLE_BORROWING_ENABLED()` and selector `[25, 141, 106, 107]`"]
+    #[doc = "Container type for all input parameters for the `STABLE_BORROWING_ENABLED` function with signature `STABLE_BORROWING_ENABLED()` and selector `[25, 141, 106, 107]`"]
     #[derive(
         Clone,
         Debug,
@@ -1848,7 +1852,7 @@ mod errors_mod {
     )]
     #[ethcall(name = "STABLE_BORROWING_ENABLED", abi = "STABLE_BORROWING_ENABLED()")]
     pub struct StableBorrowingEnabledCall;
-    #[doc = "Container type for all input parameters for the `STABLE_BORROWING_NOT_ENABLED`function with signature `STABLE_BORROWING_NOT_ENABLED()` and selector `[77, 134, 243, 147]`"]
+    #[doc = "Container type for all input parameters for the `STABLE_BORROWING_NOT_ENABLED` function with signature `STABLE_BORROWING_NOT_ENABLED()` and selector `[77, 134, 243, 147]`"]
     #[derive(
         Clone,
         Debug,
@@ -1863,7 +1867,7 @@ mod errors_mod {
         abi = "STABLE_BORROWING_NOT_ENABLED()"
     )]
     pub struct StableBorrowingNotEnabledCall;
-    #[doc = "Container type for all input parameters for the `STABLE_DEBT_NOT_ZERO`function with signature `STABLE_DEBT_NOT_ZERO()` and selector `[101, 231, 239, 76]`"]
+    #[doc = "Container type for all input parameters for the `STABLE_DEBT_NOT_ZERO` function with signature `STABLE_DEBT_NOT_ZERO()` and selector `[101, 231, 239, 76]`"]
     #[derive(
         Clone,
         Debug,
@@ -1875,7 +1879,7 @@ mod errors_mod {
     )]
     #[ethcall(name = "STABLE_DEBT_NOT_ZERO", abi = "STABLE_DEBT_NOT_ZERO()")]
     pub struct StableDebtNotZeroCall;
-    #[doc = "Container type for all input parameters for the `SUPPLY_CAP_EXCEEDED`function with signature `SUPPLY_CAP_EXCEEDED()` and selector `[176, 81, 0, 84]`"]
+    #[doc = "Container type for all input parameters for the `SUPPLY_CAP_EXCEEDED` function with signature `SUPPLY_CAP_EXCEEDED()` and selector `[176, 81, 0, 84]`"]
     #[derive(
         Clone,
         Debug,
@@ -1887,7 +1891,7 @@ mod errors_mod {
     )]
     #[ethcall(name = "SUPPLY_CAP_EXCEEDED", abi = "SUPPLY_CAP_EXCEEDED()")]
     pub struct SupplyCapExceededCall;
-    #[doc = "Container type for all input parameters for the `UNBACKED_MINT_CAP_EXCEEDED`function with signature `UNBACKED_MINT_CAP_EXCEEDED()` and selector `[107, 63, 124, 199]`"]
+    #[doc = "Container type for all input parameters for the `UNBACKED_MINT_CAP_EXCEEDED` function with signature `UNBACKED_MINT_CAP_EXCEEDED()` and selector `[107, 63, 124, 199]`"]
     #[derive(
         Clone,
         Debug,
@@ -1902,7 +1906,7 @@ mod errors_mod {
         abi = "UNBACKED_MINT_CAP_EXCEEDED()"
     )]
     pub struct UnbackedMintCapExceededCall;
-    #[doc = "Container type for all input parameters for the `UNDERLYING_BALANCE_ZERO`function with signature `UNDERLYING_BALANCE_ZERO()` and selector `[162, 121, 124, 128]`"]
+    #[doc = "Container type for all input parameters for the `UNDERLYING_BALANCE_ZERO` function with signature `UNDERLYING_BALANCE_ZERO()` and selector `[162, 121, 124, 128]`"]
     #[derive(
         Clone,
         Debug,
@@ -1914,7 +1918,7 @@ mod errors_mod {
     )]
     #[ethcall(name = "UNDERLYING_BALANCE_ZERO", abi = "UNDERLYING_BALANCE_ZERO()")]
     pub struct UnderlyingBalanceZeroCall;
-    #[doc = "Container type for all input parameters for the `UNDERLYING_CANNOT_BE_RESCUED`function with signature `UNDERLYING_CANNOT_BE_RESCUED()` and selector `[171, 136, 60, 160]`"]
+    #[doc = "Container type for all input parameters for the `UNDERLYING_CANNOT_BE_RESCUED` function with signature `UNDERLYING_CANNOT_BE_RESCUED()` and selector `[171, 136, 60, 160]`"]
     #[derive(
         Clone,
         Debug,
@@ -1929,7 +1933,7 @@ mod errors_mod {
         abi = "UNDERLYING_CANNOT_BE_RESCUED()"
     )]
     pub struct UnderlyingCannotBeRescuedCall;
-    #[doc = "Container type for all input parameters for the `USER_IN_ISOLATION_MODE`function with signature `USER_IN_ISOLATION_MODE()` and selector `[116, 68, 101, 204]`"]
+    #[doc = "Container type for all input parameters for the `USER_IN_ISOLATION_MODE` function with signature `USER_IN_ISOLATION_MODE()` and selector `[116, 68, 101, 204]`"]
     #[derive(
         Clone,
         Debug,
@@ -1941,7 +1945,7 @@ mod errors_mod {
     )]
     #[ethcall(name = "USER_IN_ISOLATION_MODE", abi = "USER_IN_ISOLATION_MODE()")]
     pub struct UserInIsolationModeCall;
-    #[doc = "Container type for all input parameters for the `VARIABLE_DEBT_SUPPLY_NOT_ZERO`function with signature `VARIABLE_DEBT_SUPPLY_NOT_ZERO()` and selector `[241, 7, 39, 219]`"]
+    #[doc = "Container type for all input parameters for the `VARIABLE_DEBT_SUPPLY_NOT_ZERO` function with signature `VARIABLE_DEBT_SUPPLY_NOT_ZERO()` and selector `[241, 7, 39, 219]`"]
     #[derive(
         Clone,
         Debug,
@@ -1956,7 +1960,7 @@ mod errors_mod {
         abi = "VARIABLE_DEBT_SUPPLY_NOT_ZERO()"
     )]
     pub struct VariableDebtSupplyNotZeroCall;
-    #[doc = "Container type for all input parameters for the `ZERO_ADDRESS_NOT_VALID`function with signature `ZERO_ADDRESS_NOT_VALID()` and selector `[209, 75, 177, 122]`"]
+    #[doc = "Container type for all input parameters for the `ZERO_ADDRESS_NOT_VALID` function with signature `ZERO_ADDRESS_NOT_VALID()` and selector `[209, 75, 177, 122]`"]
     #[derive(
         Clone,
         Debug,
@@ -2062,7 +2066,9 @@ mod errors_mod {
         ZeroAddressNotValid(ZeroAddressNotValidCall),
     }
     impl ethers::core::abi::AbiDecode for ErrorsCalls {
-        fn decode(data: impl AsRef<[u8]>) -> Result<Self, ethers::core::abi::AbiError> {
+        fn decode(
+            data: impl AsRef<[u8]>,
+        ) -> ::std::result::Result<Self, ethers::core::abi::AbiError> {
             if let Ok(decoded) =
                 <AclAdminCannotBeZeroCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
@@ -3226,4 +3232,994 @@ mod errors_mod {
             ErrorsCalls::ZeroAddressNotValid(var)
         }
     }
+    #[doc = "Container type for all return fields from the `ACL_ADMIN_CANNOT_BE_ZERO` function with signature `ACL_ADMIN_CANNOT_BE_ZERO()` and selector `[253, 24, 40, 255]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct AclAdminCannotBeZeroReturn(pub String);
+    #[doc = "Container type for all return fields from the `ADDRESSES_PROVIDER_ALREADY_ADDED` function with signature `ADDRESSES_PROVIDER_ALREADY_ADDED()` and selector `[20, 220, 251, 188]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct AddressesProviderAlreadyAddedReturn(pub String);
+    #[doc = "Container type for all return fields from the `ADDRESSES_PROVIDER_NOT_REGISTERED` function with signature `ADDRESSES_PROVIDER_NOT_REGISTERED()` and selector `[224, 47, 7, 238]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct AddressesProviderNotRegisteredReturn(pub String);
+    #[doc = "Container type for all return fields from the `AMOUNT_BIGGER_THAN_MAX_LOAN_SIZE_STABLE` function with signature `AMOUNT_BIGGER_THAN_MAX_LOAN_SIZE_STABLE()` and selector `[240, 127, 103, 133]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct AmountBiggerThanMaxLoanSizeStableReturn(pub String);
+    #[doc = "Container type for all return fields from the `ASSET_NOT_BORROWABLE_IN_ISOLATION` function with signature `ASSET_NOT_BORROWABLE_IN_ISOLATION()` and selector `[133, 150, 170, 213]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct AssetNotBorrowableInIsolationReturn(pub String);
+    #[doc = "Container type for all return fields from the `ASSET_NOT_LISTED` function with signature `ASSET_NOT_LISTED()` and selector `[205, 35, 54, 124]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct AssetNotListedReturn(pub String);
+    #[doc = "Container type for all return fields from the `ATOKEN_SUPPLY_NOT_ZERO` function with signature `ATOKEN_SUPPLY_NOT_ZERO()` and selector `[67, 233, 124, 107]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct AtokenSupplyNotZeroReturn(pub String);
+    #[doc = "Container type for all return fields from the `BORROWING_NOT_ENABLED` function with signature `BORROWING_NOT_ENABLED()` and selector `[78, 249, 153, 255]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct BorrowingNotEnabledReturn(pub String);
+    #[doc = "Container type for all return fields from the `BORROW_CAP_EXCEEDED` function with signature `BORROW_CAP_EXCEEDED()` and selector `[46, 237, 23, 232]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct BorrowCapExceededReturn(pub String);
+    #[doc = "Container type for all return fields from the `BRIDGE_PROTOCOL_FEE_INVALID` function with signature `BRIDGE_PROTOCOL_FEE_INVALID()` and selector `[122, 160, 118, 126]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct BridgeProtocolFeeInvalidReturn(pub String);
+    #[doc = "Container type for all return fields from the `CALLER_MUST_BE_POOL` function with signature `CALLER_MUST_BE_POOL()` and selector `[71, 29, 246, 133]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct CallerMustBePoolReturn(pub String);
+    #[doc = "Container type for all return fields from the `CALLER_NOT_ASSET_LISTING_OR_POOL_ADMIN` function with signature `CALLER_NOT_ASSET_LISTING_OR_POOL_ADMIN()` and selector `[44, 142, 59, 76]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct CallerNotAssetListingOrPoolAdminReturn(pub String);
+    #[doc = "Container type for all return fields from the `CALLER_NOT_ATOKEN` function with signature `CALLER_NOT_ATOKEN()` and selector `[162, 233, 118, 198]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct CallerNotAtokenReturn(pub String);
+    #[doc = "Container type for all return fields from the `CALLER_NOT_BRIDGE` function with signature `CALLER_NOT_BRIDGE()` and selector `[79, 119, 100, 123]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct CallerNotBridgeReturn(pub String);
+    #[doc = "Container type for all return fields from the `CALLER_NOT_EMERGENCY_ADMIN` function with signature `CALLER_NOT_EMERGENCY_ADMIN()` and selector `[72, 92, 143, 246]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct CallerNotEmergencyAdminReturn(pub String);
+    #[doc = "Container type for all return fields from the `CALLER_NOT_POOL_ADMIN` function with signature `CALLER_NOT_POOL_ADMIN()` and selector `[172, 117, 50, 54]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct CallerNotPoolAdminReturn(pub String);
+    #[doc = "Container type for all return fields from the `CALLER_NOT_POOL_CONFIGURATOR` function with signature `CALLER_NOT_POOL_CONFIGURATOR()` and selector `[97, 193, 17, 210]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct CallerNotPoolConfiguratorReturn(pub String);
+    #[doc = "Container type for all return fields from the `CALLER_NOT_POOL_OR_EMERGENCY_ADMIN` function with signature `CALLER_NOT_POOL_OR_EMERGENCY_ADMIN()` and selector `[38, 231, 179, 18]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct CallerNotPoolOrEmergencyAdminReturn(pub String);
+    #[doc = "Container type for all return fields from the `CALLER_NOT_RISK_OR_POOL_ADMIN` function with signature `CALLER_NOT_RISK_OR_POOL_ADMIN()` and selector `[181, 231, 147, 102]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct CallerNotRiskOrPoolAdminReturn(pub String);
+    #[doc = "Container type for all return fields from the `COLLATERAL_BALANCE_IS_ZERO` function with signature `COLLATERAL_BALANCE_IS_ZERO()` and selector `[78, 1, 227, 193]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct CollateralBalanceIsZeroReturn(pub String);
+    #[doc = "Container type for all return fields from the `COLLATERAL_CANNOT_BE_LIQUIDATED` function with signature `COLLATERAL_CANNOT_BE_LIQUIDATED()` and selector `[137, 95, 125, 200]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct CollateralCannotBeLiquidatedReturn(pub String);
+    #[doc = "Container type for all return fields from the `COLLATERAL_CANNOT_COVER_NEW_BORROW` function with signature `COLLATERAL_CANNOT_COVER_NEW_BORROW()` and selector `[227, 250, 32, 245]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct CollateralCannotCoverNewBorrowReturn(pub String);
+    #[doc = "Container type for all return fields from the `COLLATERAL_SAME_AS_BORROWING_CURRENCY` function with signature `COLLATERAL_SAME_AS_BORROWING_CURRENCY()` and selector `[138, 52, 64, 0]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct CollateralSameAsBorrowingCurrencyReturn(pub String);
+    #[doc = "Container type for all return fields from the `DEBT_CEILING_EXCEEDED` function with signature `DEBT_CEILING_EXCEEDED()` and selector `[101, 168, 59, 171]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct DebtCeilingExceededReturn(pub String);
+    #[doc = "Container type for all return fields from the `DEBT_CEILING_NOT_ZERO` function with signature `DEBT_CEILING_NOT_ZERO()` and selector `[228, 221, 139, 116]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct DebtCeilingNotZeroReturn(pub String);
+    #[doc = "Container type for all return fields from the `EMODE_CATEGORY_RESERVED` function with signature `EMODE_CATEGORY_RESERVED()` and selector `[244, 121, 234, 17]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct EmodeCategoryReservedReturn(pub String);
+    #[doc = "Container type for all return fields from the `FLASHLOAN_PREMIUM_INVALID` function with signature `FLASHLOAN_PREMIUM_INVALID()` and selector `[116, 127, 165, 86]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct FlashloanPremiumInvalidReturn(pub String);
+    #[doc = "Container type for all return fields from the `HEALTH_FACTOR_LOWER_THAN_LIQUIDATION_THRESHOLD` function with signature `HEALTH_FACTOR_LOWER_THAN_LIQUIDATION_THRESHOLD()` and selector `[54, 110, 181, 77]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct HealthFactorLowerThanLiquidationThresholdReturn(pub String);
+    #[doc = "Container type for all return fields from the `HEALTH_FACTOR_NOT_BELOW_THRESHOLD` function with signature `HEALTH_FACTOR_NOT_BELOW_THRESHOLD()` and selector `[149, 38, 51, 197]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct HealthFactorNotBelowThresholdReturn(pub String);
+    #[doc = "Container type for all return fields from the `INCONSISTENT_EMODE_CATEGORY` function with signature `INCONSISTENT_EMODE_CATEGORY()` and selector `[143, 119, 34, 178]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct InconsistentEmodeCategoryReturn(pub String);
+    #[doc = "Container type for all return fields from the `INCONSISTENT_FLASHLOAN_PARAMS` function with signature `INCONSISTENT_FLASHLOAN_PARAMS()` and selector `[115, 222, 165, 227]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct InconsistentFlashloanParamsReturn(pub String);
+    #[doc = "Container type for all return fields from the `INCONSISTENT_PARAMS_LENGTH` function with signature `INCONSISTENT_PARAMS_LENGTH()` and selector `[186, 216, 48, 140]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct InconsistentParamsLengthReturn(pub String);
+    #[doc = "Container type for all return fields from the `INTEREST_RATE_REBALANCE_CONDITIONS_NOT_MET` function with signature `INTEREST_RATE_REBALANCE_CONDITIONS_NOT_MET()` and selector `[41, 38, 201, 113]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct InterestRateRebalanceConditionsNotMetReturn(pub String);
+    #[doc = "Container type for all return fields from the `INVALID_ADDRESSES_PROVIDER` function with signature `INVALID_ADDRESSES_PROVIDER()` and selector `[55, 147, 7, 130]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct InvalidAddressesProviderReturn(pub String);
+    #[doc = "Container type for all return fields from the `INVALID_ADDRESSES_PROVIDER_ID` function with signature `INVALID_ADDRESSES_PROVIDER_ID()` and selector `[96, 195, 222, 128]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct InvalidAddressesProviderIdReturn(pub String);
+    #[doc = "Container type for all return fields from the `INVALID_AMOUNT` function with signature `INVALID_AMOUNT()` and selector `[250, 232, 39, 145]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct InvalidAmountReturn(pub String);
+    #[doc = "Container type for all return fields from the `INVALID_BORROW_CAP` function with signature `INVALID_BORROW_CAP()` and selector `[214, 249, 252, 222]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct InvalidBorrowCapReturn(pub String);
+    #[doc = "Container type for all return fields from the `INVALID_BURN_AMOUNT` function with signature `INVALID_BURN_AMOUNT()` and selector `[81, 38, 116, 80]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct InvalidBurnAmountReturn(pub String);
+    #[doc = "Container type for all return fields from the `INVALID_DEBT_CEILING` function with signature `INVALID_DEBT_CEILING()` and selector `[220, 197, 109, 182]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct InvalidDebtCeilingReturn(pub String);
+    #[doc = "Container type for all return fields from the `INVALID_DECIMALS` function with signature `INVALID_DECIMALS()` and selector `[250, 22, 58, 131]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct InvalidDecimalsReturn(pub String);
+    #[doc = "Container type for all return fields from the `INVALID_EMODE_CATEGORY` function with signature `INVALID_EMODE_CATEGORY()` and selector `[168, 201, 120, 83]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct InvalidEmodeCategoryReturn(pub String);
+    #[doc = "Container type for all return fields from the `INVALID_EMODE_CATEGORY_ASSIGNMENT` function with signature `INVALID_EMODE_CATEGORY_ASSIGNMENT()` and selector `[93, 156, 118, 192]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct InvalidEmodeCategoryAssignmentReturn(pub String);
+    #[doc = "Container type for all return fields from the `INVALID_EMODE_CATEGORY_PARAMS` function with signature `INVALID_EMODE_CATEGORY_PARAMS()` and selector `[71, 207, 21, 35]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct InvalidEmodeCategoryParamsReturn(pub String);
+    #[doc = "Container type for all return fields from the `INVALID_EXPIRATION` function with signature `INVALID_EXPIRATION()` and selector `[192, 138, 17, 70]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct InvalidExpirationReturn(pub String);
+    #[doc = "Container type for all return fields from the `INVALID_FLASHLOAN_EXECUTOR_RETURN` function with signature `INVALID_FLASHLOAN_EXECUTOR_RETURN()` and selector `[127, 234, 111, 54]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct InvalidFlashloanExecutorReturnReturn(pub String);
+    #[doc = "Container type for all return fields from the `INVALID_INTEREST_RATE_MODE_SELECTED` function with signature `INVALID_INTEREST_RATE_MODE_SELECTED()` and selector `[137, 197, 212, 95]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct InvalidInterestRateModeSelectedReturn(pub String);
+    #[doc = "Container type for all return fields from the `INVALID_LIQUIDATION_PROTOCOL_FEE` function with signature `INVALID_LIQUIDATION_PROTOCOL_FEE()` and selector `[142, 218, 70, 189]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct InvalidLiquidationProtocolFeeReturn(pub String);
+    #[doc = "Container type for all return fields from the `INVALID_LIQ_BONUS` function with signature `INVALID_LIQ_BONUS()` and selector `[149, 39, 233, 217]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct InvalidLiqBonusReturn(pub String);
+    #[doc = "Container type for all return fields from the `INVALID_LIQ_THRESHOLD` function with signature `INVALID_LIQ_THRESHOLD()` and selector `[221, 29, 217, 95]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct InvalidLiqThresholdReturn(pub String);
+    #[doc = "Container type for all return fields from the `INVALID_LTV` function with signature `INVALID_LTV()` and selector `[153, 206, 83, 243]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct InvalidLtvReturn(pub String);
+    #[doc = "Container type for all return fields from the `INVALID_MINT_AMOUNT` function with signature `INVALID_MINT_AMOUNT()` and selector `[171, 211, 81, 177]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct InvalidMintAmountReturn(pub String);
+    #[doc = "Container type for all return fields from the `INVALID_OPTIMAL_STABLE_TO_TOTAL_DEBT_RATIO` function with signature `INVALID_OPTIMAL_STABLE_TO_TOTAL_DEBT_RATIO()` and selector `[200, 153, 48, 26]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct InvalidOptimalStableToTotalDebtRatioReturn(pub String);
+    #[doc = "Container type for all return fields from the `INVALID_OPTIMAL_USAGE_RATIO` function with signature `INVALID_OPTIMAL_USAGE_RATIO()` and selector `[78, 58, 237, 55]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct InvalidOptimalUsageRatioReturn(pub String);
+    #[doc = "Container type for all return fields from the `INVALID_RESERVE_FACTOR` function with signature `INVALID_RESERVE_FACTOR()` and selector `[164, 134, 141, 202]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct InvalidReserveFactorReturn(pub String);
+    #[doc = "Container type for all return fields from the `INVALID_RESERVE_INDEX` function with signature `INVALID_RESERVE_INDEX()` and selector `[209, 205, 139, 29]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct InvalidReserveIndexReturn(pub String);
+    #[doc = "Container type for all return fields from the `INVALID_RESERVE_PARAMS` function with signature `INVALID_RESERVE_PARAMS()` and selector `[51, 87, 99, 222]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct InvalidReserveParamsReturn(pub String);
+    #[doc = "Container type for all return fields from the `INVALID_SIGNATURE` function with signature `INVALID_SIGNATURE()` and selector `[163, 64, 42, 56]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct InvalidSignatureReturn(pub String);
+    #[doc = "Container type for all return fields from the `INVALID_SUPPLY_CAP` function with signature `INVALID_SUPPLY_CAP()` and selector `[38, 187, 208, 83]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct InvalidSupplyCapReturn(pub String);
+    #[doc = "Container type for all return fields from the `INVALID_UNBACKED_MINT_CAP` function with signature `INVALID_UNBACKED_MINT_CAP()` and selector `[71, 186, 147, 216]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct InvalidUnbackedMintCapReturn(pub String);
+    #[doc = "Container type for all return fields from the `LTV_VALIDATION_FAILED` function with signature `LTV_VALIDATION_FAILED()` and selector `[184, 112, 65, 194]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct LtvValidationFailedReturn(pub String);
+    #[doc = "Container type for all return fields from the `NOT_CONTRACT` function with signature `NOT_CONTRACT()` and selector `[17, 215, 176, 6]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct NotContractReturn(pub String);
+    #[doc = "Container type for all return fields from the `NOT_ENOUGH_AVAILABLE_USER_BALANCE` function with signature `NOT_ENOUGH_AVAILABLE_USER_BALANCE()` and selector `[183, 245, 226, 36]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct NotEnoughAvailableUserBalanceReturn(pub String);
+    #[doc = "Container type for all return fields from the `NO_DEBT_OF_SELECTED_TYPE` function with signature `NO_DEBT_OF_SELECTED_TYPE()` and selector `[220, 25, 27, 217]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct NoDebtOfSelectedTypeReturn(pub String);
+    #[doc = "Container type for all return fields from the `NO_EXPLICIT_AMOUNT_TO_REPAY_ON_BEHALF` function with signature `NO_EXPLICIT_AMOUNT_TO_REPAY_ON_BEHALF()` and selector `[113, 47, 83, 106]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct NoExplicitAmountToRepayOnBehalfReturn(pub String);
+    #[doc = "Container type for all return fields from the `NO_MORE_RESERVES_ALLOWED` function with signature `NO_MORE_RESERVES_ALLOWED()` and selector `[118, 174, 143, 202]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct NoMoreReservesAllowedReturn(pub String);
+    #[doc = "Container type for all return fields from the `NO_OUTSTANDING_STABLE_DEBT` function with signature `NO_OUTSTANDING_STABLE_DEBT()` and selector `[116, 69, 155, 20]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct NoOutstandingStableDebtReturn(pub String);
+    #[doc = "Container type for all return fields from the `NO_OUTSTANDING_VARIABLE_DEBT` function with signature `NO_OUTSTANDING_VARIABLE_DEBT()` and selector `[180, 164, 87, 48]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct NoOutstandingVariableDebtReturn(pub String);
+    #[doc = "Container type for all return fields from the `OPERATION_NOT_SUPPORTED` function with signature `OPERATION_NOT_SUPPORTED()` and selector `[139, 139, 152, 215]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct OperationNotSupportedReturn(pub String);
+    #[doc = "Container type for all return fields from the `POOL_ADDRESSES_DO_NOT_MATCH` function with signature `POOL_ADDRESSES_DO_NOT_MATCH()` and selector `[26, 187, 176, 1]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct PoolAddressesDoNotMatchReturn(pub String);
+    #[doc = "Container type for all return fields from the `PRICE_ORACLE_SENTINEL_CHECK_FAILED` function with signature `PRICE_ORACLE_SENTINEL_CHECK_FAILED()` and selector `[200, 99, 128, 130]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct PriceOracleSentinelCheckFailedReturn(pub String);
+    #[doc = "Container type for all return fields from the `RESERVE_ALREADY_ADDED` function with signature `RESERVE_ALREADY_ADDED()` and selector `[18, 220, 173, 232]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct ReserveAlreadyAddedReturn(pub String);
+    #[doc = "Container type for all return fields from the `RESERVE_ALREADY_INITIALIZED` function with signature `RESERVE_ALREADY_INITIALIZED()` and selector `[217, 173, 218, 133]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct ReserveAlreadyInitializedReturn(pub String);
+    #[doc = "Container type for all return fields from the `RESERVE_DEBT_NOT_ZERO` function with signature `RESERVE_DEBT_NOT_ZERO()` and selector `[233, 129, 72, 58]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct ReserveDebtNotZeroReturn(pub String);
+    #[doc = "Container type for all return fields from the `RESERVE_FROZEN` function with signature `RESERVE_FROZEN()` and selector `[108, 211, 207, 188]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct ReserveFrozenReturn(pub String);
+    #[doc = "Container type for all return fields from the `RESERVE_INACTIVE` function with signature `RESERVE_INACTIVE()` and selector `[82, 186, 157, 190]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct ReserveInactiveReturn(pub String);
+    #[doc = "Container type for all return fields from the `RESERVE_LIQUIDITY_NOT_ZERO` function with signature `RESERVE_LIQUIDITY_NOT_ZERO()` and selector `[8, 77, 250, 13]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct ReserveLiquidityNotZeroReturn(pub String);
+    #[doc = "Container type for all return fields from the `RESERVE_PAUSED` function with signature `RESERVE_PAUSED()` and selector `[182, 135, 116, 233]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct ReservePausedReturn(pub String);
+    #[doc = "Container type for all return fields from the `SAME_BLOCK_BORROW_REPAY` function with signature `SAME_BLOCK_BORROW_REPAY()` and selector `[87, 14, 53, 71]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct SameBlockBorrowRepayReturn(pub String);
+    #[doc = "Container type for all return fields from the `SILOED_BORROWING_VIOLATION` function with signature `SILOED_BORROWING_VIOLATION()` and selector `[222, 36, 148, 140]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct SiloedBorrowingViolationReturn(pub String);
+    #[doc = "Container type for all return fields from the `SPECIFIED_CURRENCY_NOT_BORROWED_BY_USER` function with signature `SPECIFIED_CURRENCY_NOT_BORROWED_BY_USER()` and selector `[34, 167, 52, 70]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct SpecifiedCurrencyNotBorrowedByUserReturn(pub String);
+    #[doc = "Container type for all return fields from the `STABLE_BORROWING_ENABLED` function with signature `STABLE_BORROWING_ENABLED()` and selector `[25, 141, 106, 107]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct StableBorrowingEnabledReturn(pub String);
+    #[doc = "Container type for all return fields from the `STABLE_BORROWING_NOT_ENABLED` function with signature `STABLE_BORROWING_NOT_ENABLED()` and selector `[77, 134, 243, 147]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct StableBorrowingNotEnabledReturn(pub String);
+    #[doc = "Container type for all return fields from the `STABLE_DEBT_NOT_ZERO` function with signature `STABLE_DEBT_NOT_ZERO()` and selector `[101, 231, 239, 76]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct StableDebtNotZeroReturn(pub String);
+    #[doc = "Container type for all return fields from the `SUPPLY_CAP_EXCEEDED` function with signature `SUPPLY_CAP_EXCEEDED()` and selector `[176, 81, 0, 84]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct SupplyCapExceededReturn(pub String);
+    #[doc = "Container type for all return fields from the `UNBACKED_MINT_CAP_EXCEEDED` function with signature `UNBACKED_MINT_CAP_EXCEEDED()` and selector `[107, 63, 124, 199]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct UnbackedMintCapExceededReturn(pub String);
+    #[doc = "Container type for all return fields from the `UNDERLYING_BALANCE_ZERO` function with signature `UNDERLYING_BALANCE_ZERO()` and selector `[162, 121, 124, 128]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct UnderlyingBalanceZeroReturn(pub String);
+    #[doc = "Container type for all return fields from the `UNDERLYING_CANNOT_BE_RESCUED` function with signature `UNDERLYING_CANNOT_BE_RESCUED()` and selector `[171, 136, 60, 160]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct UnderlyingCannotBeRescuedReturn(pub String);
+    #[doc = "Container type for all return fields from the `USER_IN_ISOLATION_MODE` function with signature `USER_IN_ISOLATION_MODE()` and selector `[116, 68, 101, 204]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct UserInIsolationModeReturn(pub String);
+    #[doc = "Container type for all return fields from the `VARIABLE_DEBT_SUPPLY_NOT_ZERO` function with signature `VARIABLE_DEBT_SUPPLY_NOT_ZERO()` and selector `[241, 7, 39, 219]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct VariableDebtSupplyNotZeroReturn(pub String);
+    #[doc = "Container type for all return fields from the `ZERO_ADDRESS_NOT_VALID` function with signature `ZERO_ADDRESS_NOT_VALID()` and selector `[209, 75, 177, 122]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct ZeroAddressNotValidReturn(pub String);
 }
