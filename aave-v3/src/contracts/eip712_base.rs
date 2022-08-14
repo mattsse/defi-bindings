@@ -1,6 +1,6 @@
-pub use eip712base_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod eip712base_mod {
+pub use eip712_base::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod eip712_base {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,13 +18,14 @@ mod eip712base_mod {
     use std::sync::Arc;
     pub static EIP712BASE_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"DOMAIN_SEPARATOR\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"EIP712_REVISION\",\"outputs\":[{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"nonces\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"DOMAIN_SEPARATOR\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"EIP712_REVISION\",\"outputs\":[{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"nonces\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]}]") . expect ("invalid abi")
         });
-    #[doc = r" Bytecode of the #name contract"]
-    pub static EIP712BASE_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
-        ethers::contract::Lazy::new(|| "0x".parse().expect("invalid bytecode"));
-    #[derive(Clone)]
     pub struct EIP712Base<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for EIP712Base<M> {
+        fn clone(&self) -> Self {
+            EIP712Base(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for EIP712Base<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -38,7 +39,7 @@ mod eip712base_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> EIP712Base<M> {
+    impl<M: ethers::providers::Middleware> EIP712Base<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -47,45 +48,6 @@ mod eip712base_mod {
             client: ::std::sync::Arc<M>,
         ) -> Self {
             ethers::contract::Contract::new(address.into(), EIP712BASE_ABI.clone(), client).into()
-        }
-        #[doc = r" Constructs the general purpose `Deployer` instance based on the provided constructor arguments and sends it."]
-        #[doc = r" Returns a new instance of a deployer that returns an instance of this contract after sending the transaction"]
-        #[doc = r""]
-        #[doc = r" Notes:"]
-        #[doc = r" 1. If there are no constructor arguments, you should pass `()` as the argument."]
-        #[doc = r" 1. The default poll duration is 7 seconds."]
-        #[doc = r" 1. The default number of confirmations is 1 block."]
-        #[doc = r""]
-        #[doc = r""]
-        #[doc = r" # Example"]
-        #[doc = r""]
-        #[doc = r" Generate contract bindings with `abigen!` and deploy a new contract instance."]
-        #[doc = r""]
-        #[doc = r" *Note*: this requires a `bytecode` and `abi` object in the `greeter.json` artifact."]
-        #[doc = r""]
-        #[doc = r" ```ignore"]
-        #[doc = r" # async fn deploy<M: ethers::providers::Middleware>(client: ::std::sync::Arc<M>) {"]
-        #[doc = r#"     abigen!(Greeter,"../greeter.json");"#]
-        #[doc = r""]
-        #[doc = r#"    let greeter_contract = Greeter::deploy(client, "Hello world!".to_string()).unwrap().send().await.unwrap();"#]
-        #[doc = r"    let msg = greeter_contract.greet().call().await.unwrap();"]
-        #[doc = r" # }"]
-        #[doc = r" ```"]
-        pub fn deploy<T: ethers::core::abi::Tokenize>(
-            client: ::std::sync::Arc<M>,
-            constructor_args: T,
-        ) -> Result<
-            ethers::contract::builders::ContractDeployer<M, Self>,
-            ethers::contract::ContractError<M>,
-        > {
-            let factory = ethers::contract::ContractFactory::new(
-                EIP712BASE_ABI.clone(),
-                EIP712BASE_BYTECODE.clone().into(),
-                client,
-            );
-            let deployer = factory.deploy(constructor_args)?;
-            let deployer = ethers::contract::ContractDeployer::new(deployer);
-            Ok(deployer)
         }
         #[doc = "Calls the contract's `DOMAIN_SEPARATOR` (0x3644e515) function"]
         pub fn domain_separator(&self) -> ethers::contract::builders::ContractCall<M, [u8; 32]> {
@@ -116,7 +78,7 @@ mod eip712base_mod {
             Self(contract)
         }
     }
-    #[doc = "Container type for all input parameters for the `DOMAIN_SEPARATOR`function with signature `DOMAIN_SEPARATOR()` and selector `[54, 68, 229, 21]`"]
+    #[doc = "Container type for all input parameters for the `DOMAIN_SEPARATOR` function with signature `DOMAIN_SEPARATOR()` and selector `[54, 68, 229, 21]`"]
     #[derive(
         Clone,
         Debug,
@@ -128,7 +90,7 @@ mod eip712base_mod {
     )]
     #[ethcall(name = "DOMAIN_SEPARATOR", abi = "DOMAIN_SEPARATOR()")]
     pub struct DomainSeparatorCall;
-    #[doc = "Container type for all input parameters for the `EIP712_REVISION`function with signature `EIP712_REVISION()` and selector `[120, 22, 3, 118]`"]
+    #[doc = "Container type for all input parameters for the `EIP712_REVISION` function with signature `EIP712_REVISION()` and selector `[120, 22, 3, 118]`"]
     #[derive(
         Clone,
         Debug,
@@ -140,7 +102,7 @@ mod eip712base_mod {
     )]
     #[ethcall(name = "EIP712_REVISION", abi = "EIP712_REVISION()")]
     pub struct Eip712RevisionCall;
-    #[doc = "Container type for all input parameters for the `nonces`function with signature `nonces(address)` and selector `[126, 206, 190, 0]`"]
+    #[doc = "Container type for all input parameters for the `nonces` function with signature `nonces(address)` and selector `[126, 206, 190, 0]`"]
     #[derive(
         Clone,
         Debug,
@@ -161,7 +123,9 @@ mod eip712base_mod {
         Nonces(NoncesCall),
     }
     impl ethers::core::abi::AbiDecode for EIP712BaseCalls {
-        fn decode(data: impl AsRef<[u8]>) -> Result<Self, ethers::core::abi::AbiError> {
+        fn decode(
+            data: impl AsRef<[u8]>,
+        ) -> ::std::result::Result<Self, ethers::core::abi::AbiError> {
             if let Ok(decoded) =
                 <DomainSeparatorCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
@@ -212,4 +176,37 @@ mod eip712base_mod {
             EIP712BaseCalls::Nonces(var)
         }
     }
+    #[doc = "Container type for all return fields from the `DOMAIN_SEPARATOR` function with signature `DOMAIN_SEPARATOR()` and selector `[54, 68, 229, 21]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct DomainSeparatorReturn(pub [u8; 32]);
+    #[doc = "Container type for all return fields from the `EIP712_REVISION` function with signature `EIP712_REVISION()` and selector `[120, 22, 3, 118]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct Eip712RevisionReturn(pub ethers::core::types::Bytes);
+    #[doc = "Container type for all return fields from the `nonces` function with signature `nonces(address)` and selector `[126, 206, 190, 0]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct NoncesReturn(pub ethers::core::types::U256);
 }

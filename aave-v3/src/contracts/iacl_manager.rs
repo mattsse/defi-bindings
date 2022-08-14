@@ -1,6 +1,6 @@
-pub use iaclmanager_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod iaclmanager_mod {
+pub use iacl_manager::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod iacl_manager {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,13 +18,14 @@ mod iaclmanager_mod {
     use std::sync::Arc;
     pub static IACLMANAGER_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"ADDRESSES_PROVIDER\",\"outputs\":[{\"internalType\":\"contract IPoolAddressesProvider\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"ASSET_LISTING_ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"BRIDGE_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"EMERGENCY_ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"FLASH_BORROWER_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"POOL_ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"RISK_ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"addAssetListingAdmin\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"bridge\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"addBridge\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"addEmergencyAdmin\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"borrower\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"addFlashBorrower\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"addPoolAdmin\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"addRiskAdmin\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"isAssetListingAdmin\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"bridge\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"isBridge\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"isEmergencyAdmin\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"borrower\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"isFlashBorrower\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"isPoolAdmin\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"isRiskAdmin\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"removeAssetListingAdmin\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"bridge\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"removeBridge\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"removeEmergencyAdmin\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"borrower\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"removeFlashBorrower\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"removePoolAdmin\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"removeRiskAdmin\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"adminRole\",\"type\":\"bytes32\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setRoleAdmin\",\"outputs\":[]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"ADDRESSES_PROVIDER\",\"outputs\":[{\"internalType\":\"contract IPoolAddressesProvider\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"ASSET_LISTING_ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"BRIDGE_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"EMERGENCY_ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"FLASH_BORROWER_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"POOL_ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"RISK_ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"addAssetListingAdmin\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"bridge\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"addBridge\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"addEmergencyAdmin\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"borrower\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"addFlashBorrower\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"addPoolAdmin\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"addRiskAdmin\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"isAssetListingAdmin\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"bridge\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"isBridge\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"isEmergencyAdmin\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"borrower\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"isFlashBorrower\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"isPoolAdmin\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"isRiskAdmin\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"removeAssetListingAdmin\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"bridge\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"removeBridge\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"removeEmergencyAdmin\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"borrower\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"removeFlashBorrower\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"removePoolAdmin\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"removeRiskAdmin\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"adminRole\",\"type\":\"bytes32\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setRoleAdmin\",\"outputs\":[]}]") . expect ("invalid abi")
         });
-    #[doc = r" Bytecode of the #name contract"]
-    pub static IACLMANAGER_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
-        ethers::contract::Lazy::new(|| "0x".parse().expect("invalid bytecode"));
-    #[derive(Clone)]
     pub struct IACLManager<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for IACLManager<M> {
+        fn clone(&self) -> Self {
+            IACLManager(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for IACLManager<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -38,7 +39,7 @@ mod iaclmanager_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> IACLManager<M> {
+    impl<M: ethers::providers::Middleware> IACLManager<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -47,45 +48,6 @@ mod iaclmanager_mod {
             client: ::std::sync::Arc<M>,
         ) -> Self {
             ethers::contract::Contract::new(address.into(), IACLMANAGER_ABI.clone(), client).into()
-        }
-        #[doc = r" Constructs the general purpose `Deployer` instance based on the provided constructor arguments and sends it."]
-        #[doc = r" Returns a new instance of a deployer that returns an instance of this contract after sending the transaction"]
-        #[doc = r""]
-        #[doc = r" Notes:"]
-        #[doc = r" 1. If there are no constructor arguments, you should pass `()` as the argument."]
-        #[doc = r" 1. The default poll duration is 7 seconds."]
-        #[doc = r" 1. The default number of confirmations is 1 block."]
-        #[doc = r""]
-        #[doc = r""]
-        #[doc = r" # Example"]
-        #[doc = r""]
-        #[doc = r" Generate contract bindings with `abigen!` and deploy a new contract instance."]
-        #[doc = r""]
-        #[doc = r" *Note*: this requires a `bytecode` and `abi` object in the `greeter.json` artifact."]
-        #[doc = r""]
-        #[doc = r" ```ignore"]
-        #[doc = r" # async fn deploy<M: ethers::providers::Middleware>(client: ::std::sync::Arc<M>) {"]
-        #[doc = r#"     abigen!(Greeter,"../greeter.json");"#]
-        #[doc = r""]
-        #[doc = r#"    let greeter_contract = Greeter::deploy(client, "Hello world!".to_string()).unwrap().send().await.unwrap();"#]
-        #[doc = r"    let msg = greeter_contract.greet().call().await.unwrap();"]
-        #[doc = r" # }"]
-        #[doc = r" ```"]
-        pub fn deploy<T: ethers::core::abi::Tokenize>(
-            client: ::std::sync::Arc<M>,
-            constructor_args: T,
-        ) -> Result<
-            ethers::contract::builders::ContractDeployer<M, Self>,
-            ethers::contract::ContractError<M>,
-        > {
-            let factory = ethers::contract::ContractFactory::new(
-                IACLMANAGER_ABI.clone(),
-                IACLMANAGER_BYTECODE.clone().into(),
-                client,
-            );
-            let deployer = factory.deploy(constructor_args)?;
-            let deployer = ethers::contract::ContractDeployer::new(deployer);
-            Ok(deployer)
         }
         #[doc = "Calls the contract's `ADDRESSES_PROVIDER` (0x0542975c) function"]
         pub fn addresses_provider(
@@ -313,7 +275,7 @@ mod iaclmanager_mod {
             Self(contract)
         }
     }
-    #[doc = "Container type for all input parameters for the `ADDRESSES_PROVIDER`function with signature `ADDRESSES_PROVIDER()` and selector `[5, 66, 151, 92]`"]
+    #[doc = "Container type for all input parameters for the `ADDRESSES_PROVIDER` function with signature `ADDRESSES_PROVIDER()` and selector `[5, 66, 151, 92]`"]
     #[derive(
         Clone,
         Debug,
@@ -325,7 +287,7 @@ mod iaclmanager_mod {
     )]
     #[ethcall(name = "ADDRESSES_PROVIDER", abi = "ADDRESSES_PROVIDER()")]
     pub struct AddressesProviderCall;
-    #[doc = "Container type for all input parameters for the `ASSET_LISTING_ADMIN_ROLE`function with signature `ASSET_LISTING_ADMIN_ROLE()` and selector `[120, 187, 10, 67]`"]
+    #[doc = "Container type for all input parameters for the `ASSET_LISTING_ADMIN_ROLE` function with signature `ASSET_LISTING_ADMIN_ROLE()` and selector `[120, 187, 10, 67]`"]
     #[derive(
         Clone,
         Debug,
@@ -337,7 +299,7 @@ mod iaclmanager_mod {
     )]
     #[ethcall(name = "ASSET_LISTING_ADMIN_ROLE", abi = "ASSET_LISTING_ADMIN_ROLE()")]
     pub struct AssetListingAdminRoleCall;
-    #[doc = "Container type for all input parameters for the `BRIDGE_ROLE`function with signature `BRIDGE_ROLE()` and selector `[181, 191, 221, 234]`"]
+    #[doc = "Container type for all input parameters for the `BRIDGE_ROLE` function with signature `BRIDGE_ROLE()` and selector `[181, 191, 221, 234]`"]
     #[derive(
         Clone,
         Debug,
@@ -349,7 +311,7 @@ mod iaclmanager_mod {
     )]
     #[ethcall(name = "BRIDGE_ROLE", abi = "BRIDGE_ROLE()")]
     pub struct BridgeRoleCall;
-    #[doc = "Container type for all input parameters for the `EMERGENCY_ADMIN_ROLE`function with signature `EMERGENCY_ADMIN_ROLE()` and selector `[110, 118, 252, 143]`"]
+    #[doc = "Container type for all input parameters for the `EMERGENCY_ADMIN_ROLE` function with signature `EMERGENCY_ADMIN_ROLE()` and selector `[110, 118, 252, 143]`"]
     #[derive(
         Clone,
         Debug,
@@ -361,7 +323,7 @@ mod iaclmanager_mod {
     )]
     #[ethcall(name = "EMERGENCY_ADMIN_ROLE", abi = "EMERGENCY_ADMIN_ROLE()")]
     pub struct EmergencyAdminRoleCall;
-    #[doc = "Container type for all input parameters for the `FLASH_BORROWER_ROLE`function with signature `FLASH_BORROWER_ROLE()` and selector `[85, 119, 183, 169]`"]
+    #[doc = "Container type for all input parameters for the `FLASH_BORROWER_ROLE` function with signature `FLASH_BORROWER_ROLE()` and selector `[85, 119, 183, 169]`"]
     #[derive(
         Clone,
         Debug,
@@ -373,7 +335,7 @@ mod iaclmanager_mod {
     )]
     #[ethcall(name = "FLASH_BORROWER_ROLE", abi = "FLASH_BORROWER_ROLE()")]
     pub struct FlashBorrowerRoleCall;
-    #[doc = "Container type for all input parameters for the `POOL_ADMIN_ROLE`function with signature `POOL_ADMIN_ROLE()` and selector `[184, 246, 219, 167]`"]
+    #[doc = "Container type for all input parameters for the `POOL_ADMIN_ROLE` function with signature `POOL_ADMIN_ROLE()` and selector `[184, 246, 219, 167]`"]
     #[derive(
         Clone,
         Debug,
@@ -385,7 +347,7 @@ mod iaclmanager_mod {
     )]
     #[ethcall(name = "POOL_ADMIN_ROLE", abi = "POOL_ADMIN_ROLE()")]
     pub struct PoolAdminRoleCall;
-    #[doc = "Container type for all input parameters for the `RISK_ADMIN_ROLE`function with signature `RISK_ADMIN_ROLE()` and selector `[79, 22, 180, 37]`"]
+    #[doc = "Container type for all input parameters for the `RISK_ADMIN_ROLE` function with signature `RISK_ADMIN_ROLE()` and selector `[79, 22, 180, 37]`"]
     #[derive(
         Clone,
         Debug,
@@ -397,7 +359,7 @@ mod iaclmanager_mod {
     )]
     #[ethcall(name = "RISK_ADMIN_ROLE", abi = "RISK_ADMIN_ROLE()")]
     pub struct RiskAdminRoleCall;
-    #[doc = "Container type for all input parameters for the `addAssetListingAdmin`function with signature `addAssetListingAdmin(address)` and selector `[154, 43, 150, 247]`"]
+    #[doc = "Container type for all input parameters for the `addAssetListingAdmin` function with signature `addAssetListingAdmin(address)` and selector `[154, 43, 150, 247]`"]
     #[derive(
         Clone,
         Debug,
@@ -411,7 +373,7 @@ mod iaclmanager_mod {
     pub struct AddAssetListingAdminCall {
         pub admin: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `addBridge`function with signature `addBridge(address)` and selector `[151, 18, 253, 248]`"]
+    #[doc = "Container type for all input parameters for the `addBridge` function with signature `addBridge(address)` and selector `[151, 18, 253, 248]`"]
     #[derive(
         Clone,
         Debug,
@@ -425,7 +387,7 @@ mod iaclmanager_mod {
     pub struct AddBridgeCall {
         pub bridge: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `addEmergencyAdmin`function with signature `addEmergencyAdmin(address)` and selector `[23, 158, 251, 9]`"]
+    #[doc = "Container type for all input parameters for the `addEmergencyAdmin` function with signature `addEmergencyAdmin(address)` and selector `[23, 158, 251, 9]`"]
     #[derive(
         Clone,
         Debug,
@@ -439,7 +401,7 @@ mod iaclmanager_mod {
     pub struct AddEmergencyAdminCall {
         pub admin: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `addFlashBorrower`function with signature `addFlashBorrower(address)` and selector `[154, 201, 216, 11]`"]
+    #[doc = "Container type for all input parameters for the `addFlashBorrower` function with signature `addFlashBorrower(address)` and selector `[154, 201, 216, 11]`"]
     #[derive(
         Clone,
         Debug,
@@ -453,7 +415,7 @@ mod iaclmanager_mod {
     pub struct AddFlashBorrowerCall {
         pub borrower: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `addPoolAdmin`function with signature `addPoolAdmin(address)` and selector `[34, 101, 12, 175]`"]
+    #[doc = "Container type for all input parameters for the `addPoolAdmin` function with signature `addPoolAdmin(address)` and selector `[34, 101, 12, 175]`"]
     #[derive(
         Clone,
         Debug,
@@ -467,7 +429,7 @@ mod iaclmanager_mod {
     pub struct AddPoolAdminCall {
         pub admin: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `addRiskAdmin`function with signature `addRiskAdmin(address)` and selector `[91, 154, 148, 228]`"]
+    #[doc = "Container type for all input parameters for the `addRiskAdmin` function with signature `addRiskAdmin(address)` and selector `[91, 154, 148, 228]`"]
     #[derive(
         Clone,
         Debug,
@@ -481,7 +443,7 @@ mod iaclmanager_mod {
     pub struct AddRiskAdminCall {
         pub admin: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `isAssetListingAdmin`function with signature `isAssetListingAdmin(address)` and selector `[19, 238, 50, 224]`"]
+    #[doc = "Container type for all input parameters for the `isAssetListingAdmin` function with signature `isAssetListingAdmin(address)` and selector `[19, 238, 50, 224]`"]
     #[derive(
         Clone,
         Debug,
@@ -495,7 +457,7 @@ mod iaclmanager_mod {
     pub struct IsAssetListingAdminCall {
         pub admin: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `isBridge`function with signature `isBridge(address)` and selector `[114, 102, 0, 206]`"]
+    #[doc = "Container type for all input parameters for the `isBridge` function with signature `isBridge(address)` and selector `[114, 102, 0, 206]`"]
     #[derive(
         Clone,
         Debug,
@@ -509,7 +471,7 @@ mod iaclmanager_mod {
     pub struct IsBridgeCall {
         pub bridge: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `isEmergencyAdmin`function with signature `isEmergencyAdmin(address)` and selector `[37, 0, 242, 182]`"]
+    #[doc = "Container type for all input parameters for the `isEmergencyAdmin` function with signature `isEmergencyAdmin(address)` and selector `[37, 0, 242, 182]`"]
     #[derive(
         Clone,
         Debug,
@@ -523,7 +485,7 @@ mod iaclmanager_mod {
     pub struct IsEmergencyAdminCall {
         pub admin: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `isFlashBorrower`function with signature `isFlashBorrower(address)` and selector `[250, 80, 242, 151]`"]
+    #[doc = "Container type for all input parameters for the `isFlashBorrower` function with signature `isFlashBorrower(address)` and selector `[250, 80, 242, 151]`"]
     #[derive(
         Clone,
         Debug,
@@ -537,7 +499,7 @@ mod iaclmanager_mod {
     pub struct IsFlashBorrowerCall {
         pub borrower: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `isPoolAdmin`function with signature `isPoolAdmin(address)` and selector `[123, 229, 60, 161]`"]
+    #[doc = "Container type for all input parameters for the `isPoolAdmin` function with signature `isPoolAdmin(address)` and selector `[123, 229, 60, 161]`"]
     #[derive(
         Clone,
         Debug,
@@ -551,7 +513,7 @@ mod iaclmanager_mod {
     pub struct IsPoolAdminCall {
         pub admin: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `isRiskAdmin`function with signature `isRiskAdmin(address)` and selector `[103, 75, 94, 77]`"]
+    #[doc = "Container type for all input parameters for the `isRiskAdmin` function with signature `isRiskAdmin(address)` and selector `[103, 75, 94, 77]`"]
     #[derive(
         Clone,
         Debug,
@@ -565,7 +527,7 @@ mod iaclmanager_mod {
     pub struct IsRiskAdminCall {
         pub admin: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `removeAssetListingAdmin`function with signature `removeAssetListingAdmin(address)` and selector `[162, 27, 206, 21]`"]
+    #[doc = "Container type for all input parameters for the `removeAssetListingAdmin` function with signature `removeAssetListingAdmin(address)` and selector `[162, 27, 206, 21]`"]
     #[derive(
         Clone,
         Debug,
@@ -582,7 +544,7 @@ mod iaclmanager_mod {
     pub struct RemoveAssetListingAdminCall {
         pub admin: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `removeBridge`function with signature `removeBridge(address)` and selector `[4, 223, 1, 125]`"]
+    #[doc = "Container type for all input parameters for the `removeBridge` function with signature `removeBridge(address)` and selector `[4, 223, 1, 125]`"]
     #[derive(
         Clone,
         Debug,
@@ -596,7 +558,7 @@ mod iaclmanager_mod {
     pub struct RemoveBridgeCall {
         pub bridge: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `removeEmergencyAdmin`function with signature `removeEmergencyAdmin(address)` and selector `[122, 154, 147, 244]`"]
+    #[doc = "Container type for all input parameters for the `removeEmergencyAdmin` function with signature `removeEmergencyAdmin(address)` and selector `[122, 154, 147, 244]`"]
     #[derive(
         Clone,
         Debug,
@@ -610,7 +572,7 @@ mod iaclmanager_mod {
     pub struct RemoveEmergencyAdminCall {
         pub admin: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `removeFlashBorrower`function with signature `removeFlashBorrower(address)` and selector `[37, 60, 249, 128]`"]
+    #[doc = "Container type for all input parameters for the `removeFlashBorrower` function with signature `removeFlashBorrower(address)` and selector `[37, 60, 249, 128]`"]
     #[derive(
         Clone,
         Debug,
@@ -624,7 +586,7 @@ mod iaclmanager_mod {
     pub struct RemoveFlashBorrowerCall {
         pub borrower: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `removePoolAdmin`function with signature `removePoolAdmin(address)` and selector `[248, 54, 149, 203]`"]
+    #[doc = "Container type for all input parameters for the `removePoolAdmin` function with signature `removePoolAdmin(address)` and selector `[248, 54, 149, 203]`"]
     #[derive(
         Clone,
         Debug,
@@ -638,7 +600,7 @@ mod iaclmanager_mod {
     pub struct RemovePoolAdminCall {
         pub admin: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `removeRiskAdmin`function with signature `removeRiskAdmin(address)` and selector `[60, 90, 8, 229]`"]
+    #[doc = "Container type for all input parameters for the `removeRiskAdmin` function with signature `removeRiskAdmin(address)` and selector `[60, 90, 8, 229]`"]
     #[derive(
         Clone,
         Debug,
@@ -652,7 +614,7 @@ mod iaclmanager_mod {
     pub struct RemoveRiskAdminCall {
         pub admin: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `setRoleAdmin`function with signature `setRoleAdmin(bytes32,bytes32)` and selector `[30, 78, 0, 145]`"]
+    #[doc = "Container type for all input parameters for the `setRoleAdmin` function with signature `setRoleAdmin(bytes32,bytes32)` and selector `[30, 78, 0, 145]`"]
     #[derive(
         Clone,
         Debug,
@@ -697,7 +659,9 @@ mod iaclmanager_mod {
         SetRoleAdmin(SetRoleAdminCall),
     }
     impl ethers::core::abi::AbiDecode for IACLManagerCalls {
-        fn decode(data: impl AsRef<[u8]>) -> Result<Self, ethers::core::abi::AbiError> {
+        fn decode(
+            data: impl AsRef<[u8]>,
+        ) -> ::std::result::Result<Self, ethers::core::abi::AbiError> {
             if let Ok(decoded) =
                 <AddressesProviderCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
@@ -1025,4 +989,147 @@ mod iaclmanager_mod {
             IACLManagerCalls::SetRoleAdmin(var)
         }
     }
+    #[doc = "Container type for all return fields from the `ADDRESSES_PROVIDER` function with signature `ADDRESSES_PROVIDER()` and selector `[5, 66, 151, 92]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct AddressesProviderReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `ASSET_LISTING_ADMIN_ROLE` function with signature `ASSET_LISTING_ADMIN_ROLE()` and selector `[120, 187, 10, 67]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct AssetListingAdminRoleReturn(pub [u8; 32]);
+    #[doc = "Container type for all return fields from the `BRIDGE_ROLE` function with signature `BRIDGE_ROLE()` and selector `[181, 191, 221, 234]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct BridgeRoleReturn(pub [u8; 32]);
+    #[doc = "Container type for all return fields from the `EMERGENCY_ADMIN_ROLE` function with signature `EMERGENCY_ADMIN_ROLE()` and selector `[110, 118, 252, 143]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct EmergencyAdminRoleReturn(pub [u8; 32]);
+    #[doc = "Container type for all return fields from the `FLASH_BORROWER_ROLE` function with signature `FLASH_BORROWER_ROLE()` and selector `[85, 119, 183, 169]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct FlashBorrowerRoleReturn(pub [u8; 32]);
+    #[doc = "Container type for all return fields from the `POOL_ADMIN_ROLE` function with signature `POOL_ADMIN_ROLE()` and selector `[184, 246, 219, 167]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct PoolAdminRoleReturn(pub [u8; 32]);
+    #[doc = "Container type for all return fields from the `RISK_ADMIN_ROLE` function with signature `RISK_ADMIN_ROLE()` and selector `[79, 22, 180, 37]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct RiskAdminRoleReturn(pub [u8; 32]);
+    #[doc = "Container type for all return fields from the `isAssetListingAdmin` function with signature `isAssetListingAdmin(address)` and selector `[19, 238, 50, 224]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct IsAssetListingAdminReturn(pub bool);
+    #[doc = "Container type for all return fields from the `isBridge` function with signature `isBridge(address)` and selector `[114, 102, 0, 206]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct IsBridgeReturn(pub bool);
+    #[doc = "Container type for all return fields from the `isEmergencyAdmin` function with signature `isEmergencyAdmin(address)` and selector `[37, 0, 242, 182]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct IsEmergencyAdminReturn(pub bool);
+    #[doc = "Container type for all return fields from the `isFlashBorrower` function with signature `isFlashBorrower(address)` and selector `[250, 80, 242, 151]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct IsFlashBorrowerReturn(pub bool);
+    #[doc = "Container type for all return fields from the `isPoolAdmin` function with signature `isPoolAdmin(address)` and selector `[123, 229, 60, 161]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct IsPoolAdminReturn(pub bool);
+    #[doc = "Container type for all return fields from the `isRiskAdmin` function with signature `isRiskAdmin(address)` and selector `[103, 75, 94, 77]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct IsRiskAdminReturn(pub bool);
 }

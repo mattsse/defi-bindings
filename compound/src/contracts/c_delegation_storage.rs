@@ -1,6 +1,6 @@
-pub use cdelegationstorage_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod cdelegationstorage_mod {
+pub use c_delegation_storage::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod c_delegation_storage {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,15 +18,19 @@ mod cdelegationstorage_mod {
     use std::sync::Arc;
     pub static CDELEGATIONSTORAGE_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"implementation\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"implementation\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]}]") . expect ("invalid abi")
         });
     #[doc = r" Bytecode of the #name contract"]
     pub static CDELEGATIONSTORAGE_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
         ethers::contract::Lazy::new(|| {
-            "0x6080604052348015600f57600080fd5b5060938061001e6000396000f3fe6080604052348015600f57600080fd5b506004361060285760003560e01c80635c60da1b14602d575b600080fd5b6033604f565b604080516001600160a01b039092168252519081900360200190f35b6000546001600160a01b03168156fea265627a7a7231582088adeafcf2649b85467bdd105798da809f7be6082452afceacbb54e9b4716b0764736f6c63430005110032" . parse () . expect ("invalid bytecode")
+            "0x6080604052348015600f57600080fd5b5060938061001e6000396000f3fe6080604052348015600f57600080fd5b506004361060285760003560e01c80635c60da1b14602d575b600080fd5b6033604f565b604080516001600160a01b039092168252519081900360200190f35b6000546001600160a01b03168156fea265627a7a72315820e6f2b81db997ef7ee263e553256d2614b85cb9f38aa95eb6c6484341dd6e0ba064736f6c63430005110032" . parse () . expect ("invalid bytecode")
         });
-    #[derive(Clone)]
     pub struct CDelegationStorage<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for CDelegationStorage<M> {
+        fn clone(&self) -> Self {
+            CDelegationStorage(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for CDelegationStorage<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -40,7 +44,7 @@ mod cdelegationstorage_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> CDelegationStorage<M> {
+    impl<M: ethers::providers::Middleware> CDelegationStorage<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -77,7 +81,7 @@ mod cdelegationstorage_mod {
         pub fn deploy<T: ethers::core::abi::Tokenize>(
             client: ::std::sync::Arc<M>,
             constructor_args: T,
-        ) -> Result<
+        ) -> ::std::result::Result<
             ethers::contract::builders::ContractDeployer<M, Self>,
             ethers::contract::ContractError<M>,
         > {
@@ -106,7 +110,7 @@ mod cdelegationstorage_mod {
             Self(contract)
         }
     }
-    #[doc = "Container type for all input parameters for the `implementation`function with signature `implementation()` and selector `[92, 96, 218, 27]`"]
+    #[doc = "Container type for all input parameters for the `implementation` function with signature `implementation()` and selector `[92, 96, 218, 27]`"]
     #[derive(
         Clone,
         Debug,
@@ -118,4 +122,15 @@ mod cdelegationstorage_mod {
     )]
     #[ethcall(name = "implementation", abi = "implementation()")]
     pub struct ImplementationCall;
+    #[doc = "Container type for all return fields from the `implementation` function with signature `implementation()` and selector `[92, 96, 218, 27]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct ImplementationReturn(pub ethers::core::types::Address);
 }

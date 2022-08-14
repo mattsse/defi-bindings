@@ -14,11 +14,10 @@ dependencies = [
 
 [[package]]
 name = "aave-v3-bindings"
-version = "0.1.0"
+version = "0.2.0"
 dependencies = [
  "ethers",
  "foundry-binder",
- "serde_json",
 ]
 
 [[package]]
@@ -525,11 +524,10 @@ dependencies = [
 
 [[package]]
 name = "compound-bindings"
-version = "0.1.0"
+version = "0.2.0"
 dependencies = [
  "ethers",
  "foundry-binder",
- "serde_json",
 ]
 
 [[package]]
@@ -708,7 +706,7 @@ dependencies = [
 
 [[package]]
 name = "defi-bindings"
-version = "0.1.0"
+version = "0.2.0"
 
 [[package]]
 name = "der"
@@ -1282,7 +1280,7 @@ dependencies = [
 [[package]]
 name = "foundry-binder"
 version = "0.1.0"
-source = "git+https://github.com/gakonst/foundry#3b4adef9db3c012efd5b9c7024ac005c4f21d2de"
+source = "git+https://github.com/foundry-rs/foundry#3b4adef9db3c012efd5b9c7024ac005c4f21d2de"
 dependencies = [
  "curl",
  "ethers-contract",
@@ -1298,7 +1296,7 @@ dependencies = [
 [[package]]
 name = "foundry-config"
 version = "0.2.0"
-source = "git+https://github.com/gakonst/foundry#3b4adef9db3c012efd5b9c7024ac005c4f21d2de"
+source = "git+https://github.com/foundry-rs/foundry#3b4adef9db3c012efd5b9c7024ac005c4f21d2de"
 dependencies = [
  "Inflector",
  "dirs-next",
@@ -1927,15 +1925,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "6389c490849ff5bc16be905ae24bc913a9c8892e19b2341dbc175e14c341c2b8"
 dependencies = [
  "cfg-if",
-]
-
-[[package]]
-name = "maple-loan-bindings"
-version = "0.1.0"
-dependencies = [
- "ethers",
- "foundry-binder",
- "serde_json",
 ]
 
 [[package]]
@@ -3429,7 +3418,7 @@ checksum = "957e51f3646910546462e67d5f7599b9e4fb8acdd304b087a6494730f9eebf04"
 
 [[package]]
 name = "uniswap-v3-periphery-bindings"
-version = "0.1.0"
+version = "0.2.0"
 dependencies = [
  "ethers",
  "foundry-binder",

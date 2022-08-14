@@ -1,6 +1,6 @@
-pub use reservelogic_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod reservelogic_mod {
+pub use reserve_logic::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod reserve_logic {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,15 +18,19 @@ mod reservelogic_mod {
     use std::sync::Arc;
     pub static RESERVELOGIC_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"reserve\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"liquidityRate\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"stableBorrowRate\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"variableBorrowRate\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"liquidityIndex\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"variableBorrowIndex\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"ReserveDataUpdated\",\"outputs\":[],\"anonymous\":false}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"reserve\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"liquidityRate\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"stableBorrowRate\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"variableBorrowRate\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"liquidityIndex\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"variableBorrowIndex\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"ReserveDataUpdated\",\"outputs\":[],\"anonymous\":false}]") . expect ("invalid abi")
         });
     #[doc = r" Bytecode of the #name contract"]
     pub static RESERVELOGIC_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
         ethers::contract::Lazy::new(|| {
-            "0x60566037600b82828239805160001a607314602a57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea26469706673582212207ad9374a977b844297ec09a107e428788db6f80a6930cd8237671c24f8fd4edd64736f6c634300080a0033" . parse () . expect ("invalid bytecode")
+            "0x60566037600b82828239805160001a607314602a57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea26469706673582212206feb1ef3e4beecfe12827ceb425ef3a68ce7b6bc079ded7142c234476b751d3664736f6c634300080a0033" . parse () . expect ("invalid bytecode")
         });
-    #[derive(Clone)]
     pub struct ReserveLogic<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for ReserveLogic<M> {
+        fn clone(&self) -> Self {
+            ReserveLogic(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for ReserveLogic<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -40,7 +44,7 @@ mod reservelogic_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> ReserveLogic<M> {
+    impl<M: ethers::providers::Middleware> ReserveLogic<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -76,7 +80,7 @@ mod reservelogic_mod {
         pub fn deploy<T: ethers::core::abi::Tokenize>(
             client: ::std::sync::Arc<M>,
             constructor_args: T,
-        ) -> Result<
+        ) -> ::std::result::Result<
             ethers::contract::builders::ContractDeployer<M, Self>,
             ethers::contract::ContractError<M>,
         > {

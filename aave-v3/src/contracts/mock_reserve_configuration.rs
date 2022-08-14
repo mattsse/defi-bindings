@@ -1,6 +1,6 @@
-pub use mockreserveconfiguration_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod mockreserveconfiguration_mod {
+pub use mock_reserve_configuration::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod mock_reserve_configuration {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,16 +18,20 @@ mod mockreserveconfiguration_mod {
     use std::sync::Arc;
     pub static MOCKRESERVECONFIGURATION_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"configuration\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"data\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getBorrowCap\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getBorrowingEnabled\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getCaps\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getDecimals\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getEModeCategory\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getFlags\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getFrozen\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getLiquidationBonus\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getLiquidationProtocolFee\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getLiquidationThreshold\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getLtv\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getParams\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getReserveFactor\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getStableRateBorrowingEnabled\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getSupplyCap\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getUnbackedMintCap\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"borrowCap\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setBorrowCap\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"enabled\",\"type\":\"bool\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setBorrowingEnabled\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"decimals\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setDecimals\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"categoryId\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setEModeCategory\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"frozen\",\"type\":\"bool\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setFrozen\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"bonus\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setLiquidationBonus\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"liquidationProtocolFee\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setLiquidationProtocolFee\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"threshold\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setLiquidationThreshold\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"ltv\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setLtv\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"reserveFactor\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setReserveFactor\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"enabled\",\"type\":\"bool\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setStableRateBorrowingEnabled\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"supplyCap\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setSupplyCap\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"unbackedMintCap\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setUnbackedMintCap\",\"outputs\":[]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"configuration\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"data\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getBorrowCap\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getBorrowingEnabled\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getCaps\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getDecimals\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getEModeCategory\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getFlags\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getFrozen\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getLiquidationBonus\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getLiquidationProtocolFee\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getLiquidationThreshold\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getLtv\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getParams\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getReserveFactor\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getStableRateBorrowingEnabled\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getSupplyCap\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getUnbackedMintCap\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"borrowCap\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setBorrowCap\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"enabled\",\"type\":\"bool\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setBorrowingEnabled\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"decimals\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setDecimals\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"categoryId\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setEModeCategory\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"frozen\",\"type\":\"bool\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setFrozen\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"bonus\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setLiquidationBonus\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"liquidationProtocolFee\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setLiquidationProtocolFee\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"threshold\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setLiquidationThreshold\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"ltv\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setLtv\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"reserveFactor\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setReserveFactor\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"enabled\",\"type\":\"bool\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setStableRateBorrowingEnabled\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"supplyCap\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setSupplyCap\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"unbackedMintCap\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setUnbackedMintCap\",\"outputs\":[]}]") . expect ("invalid abi")
         });
     #[doc = r" Bytecode of the #name contract"]
     pub static MOCKRESERVECONFIGURATION_BYTECODE: ethers::contract::Lazy<
         ethers::core::types::Bytes,
     > = ethers::contract::Lazy::new(|| {
-        "0x608060405234801561001057600080fd5b50610c02806100206000396000f3fe608060405234801561001057600080fd5b50600436106101da5760003560e01c80638145bd2e11610104578063b6a3f59a116100a2578063ead8aa0211610071578063ead8aa02146104cc578063f0141d84146104ed578063f1514a1a1461050a578063fa573d071461051d57600080fd5b8063b6a3f59a14610469578063c37bdcec1461047c578063d0b0c8161461049a578063e08a28a3146104ad57600080fd5b80639d706d31116100de5780639d706d31146103e9578063a37e52e314610422578063a620063514610435578063aede7b761461044857600080fd5b80638145bd2e146103a85780638c8885c8146103c357806392dfb2fb146103d657600080fd5b80635f558e531161017c57806371cb13321161014b57806371cb1332146103385780637495b3531461034b57806379750bc4146103765780637e932d321461039557600080fd5b80635f558e53146102c55780636c70bee9146102e15780636cc7149d146102eb578063717186d11461032557600080fd5b8063356f235c116101b8578063356f235c146102375780634ae9b8bc1461025457806359aa9e72146102725780635e615a6b1461029057600080fd5b80631c446983146101df57806320361814146101f457806328842d4f14610224575b600080fd5b6101f26101ed366004610b35565b610530565b005b60408051602081019091526000549081905260741c640fffffffff165b6040519081526020015b60405180910390f35b6101f2610232366004610b35565b610551565b60408051602081019091526000549081905260a81c60ff16610211565b60408051602081019091526000549081905260101c61ffff16610211565b60408051602080820190925260005490819052901c61ffff16610211565b61029861056b565b604080519687526020870195909552938501929092526060840152608083015260a082015260c00161021b565b6040805160208101825260005490819052901c61ffff16610211565b6000546102119081565b6102f36105d4565b60408051951515865293151560208601529115159284019290925290151560608301521515608082015260a00161021b565b6101f2610333366004610b35565b610643565b6101f2610346366004610b4e565b61065d565b604080516020810190915260005490819052600160391b1615155b604051901515815260200161021b565b6040805160208101909152600054908190526001603a1b161515610366565b6101f26103a3366004610b4e565b610677565b60408051602081019091526000549081905261ffff16610211565b6101f26103d1366004610b35565b610691565b6101f26103e4366004610b35565b6106ab565b604080516020810190915260005490819052640fffffffff605082901c81169160741c166040805192835260208301919091520161021b565b6101f2610430366004610b35565b6106c5565b6101f2610443366004610b35565b6106df565b60408051602081019091526000549081905260501c640fffffffff16610211565b6101f2610477366004610b35565b6106f9565b60408051602081019091526000549081905260981c61ffff16610211565b6101f26104a8366004610b35565b610713565b6040805160208101909152600054908190526001603b1b161515610366565b60408051602081019091526000549081905260b01c640fffffffff16610211565b60408051602081019091526000549081905260301c60ff16610211565b6101f2610518366004610b4e565b61072d565b6101f261052b366004610b35565b610747565b6040805160208101909152600054815261054a8183610761565b5160005550565b6040805160208101909152600054815261054a81836107c1565b6000806000806000806105c160006040518060200160405290816000820154815250505161ffff80821692601083901c821692602081901c831692603082901c60ff90811693604084901c9092169260a81c1690565b949b939a50919850965094509092509050565b60008060008060006106326000604051806020016040529081600082015481525050516701000000000000008116151591600160391b82161515916001603a1b81161515916001603b1b821615159167100000000000000016151590565b945094509450945094509091929394565b6040805160208101909152600054815261054a8183610814565b6040805160208101909152600054815261054a818361086c565b6040805160208101909152600054815261054a818361089a565b6040805160208101909152600054815261054a81836108c8565b6040805160208101909152600054815261054a818361091b565b6040805160208101909152600054815261054a8183610973565b6040805160208101909152600054815261054a81836109bc565b6040805160208101909152600054815261054a8183610a0e565b6040805160208101909152600054815261054a8183610a66565b6040805160208101909152600054815261054a8183610ab7565b6040805160208101909152600054815261054a8183610ae5565b604080518082019091526002815261363760f01b602082015261ffff8211156107a65760405162461bcd60e51b815260040161079d9190610b77565b60405180910390fd5b50815169ffff0000000000000000191660409190911b179052565b604080518082019091526002815261363560f01b602082015261ffff8211156107fd5760405162461bcd60e51b815260040161079d9190610b77565b50815165ffff00000000191660209190911b179052565b60408051808201909152600281526106c760f31b6020820152640fffffffff8211156108535760405162461bcd60e51b815260040161079d9190610b77565b508151640fffffffff60501b191660509190911b179052565b603b8161087a57600061087d565b60015b8351670800000000000000191660ff9190911690911b1790915250565b6039816108a85760006108ab565b60015b8351670200000000000000191660ff9190911690911b1790915250565b6040805180820190915260028152611b1b60f11b602082015260ff8211156109035760405162461bcd60e51b815260040161079d9190610b77565b50815166ff000000000000191660309190911b179052565b6040805180820190915260028152611b9960f11b6020820152640fffffffff82111561095a5760405162461bcd60e51b815260040161079d9190610b77565b508151640fffffffff60b01b191660b09190911b179052565b604080518082019091526002815261363360f01b602082015261ffff8211156109af5760405162461bcd60e51b815260040161079d9190610b77565b50815161ffff1916179052565b604080518082019091526002815261037360f41b602082015261ffff8211156109f85760405162461bcd60e51b815260040161079d9190610b77565b50815161ffff60981b191660989190911b179052565b604080518082019091526002815261363960f01b6020820152640fffffffff821115610a4d5760405162461bcd60e51b815260040161079d9190610b77565b508151640fffffffff60741b191660749190911b179052565b6040805180820190915260028152610d8d60f21b602082015261ffff821115610aa25760405162461bcd60e51b815260040161079d9190610b77565b50815163ffff0000191660109190911b179052565b603a81610ac5576000610ac8565b60015b8351670400000000000000191660ff9190911690911b1790915250565b604080518082019091526002815261373160f01b602082015260ff821115610b205760405162461bcd60e51b815260040161079d9190610b77565b50815160ff60a81b191660a89190911b179052565b600060208284031215610b4757600080fd5b5035919050565b600060208284031215610b6057600080fd5b81358015158114610b7057600080fd5b9392505050565b600060208083528351808285015260005b81811015610ba457858101830151858201604001528201610b88565b81811115610bb6576000604083870101525b50601f01601f191692909201604001939250505056fea2646970667358221220209ec11a8bc783959fbe4a94b0f9a04e3dae6cd9d5af273ed0d34cfd9363b79364736f6c634300080a0033" . parse () . expect ("invalid bytecode")
+        "0x608060405234801561001057600080fd5b50610c02806100206000396000f3fe608060405234801561001057600080fd5b50600436106101da5760003560e01c80638145bd2e11610104578063b6a3f59a116100a2578063ead8aa0211610071578063ead8aa02146104cc578063f0141d84146104ed578063f1514a1a1461050a578063fa573d071461051d57600080fd5b8063b6a3f59a14610469578063c37bdcec1461047c578063d0b0c8161461049a578063e08a28a3146104ad57600080fd5b80639d706d31116100de5780639d706d31146103e9578063a37e52e314610422578063a620063514610435578063aede7b761461044857600080fd5b80638145bd2e146103a85780638c8885c8146103c357806392dfb2fb146103d657600080fd5b80635f558e531161017c57806371cb13321161014b57806371cb1332146103385780637495b3531461034b57806379750bc4146103765780637e932d321461039557600080fd5b80635f558e53146102c55780636c70bee9146102e15780636cc7149d146102eb578063717186d11461032557600080fd5b8063356f235c116101b8578063356f235c146102375780634ae9b8bc1461025457806359aa9e72146102725780635e615a6b1461029057600080fd5b80631c446983146101df57806320361814146101f457806328842d4f14610224575b600080fd5b6101f26101ed366004610b35565b610530565b005b60408051602081019091526000549081905260741c640fffffffff165b6040519081526020015b60405180910390f35b6101f2610232366004610b35565b610551565b60408051602081019091526000549081905260a81c60ff16610211565b60408051602081019091526000549081905260101c61ffff16610211565b60408051602080820190925260005490819052901c61ffff16610211565b61029861056b565b604080519687526020870195909552938501929092526060840152608083015260a082015260c00161021b565b6040805160208101825260005490819052901c61ffff16610211565b6000546102119081565b6102f36105d4565b60408051951515865293151560208601529115159284019290925290151560608301521515608082015260a00161021b565b6101f2610333366004610b35565b610643565b6101f2610346366004610b4e565b61065d565b604080516020810190915260005490819052600160391b1615155b604051901515815260200161021b565b6040805160208101909152600054908190526001603a1b161515610366565b6101f26103a3366004610b4e565b610677565b60408051602081019091526000549081905261ffff16610211565b6101f26103d1366004610b35565b610691565b6101f26103e4366004610b35565b6106ab565b604080516020810190915260005490819052640fffffffff605082901c81169160741c166040805192835260208301919091520161021b565b6101f2610430366004610b35565b6106c5565b6101f2610443366004610b35565b6106df565b60408051602081019091526000549081905260501c640fffffffff16610211565b6101f2610477366004610b35565b6106f9565b60408051602081019091526000549081905260981c61ffff16610211565b6101f26104a8366004610b35565b610713565b6040805160208101909152600054908190526001603b1b161515610366565b60408051602081019091526000549081905260b01c640fffffffff16610211565b60408051602081019091526000549081905260301c60ff16610211565b6101f2610518366004610b4e565b61072d565b6101f261052b366004610b35565b610747565b6040805160208101909152600054815261054a8183610761565b5160005550565b6040805160208101909152600054815261054a81836107c1565b6000806000806000806105c160006040518060200160405290816000820154815250505161ffff80821692601083901c821692602081901c831692603082901c60ff90811693604084901c9092169260a81c1690565b949b939a50919850965094509092509050565b60008060008060006106326000604051806020016040529081600082015481525050516701000000000000008116151591600160391b82161515916001603a1b81161515916001603b1b821615159167100000000000000016151590565b945094509450945094509091929394565b6040805160208101909152600054815261054a8183610814565b6040805160208101909152600054815261054a818361086c565b6040805160208101909152600054815261054a818361089a565b6040805160208101909152600054815261054a81836108c8565b6040805160208101909152600054815261054a818361091b565b6040805160208101909152600054815261054a8183610973565b6040805160208101909152600054815261054a81836109bc565b6040805160208101909152600054815261054a8183610a0e565b6040805160208101909152600054815261054a8183610a66565b6040805160208101909152600054815261054a8183610ab7565b6040805160208101909152600054815261054a8183610ae5565b604080518082019091526002815261363760f01b602082015261ffff8211156107a65760405162461bcd60e51b815260040161079d9190610b77565b60405180910390fd5b50815169ffff0000000000000000191660409190911b179052565b604080518082019091526002815261363560f01b602082015261ffff8211156107fd5760405162461bcd60e51b815260040161079d9190610b77565b50815165ffff00000000191660209190911b179052565b60408051808201909152600281526106c760f31b6020820152640fffffffff8211156108535760405162461bcd60e51b815260040161079d9190610b77565b508151640fffffffff60501b191660509190911b179052565b603b8161087a57600061087d565b60015b8351670800000000000000191660ff9190911690911b1790915250565b6039816108a85760006108ab565b60015b8351670200000000000000191660ff9190911690911b1790915250565b6040805180820190915260028152611b1b60f11b602082015260ff8211156109035760405162461bcd60e51b815260040161079d9190610b77565b50815166ff000000000000191660309190911b179052565b6040805180820190915260028152611b9960f11b6020820152640fffffffff82111561095a5760405162461bcd60e51b815260040161079d9190610b77565b508151640fffffffff60b01b191660b09190911b179052565b604080518082019091526002815261363360f01b602082015261ffff8211156109af5760405162461bcd60e51b815260040161079d9190610b77565b50815161ffff1916179052565b604080518082019091526002815261037360f41b602082015261ffff8211156109f85760405162461bcd60e51b815260040161079d9190610b77565b50815161ffff60981b191660989190911b179052565b604080518082019091526002815261363960f01b6020820152640fffffffff821115610a4d5760405162461bcd60e51b815260040161079d9190610b77565b508151640fffffffff60741b191660749190911b179052565b6040805180820190915260028152610d8d60f21b602082015261ffff821115610aa25760405162461bcd60e51b815260040161079d9190610b77565b50815163ffff0000191660109190911b179052565b603a81610ac5576000610ac8565b60015b8351670400000000000000191660ff9190911690911b1790915250565b604080518082019091526002815261373160f01b602082015260ff821115610b205760405162461bcd60e51b815260040161079d9190610b77565b50815160ff60a81b191660a89190911b179052565b600060208284031215610b4757600080fd5b5035919050565b600060208284031215610b6057600080fd5b81358015158114610b7057600080fd5b9392505050565b600060208083528351808285015260005b81811015610ba457858101830151858201604001528201610b88565b81811115610bb6576000604083870101525b50601f01601f191692909201604001939250505056fea2646970667358221220ace953e8eddeed2ce21129d5769ad88e0070bf9d5c8c7471fe9c9eb69b81791a64736f6c634300080a0033" . parse () . expect ("invalid bytecode")
     });
-    #[derive(Clone)]
     pub struct MockReserveConfiguration<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for MockReserveConfiguration<M> {
+        fn clone(&self) -> Self {
+            MockReserveConfiguration(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for MockReserveConfiguration<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -41,7 +45,7 @@ mod mockreserveconfiguration_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> MockReserveConfiguration<M> {
+    impl<M: ethers::providers::Middleware> MockReserveConfiguration<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -82,7 +86,7 @@ mod mockreserveconfiguration_mod {
         pub fn deploy<T: ethers::core::abi::Tokenize>(
             client: ::std::sync::Arc<M>,
             constructor_args: T,
-        ) -> Result<
+        ) -> ::std::result::Result<
             ethers::contract::builders::ContractDeployer<M, Self>,
             ethers::contract::ContractError<M>,
         > {
@@ -362,7 +366,7 @@ mod mockreserveconfiguration_mod {
             Self(contract)
         }
     }
-    #[doc = "Container type for all input parameters for the `configuration`function with signature `configuration()` and selector `[108, 112, 190, 233]`"]
+    #[doc = "Container type for all input parameters for the `configuration` function with signature `configuration()` and selector `[108, 112, 190, 233]`"]
     #[derive(
         Clone,
         Debug,
@@ -374,7 +378,7 @@ mod mockreserveconfiguration_mod {
     )]
     #[ethcall(name = "configuration", abi = "configuration()")]
     pub struct ConfigurationCall;
-    #[doc = "Container type for all input parameters for the `getBorrowCap`function with signature `getBorrowCap()` and selector `[174, 222, 123, 118]`"]
+    #[doc = "Container type for all input parameters for the `getBorrowCap` function with signature `getBorrowCap()` and selector `[174, 222, 123, 118]`"]
     #[derive(
         Clone,
         Debug,
@@ -386,7 +390,7 @@ mod mockreserveconfiguration_mod {
     )]
     #[ethcall(name = "getBorrowCap", abi = "getBorrowCap()")]
     pub struct GetBorrowCapCall;
-    #[doc = "Container type for all input parameters for the `getBorrowingEnabled`function with signature `getBorrowingEnabled()` and selector `[121, 117, 11, 196]`"]
+    #[doc = "Container type for all input parameters for the `getBorrowingEnabled` function with signature `getBorrowingEnabled()` and selector `[121, 117, 11, 196]`"]
     #[derive(
         Clone,
         Debug,
@@ -398,7 +402,7 @@ mod mockreserveconfiguration_mod {
     )]
     #[ethcall(name = "getBorrowingEnabled", abi = "getBorrowingEnabled()")]
     pub struct GetBorrowingEnabledCall;
-    #[doc = "Container type for all input parameters for the `getCaps`function with signature `getCaps()` and selector `[157, 112, 109, 49]`"]
+    #[doc = "Container type for all input parameters for the `getCaps` function with signature `getCaps()` and selector `[157, 112, 109, 49]`"]
     #[derive(
         Clone,
         Debug,
@@ -410,7 +414,7 @@ mod mockreserveconfiguration_mod {
     )]
     #[ethcall(name = "getCaps", abi = "getCaps()")]
     pub struct GetCapsCall;
-    #[doc = "Container type for all input parameters for the `getDecimals`function with signature `getDecimals()` and selector `[240, 20, 29, 132]`"]
+    #[doc = "Container type for all input parameters for the `getDecimals` function with signature `getDecimals()` and selector `[240, 20, 29, 132]`"]
     #[derive(
         Clone,
         Debug,
@@ -422,7 +426,7 @@ mod mockreserveconfiguration_mod {
     )]
     #[ethcall(name = "getDecimals", abi = "getDecimals()")]
     pub struct GetDecimalsCall;
-    #[doc = "Container type for all input parameters for the `getEModeCategory`function with signature `getEModeCategory()` and selector `[53, 111, 35, 92]`"]
+    #[doc = "Container type for all input parameters for the `getEModeCategory` function with signature `getEModeCategory()` and selector `[53, 111, 35, 92]`"]
     #[derive(
         Clone,
         Debug,
@@ -434,7 +438,7 @@ mod mockreserveconfiguration_mod {
     )]
     #[ethcall(name = "getEModeCategory", abi = "getEModeCategory()")]
     pub struct GetEModeCategoryCall;
-    #[doc = "Container type for all input parameters for the `getFlags`function with signature `getFlags()` and selector `[108, 199, 20, 157]`"]
+    #[doc = "Container type for all input parameters for the `getFlags` function with signature `getFlags()` and selector `[108, 199, 20, 157]`"]
     #[derive(
         Clone,
         Debug,
@@ -446,7 +450,7 @@ mod mockreserveconfiguration_mod {
     )]
     #[ethcall(name = "getFlags", abi = "getFlags()")]
     pub struct GetFlagsCall;
-    #[doc = "Container type for all input parameters for the `getFrozen`function with signature `getFrozen()` and selector `[116, 149, 179, 83]`"]
+    #[doc = "Container type for all input parameters for the `getFrozen` function with signature `getFrozen()` and selector `[116, 149, 179, 83]`"]
     #[derive(
         Clone,
         Debug,
@@ -458,7 +462,7 @@ mod mockreserveconfiguration_mod {
     )]
     #[ethcall(name = "getFrozen", abi = "getFrozen()")]
     pub struct GetFrozenCall;
-    #[doc = "Container type for all input parameters for the `getLiquidationBonus`function with signature `getLiquidationBonus()` and selector `[89, 170, 158, 114]`"]
+    #[doc = "Container type for all input parameters for the `getLiquidationBonus` function with signature `getLiquidationBonus()` and selector `[89, 170, 158, 114]`"]
     #[derive(
         Clone,
         Debug,
@@ -470,7 +474,7 @@ mod mockreserveconfiguration_mod {
     )]
     #[ethcall(name = "getLiquidationBonus", abi = "getLiquidationBonus()")]
     pub struct GetLiquidationBonusCall;
-    #[doc = "Container type for all input parameters for the `getLiquidationProtocolFee`function with signature `getLiquidationProtocolFee()` and selector `[195, 123, 220, 236]`"]
+    #[doc = "Container type for all input parameters for the `getLiquidationProtocolFee` function with signature `getLiquidationProtocolFee()` and selector `[195, 123, 220, 236]`"]
     #[derive(
         Clone,
         Debug,
@@ -485,7 +489,7 @@ mod mockreserveconfiguration_mod {
         abi = "getLiquidationProtocolFee()"
     )]
     pub struct GetLiquidationProtocolFeeCall;
-    #[doc = "Container type for all input parameters for the `getLiquidationThreshold`function with signature `getLiquidationThreshold()` and selector `[74, 233, 184, 188]`"]
+    #[doc = "Container type for all input parameters for the `getLiquidationThreshold` function with signature `getLiquidationThreshold()` and selector `[74, 233, 184, 188]`"]
     #[derive(
         Clone,
         Debug,
@@ -497,7 +501,7 @@ mod mockreserveconfiguration_mod {
     )]
     #[ethcall(name = "getLiquidationThreshold", abi = "getLiquidationThreshold()")]
     pub struct GetLiquidationThresholdCall;
-    #[doc = "Container type for all input parameters for the `getLtv`function with signature `getLtv()` and selector `[129, 69, 189, 46]`"]
+    #[doc = "Container type for all input parameters for the `getLtv` function with signature `getLtv()` and selector `[129, 69, 189, 46]`"]
     #[derive(
         Clone,
         Debug,
@@ -509,7 +513,7 @@ mod mockreserveconfiguration_mod {
     )]
     #[ethcall(name = "getLtv", abi = "getLtv()")]
     pub struct GetLtvCall;
-    #[doc = "Container type for all input parameters for the `getParams`function with signature `getParams()` and selector `[94, 97, 90, 107]`"]
+    #[doc = "Container type for all input parameters for the `getParams` function with signature `getParams()` and selector `[94, 97, 90, 107]`"]
     #[derive(
         Clone,
         Debug,
@@ -521,7 +525,7 @@ mod mockreserveconfiguration_mod {
     )]
     #[ethcall(name = "getParams", abi = "getParams()")]
     pub struct GetParamsCall;
-    #[doc = "Container type for all input parameters for the `getReserveFactor`function with signature `getReserveFactor()` and selector `[95, 85, 142, 83]`"]
+    #[doc = "Container type for all input parameters for the `getReserveFactor` function with signature `getReserveFactor()` and selector `[95, 85, 142, 83]`"]
     #[derive(
         Clone,
         Debug,
@@ -533,7 +537,7 @@ mod mockreserveconfiguration_mod {
     )]
     #[ethcall(name = "getReserveFactor", abi = "getReserveFactor()")]
     pub struct GetReserveFactorCall;
-    #[doc = "Container type for all input parameters for the `getStableRateBorrowingEnabled`function with signature `getStableRateBorrowingEnabled()` and selector `[224, 138, 40, 163]`"]
+    #[doc = "Container type for all input parameters for the `getStableRateBorrowingEnabled` function with signature `getStableRateBorrowingEnabled()` and selector `[224, 138, 40, 163]`"]
     #[derive(
         Clone,
         Debug,
@@ -548,7 +552,7 @@ mod mockreserveconfiguration_mod {
         abi = "getStableRateBorrowingEnabled()"
     )]
     pub struct GetStableRateBorrowingEnabledCall;
-    #[doc = "Container type for all input parameters for the `getSupplyCap`function with signature `getSupplyCap()` and selector `[32, 54, 24, 20]`"]
+    #[doc = "Container type for all input parameters for the `getSupplyCap` function with signature `getSupplyCap()` and selector `[32, 54, 24, 20]`"]
     #[derive(
         Clone,
         Debug,
@@ -560,7 +564,7 @@ mod mockreserveconfiguration_mod {
     )]
     #[ethcall(name = "getSupplyCap", abi = "getSupplyCap()")]
     pub struct GetSupplyCapCall;
-    #[doc = "Container type for all input parameters for the `getUnbackedMintCap`function with signature `getUnbackedMintCap()` and selector `[234, 216, 170, 2]`"]
+    #[doc = "Container type for all input parameters for the `getUnbackedMintCap` function with signature `getUnbackedMintCap()` and selector `[234, 216, 170, 2]`"]
     #[derive(
         Clone,
         Debug,
@@ -572,7 +576,7 @@ mod mockreserveconfiguration_mod {
     )]
     #[ethcall(name = "getUnbackedMintCap", abi = "getUnbackedMintCap()")]
     pub struct GetUnbackedMintCapCall;
-    #[doc = "Container type for all input parameters for the `setBorrowCap`function with signature `setBorrowCap(uint256)` and selector `[113, 113, 134, 209]`"]
+    #[doc = "Container type for all input parameters for the `setBorrowCap` function with signature `setBorrowCap(uint256)` and selector `[113, 113, 134, 209]`"]
     #[derive(
         Clone,
         Debug,
@@ -586,7 +590,7 @@ mod mockreserveconfiguration_mod {
     pub struct SetBorrowCapCall {
         pub borrow_cap: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `setBorrowingEnabled`function with signature `setBorrowingEnabled(bool)` and selector `[241, 81, 74, 26]`"]
+    #[doc = "Container type for all input parameters for the `setBorrowingEnabled` function with signature `setBorrowingEnabled(bool)` and selector `[241, 81, 74, 26]`"]
     #[derive(
         Clone,
         Debug,
@@ -600,7 +604,7 @@ mod mockreserveconfiguration_mod {
     pub struct SetBorrowingEnabledCall {
         pub enabled: bool,
     }
-    #[doc = "Container type for all input parameters for the `setDecimals`function with signature `setDecimals(uint256)` and selector `[140, 136, 133, 200]`"]
+    #[doc = "Container type for all input parameters for the `setDecimals` function with signature `setDecimals(uint256)` and selector `[140, 136, 133, 200]`"]
     #[derive(
         Clone,
         Debug,
@@ -614,7 +618,7 @@ mod mockreserveconfiguration_mod {
     pub struct SetDecimalsCall {
         pub decimals: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `setEModeCategory`function with signature `setEModeCategory(uint256)` and selector `[250, 87, 61, 7]`"]
+    #[doc = "Container type for all input parameters for the `setEModeCategory` function with signature `setEModeCategory(uint256)` and selector `[250, 87, 61, 7]`"]
     #[derive(
         Clone,
         Debug,
@@ -628,7 +632,7 @@ mod mockreserveconfiguration_mod {
     pub struct SetEModeCategoryCall {
         pub category_id: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `setFrozen`function with signature `setFrozen(bool)` and selector `[126, 147, 45, 50]`"]
+    #[doc = "Container type for all input parameters for the `setFrozen` function with signature `setFrozen(bool)` and selector `[126, 147, 45, 50]`"]
     #[derive(
         Clone,
         Debug,
@@ -642,7 +646,7 @@ mod mockreserveconfiguration_mod {
     pub struct SetFrozenCall {
         pub frozen: bool,
     }
-    #[doc = "Container type for all input parameters for the `setLiquidationBonus`function with signature `setLiquidationBonus(uint256)` and selector `[40, 132, 45, 79]`"]
+    #[doc = "Container type for all input parameters for the `setLiquidationBonus` function with signature `setLiquidationBonus(uint256)` and selector `[40, 132, 45, 79]`"]
     #[derive(
         Clone,
         Debug,
@@ -656,7 +660,7 @@ mod mockreserveconfiguration_mod {
     pub struct SetLiquidationBonusCall {
         pub bonus: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `setLiquidationProtocolFee`function with signature `setLiquidationProtocolFee(uint256)` and selector `[166, 32, 6, 53]`"]
+    #[doc = "Container type for all input parameters for the `setLiquidationProtocolFee` function with signature `setLiquidationProtocolFee(uint256)` and selector `[166, 32, 6, 53]`"]
     #[derive(
         Clone,
         Debug,
@@ -673,7 +677,7 @@ mod mockreserveconfiguration_mod {
     pub struct SetLiquidationProtocolFeeCall {
         pub liquidation_protocol_fee: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `setLiquidationThreshold`function with signature `setLiquidationThreshold(uint256)` and selector `[208, 176, 200, 22]`"]
+    #[doc = "Container type for all input parameters for the `setLiquidationThreshold` function with signature `setLiquidationThreshold(uint256)` and selector `[208, 176, 200, 22]`"]
     #[derive(
         Clone,
         Debug,
@@ -690,7 +694,7 @@ mod mockreserveconfiguration_mod {
     pub struct SetLiquidationThresholdCall {
         pub threshold: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `setLtv`function with signature `setLtv(uint256)` and selector `[163, 126, 82, 227]`"]
+    #[doc = "Container type for all input parameters for the `setLtv` function with signature `setLtv(uint256)` and selector `[163, 126, 82, 227]`"]
     #[derive(
         Clone,
         Debug,
@@ -704,7 +708,7 @@ mod mockreserveconfiguration_mod {
     pub struct SetLtvCall {
         pub ltv: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `setReserveFactor`function with signature `setReserveFactor(uint256)` and selector `[28, 68, 105, 131]`"]
+    #[doc = "Container type for all input parameters for the `setReserveFactor` function with signature `setReserveFactor(uint256)` and selector `[28, 68, 105, 131]`"]
     #[derive(
         Clone,
         Debug,
@@ -718,7 +722,7 @@ mod mockreserveconfiguration_mod {
     pub struct SetReserveFactorCall {
         pub reserve_factor: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `setStableRateBorrowingEnabled`function with signature `setStableRateBorrowingEnabled(bool)` and selector `[113, 203, 19, 50]`"]
+    #[doc = "Container type for all input parameters for the `setStableRateBorrowingEnabled` function with signature `setStableRateBorrowingEnabled(bool)` and selector `[113, 203, 19, 50]`"]
     #[derive(
         Clone,
         Debug,
@@ -735,7 +739,7 @@ mod mockreserveconfiguration_mod {
     pub struct SetStableRateBorrowingEnabledCall {
         pub enabled: bool,
     }
-    #[doc = "Container type for all input parameters for the `setSupplyCap`function with signature `setSupplyCap(uint256)` and selector `[182, 163, 245, 154]`"]
+    #[doc = "Container type for all input parameters for the `setSupplyCap` function with signature `setSupplyCap(uint256)` and selector `[182, 163, 245, 154]`"]
     #[derive(
         Clone,
         Debug,
@@ -749,7 +753,7 @@ mod mockreserveconfiguration_mod {
     pub struct SetSupplyCapCall {
         pub supply_cap: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `setUnbackedMintCap`function with signature `setUnbackedMintCap(uint256)` and selector `[146, 223, 178, 251]`"]
+    #[doc = "Container type for all input parameters for the `setUnbackedMintCap` function with signature `setUnbackedMintCap(uint256)` and selector `[146, 223, 178, 251]`"]
     #[derive(
         Clone,
         Debug,
@@ -797,7 +801,9 @@ mod mockreserveconfiguration_mod {
         SetUnbackedMintCap(SetUnbackedMintCapCall),
     }
     impl ethers::core::abi::AbiDecode for MockReserveConfigurationCalls {
-        fn decode(data: impl AsRef<[u8]>) -> Result<Self, ethers::core::abi::AbiError> {
+        fn decode(
+            data: impl AsRef<[u8]>,
+        ) -> ::std::result::Result<Self, ethers::core::abi::AbiError> {
             if let Ok(decoded) =
                 <ConfigurationCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
@@ -1199,4 +1205,200 @@ mod mockreserveconfiguration_mod {
             MockReserveConfigurationCalls::SetUnbackedMintCap(var)
         }
     }
+    #[doc = "Container type for all return fields from the `configuration` function with signature `configuration()` and selector `[108, 112, 190, 233]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct ConfigurationReturn {
+        pub data: ethers::core::types::U256,
+    }
+    #[doc = "Container type for all return fields from the `getBorrowCap` function with signature `getBorrowCap()` and selector `[174, 222, 123, 118]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetBorrowCapReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `getBorrowingEnabled` function with signature `getBorrowingEnabled()` and selector `[121, 117, 11, 196]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetBorrowingEnabledReturn(pub bool);
+    #[doc = "Container type for all return fields from the `getCaps` function with signature `getCaps()` and selector `[157, 112, 109, 49]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetCapsReturn(pub ethers::core::types::U256, pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `getDecimals` function with signature `getDecimals()` and selector `[240, 20, 29, 132]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetDecimalsReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `getEModeCategory` function with signature `getEModeCategory()` and selector `[53, 111, 35, 92]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetEModeCategoryReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `getFlags` function with signature `getFlags()` and selector `[108, 199, 20, 157]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetFlagsReturn(pub bool, pub bool, pub bool, pub bool, pub bool);
+    #[doc = "Container type for all return fields from the `getFrozen` function with signature `getFrozen()` and selector `[116, 149, 179, 83]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetFrozenReturn(pub bool);
+    #[doc = "Container type for all return fields from the `getLiquidationBonus` function with signature `getLiquidationBonus()` and selector `[89, 170, 158, 114]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetLiquidationBonusReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `getLiquidationProtocolFee` function with signature `getLiquidationProtocolFee()` and selector `[195, 123, 220, 236]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetLiquidationProtocolFeeReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `getLiquidationThreshold` function with signature `getLiquidationThreshold()` and selector `[74, 233, 184, 188]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetLiquidationThresholdReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `getLtv` function with signature `getLtv()` and selector `[129, 69, 189, 46]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetLtvReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `getParams` function with signature `getParams()` and selector `[94, 97, 90, 107]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetParamsReturn(
+        pub ethers::core::types::U256,
+        pub ethers::core::types::U256,
+        pub ethers::core::types::U256,
+        pub ethers::core::types::U256,
+        pub ethers::core::types::U256,
+        pub ethers::core::types::U256,
+    );
+    #[doc = "Container type for all return fields from the `getReserveFactor` function with signature `getReserveFactor()` and selector `[95, 85, 142, 83]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetReserveFactorReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `getStableRateBorrowingEnabled` function with signature `getStableRateBorrowingEnabled()` and selector `[224, 138, 40, 163]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetStableRateBorrowingEnabledReturn(pub bool);
+    #[doc = "Container type for all return fields from the `getSupplyCap` function with signature `getSupplyCap()` and selector `[32, 54, 24, 20]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetSupplyCapReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `getUnbackedMintCap` function with signature `getUnbackedMintCap()` and selector `[234, 216, 170, 2]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetUnbackedMintCapReturn(pub ethers::core::types::U256);
 }

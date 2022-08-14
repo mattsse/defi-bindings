@@ -1,6 +1,6 @@
-pub use il2pool_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod il2pool_mod {
+pub use il2_pool::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod il2_pool {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,13 +18,14 @@ mod il2pool_mod {
     use std::sync::Arc;
     pub static IL2POOL_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"args\",\"type\":\"bytes32\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"borrow\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"args1\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"args2\",\"type\":\"bytes32\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"liquidationCall\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"args\",\"type\":\"bytes32\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"rebalanceStableBorrowRate\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"args\",\"type\":\"bytes32\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"repay\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"args\",\"type\":\"bytes32\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"repayWithATokens\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"args\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"r\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"s\",\"type\":\"bytes32\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"repayWithPermit\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"args\",\"type\":\"bytes32\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setUserUseReserveAsCollateral\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"args\",\"type\":\"bytes32\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"supply\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"args\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"r\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"s\",\"type\":\"bytes32\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"supplyWithPermit\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"args\",\"type\":\"bytes32\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"swapBorrowRateMode\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"args\",\"type\":\"bytes32\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"withdraw\",\"outputs\":[]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"args\",\"type\":\"bytes32\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"borrow\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"args1\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"args2\",\"type\":\"bytes32\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"liquidationCall\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"args\",\"type\":\"bytes32\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"rebalanceStableBorrowRate\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"args\",\"type\":\"bytes32\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"repay\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"args\",\"type\":\"bytes32\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"repayWithATokens\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"args\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"r\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"s\",\"type\":\"bytes32\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"repayWithPermit\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"args\",\"type\":\"bytes32\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setUserUseReserveAsCollateral\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"args\",\"type\":\"bytes32\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"supply\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"args\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"r\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"s\",\"type\":\"bytes32\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"supplyWithPermit\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"args\",\"type\":\"bytes32\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"swapBorrowRateMode\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"args\",\"type\":\"bytes32\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"withdraw\",\"outputs\":[]}]") . expect ("invalid abi")
         });
-    #[doc = r" Bytecode of the #name contract"]
-    pub static IL2POOL_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
-        ethers::contract::Lazy::new(|| "0x".parse().expect("invalid bytecode"));
-    #[derive(Clone)]
     pub struct IL2Pool<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for IL2Pool<M> {
+        fn clone(&self) -> Self {
+            IL2Pool(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for IL2Pool<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -38,7 +39,7 @@ mod il2pool_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> IL2Pool<M> {
+    impl<M: ethers::providers::Middleware> IL2Pool<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -47,45 +48,6 @@ mod il2pool_mod {
             client: ::std::sync::Arc<M>,
         ) -> Self {
             ethers::contract::Contract::new(address.into(), IL2POOL_ABI.clone(), client).into()
-        }
-        #[doc = r" Constructs the general purpose `Deployer` instance based on the provided constructor arguments and sends it."]
-        #[doc = r" Returns a new instance of a deployer that returns an instance of this contract after sending the transaction"]
-        #[doc = r""]
-        #[doc = r" Notes:"]
-        #[doc = r" 1. If there are no constructor arguments, you should pass `()` as the argument."]
-        #[doc = r" 1. The default poll duration is 7 seconds."]
-        #[doc = r" 1. The default number of confirmations is 1 block."]
-        #[doc = r""]
-        #[doc = r""]
-        #[doc = r" # Example"]
-        #[doc = r""]
-        #[doc = r" Generate contract bindings with `abigen!` and deploy a new contract instance."]
-        #[doc = r""]
-        #[doc = r" *Note*: this requires a `bytecode` and `abi` object in the `greeter.json` artifact."]
-        #[doc = r""]
-        #[doc = r" ```ignore"]
-        #[doc = r" # async fn deploy<M: ethers::providers::Middleware>(client: ::std::sync::Arc<M>) {"]
-        #[doc = r#"     abigen!(Greeter,"../greeter.json");"#]
-        #[doc = r""]
-        #[doc = r#"    let greeter_contract = Greeter::deploy(client, "Hello world!".to_string()).unwrap().send().await.unwrap();"#]
-        #[doc = r"    let msg = greeter_contract.greet().call().await.unwrap();"]
-        #[doc = r" # }"]
-        #[doc = r" ```"]
-        pub fn deploy<T: ethers::core::abi::Tokenize>(
-            client: ::std::sync::Arc<M>,
-            constructor_args: T,
-        ) -> Result<
-            ethers::contract::builders::ContractDeployer<M, Self>,
-            ethers::contract::ContractError<M>,
-        > {
-            let factory = ethers::contract::ContractFactory::new(
-                IL2POOL_ABI.clone(),
-                IL2POOL_BYTECODE.clone().into(),
-                client,
-            );
-            let deployer = factory.deploy(constructor_args)?;
-            let deployer = ethers::contract::ContractDeployer::new(deployer);
-            Ok(deployer)
         }
         #[doc = "Calls the contract's `borrow` (0xd5eed868) function"]
         pub fn borrow(&self, args: [u8; 32]) -> ethers::contract::builders::ContractCall<M, ()> {
@@ -188,7 +150,7 @@ mod il2pool_mod {
             Self(contract)
         }
     }
-    #[doc = "Container type for all input parameters for the `borrow`function with signature `borrow(bytes32)` and selector `[213, 238, 216, 104]`"]
+    #[doc = "Container type for all input parameters for the `borrow` function with signature `borrow(bytes32)` and selector `[213, 238, 216, 104]`"]
     #[derive(
         Clone,
         Debug,
@@ -202,7 +164,7 @@ mod il2pool_mod {
     pub struct BorrowCall {
         pub args: [u8; 32],
     }
-    #[doc = "Container type for all input parameters for the `liquidationCall`function with signature `liquidationCall(bytes32,bytes32)` and selector `[253, 33, 236, 255]`"]
+    #[doc = "Container type for all input parameters for the `liquidationCall` function with signature `liquidationCall(bytes32,bytes32)` and selector `[253, 33, 236, 255]`"]
     #[derive(
         Clone,
         Debug,
@@ -217,7 +179,7 @@ mod il2pool_mod {
         pub args_1: [u8; 32],
         pub args_2: [u8; 32],
     }
-    #[doc = "Container type for all input parameters for the `rebalanceStableBorrowRate`function with signature `rebalanceStableBorrowRate(bytes32)` and selector `[66, 125, 161, 119]`"]
+    #[doc = "Container type for all input parameters for the `rebalanceStableBorrowRate` function with signature `rebalanceStableBorrowRate(bytes32)` and selector `[66, 125, 161, 119]`"]
     #[derive(
         Clone,
         Debug,
@@ -234,7 +196,7 @@ mod il2pool_mod {
     pub struct RebalanceStableBorrowRateCall {
         pub args: [u8; 32],
     }
-    #[doc = "Container type for all input parameters for the `repay`function with signature `repay(bytes32)` and selector `[86, 61, 214, 19]`"]
+    #[doc = "Container type for all input parameters for the `repay` function with signature `repay(bytes32)` and selector `[86, 61, 214, 19]`"]
     #[derive(
         Clone,
         Debug,
@@ -248,7 +210,7 @@ mod il2pool_mod {
     pub struct RepayCall {
         pub args: [u8; 32],
     }
-    #[doc = "Container type for all input parameters for the `repayWithATokens`function with signature `repayWithATokens(bytes32)` and selector `[220, 124, 11, 255]`"]
+    #[doc = "Container type for all input parameters for the `repayWithATokens` function with signature `repayWithATokens(bytes32)` and selector `[220, 124, 11, 255]`"]
     #[derive(
         Clone,
         Debug,
@@ -262,7 +224,7 @@ mod il2pool_mod {
     pub struct RepayWithATokensCall {
         pub args: [u8; 32],
     }
-    #[doc = "Container type for all input parameters for the `repayWithPermit`function with signature `repayWithPermit(bytes32,bytes32,bytes32)` and selector `[148, 181, 118, 222]`"]
+    #[doc = "Container type for all input parameters for the `repayWithPermit` function with signature `repayWithPermit(bytes32,bytes32,bytes32)` and selector `[148, 181, 118, 222]`"]
     #[derive(
         Clone,
         Debug,
@@ -281,7 +243,7 @@ mod il2pool_mod {
         pub r: [u8; 32],
         pub s: [u8; 32],
     }
-    #[doc = "Container type for all input parameters for the `setUserUseReserveAsCollateral`function with signature `setUserUseReserveAsCollateral(bytes32)` and selector `[77, 1, 63, 3]`"]
+    #[doc = "Container type for all input parameters for the `setUserUseReserveAsCollateral` function with signature `setUserUseReserveAsCollateral(bytes32)` and selector `[77, 1, 63, 3]`"]
     #[derive(
         Clone,
         Debug,
@@ -298,7 +260,7 @@ mod il2pool_mod {
     pub struct SetUserUseReserveAsCollateralCall {
         pub args: [u8; 32],
     }
-    #[doc = "Container type for all input parameters for the `supply`function with signature `supply(bytes32)` and selector `[247, 167, 56, 64]`"]
+    #[doc = "Container type for all input parameters for the `supply` function with signature `supply(bytes32)` and selector `[247, 167, 56, 64]`"]
     #[derive(
         Clone,
         Debug,
@@ -312,7 +274,7 @@ mod il2pool_mod {
     pub struct SupplyCall {
         pub args: [u8; 32],
     }
-    #[doc = "Container type for all input parameters for the `supplyWithPermit`function with signature `supplyWithPermit(bytes32,bytes32,bytes32)` and selector `[104, 13, 212, 124]`"]
+    #[doc = "Container type for all input parameters for the `supplyWithPermit` function with signature `supplyWithPermit(bytes32,bytes32,bytes32)` and selector `[104, 13, 212, 124]`"]
     #[derive(
         Clone,
         Debug,
@@ -331,7 +293,7 @@ mod il2pool_mod {
         pub r: [u8; 32],
         pub s: [u8; 32],
     }
-    #[doc = "Container type for all input parameters for the `swapBorrowRateMode`function with signature `swapBorrowRateMode(bytes32)` and selector `[31, 227, 198, 243]`"]
+    #[doc = "Container type for all input parameters for the `swapBorrowRateMode` function with signature `swapBorrowRateMode(bytes32)` and selector `[31, 227, 198, 243]`"]
     #[derive(
         Clone,
         Debug,
@@ -345,7 +307,7 @@ mod il2pool_mod {
     pub struct SwapBorrowRateModeCall {
         pub args: [u8; 32],
     }
-    #[doc = "Container type for all input parameters for the `withdraw`function with signature `withdraw(bytes32)` and selector `[142, 25, 137, 158]`"]
+    #[doc = "Container type for all input parameters for the `withdraw` function with signature `withdraw(bytes32)` and selector `[142, 25, 137, 158]`"]
     #[derive(
         Clone,
         Debug,
@@ -374,7 +336,9 @@ mod il2pool_mod {
         Withdraw(WithdrawCall),
     }
     impl ethers::core::abi::AbiDecode for IL2PoolCalls {
-        fn decode(data: impl AsRef<[u8]>) -> Result<Self, ethers::core::abi::AbiError> {
+        fn decode(
+            data: impl AsRef<[u8]>,
+        ) -> ::std::result::Result<Self, ethers::core::abi::AbiError> {
             if let Ok(decoded) = <BorrowCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
                 return Ok(IL2PoolCalls::Borrow(decoded));
@@ -523,4 +487,37 @@ mod il2pool_mod {
             IL2PoolCalls::Withdraw(var)
         }
     }
+    #[doc = "Container type for all return fields from the `repay` function with signature `repay(bytes32)` and selector `[86, 61, 214, 19]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct RepayReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `repayWithATokens` function with signature `repayWithATokens(bytes32)` and selector `[220, 124, 11, 255]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct RepayWithATokensReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `repayWithPermit` function with signature `repayWithPermit(bytes32,bytes32,bytes32)` and selector `[148, 181, 118, 222]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct RepayWithPermitReturn(pub ethers::core::types::U256);
 }

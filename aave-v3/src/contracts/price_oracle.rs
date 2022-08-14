@@ -1,6 +1,6 @@
-pub use priceoracle_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod priceoracle_mod {
+pub use price_oracle::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod price_oracle {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,15 +18,19 @@ mod priceoracle_mod {
     use std::sync::Arc;
     pub static PRICEORACLE_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"timestamp\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"AssetPriceUpdated\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"timestamp\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"EthPriceUpdated\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getAssetPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getEthUsdPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setAssetPrice\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setEthUsdPrice\",\"outputs\":[]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"timestamp\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"AssetPriceUpdated\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"timestamp\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"EthPriceUpdated\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getAssetPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getEthUsdPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setAssetPrice\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setEthUsdPrice\",\"outputs\":[]}]") . expect ("invalid abi")
         });
     #[doc = r" Bytecode of the #name contract"]
     pub static PRICEORACLE_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
         ethers::contract::Lazy::new(|| {
-            "0x608060405234801561001057600080fd5b5061020a806100206000396000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c806351323f7214610051578063a0a8045e14610066578063b3596f071461007c578063b951883a146100a5575b600080fd5b61006461005f36600461016f565b6100b8565b005b6001545b60405190815260200160405180910390f35b61006a61008a366004610199565b6001600160a01b031660009081526020819052604090205490565b6100646100b33660046101bb565b610113565b6001600160a01b03821660008181526020818152604091829020849055815192835282018390524282820152517fce6e0b57367bae95ca7198e1172f653ea64a645c16ab586b4cefa9237bfc2d929181900360600190a15050565b6001819055604080518281524260208201527fb4f35977939fa8b5ffe552d517a8ff5223046b1fdd3ee0068ae38d1e2b8d0016910160405180910390a150565b80356001600160a01b038116811461016a57600080fd5b919050565b6000806040838503121561018257600080fd5b61018b83610153565b946020939093013593505050565b6000602082840312156101ab57600080fd5b6101b482610153565b9392505050565b6000602082840312156101cd57600080fd5b503591905056fea2646970667358221220bf858fab356b9fb1b31d9b31609ee75d958bbdf841deff66a05e1ba6eeee304364736f6c634300080a0033" . parse () . expect ("invalid bytecode")
+            "0x608060405234801561001057600080fd5b5061020a806100206000396000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c806351323f7214610051578063a0a8045e14610066578063b3596f071461007c578063b951883a146100a5575b600080fd5b61006461005f36600461016f565b6100b8565b005b6001545b60405190815260200160405180910390f35b61006a61008a366004610199565b6001600160a01b031660009081526020819052604090205490565b6100646100b33660046101bb565b610113565b6001600160a01b03821660008181526020818152604091829020849055815192835282018390524282820152517fce6e0b57367bae95ca7198e1172f653ea64a645c16ab586b4cefa9237bfc2d929181900360600190a15050565b6001819055604080518281524260208201527fb4f35977939fa8b5ffe552d517a8ff5223046b1fdd3ee0068ae38d1e2b8d0016910160405180910390a150565b80356001600160a01b038116811461016a57600080fd5b919050565b6000806040838503121561018257600080fd5b61018b83610153565b946020939093013593505050565b6000602082840312156101ab57600080fd5b6101b482610153565b9392505050565b6000602082840312156101cd57600080fd5b503591905056fea264697066735822122019307718a0eac503bd073890ac9d244cc5be041d3a85d489e0cb9be36b79ba7164736f6c634300080a0033" . parse () . expect ("invalid bytecode")
         });
-    #[derive(Clone)]
     pub struct PriceOracle<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for PriceOracle<M> {
+        fn clone(&self) -> Self {
+            PriceOracle(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for PriceOracle<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -40,7 +44,7 @@ mod priceoracle_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> PriceOracle<M> {
+    impl<M: ethers::providers::Middleware> PriceOracle<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -76,7 +80,7 @@ mod priceoracle_mod {
         pub fn deploy<T: ethers::core::abi::Tokenize>(
             client: ::std::sync::Arc<M>,
             constructor_args: T,
-        ) -> Result<
+        ) -> ::std::result::Result<
             ethers::contract::builders::ContractDeployer<M, Self>,
             ethers::contract::ContractError<M>,
         > {
@@ -185,7 +189,9 @@ mod priceoracle_mod {
         EthPriceUpdatedFilter(EthPriceUpdatedFilter),
     }
     impl ethers::contract::EthLogDecode for PriceOracleEvents {
-        fn decode_log(log: &ethers::core::abi::RawLog) -> Result<Self, ethers::core::abi::Error>
+        fn decode_log(
+            log: &ethers::core::abi::RawLog,
+        ) -> ::std::result::Result<Self, ethers::core::abi::Error>
         where
             Self: Sized,
         {
@@ -206,7 +212,7 @@ mod priceoracle_mod {
             }
         }
     }
-    #[doc = "Container type for all input parameters for the `getAssetPrice`function with signature `getAssetPrice(address)` and selector `[179, 89, 111, 7]`"]
+    #[doc = "Container type for all input parameters for the `getAssetPrice` function with signature `getAssetPrice(address)` and selector `[179, 89, 111, 7]`"]
     #[derive(
         Clone,
         Debug,
@@ -220,7 +226,7 @@ mod priceoracle_mod {
     pub struct GetAssetPriceCall {
         pub asset: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `getEthUsdPrice`function with signature `getEthUsdPrice()` and selector `[160, 168, 4, 94]`"]
+    #[doc = "Container type for all input parameters for the `getEthUsdPrice` function with signature `getEthUsdPrice()` and selector `[160, 168, 4, 94]`"]
     #[derive(
         Clone,
         Debug,
@@ -232,7 +238,7 @@ mod priceoracle_mod {
     )]
     #[ethcall(name = "getEthUsdPrice", abi = "getEthUsdPrice()")]
     pub struct GetEthUsdPriceCall;
-    #[doc = "Container type for all input parameters for the `setAssetPrice`function with signature `setAssetPrice(address,uint256)` and selector `[81, 50, 63, 114]`"]
+    #[doc = "Container type for all input parameters for the `setAssetPrice` function with signature `setAssetPrice(address,uint256)` and selector `[81, 50, 63, 114]`"]
     #[derive(
         Clone,
         Debug,
@@ -247,7 +253,7 @@ mod priceoracle_mod {
         pub asset: ethers::core::types::Address,
         pub price: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `setEthUsdPrice`function with signature `setEthUsdPrice(uint256)` and selector `[185, 81, 136, 58]`"]
+    #[doc = "Container type for all input parameters for the `setEthUsdPrice` function with signature `setEthUsdPrice(uint256)` and selector `[185, 81, 136, 58]`"]
     #[derive(
         Clone,
         Debug,
@@ -269,7 +275,9 @@ mod priceoracle_mod {
         SetEthUsdPrice(SetEthUsdPriceCall),
     }
     impl ethers::core::abi::AbiDecode for PriceOracleCalls {
-        fn decode(data: impl AsRef<[u8]>) -> Result<Self, ethers::core::abi::AbiError> {
+        fn decode(
+            data: impl AsRef<[u8]>,
+        ) -> ::std::result::Result<Self, ethers::core::abi::AbiError> {
             if let Ok(decoded) =
                 <GetAssetPriceCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
@@ -333,4 +341,26 @@ mod priceoracle_mod {
             PriceOracleCalls::SetEthUsdPrice(var)
         }
     }
+    #[doc = "Container type for all return fields from the `getAssetPrice` function with signature `getAssetPrice(address)` and selector `[179, 89, 111, 7]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetAssetPriceReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `getEthUsdPrice` function with signature `getEthUsdPrice()` and selector `[160, 168, 4, 94]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetEthUsdPriceReturn(pub ethers::core::types::U256);
 }

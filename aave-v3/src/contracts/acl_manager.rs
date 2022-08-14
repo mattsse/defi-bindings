@@ -1,6 +1,6 @@
-pub use aclmanager_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod aclmanager_mod {
+pub use acl_manager::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod acl_manager {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,15 +18,19 @@ mod aclmanager_mod {
     use std::sync::Arc;
     pub static ACLMANAGER_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"contract IPoolAddressesProvider\",\"name\":\"provider\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\",\"components\":[],\"indexed\":true},{\"internalType\":\"bytes32\",\"name\":\"previousAdminRole\",\"type\":\"bytes32\",\"components\":[],\"indexed\":true},{\"internalType\":\"bytes32\",\"name\":\"newAdminRole\",\"type\":\"bytes32\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"RoleAdminChanged\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"RoleGranted\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"RoleRevoked\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"ADDRESSES_PROVIDER\",\"outputs\":[{\"internalType\":\"contract IPoolAddressesProvider\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"ASSET_LISTING_ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"BRIDGE_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"DEFAULT_ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"EMERGENCY_ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"FLASH_BORROWER_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"POOL_ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"RISK_ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"addAssetListingAdmin\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"bridge\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"addBridge\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"addEmergencyAdmin\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"borrower\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"addFlashBorrower\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"addPoolAdmin\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"addRiskAdmin\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getRoleAdmin\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"grantRole\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"hasRole\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"isAssetListingAdmin\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"bridge\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"isBridge\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"isEmergencyAdmin\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"borrower\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"isFlashBorrower\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"isPoolAdmin\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"isRiskAdmin\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"removeAssetListingAdmin\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"bridge\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"removeBridge\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"removeEmergencyAdmin\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"borrower\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"removeFlashBorrower\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"removePoolAdmin\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"removeRiskAdmin\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"renounceRole\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"revokeRole\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"adminRole\",\"type\":\"bytes32\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setRoleAdmin\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"contract IPoolAddressesProvider\",\"name\":\"provider\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\",\"components\":[],\"indexed\":true},{\"internalType\":\"bytes32\",\"name\":\"previousAdminRole\",\"type\":\"bytes32\",\"components\":[],\"indexed\":true},{\"internalType\":\"bytes32\",\"name\":\"newAdminRole\",\"type\":\"bytes32\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"RoleAdminChanged\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"RoleGranted\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"RoleRevoked\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"ADDRESSES_PROVIDER\",\"outputs\":[{\"internalType\":\"contract IPoolAddressesProvider\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"ASSET_LISTING_ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"BRIDGE_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"DEFAULT_ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"EMERGENCY_ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"FLASH_BORROWER_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"POOL_ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"RISK_ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"addAssetListingAdmin\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"bridge\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"addBridge\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"addEmergencyAdmin\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"borrower\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"addFlashBorrower\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"addPoolAdmin\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"addRiskAdmin\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getRoleAdmin\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"grantRole\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"hasRole\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"isAssetListingAdmin\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"bridge\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"isBridge\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"isEmergencyAdmin\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"borrower\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"isFlashBorrower\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"isPoolAdmin\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"isRiskAdmin\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"removeAssetListingAdmin\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"bridge\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"removeBridge\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"removeEmergencyAdmin\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"borrower\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"removeFlashBorrower\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"removePoolAdmin\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"removeRiskAdmin\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"renounceRole\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"revokeRole\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"adminRole\",\"type\":\"bytes32\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setRoleAdmin\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]}]") . expect ("invalid abi")
         });
     #[doc = r" Bytecode of the #name contract"]
     pub static ACLMANAGER_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
         ethers::contract::Lazy::new(|| {
-            "0x60a06040523480156200001157600080fd5b50604051620010b5380380620010b58339810160408190526200003491620001e3565b806001600160a01b03166080816001600160a01b0316815250506000816001600160a01b0316630e67178c6040518163ffffffff1660e01b8152600401602060405180830381865afa1580156200008f573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190620000b59190620001e3565b604080518082019091526002815261373560f01b60208201529091506001600160a01b038216620001045760405162461bcd60e51b8152600401620000fb91906200020a565b60405180910390fd5b50620001126000826200011a565b505062000262565b6200012682826200012a565b5050565b6000828152602081815260408083206001600160a01b038516845290915290205460ff1662000126576000828152602081815260408083206001600160a01b03851684529091529020805460ff19166001179055620001863390565b6001600160a01b0316816001600160a01b0316837f2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d60405160405180910390a45050565b6001600160a01b0381168114620001e057600080fd5b50565b600060208284031215620001f657600080fd5b81516200020381620001ca565b9392505050565b600060208083528351808285015260005b8181101562000239578581018301518582016040015282016200021b565b818111156200024c576000604083870101525b50601f01601f1916929092016040019392505050565b608051610e376200027e60003960006102420152610e376000f3fe608060405234801561001057600080fd5b50600436106101fb5760003560e01c8063674b5e4d1161011a5780639a2b96f7116100ad578063b5bfddea1161007c578063b5bfddea14610472578063b8f6dba714610487578063d547741f1461049c578063f83695cb146104af578063fa50f297146104c257600080fd5b80639a2b96f7146104315780639ac9d80b14610444578063a217fddf14610457578063a21bce151461045f57600080fd5b80637a9a93f4116100e95780637a9a93f4146103e55780637be53ca1146103f857806391d148541461040b5780639712fdf81461041e57600080fd5b8063674b5e4d146103955780636e76fc8f146103a8578063726600ce146103bd57806378bb0a43146103d057600080fd5b80632500f2b6116101925780633c5a08e5116101615780633c5a08e5146103455780634f16b425146103585780635577b7a91461036d5780635b9a94e41461038257600080fd5b80632500f2b6146102f9578063253cf9801461030c5780632f2ff15d1461031f57806336568abe1461033257600080fd5b8063179efb09116101ce578063179efb091461028f5780631e4e0091146102a257806322650caf146102b5578063248a9ca3146102c857600080fd5b806301ffc9a71461020057806304df017d146102285780630542975c1461023d57806313ee32e01461027c575b600080fd5b61021361020e366004610b11565b6104d5565b60405190151581526020015b60405180910390f35b61023b610236366004610b57565b61050c565b005b6102647f000000000000000000000000000000000000000000000000000000000000000081565b6040516001600160a01b03909116815260200161021f565b61021361028a366004610b57565b610527565b61023b61029d366004610b57565b610541565b61023b6102b0366004610b72565b610559565b61023b6102c3366004610b57565b610574565b6102eb6102d6366004610b94565b60009081526020819052604090206001015490565b60405190815260200161021f565b610213610307366004610b57565b61058c565b61023b61031a366004610b57565b6105a6565b61023b61032d366004610bad565b6105be565b61023b610340366004610bad565b6105e4565b61023b610353366004610b57565b610667565b6102eb600080516020610d6283398151915281565b6102eb600080516020610de283398151915281565b61023b610390366004610b57565b61067f565b6102136103a3366004610b57565b610697565b6102eb600080516020610dc283398151915281565b6102136103cb366004610b57565b6106b1565b6102eb600080516020610d8283398151915281565b61023b6103f3366004610b57565b6106cb565b610213610406366004610b57565b6106e3565b610213610419366004610bad565b6106f9565b61023b61042c366004610b57565b610722565b61023b61043f366004610b57565b61073a565b61023b610452366004610b57565b610752565b6102eb600081565b61023b61046d366004610b57565b61076a565b6102eb600080516020610da283398151915281565b6102eb600080516020610d4283398151915281565b61023b6104aa366004610bad565b61077e565b61023b6104bd366004610b57565b6107a4565b6102136104d0366004610b57565b6107bc565b60006001600160e01b03198216637965db0b60e01b148061050657506301ffc9a760e01b6001600160e01b03198316145b92915050565b610524600080516020610da28339815191528261077e565b50565b6000610506600080516020610d82833981519152836106f9565b610524600080516020610dc2833981519152826105be565b600061056581336107d6565b61056f838361083a565b505050565b610524600080516020610d42833981519152826105be565b6000610506600080516020610dc2833981519152836106f9565b610524600080516020610de28339815191528261077e565b6000828152602081905260409020600101546105da81336107d6565b61056f8383610885565b6001600160a01b03811633146106595760405162461bcd60e51b815260206004820152602f60248201527f416363657373436f6e74726f6c3a2063616e206f6e6c792072656e6f756e636560448201526e103937b632b9903337b91039b2b63360891b60648201526084015b60405180910390fd5b6106638282610909565b5050565b610524600080516020610d628339815191528261077e565b610524600080516020610d62833981519152826105be565b6000610506600080516020610d62833981519152836106f9565b6000610506600080516020610da2833981519152836106f9565b610524600080516020610dc28339815191528261077e565b6000610506600080516020610d42833981519152835b6000918252602082815260408084206001600160a01b0393909316845291905290205460ff1690565b610524600080516020610da2833981519152826105be565b610524600080516020610d82833981519152826105be565b610524600080516020610de2833981519152826105be565b610524600080516020610d82833981519152825b60008281526020819052604090206001015461079a81336107d6565b61056f8383610909565b610524600080516020610d428339815191528261077e565b6000610506600080516020610de2833981519152836106f9565b6107e082826106f9565b610663576107f8816001600160a01b0316601461096e565b61080383602061096e565b604051602001610814929190610c09565b60408051601f198184030181529082905262461bcd60e51b825261065091600401610c7e565b600082815260208190526040808220600101805490849055905190918391839186917fbd79b86ffe0ab8e8776151514217cd7cacd52c909f66475c3af44e129f0b00ff9190a4505050565b61088f82826106f9565b610663576000828152602081815260408083206001600160a01b03851684529091529020805460ff191660011790556108c53390565b6001600160a01b0316816001600160a01b0316837f2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d60405160405180910390a45050565b61091382826106f9565b15610663576000828152602081815260408083206001600160a01b0385168085529252808320805460ff1916905551339285917ff6391f5c32d9c69d2a47ea670b442974b53935d1edc7fd64eb21e047a839171b9190a45050565b6060600061097d836002610cc7565b610988906002610ce6565b67ffffffffffffffff8111156109a0576109a0610cfe565b6040519080825280601f01601f1916602001820160405280156109ca576020820181803683370190505b509050600360fc1b816000815181106109e5576109e5610d14565b60200101906001600160f81b031916908160001a905350600f60fb1b81600181518110610a1457610a14610d14565b60200101906001600160f81b031916908160001a9053506000610a38846002610cc7565b610a43906001610ce6565b90505b6001811115610abb576f181899199a1a9b1b9c1cb0b131b232b360811b85600f1660108110610a7757610a77610d14565b1a60f81b828281518110610a8d57610a8d610d14565b60200101906001600160f81b031916908160001a90535060049490941c93610ab481610d2a565b9050610a46565b508315610b0a5760405162461bcd60e51b815260206004820181905260248201527f537472696e67733a20686578206c656e67746820696e73756666696369656e746044820152606401610650565b9392505050565b600060208284031215610b2357600080fd5b81356001600160e01b031981168114610b0a57600080fd5b80356001600160a01b0381168114610b5257600080fd5b919050565b600060208284031215610b6957600080fd5b610b0a82610b3b565b60008060408385031215610b8557600080fd5b50508035926020909101359150565b600060208284031215610ba657600080fd5b5035919050565b60008060408385031215610bc057600080fd5b82359150610bd060208401610b3b565b90509250929050565b60005b83811015610bf4578181015183820152602001610bdc565b83811115610c03576000848401525b50505050565b7f416363657373436f6e74726f6c3a206163636f756e7420000000000000000000815260008351610c41816017850160208801610bd9565b7001034b99036b4b9b9b4b733903937b6329607d1b6017918401918201528351610c72816028840160208801610bd9565b01602801949350505050565b6020815260008251806020840152610c9d816040850160208701610bd9565b601f01601f19169190910160400192915050565b634e487b7160e01b600052601160045260246000fd5b6000816000190483118215151615610ce157610ce1610cb1565b500290565b60008219821115610cf957610cf9610cb1565b500190565b634e487b7160e01b600052604160045260246000fd5b634e487b7160e01b600052603260045260246000fd5b600081610d3957610d39610cb1565b50600019019056fe12ad05bde78c5ab75238ce885307f96ecd482bb402ef831f99e7018a0f169b7b8aa855a911518ecfbe5bc3088c8f3dda7badf130faaf8ace33fdc33828e1816719c860a63258efbd0ecb7d55c626237bf5c2044c26c073390b74f0c13c85743308fb31c3e81624356c3314088aa971b73bcc82d22bc3e3b184b4593077ae32785c91514091af31f62f596a314af7d5be40146b2f2355969392f055e12e0982fb939b8dfb57ecef2aea54a93a15e86768b9d4089f1ba61c245e6ec980695f4ca4a2646970667358221220c4053bec5a08fd749f170be82d9f397ea7d6d6012d3dd8613db6b1b715447e3864736f6c634300080a0033" . parse () . expect ("invalid bytecode")
+            "0x60a06040523480156200001157600080fd5b50604051620010b5380380620010b58339810160408190526200003491620001e3565b806001600160a01b03166080816001600160a01b0316815250506000816001600160a01b0316630e67178c6040518163ffffffff1660e01b8152600401602060405180830381865afa1580156200008f573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190620000b59190620001e3565b604080518082019091526002815261373560f01b60208201529091506001600160a01b038216620001045760405162461bcd60e51b8152600401620000fb91906200020a565b60405180910390fd5b50620001126000826200011a565b505062000262565b6200012682826200012a565b5050565b6000828152602081815260408083206001600160a01b038516845290915290205460ff1662000126576000828152602081815260408083206001600160a01b03851684529091529020805460ff19166001179055620001863390565b6001600160a01b0316816001600160a01b0316837f2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d60405160405180910390a45050565b6001600160a01b0381168114620001e057600080fd5b50565b600060208284031215620001f657600080fd5b81516200020381620001ca565b9392505050565b600060208083528351808285015260005b8181101562000239578581018301518582016040015282016200021b565b818111156200024c576000604083870101525b50601f01601f1916929092016040019392505050565b608051610e376200027e60003960006102420152610e376000f3fe608060405234801561001057600080fd5b50600436106101fb5760003560e01c8063674b5e4d1161011a5780639a2b96f7116100ad578063b5bfddea1161007c578063b5bfddea14610472578063b8f6dba714610487578063d547741f1461049c578063f83695cb146104af578063fa50f297146104c257600080fd5b80639a2b96f7146104315780639ac9d80b14610444578063a217fddf14610457578063a21bce151461045f57600080fd5b80637a9a93f4116100e95780637a9a93f4146103e55780637be53ca1146103f857806391d148541461040b5780639712fdf81461041e57600080fd5b8063674b5e4d146103955780636e76fc8f146103a8578063726600ce146103bd57806378bb0a43146103d057600080fd5b80632500f2b6116101925780633c5a08e5116101615780633c5a08e5146103455780634f16b425146103585780635577b7a91461036d5780635b9a94e41461038257600080fd5b80632500f2b6146102f9578063253cf9801461030c5780632f2ff15d1461031f57806336568abe1461033257600080fd5b8063179efb09116101ce578063179efb091461028f5780631e4e0091146102a257806322650caf146102b5578063248a9ca3146102c857600080fd5b806301ffc9a71461020057806304df017d146102285780630542975c1461023d57806313ee32e01461027c575b600080fd5b61021361020e366004610b11565b6104d5565b60405190151581526020015b60405180910390f35b61023b610236366004610b57565b61050c565b005b6102647f000000000000000000000000000000000000000000000000000000000000000081565b6040516001600160a01b03909116815260200161021f565b61021361028a366004610b57565b610527565b61023b61029d366004610b57565b610541565b61023b6102b0366004610b72565b610559565b61023b6102c3366004610b57565b610574565b6102eb6102d6366004610b94565b60009081526020819052604090206001015490565b60405190815260200161021f565b610213610307366004610b57565b61058c565b61023b61031a366004610b57565b6105a6565b61023b61032d366004610bad565b6105be565b61023b610340366004610bad565b6105e4565b61023b610353366004610b57565b610667565b6102eb600080516020610d6283398151915281565b6102eb600080516020610de283398151915281565b61023b610390366004610b57565b61067f565b6102136103a3366004610b57565b610697565b6102eb600080516020610dc283398151915281565b6102136103cb366004610b57565b6106b1565b6102eb600080516020610d8283398151915281565b61023b6103f3366004610b57565b6106cb565b610213610406366004610b57565b6106e3565b610213610419366004610bad565b6106f9565b61023b61042c366004610b57565b610722565b61023b61043f366004610b57565b61073a565b61023b610452366004610b57565b610752565b6102eb600081565b61023b61046d366004610b57565b61076a565b6102eb600080516020610da283398151915281565b6102eb600080516020610d4283398151915281565b61023b6104aa366004610bad565b61077e565b61023b6104bd366004610b57565b6107a4565b6102136104d0366004610b57565b6107bc565b60006001600160e01b03198216637965db0b60e01b148061050657506301ffc9a760e01b6001600160e01b03198316145b92915050565b610524600080516020610da28339815191528261077e565b50565b6000610506600080516020610d82833981519152836106f9565b610524600080516020610dc2833981519152826105be565b600061056581336107d6565b61056f838361083a565b505050565b610524600080516020610d42833981519152826105be565b6000610506600080516020610dc2833981519152836106f9565b610524600080516020610de28339815191528261077e565b6000828152602081905260409020600101546105da81336107d6565b61056f8383610885565b6001600160a01b03811633146106595760405162461bcd60e51b815260206004820152602f60248201527f416363657373436f6e74726f6c3a2063616e206f6e6c792072656e6f756e636560448201526e103937b632b9903337b91039b2b63360891b60648201526084015b60405180910390fd5b6106638282610909565b5050565b610524600080516020610d628339815191528261077e565b610524600080516020610d62833981519152826105be565b6000610506600080516020610d62833981519152836106f9565b6000610506600080516020610da2833981519152836106f9565b610524600080516020610dc28339815191528261077e565b6000610506600080516020610d42833981519152835b6000918252602082815260408084206001600160a01b0393909316845291905290205460ff1690565b610524600080516020610da2833981519152826105be565b610524600080516020610d82833981519152826105be565b610524600080516020610de2833981519152826105be565b610524600080516020610d82833981519152825b60008281526020819052604090206001015461079a81336107d6565b61056f8383610909565b610524600080516020610d428339815191528261077e565b6000610506600080516020610de2833981519152836106f9565b6107e082826106f9565b610663576107f8816001600160a01b0316601461096e565b61080383602061096e565b604051602001610814929190610c09565b60408051601f198184030181529082905262461bcd60e51b825261065091600401610c7e565b600082815260208190526040808220600101805490849055905190918391839186917fbd79b86ffe0ab8e8776151514217cd7cacd52c909f66475c3af44e129f0b00ff9190a4505050565b61088f82826106f9565b610663576000828152602081815260408083206001600160a01b03851684529091529020805460ff191660011790556108c53390565b6001600160a01b0316816001600160a01b0316837f2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d60405160405180910390a45050565b61091382826106f9565b15610663576000828152602081815260408083206001600160a01b0385168085529252808320805460ff1916905551339285917ff6391f5c32d9c69d2a47ea670b442974b53935d1edc7fd64eb21e047a839171b9190a45050565b6060600061097d836002610cc7565b610988906002610ce6565b67ffffffffffffffff8111156109a0576109a0610cfe565b6040519080825280601f01601f1916602001820160405280156109ca576020820181803683370190505b509050600360fc1b816000815181106109e5576109e5610d14565b60200101906001600160f81b031916908160001a905350600f60fb1b81600181518110610a1457610a14610d14565b60200101906001600160f81b031916908160001a9053506000610a38846002610cc7565b610a43906001610ce6565b90505b6001811115610abb576f181899199a1a9b1b9c1cb0b131b232b360811b85600f1660108110610a7757610a77610d14565b1a60f81b828281518110610a8d57610a8d610d14565b60200101906001600160f81b031916908160001a90535060049490941c93610ab481610d2a565b9050610a46565b508315610b0a5760405162461bcd60e51b815260206004820181905260248201527f537472696e67733a20686578206c656e67746820696e73756666696369656e746044820152606401610650565b9392505050565b600060208284031215610b2357600080fd5b81356001600160e01b031981168114610b0a57600080fd5b80356001600160a01b0381168114610b5257600080fd5b919050565b600060208284031215610b6957600080fd5b610b0a82610b3b565b60008060408385031215610b8557600080fd5b50508035926020909101359150565b600060208284031215610ba657600080fd5b5035919050565b60008060408385031215610bc057600080fd5b82359150610bd060208401610b3b565b90509250929050565b60005b83811015610bf4578181015183820152602001610bdc565b83811115610c03576000848401525b50505050565b7f416363657373436f6e74726f6c3a206163636f756e7420000000000000000000815260008351610c41816017850160208801610bd9565b7001034b99036b4b9b9b4b733903937b6329607d1b6017918401918201528351610c72816028840160208801610bd9565b01602801949350505050565b6020815260008251806020840152610c9d816040850160208701610bd9565b601f01601f19169190910160400192915050565b634e487b7160e01b600052601160045260246000fd5b6000816000190483118215151615610ce157610ce1610cb1565b500290565b60008219821115610cf957610cf9610cb1565b500190565b634e487b7160e01b600052604160045260246000fd5b634e487b7160e01b600052603260045260246000fd5b600081610d3957610d39610cb1565b50600019019056fe12ad05bde78c5ab75238ce885307f96ecd482bb402ef831f99e7018a0f169b7b8aa855a911518ecfbe5bc3088c8f3dda7badf130faaf8ace33fdc33828e1816719c860a63258efbd0ecb7d55c626237bf5c2044c26c073390b74f0c13c85743308fb31c3e81624356c3314088aa971b73bcc82d22bc3e3b184b4593077ae32785c91514091af31f62f596a314af7d5be40146b2f2355969392f055e12e0982fb939b8dfb57ecef2aea54a93a15e86768b9d4089f1ba61c245e6ec980695f4ca4a2646970667358221220174ee4b3636d382d4df6d1acfb23d08f9ac4046a4455b2ff752b07e4d2fc48e064736f6c634300080a0033" . parse () . expect ("invalid bytecode")
         });
-    #[derive(Clone)]
     pub struct ACLManager<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for ACLManager<M> {
+        fn clone(&self) -> Self {
+            ACLManager(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for ACLManager<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -40,7 +44,7 @@ mod aclmanager_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> ACLManager<M> {
+    impl<M: ethers::providers::Middleware> ACLManager<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -76,7 +80,7 @@ mod aclmanager_mod {
         pub fn deploy<T: ethers::core::abi::Tokenize>(
             client: ::std::sync::Arc<M>,
             constructor_args: T,
-        ) -> Result<
+        ) -> ::std::result::Result<
             ethers::contract::builders::ContractDeployer<M, Self>,
             ethers::contract::ContractError<M>,
         > {
@@ -465,7 +469,9 @@ mod aclmanager_mod {
         RoleRevokedFilter(RoleRevokedFilter),
     }
     impl ethers::contract::EthLogDecode for ACLManagerEvents {
-        fn decode_log(log: &ethers::core::abi::RawLog) -> Result<Self, ethers::core::abi::Error>
+        fn decode_log(
+            log: &ethers::core::abi::RawLog,
+        ) -> ::std::result::Result<Self, ethers::core::abi::Error>
         where
             Self: Sized,
         {
@@ -490,7 +496,7 @@ mod aclmanager_mod {
             }
         }
     }
-    #[doc = "Container type for all input parameters for the `ADDRESSES_PROVIDER`function with signature `ADDRESSES_PROVIDER()` and selector `[5, 66, 151, 92]`"]
+    #[doc = "Container type for all input parameters for the `ADDRESSES_PROVIDER` function with signature `ADDRESSES_PROVIDER()` and selector `[5, 66, 151, 92]`"]
     #[derive(
         Clone,
         Debug,
@@ -502,7 +508,7 @@ mod aclmanager_mod {
     )]
     #[ethcall(name = "ADDRESSES_PROVIDER", abi = "ADDRESSES_PROVIDER()")]
     pub struct AddressesProviderCall;
-    #[doc = "Container type for all input parameters for the `ASSET_LISTING_ADMIN_ROLE`function with signature `ASSET_LISTING_ADMIN_ROLE()` and selector `[120, 187, 10, 67]`"]
+    #[doc = "Container type for all input parameters for the `ASSET_LISTING_ADMIN_ROLE` function with signature `ASSET_LISTING_ADMIN_ROLE()` and selector `[120, 187, 10, 67]`"]
     #[derive(
         Clone,
         Debug,
@@ -514,7 +520,7 @@ mod aclmanager_mod {
     )]
     #[ethcall(name = "ASSET_LISTING_ADMIN_ROLE", abi = "ASSET_LISTING_ADMIN_ROLE()")]
     pub struct AssetListingAdminRoleCall;
-    #[doc = "Container type for all input parameters for the `BRIDGE_ROLE`function with signature `BRIDGE_ROLE()` and selector `[181, 191, 221, 234]`"]
+    #[doc = "Container type for all input parameters for the `BRIDGE_ROLE` function with signature `BRIDGE_ROLE()` and selector `[181, 191, 221, 234]`"]
     #[derive(
         Clone,
         Debug,
@@ -526,7 +532,7 @@ mod aclmanager_mod {
     )]
     #[ethcall(name = "BRIDGE_ROLE", abi = "BRIDGE_ROLE()")]
     pub struct BridgeRoleCall;
-    #[doc = "Container type for all input parameters for the `DEFAULT_ADMIN_ROLE`function with signature `DEFAULT_ADMIN_ROLE()` and selector `[162, 23, 253, 223]`"]
+    #[doc = "Container type for all input parameters for the `DEFAULT_ADMIN_ROLE` function with signature `DEFAULT_ADMIN_ROLE()` and selector `[162, 23, 253, 223]`"]
     #[derive(
         Clone,
         Debug,
@@ -538,7 +544,7 @@ mod aclmanager_mod {
     )]
     #[ethcall(name = "DEFAULT_ADMIN_ROLE", abi = "DEFAULT_ADMIN_ROLE()")]
     pub struct DefaultAdminRoleCall;
-    #[doc = "Container type for all input parameters for the `EMERGENCY_ADMIN_ROLE`function with signature `EMERGENCY_ADMIN_ROLE()` and selector `[110, 118, 252, 143]`"]
+    #[doc = "Container type for all input parameters for the `EMERGENCY_ADMIN_ROLE` function with signature `EMERGENCY_ADMIN_ROLE()` and selector `[110, 118, 252, 143]`"]
     #[derive(
         Clone,
         Debug,
@@ -550,7 +556,7 @@ mod aclmanager_mod {
     )]
     #[ethcall(name = "EMERGENCY_ADMIN_ROLE", abi = "EMERGENCY_ADMIN_ROLE()")]
     pub struct EmergencyAdminRoleCall;
-    #[doc = "Container type for all input parameters for the `FLASH_BORROWER_ROLE`function with signature `FLASH_BORROWER_ROLE()` and selector `[85, 119, 183, 169]`"]
+    #[doc = "Container type for all input parameters for the `FLASH_BORROWER_ROLE` function with signature `FLASH_BORROWER_ROLE()` and selector `[85, 119, 183, 169]`"]
     #[derive(
         Clone,
         Debug,
@@ -562,7 +568,7 @@ mod aclmanager_mod {
     )]
     #[ethcall(name = "FLASH_BORROWER_ROLE", abi = "FLASH_BORROWER_ROLE()")]
     pub struct FlashBorrowerRoleCall;
-    #[doc = "Container type for all input parameters for the `POOL_ADMIN_ROLE`function with signature `POOL_ADMIN_ROLE()` and selector `[184, 246, 219, 167]`"]
+    #[doc = "Container type for all input parameters for the `POOL_ADMIN_ROLE` function with signature `POOL_ADMIN_ROLE()` and selector `[184, 246, 219, 167]`"]
     #[derive(
         Clone,
         Debug,
@@ -574,7 +580,7 @@ mod aclmanager_mod {
     )]
     #[ethcall(name = "POOL_ADMIN_ROLE", abi = "POOL_ADMIN_ROLE()")]
     pub struct PoolAdminRoleCall;
-    #[doc = "Container type for all input parameters for the `RISK_ADMIN_ROLE`function with signature `RISK_ADMIN_ROLE()` and selector `[79, 22, 180, 37]`"]
+    #[doc = "Container type for all input parameters for the `RISK_ADMIN_ROLE` function with signature `RISK_ADMIN_ROLE()` and selector `[79, 22, 180, 37]`"]
     #[derive(
         Clone,
         Debug,
@@ -586,7 +592,7 @@ mod aclmanager_mod {
     )]
     #[ethcall(name = "RISK_ADMIN_ROLE", abi = "RISK_ADMIN_ROLE()")]
     pub struct RiskAdminRoleCall;
-    #[doc = "Container type for all input parameters for the `addAssetListingAdmin`function with signature `addAssetListingAdmin(address)` and selector `[154, 43, 150, 247]`"]
+    #[doc = "Container type for all input parameters for the `addAssetListingAdmin` function with signature `addAssetListingAdmin(address)` and selector `[154, 43, 150, 247]`"]
     #[derive(
         Clone,
         Debug,
@@ -600,7 +606,7 @@ mod aclmanager_mod {
     pub struct AddAssetListingAdminCall {
         pub admin: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `addBridge`function with signature `addBridge(address)` and selector `[151, 18, 253, 248]`"]
+    #[doc = "Container type for all input parameters for the `addBridge` function with signature `addBridge(address)` and selector `[151, 18, 253, 248]`"]
     #[derive(
         Clone,
         Debug,
@@ -614,7 +620,7 @@ mod aclmanager_mod {
     pub struct AddBridgeCall {
         pub bridge: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `addEmergencyAdmin`function with signature `addEmergencyAdmin(address)` and selector `[23, 158, 251, 9]`"]
+    #[doc = "Container type for all input parameters for the `addEmergencyAdmin` function with signature `addEmergencyAdmin(address)` and selector `[23, 158, 251, 9]`"]
     #[derive(
         Clone,
         Debug,
@@ -628,7 +634,7 @@ mod aclmanager_mod {
     pub struct AddEmergencyAdminCall {
         pub admin: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `addFlashBorrower`function with signature `addFlashBorrower(address)` and selector `[154, 201, 216, 11]`"]
+    #[doc = "Container type for all input parameters for the `addFlashBorrower` function with signature `addFlashBorrower(address)` and selector `[154, 201, 216, 11]`"]
     #[derive(
         Clone,
         Debug,
@@ -642,7 +648,7 @@ mod aclmanager_mod {
     pub struct AddFlashBorrowerCall {
         pub borrower: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `addPoolAdmin`function with signature `addPoolAdmin(address)` and selector `[34, 101, 12, 175]`"]
+    #[doc = "Container type for all input parameters for the `addPoolAdmin` function with signature `addPoolAdmin(address)` and selector `[34, 101, 12, 175]`"]
     #[derive(
         Clone,
         Debug,
@@ -656,7 +662,7 @@ mod aclmanager_mod {
     pub struct AddPoolAdminCall {
         pub admin: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `addRiskAdmin`function with signature `addRiskAdmin(address)` and selector `[91, 154, 148, 228]`"]
+    #[doc = "Container type for all input parameters for the `addRiskAdmin` function with signature `addRiskAdmin(address)` and selector `[91, 154, 148, 228]`"]
     #[derive(
         Clone,
         Debug,
@@ -670,7 +676,7 @@ mod aclmanager_mod {
     pub struct AddRiskAdminCall {
         pub admin: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `getRoleAdmin`function with signature `getRoleAdmin(bytes32)` and selector `[36, 138, 156, 163]`"]
+    #[doc = "Container type for all input parameters for the `getRoleAdmin` function with signature `getRoleAdmin(bytes32)` and selector `[36, 138, 156, 163]`"]
     #[derive(
         Clone,
         Debug,
@@ -684,7 +690,7 @@ mod aclmanager_mod {
     pub struct GetRoleAdminCall {
         pub role: [u8; 32],
     }
-    #[doc = "Container type for all input parameters for the `grantRole`function with signature `grantRole(bytes32,address)` and selector `[47, 47, 241, 93]`"]
+    #[doc = "Container type for all input parameters for the `grantRole` function with signature `grantRole(bytes32,address)` and selector `[47, 47, 241, 93]`"]
     #[derive(
         Clone,
         Debug,
@@ -699,7 +705,7 @@ mod aclmanager_mod {
         pub role: [u8; 32],
         pub account: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `hasRole`function with signature `hasRole(bytes32,address)` and selector `[145, 209, 72, 84]`"]
+    #[doc = "Container type for all input parameters for the `hasRole` function with signature `hasRole(bytes32,address)` and selector `[145, 209, 72, 84]`"]
     #[derive(
         Clone,
         Debug,
@@ -714,7 +720,7 @@ mod aclmanager_mod {
         pub role: [u8; 32],
         pub account: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `isAssetListingAdmin`function with signature `isAssetListingAdmin(address)` and selector `[19, 238, 50, 224]`"]
+    #[doc = "Container type for all input parameters for the `isAssetListingAdmin` function with signature `isAssetListingAdmin(address)` and selector `[19, 238, 50, 224]`"]
     #[derive(
         Clone,
         Debug,
@@ -728,7 +734,7 @@ mod aclmanager_mod {
     pub struct IsAssetListingAdminCall {
         pub admin: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `isBridge`function with signature `isBridge(address)` and selector `[114, 102, 0, 206]`"]
+    #[doc = "Container type for all input parameters for the `isBridge` function with signature `isBridge(address)` and selector `[114, 102, 0, 206]`"]
     #[derive(
         Clone,
         Debug,
@@ -742,7 +748,7 @@ mod aclmanager_mod {
     pub struct IsBridgeCall {
         pub bridge: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `isEmergencyAdmin`function with signature `isEmergencyAdmin(address)` and selector `[37, 0, 242, 182]`"]
+    #[doc = "Container type for all input parameters for the `isEmergencyAdmin` function with signature `isEmergencyAdmin(address)` and selector `[37, 0, 242, 182]`"]
     #[derive(
         Clone,
         Debug,
@@ -756,7 +762,7 @@ mod aclmanager_mod {
     pub struct IsEmergencyAdminCall {
         pub admin: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `isFlashBorrower`function with signature `isFlashBorrower(address)` and selector `[250, 80, 242, 151]`"]
+    #[doc = "Container type for all input parameters for the `isFlashBorrower` function with signature `isFlashBorrower(address)` and selector `[250, 80, 242, 151]`"]
     #[derive(
         Clone,
         Debug,
@@ -770,7 +776,7 @@ mod aclmanager_mod {
     pub struct IsFlashBorrowerCall {
         pub borrower: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `isPoolAdmin`function with signature `isPoolAdmin(address)` and selector `[123, 229, 60, 161]`"]
+    #[doc = "Container type for all input parameters for the `isPoolAdmin` function with signature `isPoolAdmin(address)` and selector `[123, 229, 60, 161]`"]
     #[derive(
         Clone,
         Debug,
@@ -784,7 +790,7 @@ mod aclmanager_mod {
     pub struct IsPoolAdminCall {
         pub admin: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `isRiskAdmin`function with signature `isRiskAdmin(address)` and selector `[103, 75, 94, 77]`"]
+    #[doc = "Container type for all input parameters for the `isRiskAdmin` function with signature `isRiskAdmin(address)` and selector `[103, 75, 94, 77]`"]
     #[derive(
         Clone,
         Debug,
@@ -798,7 +804,7 @@ mod aclmanager_mod {
     pub struct IsRiskAdminCall {
         pub admin: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `removeAssetListingAdmin`function with signature `removeAssetListingAdmin(address)` and selector `[162, 27, 206, 21]`"]
+    #[doc = "Container type for all input parameters for the `removeAssetListingAdmin` function with signature `removeAssetListingAdmin(address)` and selector `[162, 27, 206, 21]`"]
     #[derive(
         Clone,
         Debug,
@@ -815,7 +821,7 @@ mod aclmanager_mod {
     pub struct RemoveAssetListingAdminCall {
         pub admin: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `removeBridge`function with signature `removeBridge(address)` and selector `[4, 223, 1, 125]`"]
+    #[doc = "Container type for all input parameters for the `removeBridge` function with signature `removeBridge(address)` and selector `[4, 223, 1, 125]`"]
     #[derive(
         Clone,
         Debug,
@@ -829,7 +835,7 @@ mod aclmanager_mod {
     pub struct RemoveBridgeCall {
         pub bridge: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `removeEmergencyAdmin`function with signature `removeEmergencyAdmin(address)` and selector `[122, 154, 147, 244]`"]
+    #[doc = "Container type for all input parameters for the `removeEmergencyAdmin` function with signature `removeEmergencyAdmin(address)` and selector `[122, 154, 147, 244]`"]
     #[derive(
         Clone,
         Debug,
@@ -843,7 +849,7 @@ mod aclmanager_mod {
     pub struct RemoveEmergencyAdminCall {
         pub admin: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `removeFlashBorrower`function with signature `removeFlashBorrower(address)` and selector `[37, 60, 249, 128]`"]
+    #[doc = "Container type for all input parameters for the `removeFlashBorrower` function with signature `removeFlashBorrower(address)` and selector `[37, 60, 249, 128]`"]
     #[derive(
         Clone,
         Debug,
@@ -857,7 +863,7 @@ mod aclmanager_mod {
     pub struct RemoveFlashBorrowerCall {
         pub borrower: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `removePoolAdmin`function with signature `removePoolAdmin(address)` and selector `[248, 54, 149, 203]`"]
+    #[doc = "Container type for all input parameters for the `removePoolAdmin` function with signature `removePoolAdmin(address)` and selector `[248, 54, 149, 203]`"]
     #[derive(
         Clone,
         Debug,
@@ -871,7 +877,7 @@ mod aclmanager_mod {
     pub struct RemovePoolAdminCall {
         pub admin: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `removeRiskAdmin`function with signature `removeRiskAdmin(address)` and selector `[60, 90, 8, 229]`"]
+    #[doc = "Container type for all input parameters for the `removeRiskAdmin` function with signature `removeRiskAdmin(address)` and selector `[60, 90, 8, 229]`"]
     #[derive(
         Clone,
         Debug,
@@ -885,7 +891,7 @@ mod aclmanager_mod {
     pub struct RemoveRiskAdminCall {
         pub admin: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `renounceRole`function with signature `renounceRole(bytes32,address)` and selector `[54, 86, 138, 190]`"]
+    #[doc = "Container type for all input parameters for the `renounceRole` function with signature `renounceRole(bytes32,address)` and selector `[54, 86, 138, 190]`"]
     #[derive(
         Clone,
         Debug,
@@ -900,7 +906,7 @@ mod aclmanager_mod {
         pub role: [u8; 32],
         pub account: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `revokeRole`function with signature `revokeRole(bytes32,address)` and selector `[213, 71, 116, 31]`"]
+    #[doc = "Container type for all input parameters for the `revokeRole` function with signature `revokeRole(bytes32,address)` and selector `[213, 71, 116, 31]`"]
     #[derive(
         Clone,
         Debug,
@@ -915,7 +921,7 @@ mod aclmanager_mod {
         pub role: [u8; 32],
         pub account: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `setRoleAdmin`function with signature `setRoleAdmin(bytes32,bytes32)` and selector `[30, 78, 0, 145]`"]
+    #[doc = "Container type for all input parameters for the `setRoleAdmin` function with signature `setRoleAdmin(bytes32,bytes32)` and selector `[30, 78, 0, 145]`"]
     #[derive(
         Clone,
         Debug,
@@ -930,7 +936,7 @@ mod aclmanager_mod {
         pub role: [u8; 32],
         pub admin_role: [u8; 32],
     }
-    #[doc = "Container type for all input parameters for the `supportsInterface`function with signature `supportsInterface(bytes4)` and selector `[1, 255, 201, 167]`"]
+    #[doc = "Container type for all input parameters for the `supportsInterface` function with signature `supportsInterface(bytes4)` and selector `[1, 255, 201, 167]`"]
     #[derive(
         Clone,
         Debug,
@@ -981,7 +987,9 @@ mod aclmanager_mod {
         SupportsInterface(SupportsInterfaceCall),
     }
     impl ethers::core::abi::AbiDecode for ACLManagerCalls {
-        fn decode(data: impl AsRef<[u8]>) -> Result<Self, ethers::core::abi::AbiError> {
+        fn decode(
+            data: impl AsRef<[u8]>,
+        ) -> ::std::result::Result<Self, ethers::core::abi::AbiError> {
             if let Ok(decoded) =
                 <AddressesProviderCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
@@ -1393,4 +1401,191 @@ mod aclmanager_mod {
             ACLManagerCalls::SupportsInterface(var)
         }
     }
+    #[doc = "Container type for all return fields from the `ADDRESSES_PROVIDER` function with signature `ADDRESSES_PROVIDER()` and selector `[5, 66, 151, 92]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct AddressesProviderReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `ASSET_LISTING_ADMIN_ROLE` function with signature `ASSET_LISTING_ADMIN_ROLE()` and selector `[120, 187, 10, 67]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct AssetListingAdminRoleReturn(pub [u8; 32]);
+    #[doc = "Container type for all return fields from the `BRIDGE_ROLE` function with signature `BRIDGE_ROLE()` and selector `[181, 191, 221, 234]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct BridgeRoleReturn(pub [u8; 32]);
+    #[doc = "Container type for all return fields from the `DEFAULT_ADMIN_ROLE` function with signature `DEFAULT_ADMIN_ROLE()` and selector `[162, 23, 253, 223]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct DefaultAdminRoleReturn(pub [u8; 32]);
+    #[doc = "Container type for all return fields from the `EMERGENCY_ADMIN_ROLE` function with signature `EMERGENCY_ADMIN_ROLE()` and selector `[110, 118, 252, 143]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct EmergencyAdminRoleReturn(pub [u8; 32]);
+    #[doc = "Container type for all return fields from the `FLASH_BORROWER_ROLE` function with signature `FLASH_BORROWER_ROLE()` and selector `[85, 119, 183, 169]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct FlashBorrowerRoleReturn(pub [u8; 32]);
+    #[doc = "Container type for all return fields from the `POOL_ADMIN_ROLE` function with signature `POOL_ADMIN_ROLE()` and selector `[184, 246, 219, 167]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct PoolAdminRoleReturn(pub [u8; 32]);
+    #[doc = "Container type for all return fields from the `RISK_ADMIN_ROLE` function with signature `RISK_ADMIN_ROLE()` and selector `[79, 22, 180, 37]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct RiskAdminRoleReturn(pub [u8; 32]);
+    #[doc = "Container type for all return fields from the `getRoleAdmin` function with signature `getRoleAdmin(bytes32)` and selector `[36, 138, 156, 163]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetRoleAdminReturn(pub [u8; 32]);
+    #[doc = "Container type for all return fields from the `hasRole` function with signature `hasRole(bytes32,address)` and selector `[145, 209, 72, 84]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct HasRoleReturn(pub bool);
+    #[doc = "Container type for all return fields from the `isAssetListingAdmin` function with signature `isAssetListingAdmin(address)` and selector `[19, 238, 50, 224]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct IsAssetListingAdminReturn(pub bool);
+    #[doc = "Container type for all return fields from the `isBridge` function with signature `isBridge(address)` and selector `[114, 102, 0, 206]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct IsBridgeReturn(pub bool);
+    #[doc = "Container type for all return fields from the `isEmergencyAdmin` function with signature `isEmergencyAdmin(address)` and selector `[37, 0, 242, 182]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct IsEmergencyAdminReturn(pub bool);
+    #[doc = "Container type for all return fields from the `isFlashBorrower` function with signature `isFlashBorrower(address)` and selector `[250, 80, 242, 151]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct IsFlashBorrowerReturn(pub bool);
+    #[doc = "Container type for all return fields from the `isPoolAdmin` function with signature `isPoolAdmin(address)` and selector `[123, 229, 60, 161]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct IsPoolAdminReturn(pub bool);
+    #[doc = "Container type for all return fields from the `isRiskAdmin` function with signature `isRiskAdmin(address)` and selector `[103, 75, 94, 77]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct IsRiskAdminReturn(pub bool);
+    #[doc = "Container type for all return fields from the `supportsInterface` function with signature `supportsInterface(bytes4)` and selector `[1, 255, 201, 167]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct SupportsInterfaceReturn(pub bool);
 }

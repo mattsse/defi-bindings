@@ -1,6 +1,6 @@
-pub use ipoolconfigurator_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod ipoolconfigurator_mod {
+pub use i_pool_configurator::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod i_pool_configurator {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -19,13 +19,14 @@ mod ipoolconfigurator_mod {
     use std::sync::Arc;
     pub static IPOOLCONFIGURATOR_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"proxy\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"implementation\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"ATokenUpgraded\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"oldBorrowCap\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"newBorrowCap\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"BorrowCapChanged\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":false},{\"internalType\":\"bool\",\"name\":\"borrowable\",\"type\":\"bool\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"BorrowableInIsolationChanged\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"oldBridgeProtocolFee\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"newBridgeProtocolFee\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"BridgeProtocolFeeUpdated\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"ltv\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"liquidationThreshold\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"liquidationBonus\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"CollateralConfigurationChanged\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"oldDebtCeiling\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"newDebtCeiling\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"DebtCeilingChanged\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint8\",\"name\":\"oldCategoryId\",\"type\":\"uint8\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint8\",\"name\":\"newCategoryId\",\"type\":\"uint8\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"EModeAssetCategoryChanged\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"uint8\",\"name\":\"categoryId\",\"type\":\"uint8\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"ltv\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"liquidationThreshold\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"liquidationBonus\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"address\",\"name\":\"oracle\",\"type\":\"address\",\"components\":[],\"indexed\":false},{\"internalType\":\"string\",\"name\":\"label\",\"type\":\"string\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"EModeCategoryAdded\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"uint128\",\"name\":\"oldFlashloanPremiumToProtocol\",\"type\":\"uint128\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint128\",\"name\":\"newFlashloanPremiumToProtocol\",\"type\":\"uint128\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"FlashloanPremiumToProtocolUpdated\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"uint128\",\"name\":\"oldFlashloanPremiumTotal\",\"type\":\"uint128\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint128\",\"name\":\"newFlashloanPremiumTotal\",\"type\":\"uint128\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"FlashloanPremiumTotalUpdated\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"oldFee\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"newFee\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"LiquidationProtocolFeeChanged\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"bool\",\"name\":\"active\",\"type\":\"bool\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"ReserveActive\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"bool\",\"name\":\"enabled\",\"type\":\"bool\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"ReserveBorrowing\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"ReserveDropped\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"oldReserveFactor\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"newReserveFactor\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"ReserveFactorChanged\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"bool\",\"name\":\"frozen\",\"type\":\"bool\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"ReserveFrozen\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"aToken\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"stableDebtToken\",\"type\":\"address\",\"components\":[],\"indexed\":false},{\"internalType\":\"address\",\"name\":\"variableDebtToken\",\"type\":\"address\",\"components\":[],\"indexed\":false},{\"internalType\":\"address\",\"name\":\"interestRateStrategyAddress\",\"type\":\"address\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"ReserveInitialized\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"oldStrategy\",\"type\":\"address\",\"components\":[],\"indexed\":false},{\"internalType\":\"address\",\"name\":\"newStrategy\",\"type\":\"address\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"ReserveInterestRateStrategyChanged\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"bool\",\"name\":\"paused\",\"type\":\"bool\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"ReservePaused\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"bool\",\"name\":\"enabled\",\"type\":\"bool\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"ReserveStableRateBorrowing\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"bool\",\"name\":\"oldState\",\"type\":\"bool\",\"components\":[],\"indexed\":false},{\"internalType\":\"bool\",\"name\":\"newState\",\"type\":\"bool\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"SiloedBorrowingChanged\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"proxy\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"implementation\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"StableDebtTokenUpgraded\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"oldSupplyCap\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"newSupplyCap\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"SupplyCapChanged\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"oldUnbackedMintCap\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"newUnbackedMintCap\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"UnbackedMintCapChanged\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"proxy\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"implementation\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"VariableDebtTokenUpgraded\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"ltv\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"liquidationThreshold\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"liquidationBonus\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"configureReserveAsCollateral\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"dropReserve\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"struct ConfiguratorInputTypes.InitReserveInput[]\",\"name\":\"input\",\"type\":\"tuple[]\",\"components\":[{\"internalType\":\"address\",\"name\":\"aTokenImpl\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"stableDebtTokenImpl\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"variableDebtTokenImpl\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint8\",\"name\":\"underlyingAssetDecimals\",\"type\":\"uint8\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"interestRateStrategyAddress\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"underlyingAsset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"treasury\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"incentivesController\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"string\",\"name\":\"aTokenName\",\"type\":\"string\",\"components\":[]},{\"internalType\":\"string\",\"name\":\"aTokenSymbol\",\"type\":\"string\",\"components\":[]},{\"internalType\":\"string\",\"name\":\"variableDebtTokenName\",\"type\":\"string\",\"components\":[]},{\"internalType\":\"string\",\"name\":\"variableDebtTokenSymbol\",\"type\":\"string\",\"components\":[]},{\"internalType\":\"string\",\"name\":\"stableDebtTokenName\",\"type\":\"string\",\"components\":[]},{\"internalType\":\"string\",\"name\":\"stableDebtTokenSymbol\",\"type\":\"string\",\"components\":[]},{\"internalType\":\"bytes\",\"name\":\"params\",\"type\":\"bytes\",\"components\":[]}]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"initReserves\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint8\",\"name\":\"newCategoryId\",\"type\":\"uint8\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setAssetEModeCategory\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"newBorrowCap\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setBorrowCap\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"borrowable\",\"type\":\"bool\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setBorrowableInIsolation\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"newDebtCeiling\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setDebtCeiling\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint8\",\"name\":\"categoryId\",\"type\":\"uint8\",\"components\":[]},{\"internalType\":\"uint16\",\"name\":\"ltv\",\"type\":\"uint16\",\"components\":[]},{\"internalType\":\"uint16\",\"name\":\"liquidationThreshold\",\"type\":\"uint16\",\"components\":[]},{\"internalType\":\"uint16\",\"name\":\"liquidationBonus\",\"type\":\"uint16\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"oracle\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"string\",\"name\":\"label\",\"type\":\"string\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setEModeCategory\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"newFee\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setLiquidationProtocolFee\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"paused\",\"type\":\"bool\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setPoolPause\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"active\",\"type\":\"bool\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setReserveActive\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"enabled\",\"type\":\"bool\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setReserveBorrowing\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"newReserveFactor\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setReserveFactor\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"freeze\",\"type\":\"bool\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setReserveFreeze\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"newRateStrategyAddress\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setReserveInterestRateStrategyAddress\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"paused\",\"type\":\"bool\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setReservePause\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"enabled\",\"type\":\"bool\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setReserveStableRateBorrowing\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"siloed\",\"type\":\"bool\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setSiloedBorrowing\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"newSupplyCap\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setSupplyCap\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"newUnbackedMintCap\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setUnbackedMintCap\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"struct ConfiguratorInputTypes.UpdateATokenInput\",\"name\":\"input\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"treasury\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"incentivesController\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\",\"components\":[]},{\"internalType\":\"string\",\"name\":\"symbol\",\"type\":\"string\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"implementation\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"bytes\",\"name\":\"params\",\"type\":\"bytes\",\"components\":[]}]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"updateAToken\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"newBridgeProtocolFee\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"updateBridgeProtocolFee\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint128\",\"name\":\"newFlashloanPremiumToProtocol\",\"type\":\"uint128\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"updateFlashloanPremiumToProtocol\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint128\",\"name\":\"newFlashloanPremiumTotal\",\"type\":\"uint128\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"updateFlashloanPremiumTotal\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"struct ConfiguratorInputTypes.UpdateDebtTokenInput\",\"name\":\"input\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"incentivesController\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\",\"components\":[]},{\"internalType\":\"string\",\"name\":\"symbol\",\"type\":\"string\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"implementation\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"bytes\",\"name\":\"params\",\"type\":\"bytes\",\"components\":[]}]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"updateStableDebtToken\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"struct ConfiguratorInputTypes.UpdateDebtTokenInput\",\"name\":\"input\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"incentivesController\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\",\"components\":[]},{\"internalType\":\"string\",\"name\":\"symbol\",\"type\":\"string\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"implementation\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"bytes\",\"name\":\"params\",\"type\":\"bytes\",\"components\":[]}]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"updateVariableDebtToken\",\"outputs\":[]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"proxy\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"implementation\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"ATokenUpgraded\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"oldBorrowCap\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"newBorrowCap\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"BorrowCapChanged\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":false},{\"internalType\":\"bool\",\"name\":\"borrowable\",\"type\":\"bool\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"BorrowableInIsolationChanged\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"oldBridgeProtocolFee\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"newBridgeProtocolFee\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"BridgeProtocolFeeUpdated\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"ltv\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"liquidationThreshold\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"liquidationBonus\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"CollateralConfigurationChanged\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"oldDebtCeiling\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"newDebtCeiling\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"DebtCeilingChanged\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint8\",\"name\":\"oldCategoryId\",\"type\":\"uint8\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint8\",\"name\":\"newCategoryId\",\"type\":\"uint8\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"EModeAssetCategoryChanged\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"uint8\",\"name\":\"categoryId\",\"type\":\"uint8\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"ltv\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"liquidationThreshold\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"liquidationBonus\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"address\",\"name\":\"oracle\",\"type\":\"address\",\"components\":[],\"indexed\":false},{\"internalType\":\"string\",\"name\":\"label\",\"type\":\"string\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"EModeCategoryAdded\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"uint128\",\"name\":\"oldFlashloanPremiumToProtocol\",\"type\":\"uint128\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint128\",\"name\":\"newFlashloanPremiumToProtocol\",\"type\":\"uint128\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"FlashloanPremiumToProtocolUpdated\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"uint128\",\"name\":\"oldFlashloanPremiumTotal\",\"type\":\"uint128\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint128\",\"name\":\"newFlashloanPremiumTotal\",\"type\":\"uint128\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"FlashloanPremiumTotalUpdated\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"oldFee\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"newFee\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"LiquidationProtocolFeeChanged\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"bool\",\"name\":\"active\",\"type\":\"bool\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"ReserveActive\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"bool\",\"name\":\"enabled\",\"type\":\"bool\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"ReserveBorrowing\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"ReserveDropped\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"oldReserveFactor\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"newReserveFactor\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"ReserveFactorChanged\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"bool\",\"name\":\"frozen\",\"type\":\"bool\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"ReserveFrozen\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"aToken\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"stableDebtToken\",\"type\":\"address\",\"components\":[],\"indexed\":false},{\"internalType\":\"address\",\"name\":\"variableDebtToken\",\"type\":\"address\",\"components\":[],\"indexed\":false},{\"internalType\":\"address\",\"name\":\"interestRateStrategyAddress\",\"type\":\"address\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"ReserveInitialized\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"oldStrategy\",\"type\":\"address\",\"components\":[],\"indexed\":false},{\"internalType\":\"address\",\"name\":\"newStrategy\",\"type\":\"address\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"ReserveInterestRateStrategyChanged\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"bool\",\"name\":\"paused\",\"type\":\"bool\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"ReservePaused\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"bool\",\"name\":\"enabled\",\"type\":\"bool\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"ReserveStableRateBorrowing\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"bool\",\"name\":\"oldState\",\"type\":\"bool\",\"components\":[],\"indexed\":false},{\"internalType\":\"bool\",\"name\":\"newState\",\"type\":\"bool\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"SiloedBorrowingChanged\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"proxy\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"implementation\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"StableDebtTokenUpgraded\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"oldSupplyCap\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"newSupplyCap\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"SupplyCapChanged\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"oldUnbackedMintCap\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"newUnbackedMintCap\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"UnbackedMintCapChanged\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"proxy\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"implementation\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"VariableDebtTokenUpgraded\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"ltv\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"liquidationThreshold\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"liquidationBonus\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"configureReserveAsCollateral\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"dropReserve\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"struct ConfiguratorInputTypes.InitReserveInput[]\",\"name\":\"input\",\"type\":\"tuple[]\",\"components\":[{\"internalType\":\"address\",\"name\":\"aTokenImpl\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"stableDebtTokenImpl\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"variableDebtTokenImpl\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint8\",\"name\":\"underlyingAssetDecimals\",\"type\":\"uint8\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"interestRateStrategyAddress\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"underlyingAsset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"treasury\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"incentivesController\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"string\",\"name\":\"aTokenName\",\"type\":\"string\",\"components\":[]},{\"internalType\":\"string\",\"name\":\"aTokenSymbol\",\"type\":\"string\",\"components\":[]},{\"internalType\":\"string\",\"name\":\"variableDebtTokenName\",\"type\":\"string\",\"components\":[]},{\"internalType\":\"string\",\"name\":\"variableDebtTokenSymbol\",\"type\":\"string\",\"components\":[]},{\"internalType\":\"string\",\"name\":\"stableDebtTokenName\",\"type\":\"string\",\"components\":[]},{\"internalType\":\"string\",\"name\":\"stableDebtTokenSymbol\",\"type\":\"string\",\"components\":[]},{\"internalType\":\"bytes\",\"name\":\"params\",\"type\":\"bytes\",\"components\":[]}]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"initReserves\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint8\",\"name\":\"newCategoryId\",\"type\":\"uint8\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setAssetEModeCategory\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"newBorrowCap\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setBorrowCap\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"borrowable\",\"type\":\"bool\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setBorrowableInIsolation\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"newDebtCeiling\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setDebtCeiling\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint8\",\"name\":\"categoryId\",\"type\":\"uint8\",\"components\":[]},{\"internalType\":\"uint16\",\"name\":\"ltv\",\"type\":\"uint16\",\"components\":[]},{\"internalType\":\"uint16\",\"name\":\"liquidationThreshold\",\"type\":\"uint16\",\"components\":[]},{\"internalType\":\"uint16\",\"name\":\"liquidationBonus\",\"type\":\"uint16\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"oracle\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"string\",\"name\":\"label\",\"type\":\"string\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setEModeCategory\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"newFee\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setLiquidationProtocolFee\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"paused\",\"type\":\"bool\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setPoolPause\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"active\",\"type\":\"bool\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setReserveActive\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"enabled\",\"type\":\"bool\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setReserveBorrowing\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"newReserveFactor\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setReserveFactor\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"freeze\",\"type\":\"bool\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setReserveFreeze\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"newRateStrategyAddress\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setReserveInterestRateStrategyAddress\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"paused\",\"type\":\"bool\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setReservePause\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"enabled\",\"type\":\"bool\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setReserveStableRateBorrowing\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"siloed\",\"type\":\"bool\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setSiloedBorrowing\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"newSupplyCap\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setSupplyCap\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"newUnbackedMintCap\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setUnbackedMintCap\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"struct ConfiguratorInputTypes.UpdateATokenInput\",\"name\":\"input\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"treasury\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"incentivesController\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\",\"components\":[]},{\"internalType\":\"string\",\"name\":\"symbol\",\"type\":\"string\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"implementation\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"bytes\",\"name\":\"params\",\"type\":\"bytes\",\"components\":[]}]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"updateAToken\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"newBridgeProtocolFee\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"updateBridgeProtocolFee\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint128\",\"name\":\"newFlashloanPremiumToProtocol\",\"type\":\"uint128\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"updateFlashloanPremiumToProtocol\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint128\",\"name\":\"newFlashloanPremiumTotal\",\"type\":\"uint128\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"updateFlashloanPremiumTotal\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"struct ConfiguratorInputTypes.UpdateDebtTokenInput\",\"name\":\"input\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"incentivesController\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\",\"components\":[]},{\"internalType\":\"string\",\"name\":\"symbol\",\"type\":\"string\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"implementation\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"bytes\",\"name\":\"params\",\"type\":\"bytes\",\"components\":[]}]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"updateStableDebtToken\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"struct ConfiguratorInputTypes.UpdateDebtTokenInput\",\"name\":\"input\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"incentivesController\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\",\"components\":[]},{\"internalType\":\"string\",\"name\":\"symbol\",\"type\":\"string\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"implementation\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"bytes\",\"name\":\"params\",\"type\":\"bytes\",\"components\":[]}]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"updateVariableDebtToken\",\"outputs\":[]}]") . expect ("invalid abi")
         });
-    #[doc = r" Bytecode of the #name contract"]
-    pub static IPOOLCONFIGURATOR_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
-        ethers::contract::Lazy::new(|| "0x".parse().expect("invalid bytecode"));
-    #[derive(Clone)]
     pub struct IPoolConfigurator<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for IPoolConfigurator<M> {
+        fn clone(&self) -> Self {
+            IPoolConfigurator(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for IPoolConfigurator<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -39,7 +40,7 @@ mod ipoolconfigurator_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> IPoolConfigurator<M> {
+    impl<M: ethers::providers::Middleware> IPoolConfigurator<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -49,45 +50,6 @@ mod ipoolconfigurator_mod {
         ) -> Self {
             ethers::contract::Contract::new(address.into(), IPOOLCONFIGURATOR_ABI.clone(), client)
                 .into()
-        }
-        #[doc = r" Constructs the general purpose `Deployer` instance based on the provided constructor arguments and sends it."]
-        #[doc = r" Returns a new instance of a deployer that returns an instance of this contract after sending the transaction"]
-        #[doc = r""]
-        #[doc = r" Notes:"]
-        #[doc = r" 1. If there are no constructor arguments, you should pass `()` as the argument."]
-        #[doc = r" 1. The default poll duration is 7 seconds."]
-        #[doc = r" 1. The default number of confirmations is 1 block."]
-        #[doc = r""]
-        #[doc = r""]
-        #[doc = r" # Example"]
-        #[doc = r""]
-        #[doc = r" Generate contract bindings with `abigen!` and deploy a new contract instance."]
-        #[doc = r""]
-        #[doc = r" *Note*: this requires a `bytecode` and `abi` object in the `greeter.json` artifact."]
-        #[doc = r""]
-        #[doc = r" ```ignore"]
-        #[doc = r" # async fn deploy<M: ethers::providers::Middleware>(client: ::std::sync::Arc<M>) {"]
-        #[doc = r#"     abigen!(Greeter,"../greeter.json");"#]
-        #[doc = r""]
-        #[doc = r#"    let greeter_contract = Greeter::deploy(client, "Hello world!".to_string()).unwrap().send().await.unwrap();"#]
-        #[doc = r"    let msg = greeter_contract.greet().call().await.unwrap();"]
-        #[doc = r" # }"]
-        #[doc = r" ```"]
-        pub fn deploy<T: ethers::core::abi::Tokenize>(
-            client: ::std::sync::Arc<M>,
-            constructor_args: T,
-        ) -> Result<
-            ethers::contract::builders::ContractDeployer<M, Self>,
-            ethers::contract::ContractError<M>,
-        > {
-            let factory = ethers::contract::ContractFactory::new(
-                IPOOLCONFIGURATOR_ABI.clone(),
-                IPOOLCONFIGURATOR_BYTECODE.clone().into(),
-                client,
-            );
-            let deployer = factory.deploy(constructor_args)?;
-            let deployer = ethers::contract::ContractDeployer::new(deployer);
-            Ok(deployer)
         }
         #[doc = "Calls the contract's `configureReserveAsCollateral` (0x7c4e560b) function"]
         pub fn configure_reserve_as_collateral(
@@ -1009,7 +971,9 @@ mod ipoolconfigurator_mod {
         VariableDebtTokenUpgradedFilter(VariableDebtTokenUpgradedFilter),
     }
     impl ethers::contract::EthLogDecode for IPoolConfiguratorEvents {
-        fn decode_log(log: &ethers::core::abi::RawLog) -> Result<Self, ethers::core::abi::Error>
+        fn decode_log(
+            log: &ethers::core::abi::RawLog,
+        ) -> ::std::result::Result<Self, ethers::core::abi::Error>
         where
             Self: Sized,
         {
@@ -1158,7 +1122,7 @@ mod ipoolconfigurator_mod {
             }
         }
     }
-    #[doc = "Container type for all input parameters for the `configureReserveAsCollateral`function with signature `configureReserveAsCollateral(address,uint256,uint256,uint256)` and selector `[124, 78, 86, 11]`"]
+    #[doc = "Container type for all input parameters for the `configureReserveAsCollateral` function with signature `configureReserveAsCollateral(address,uint256,uint256,uint256)` and selector `[124, 78, 86, 11]`"]
     #[derive(
         Clone,
         Debug,
@@ -1178,7 +1142,7 @@ mod ipoolconfigurator_mod {
         pub liquidation_threshold: ethers::core::types::U256,
         pub liquidation_bonus: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `dropReserve`function with signature `dropReserve(address)` and selector `[99, 201, 184, 96]`"]
+    #[doc = "Container type for all input parameters for the `dropReserve` function with signature `dropReserve(address)` and selector `[99, 201, 184, 96]`"]
     #[derive(
         Clone,
         Debug,
@@ -1192,7 +1156,7 @@ mod ipoolconfigurator_mod {
     pub struct DropReserveCall {
         pub asset: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `initReserves`function with signature `initReserves((address,address,address,uint8,address,address,address,address,string,string,string,string,string,string,bytes)[])` and selector `[2, 251, 69, 230]`"]
+    #[doc = "Container type for all input parameters for the `initReserves` function with signature `initReserves((address,address,address,uint8,address,address,address,address,string,string,string,string,string,string,bytes)[])` and selector `[2, 251, 69, 230]`"]
     #[derive(
         Clone,
         Debug,
@@ -1209,7 +1173,7 @@ mod ipoolconfigurator_mod {
     pub struct InitReservesCall {
         pub input: ::std::vec::Vec<InitReserveInput>,
     }
-    #[doc = "Container type for all input parameters for the `setAssetEModeCategory`function with signature `setAssetEModeCategory(address,uint8)` and selector `[212, 254, 63, 153]`"]
+    #[doc = "Container type for all input parameters for the `setAssetEModeCategory` function with signature `setAssetEModeCategory(address,uint8)` and selector `[212, 254, 63, 153]`"]
     #[derive(
         Clone,
         Debug,
@@ -1227,7 +1191,7 @@ mod ipoolconfigurator_mod {
         pub asset: ethers::core::types::Address,
         pub new_category_id: u8,
     }
-    #[doc = "Container type for all input parameters for the `setBorrowCap`function with signature `setBorrowCap(address,uint256)` and selector `[209, 74, 9, 131]`"]
+    #[doc = "Container type for all input parameters for the `setBorrowCap` function with signature `setBorrowCap(address,uint256)` and selector `[209, 74, 9, 131]`"]
     #[derive(
         Clone,
         Debug,
@@ -1242,7 +1206,7 @@ mod ipoolconfigurator_mod {
         pub asset: ethers::core::types::Address,
         pub new_borrow_cap: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `setBorrowableInIsolation`function with signature `setBorrowableInIsolation(address,bool)` and selector `[56, 174, 12, 195]`"]
+    #[doc = "Container type for all input parameters for the `setBorrowableInIsolation` function with signature `setBorrowableInIsolation(address,bool)` and selector `[56, 174, 12, 195]`"]
     #[derive(
         Clone,
         Debug,
@@ -1260,7 +1224,7 @@ mod ipoolconfigurator_mod {
         pub asset: ethers::core::types::Address,
         pub borrowable: bool,
     }
-    #[doc = "Container type for all input parameters for the `setDebtCeiling`function with signature `setDebtCeiling(address,uint256)` and selector `[174, 180, 252, 193]`"]
+    #[doc = "Container type for all input parameters for the `setDebtCeiling` function with signature `setDebtCeiling(address,uint256)` and selector `[174, 180, 252, 193]`"]
     #[derive(
         Clone,
         Debug,
@@ -1275,7 +1239,7 @@ mod ipoolconfigurator_mod {
         pub asset: ethers::core::types::Address,
         pub new_debt_ceiling: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `setEModeCategory`function with signature `setEModeCategory(uint8,uint16,uint16,uint16,address,string)` and selector `[193, 157, 97, 228]`"]
+    #[doc = "Container type for all input parameters for the `setEModeCategory` function with signature `setEModeCategory(uint8,uint16,uint16,uint16,address,string)` and selector `[193, 157, 97, 228]`"]
     #[derive(
         Clone,
         Debug,
@@ -1297,7 +1261,7 @@ mod ipoolconfigurator_mod {
         pub oracle: ethers::core::types::Address,
         pub label: String,
     }
-    #[doc = "Container type for all input parameters for the `setLiquidationProtocolFee`function with signature `setLiquidationProtocolFee(address,uint256)` and selector `[38, 210, 206, 194]`"]
+    #[doc = "Container type for all input parameters for the `setLiquidationProtocolFee` function with signature `setLiquidationProtocolFee(address,uint256)` and selector `[38, 210, 206, 194]`"]
     #[derive(
         Clone,
         Debug,
@@ -1315,7 +1279,7 @@ mod ipoolconfigurator_mod {
         pub asset: ethers::core::types::Address,
         pub new_fee: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `setPoolPause`function with signature `setPoolPause(bool)` and selector `[118, 65, 243, 217]`"]
+    #[doc = "Container type for all input parameters for the `setPoolPause` function with signature `setPoolPause(bool)` and selector `[118, 65, 243, 217]`"]
     #[derive(
         Clone,
         Debug,
@@ -1329,7 +1293,7 @@ mod ipoolconfigurator_mod {
     pub struct SetPoolPauseCall {
         pub paused: bool,
     }
-    #[doc = "Container type for all input parameters for the `setReserveActive`function with signature `setReserveActive(address,bool)` and selector `[183, 54, 170, 235]`"]
+    #[doc = "Container type for all input parameters for the `setReserveActive` function with signature `setReserveActive(address,bool)` and selector `[183, 54, 170, 235]`"]
     #[derive(
         Clone,
         Debug,
@@ -1344,7 +1308,7 @@ mod ipoolconfigurator_mod {
         pub asset: ethers::core::types::Address,
         pub active: bool,
     }
-    #[doc = "Container type for all input parameters for the `setReserveBorrowing`function with signature `setReserveBorrowing(address,bool)` and selector `[104, 44, 242, 100]`"]
+    #[doc = "Container type for all input parameters for the `setReserveBorrowing` function with signature `setReserveBorrowing(address,bool)` and selector `[104, 44, 242, 100]`"]
     #[derive(
         Clone,
         Debug,
@@ -1362,7 +1326,7 @@ mod ipoolconfigurator_mod {
         pub asset: ethers::core::types::Address,
         pub enabled: bool,
     }
-    #[doc = "Container type for all input parameters for the `setReserveFactor`function with signature `setReserveFactor(address,uint256)` and selector `[75, 78, 103, 83]`"]
+    #[doc = "Container type for all input parameters for the `setReserveFactor` function with signature `setReserveFactor(address,uint256)` and selector `[75, 78, 103, 83]`"]
     #[derive(
         Clone,
         Debug,
@@ -1377,7 +1341,7 @@ mod ipoolconfigurator_mod {
         pub asset: ethers::core::types::Address,
         pub new_reserve_factor: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `setReserveFreeze`function with signature `setReserveFreeze(address,bool)` and selector `[150, 233, 87, 196]`"]
+    #[doc = "Container type for all input parameters for the `setReserveFreeze` function with signature `setReserveFreeze(address,bool)` and selector `[150, 233, 87, 196]`"]
     #[derive(
         Clone,
         Debug,
@@ -1392,7 +1356,7 @@ mod ipoolconfigurator_mod {
         pub asset: ethers::core::types::Address,
         pub freeze: bool,
     }
-    #[doc = "Container type for all input parameters for the `setReserveInterestRateStrategyAddress`function with signature `setReserveInterestRateStrategyAddress(address,address)` and selector `[29, 33, 24, 249]`"]
+    #[doc = "Container type for all input parameters for the `setReserveInterestRateStrategyAddress` function with signature `setReserveInterestRateStrategyAddress(address,address)` and selector `[29, 33, 24, 249]`"]
     #[derive(
         Clone,
         Debug,
@@ -1410,7 +1374,7 @@ mod ipoolconfigurator_mod {
         pub asset: ethers::core::types::Address,
         pub new_rate_strategy_address: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `setReservePause`function with signature `setReservePause(address,bool)` and selector `[72, 217, 251, 169]`"]
+    #[doc = "Container type for all input parameters for the `setReservePause` function with signature `setReservePause(address,bool)` and selector `[72, 217, 251, 169]`"]
     #[derive(
         Clone,
         Debug,
@@ -1425,7 +1389,7 @@ mod ipoolconfigurator_mod {
         pub asset: ethers::core::types::Address,
         pub paused: bool,
     }
-    #[doc = "Container type for all input parameters for the `setReserveStableRateBorrowing`function with signature `setReserveStableRateBorrowing(address,bool)` and selector `[138, 117, 26, 96]`"]
+    #[doc = "Container type for all input parameters for the `setReserveStableRateBorrowing` function with signature `setReserveStableRateBorrowing(address,bool)` and selector `[138, 117, 26, 96]`"]
     #[derive(
         Clone,
         Debug,
@@ -1443,7 +1407,7 @@ mod ipoolconfigurator_mod {
         pub asset: ethers::core::types::Address,
         pub enabled: bool,
     }
-    #[doc = "Container type for all input parameters for the `setSiloedBorrowing`function with signature `setSiloedBorrowing(address,bool)` and selector `[167, 250, 131, 183]`"]
+    #[doc = "Container type for all input parameters for the `setSiloedBorrowing` function with signature `setSiloedBorrowing(address,bool)` and selector `[167, 250, 131, 183]`"]
     #[derive(
         Clone,
         Debug,
@@ -1458,7 +1422,7 @@ mod ipoolconfigurator_mod {
         pub asset: ethers::core::types::Address,
         pub siloed: bool,
     }
-    #[doc = "Container type for all input parameters for the `setSupplyCap`function with signature `setSupplyCap(address,uint256)` and selector `[87, 31, 3, 229]`"]
+    #[doc = "Container type for all input parameters for the `setSupplyCap` function with signature `setSupplyCap(address,uint256)` and selector `[87, 31, 3, 229]`"]
     #[derive(
         Clone,
         Debug,
@@ -1473,7 +1437,7 @@ mod ipoolconfigurator_mod {
         pub asset: ethers::core::types::Address,
         pub new_supply_cap: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `setUnbackedMintCap`function with signature `setUnbackedMintCap(address,uint256)` and selector `[20, 95, 88, 146]`"]
+    #[doc = "Container type for all input parameters for the `setUnbackedMintCap` function with signature `setUnbackedMintCap(address,uint256)` and selector `[20, 95, 88, 146]`"]
     #[derive(
         Clone,
         Debug,
@@ -1491,7 +1455,7 @@ mod ipoolconfigurator_mod {
         pub asset: ethers::core::types::Address,
         pub new_unbacked_mint_cap: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `updateAToken`function with signature `updateAToken((address,address,address,string,string,address,bytes))` and selector `[187, 1, 195, 124]`"]
+    #[doc = "Container type for all input parameters for the `updateAToken` function with signature `updateAToken((address,address,address,string,string,address,bytes))` and selector `[187, 1, 195, 124]`"]
     #[derive(
         Clone,
         Debug,
@@ -1508,7 +1472,7 @@ mod ipoolconfigurator_mod {
     pub struct UpdateATokenCall {
         pub input: UpdateATokenInput,
     }
-    #[doc = "Container type for all input parameters for the `updateBridgeProtocolFee`function with signature `updateBridgeProtocolFee(uint256)` and selector `[48, 54, 180, 57]`"]
+    #[doc = "Container type for all input parameters for the `updateBridgeProtocolFee` function with signature `updateBridgeProtocolFee(uint256)` and selector `[48, 54, 180, 57]`"]
     #[derive(
         Clone,
         Debug,
@@ -1525,7 +1489,7 @@ mod ipoolconfigurator_mod {
     pub struct UpdateBridgeProtocolFeeCall {
         pub new_bridge_protocol_fee: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `updateFlashloanPremiumToProtocol`function with signature `updateFlashloanPremiumToProtocol(uint128)` and selector `[29, 249, 112, 189]`"]
+    #[doc = "Container type for all input parameters for the `updateFlashloanPremiumToProtocol` function with signature `updateFlashloanPremiumToProtocol(uint128)` and selector `[29, 249, 112, 189]`"]
     #[derive(
         Clone,
         Debug,
@@ -1542,7 +1506,7 @@ mod ipoolconfigurator_mod {
     pub struct UpdateFlashloanPremiumToProtocolCall {
         pub new_flashloan_premium_to_protocol: u128,
     }
-    #[doc = "Container type for all input parameters for the `updateFlashloanPremiumTotal`function with signature `updateFlashloanPremiumTotal(uint128)` and selector `[138, 73, 54, 118]`"]
+    #[doc = "Container type for all input parameters for the `updateFlashloanPremiumTotal` function with signature `updateFlashloanPremiumTotal(uint128)` and selector `[138, 73, 54, 118]`"]
     #[derive(
         Clone,
         Debug,
@@ -1559,7 +1523,7 @@ mod ipoolconfigurator_mod {
     pub struct UpdateFlashloanPremiumTotalCall {
         pub new_flashloan_premium_total: u128,
     }
-    #[doc = "Container type for all input parameters for the `updateStableDebtToken`function with signature `updateStableDebtToken((address,address,string,string,address,bytes))` and selector `[118, 38, 205, 227]`"]
+    #[doc = "Container type for all input parameters for the `updateStableDebtToken` function with signature `updateStableDebtToken((address,address,string,string,address,bytes))` and selector `[118, 38, 205, 227]`"]
     #[derive(
         Clone,
         Debug,
@@ -1576,7 +1540,7 @@ mod ipoolconfigurator_mod {
     pub struct UpdateStableDebtTokenCall {
         pub input: UpdateDebtTokenInput,
     }
-    #[doc = "Container type for all input parameters for the `updateVariableDebtToken`function with signature `updateVariableDebtToken((address,address,string,string,address,bytes))` and selector `[173, 78, 100, 50]`"]
+    #[doc = "Container type for all input parameters for the `updateVariableDebtToken` function with signature `updateVariableDebtToken((address,address,string,string,address,bytes))` and selector `[173, 78, 100, 50]`"]
     #[derive(
         Clone,
         Debug,
@@ -1623,7 +1587,9 @@ mod ipoolconfigurator_mod {
         UpdateVariableDebtToken(UpdateVariableDebtTokenCall),
     }
     impl ethers::core::abi::AbiDecode for IPoolConfiguratorCalls {
-        fn decode(data: impl AsRef<[u8]>) -> Result<Self, ethers::core::abi::AbiError> {
+        fn decode(
+            data: impl AsRef<[u8]>,
+        ) -> ::std::result::Result<Self, ethers::core::abi::AbiError> {
             if let Ok(decoded) =
                 <ConfigureReserveAsCollateralCall as ethers::core::abi::AbiDecode>::decode(
                     data.as_ref(),

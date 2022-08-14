@@ -1,6 +1,6 @@
-pub use comptrollerv3storage_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod comptrollerv3storage_mod {
+pub use comptroller_v3_storage::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod comptroller_v3_storage {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,15 +18,19 @@ mod comptrollerv3storage_mod {
     use std::sync::Arc;
     pub static COMPTROLLERV3STORAGE_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"_borrowGuardianPaused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"_mintGuardianPaused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"accountAssets\",\"outputs\":[{\"internalType\":\"contract CToken\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"admin\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"allMarkets\",\"outputs\":[{\"internalType\":\"contract CToken\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"borrowGuardianPaused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"closeFactorMantissa\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"compAccrued\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"compBorrowState\",\"outputs\":[{\"internalType\":\"uint224\",\"name\":\"index\",\"type\":\"uint224\",\"components\":[]},{\"internalType\":\"uint32\",\"name\":\"block\",\"type\":\"uint32\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"compBorrowerIndex\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"compRate\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"compSpeeds\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"compSupplierIndex\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"compSupplyState\",\"outputs\":[{\"internalType\":\"uint224\",\"name\":\"index\",\"type\":\"uint224\",\"components\":[]},{\"internalType\":\"uint32\",\"name\":\"block\",\"type\":\"uint32\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"comptrollerImplementation\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"liquidationIncentiveMantissa\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"markets\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"isListed\",\"type\":\"bool\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"collateralFactorMantissa\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"isComped\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"maxAssets\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"mintGuardianPaused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"oracle\",\"outputs\":[{\"internalType\":\"contract PriceOracle\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"pauseGuardian\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"pendingAdmin\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"pendingComptrollerImplementation\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"seizeGuardianPaused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"transferGuardianPaused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"_borrowGuardianPaused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"_mintGuardianPaused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"accountAssets\",\"outputs\":[{\"internalType\":\"contract CToken\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"admin\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"allMarkets\",\"outputs\":[{\"internalType\":\"contract CToken\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"borrowGuardianPaused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"closeFactorMantissa\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"compAccrued\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"compBorrowState\",\"outputs\":[{\"internalType\":\"uint224\",\"name\":\"index\",\"type\":\"uint224\",\"components\":[]},{\"internalType\":\"uint32\",\"name\":\"block\",\"type\":\"uint32\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"compBorrowerIndex\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"compRate\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"compSpeeds\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"compSupplierIndex\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"compSupplyState\",\"outputs\":[{\"internalType\":\"uint224\",\"name\":\"index\",\"type\":\"uint224\",\"components\":[]},{\"internalType\":\"uint32\",\"name\":\"block\",\"type\":\"uint32\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"comptrollerImplementation\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"liquidationIncentiveMantissa\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"markets\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"isListed\",\"type\":\"bool\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"collateralFactorMantissa\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"isComped\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"maxAssets\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"mintGuardianPaused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"oracle\",\"outputs\":[{\"internalType\":\"contract PriceOracle\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"pauseGuardian\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"pendingAdmin\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"pendingComptrollerImplementation\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"seizeGuardianPaused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"transferGuardianPaused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]}]") . expect ("invalid abi")
         });
     #[doc = r" Bytecode of the #name contract"]
     pub static COMPTROLLERV3STORAGE_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
         ethers::contract::Lazy::new(|| {
-            "0x608060405234801561001057600080fd5b50610668806100206000396000f3fe608060405234801561001057600080fd5b50600436106101735760003560e01c80638e8f294b116100de578063ca0af04311610097578063dcfbc0c711610071578063dcfbc0c714610403578063e6653f3d1461040b578063e875544614610413578063f851a4401461041b57610173565b8063ca0af04314610383578063cc7ebdc4146103b1578063dce15449146103d757610173565b80638e8f294b146102ed57806394b2294b14610335578063aa9007541461033d578063ac0b0bb714610345578063b21be7fd1461034d578063bb82aa5e1461037b57610173565b80636b79c38d116101305780636b79c38d1461021d5780636d154ea51461026b578063731f0c2b146102915780637dc0d1d0146102b757806387f76303146102bf5780638c57804e146102c757610173565b80631d7b33d71461017857806324a3d622146101b057806326782247146101d45780633c94786f146101dc5780634ada90af146101f857806352d84d1e14610200575b600080fd5b61019e6004803603602081101561018e57600080fd5b50356001600160a01b0316610423565b60408051918252519081900360200190f35b6101b8610435565b604080516001600160a01b039092168252519081900360200190f35b6101b8610444565b6101e4610453565b604080519115158252519081900360200190f35b61019e610463565b6101b86004803603602081101561021657600080fd5b5035610469565b6102436004803603602081101561023357600080fd5b50356001600160a01b0316610490565b604080516001600160e01b03909316835263ffffffff90911660208301528051918290030190f35b6101e46004803603602081101561028157600080fd5b50356001600160a01b03166104ba565b6101e4600480360360208110156102a757600080fd5b50356001600160a01b03166104cf565b6101b86104e4565b6101e46104f3565b610243600480360360208110156102dd57600080fd5b50356001600160a01b0316610503565b6103136004803603602081101561030357600080fd5b50356001600160a01b031661052d565b6040805193151584526020840192909252151582820152519081900360600190f35b61019e610553565b61019e610559565b6101e461055f565b61019e6004803603604081101561036357600080fd5b506001600160a01b038135811691602001351661056f565b6101b861058c565b61019e6004803603604081101561039957600080fd5b506001600160a01b038135811691602001351661059b565b61019e600480360360208110156103c757600080fd5b50356001600160a01b03166105b8565b6101b8600480360360408110156103ed57600080fd5b506001600160a01b0381351690602001356105ca565b6101b86105ff565b6101e461060e565b61019e61061e565b6101b8610624565b600f6020526000908152604090205481565b600a546001600160a01b031681565b6001546001600160a01b031681565b600a54600160a01b900460ff1681565b60065481565b600d818154811061047657fe5b6000918252602090912001546001600160a01b0316905081565b6010602052600090815260409020546001600160e01b03811690600160e01b900463ffffffff1682565b600c6020526000908152604090205460ff1681565b600b6020526000908152604090205460ff1681565b6004546001600160a01b031681565b600a54600160b01b900460ff1681565b6011602052600090815260409020546001600160e01b03811690600160e01b900463ffffffff1682565b60096020526000908152604090208054600182015460039092015460ff91821692911683565b60075481565b600e5481565b600a54600160b81b900460ff1681565b601260209081526000928352604080842090915290825290205481565b6002546001600160a01b031681565b601360209081526000928352604080842090915290825290205481565b60146020526000908152604090205481565b600860205281600052604060002081815481106105e357fe5b6000918252602090912001546001600160a01b03169150829050565b6003546001600160a01b031681565b600a54600160a81b900460ff1681565b60055481565b6000546001600160a01b03168156fea265627a7a72315820fe26432306b7089a9138e67e2ed82071bfb8b99ce84239d054807eb5a532e28364736f6c63430005110032" . parse () . expect ("invalid bytecode")
+            "0x608060405234801561001057600080fd5b50610668806100206000396000f3fe608060405234801561001057600080fd5b50600436106101735760003560e01c80638e8f294b116100de578063ca0af04311610097578063dcfbc0c711610071578063dcfbc0c714610403578063e6653f3d1461040b578063e875544614610413578063f851a4401461041b57610173565b8063ca0af04314610383578063cc7ebdc4146103b1578063dce15449146103d757610173565b80638e8f294b146102ed57806394b2294b14610335578063aa9007541461033d578063ac0b0bb714610345578063b21be7fd1461034d578063bb82aa5e1461037b57610173565b80636b79c38d116101305780636b79c38d1461021d5780636d154ea51461026b578063731f0c2b146102915780637dc0d1d0146102b757806387f76303146102bf5780638c57804e146102c757610173565b80631d7b33d71461017857806324a3d622146101b057806326782247146101d45780633c94786f146101dc5780634ada90af146101f857806352d84d1e14610200575b600080fd5b61019e6004803603602081101561018e57600080fd5b50356001600160a01b0316610423565b60408051918252519081900360200190f35b6101b8610435565b604080516001600160a01b039092168252519081900360200190f35b6101b8610444565b6101e4610453565b604080519115158252519081900360200190f35b61019e610463565b6101b86004803603602081101561021657600080fd5b5035610469565b6102436004803603602081101561023357600080fd5b50356001600160a01b0316610490565b604080516001600160e01b03909316835263ffffffff90911660208301528051918290030190f35b6101e46004803603602081101561028157600080fd5b50356001600160a01b03166104ba565b6101e4600480360360208110156102a757600080fd5b50356001600160a01b03166104cf565b6101b86104e4565b6101e46104f3565b610243600480360360208110156102dd57600080fd5b50356001600160a01b0316610503565b6103136004803603602081101561030357600080fd5b50356001600160a01b031661052d565b6040805193151584526020840192909252151582820152519081900360600190f35b61019e610553565b61019e610559565b6101e461055f565b61019e6004803603604081101561036357600080fd5b506001600160a01b038135811691602001351661056f565b6101b861058c565b61019e6004803603604081101561039957600080fd5b506001600160a01b038135811691602001351661059b565b61019e600480360360208110156103c757600080fd5b50356001600160a01b03166105b8565b6101b8600480360360408110156103ed57600080fd5b506001600160a01b0381351690602001356105ca565b6101b86105ff565b6101e461060e565b61019e61061e565b6101b8610624565b600f6020526000908152604090205481565b600a546001600160a01b031681565b6001546001600160a01b031681565b600a54600160a01b900460ff1681565b60065481565b600d818154811061047657fe5b6000918252602090912001546001600160a01b0316905081565b6010602052600090815260409020546001600160e01b03811690600160e01b900463ffffffff1682565b600c6020526000908152604090205460ff1681565b600b6020526000908152604090205460ff1681565b6004546001600160a01b031681565b600a54600160b01b900460ff1681565b6011602052600090815260409020546001600160e01b03811690600160e01b900463ffffffff1682565b60096020526000908152604090208054600182015460039092015460ff91821692911683565b60075481565b600e5481565b600a54600160b81b900460ff1681565b601260209081526000928352604080842090915290825290205481565b6002546001600160a01b031681565b601360209081526000928352604080842090915290825290205481565b60146020526000908152604090205481565b600860205281600052604060002081815481106105e357fe5b6000918252602090912001546001600160a01b03169150829050565b6003546001600160a01b031681565b600a54600160a81b900460ff1681565b60055481565b6000546001600160a01b03168156fea265627a7a723158209ea2fe9448c48511c0bc09aba3540e40823c4c555b14faf2f3199168a2fafd7764736f6c63430005110032" . parse () . expect ("invalid bytecode")
         });
-    #[derive(Clone)]
     pub struct ComptrollerV3Storage<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for ComptrollerV3Storage<M> {
+        fn clone(&self) -> Self {
+            ComptrollerV3Storage(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for ComptrollerV3Storage<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -40,7 +44,7 @@ mod comptrollerv3storage_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> ComptrollerV3Storage<M> {
+    impl<M: ethers::providers::Middleware> ComptrollerV3Storage<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -81,7 +85,7 @@ mod comptrollerv3storage_mod {
         pub fn deploy<T: ethers::core::abi::Tokenize>(
             client: ::std::sync::Arc<M>,
             constructor_args: T,
-        ) -> Result<
+        ) -> ::std::result::Result<
             ethers::contract::builders::ContractDeployer<M, Self>,
             ethers::contract::ContractError<M>,
         > {
@@ -311,7 +315,7 @@ mod comptrollerv3storage_mod {
             Self(contract)
         }
     }
-    #[doc = "Container type for all input parameters for the `_borrowGuardianPaused`function with signature `_borrowGuardianPaused()` and selector `[230, 101, 63, 61]`"]
+    #[doc = "Container type for all input parameters for the `_borrowGuardianPaused` function with signature `_borrowGuardianPaused()` and selector `[230, 101, 63, 61]`"]
     #[derive(
         Clone,
         Debug,
@@ -323,7 +327,7 @@ mod comptrollerv3storage_mod {
     )]
     #[ethcall(name = "_borrowGuardianPaused", abi = "_borrowGuardianPaused()")]
     pub struct _BorrowGuardianPausedCall;
-    #[doc = "Container type for all input parameters for the `_mintGuardianPaused`function with signature `_mintGuardianPaused()` and selector `[60, 148, 120, 111]`"]
+    #[doc = "Container type for all input parameters for the `_mintGuardianPaused` function with signature `_mintGuardianPaused()` and selector `[60, 148, 120, 111]`"]
     #[derive(
         Clone,
         Debug,
@@ -335,7 +339,7 @@ mod comptrollerv3storage_mod {
     )]
     #[ethcall(name = "_mintGuardianPaused", abi = "_mintGuardianPaused()")]
     pub struct _MintGuardianPausedCall;
-    #[doc = "Container type for all input parameters for the `accountAssets`function with signature `accountAssets(address,uint256)` and selector `[220, 225, 84, 73]`"]
+    #[doc = "Container type for all input parameters for the `accountAssets` function with signature `accountAssets(address,uint256)` and selector `[220, 225, 84, 73]`"]
     #[derive(
         Clone,
         Debug,
@@ -350,7 +354,7 @@ mod comptrollerv3storage_mod {
         pub ethers::core::types::Address,
         pub ethers::core::types::U256,
     );
-    #[doc = "Container type for all input parameters for the `admin`function with signature `admin()` and selector `[248, 81, 164, 64]`"]
+    #[doc = "Container type for all input parameters for the `admin` function with signature `admin()` and selector `[248, 81, 164, 64]`"]
     #[derive(
         Clone,
         Debug,
@@ -362,7 +366,7 @@ mod comptrollerv3storage_mod {
     )]
     #[ethcall(name = "admin", abi = "admin()")]
     pub struct AdminCall;
-    #[doc = "Container type for all input parameters for the `allMarkets`function with signature `allMarkets(uint256)` and selector `[82, 216, 77, 30]`"]
+    #[doc = "Container type for all input parameters for the `allMarkets` function with signature `allMarkets(uint256)` and selector `[82, 216, 77, 30]`"]
     #[derive(
         Clone,
         Debug,
@@ -374,7 +378,7 @@ mod comptrollerv3storage_mod {
     )]
     #[ethcall(name = "allMarkets", abi = "allMarkets(uint256)")]
     pub struct AllMarketsCall(pub ethers::core::types::U256);
-    #[doc = "Container type for all input parameters for the `borrowGuardianPaused`function with signature `borrowGuardianPaused(address)` and selector `[109, 21, 78, 165]`"]
+    #[doc = "Container type for all input parameters for the `borrowGuardianPaused` function with signature `borrowGuardianPaused(address)` and selector `[109, 21, 78, 165]`"]
     #[derive(
         Clone,
         Debug,
@@ -386,7 +390,7 @@ mod comptrollerv3storage_mod {
     )]
     #[ethcall(name = "borrowGuardianPaused", abi = "borrowGuardianPaused(address)")]
     pub struct BorrowGuardianPausedCall(pub ethers::core::types::Address);
-    #[doc = "Container type for all input parameters for the `closeFactorMantissa`function with signature `closeFactorMantissa()` and selector `[232, 117, 84, 70]`"]
+    #[doc = "Container type for all input parameters for the `closeFactorMantissa` function with signature `closeFactorMantissa()` and selector `[232, 117, 84, 70]`"]
     #[derive(
         Clone,
         Debug,
@@ -398,7 +402,7 @@ mod comptrollerv3storage_mod {
     )]
     #[ethcall(name = "closeFactorMantissa", abi = "closeFactorMantissa()")]
     pub struct CloseFactorMantissaCall;
-    #[doc = "Container type for all input parameters for the `compAccrued`function with signature `compAccrued(address)` and selector `[204, 126, 189, 196]`"]
+    #[doc = "Container type for all input parameters for the `compAccrued` function with signature `compAccrued(address)` and selector `[204, 126, 189, 196]`"]
     #[derive(
         Clone,
         Debug,
@@ -410,7 +414,7 @@ mod comptrollerv3storage_mod {
     )]
     #[ethcall(name = "compAccrued", abi = "compAccrued(address)")]
     pub struct CompAccruedCall(pub ethers::core::types::Address);
-    #[doc = "Container type for all input parameters for the `compBorrowState`function with signature `compBorrowState(address)` and selector `[140, 87, 128, 78]`"]
+    #[doc = "Container type for all input parameters for the `compBorrowState` function with signature `compBorrowState(address)` and selector `[140, 87, 128, 78]`"]
     #[derive(
         Clone,
         Debug,
@@ -422,7 +426,7 @@ mod comptrollerv3storage_mod {
     )]
     #[ethcall(name = "compBorrowState", abi = "compBorrowState(address)")]
     pub struct CompBorrowStateCall(pub ethers::core::types::Address);
-    #[doc = "Container type for all input parameters for the `compBorrowerIndex`function with signature `compBorrowerIndex(address,address)` and selector `[202, 10, 240, 67]`"]
+    #[doc = "Container type for all input parameters for the `compBorrowerIndex` function with signature `compBorrowerIndex(address,address)` and selector `[202, 10, 240, 67]`"]
     #[derive(
         Clone,
         Debug,
@@ -437,7 +441,7 @@ mod comptrollerv3storage_mod {
         pub ethers::core::types::Address,
         pub ethers::core::types::Address,
     );
-    #[doc = "Container type for all input parameters for the `compRate`function with signature `compRate()` and selector `[170, 144, 7, 84]`"]
+    #[doc = "Container type for all input parameters for the `compRate` function with signature `compRate()` and selector `[170, 144, 7, 84]`"]
     #[derive(
         Clone,
         Debug,
@@ -449,7 +453,7 @@ mod comptrollerv3storage_mod {
     )]
     #[ethcall(name = "compRate", abi = "compRate()")]
     pub struct CompRateCall;
-    #[doc = "Container type for all input parameters for the `compSpeeds`function with signature `compSpeeds(address)` and selector `[29, 123, 51, 215]`"]
+    #[doc = "Container type for all input parameters for the `compSpeeds` function with signature `compSpeeds(address)` and selector `[29, 123, 51, 215]`"]
     #[derive(
         Clone,
         Debug,
@@ -461,7 +465,7 @@ mod comptrollerv3storage_mod {
     )]
     #[ethcall(name = "compSpeeds", abi = "compSpeeds(address)")]
     pub struct CompSpeedsCall(pub ethers::core::types::Address);
-    #[doc = "Container type for all input parameters for the `compSupplierIndex`function with signature `compSupplierIndex(address,address)` and selector `[178, 27, 231, 253]`"]
+    #[doc = "Container type for all input parameters for the `compSupplierIndex` function with signature `compSupplierIndex(address,address)` and selector `[178, 27, 231, 253]`"]
     #[derive(
         Clone,
         Debug,
@@ -476,7 +480,7 @@ mod comptrollerv3storage_mod {
         pub ethers::core::types::Address,
         pub ethers::core::types::Address,
     );
-    #[doc = "Container type for all input parameters for the `compSupplyState`function with signature `compSupplyState(address)` and selector `[107, 121, 195, 141]`"]
+    #[doc = "Container type for all input parameters for the `compSupplyState` function with signature `compSupplyState(address)` and selector `[107, 121, 195, 141]`"]
     #[derive(
         Clone,
         Debug,
@@ -488,7 +492,7 @@ mod comptrollerv3storage_mod {
     )]
     #[ethcall(name = "compSupplyState", abi = "compSupplyState(address)")]
     pub struct CompSupplyStateCall(pub ethers::core::types::Address);
-    #[doc = "Container type for all input parameters for the `comptrollerImplementation`function with signature `comptrollerImplementation()` and selector `[187, 130, 170, 94]`"]
+    #[doc = "Container type for all input parameters for the `comptrollerImplementation` function with signature `comptrollerImplementation()` and selector `[187, 130, 170, 94]`"]
     #[derive(
         Clone,
         Debug,
@@ -503,7 +507,7 @@ mod comptrollerv3storage_mod {
         abi = "comptrollerImplementation()"
     )]
     pub struct ComptrollerImplementationCall;
-    #[doc = "Container type for all input parameters for the `liquidationIncentiveMantissa`function with signature `liquidationIncentiveMantissa()` and selector `[74, 218, 144, 175]`"]
+    #[doc = "Container type for all input parameters for the `liquidationIncentiveMantissa` function with signature `liquidationIncentiveMantissa()` and selector `[74, 218, 144, 175]`"]
     #[derive(
         Clone,
         Debug,
@@ -518,7 +522,7 @@ mod comptrollerv3storage_mod {
         abi = "liquidationIncentiveMantissa()"
     )]
     pub struct LiquidationIncentiveMantissaCall;
-    #[doc = "Container type for all input parameters for the `markets`function with signature `markets(address)` and selector `[142, 143, 41, 75]`"]
+    #[doc = "Container type for all input parameters for the `markets` function with signature `markets(address)` and selector `[142, 143, 41, 75]`"]
     #[derive(
         Clone,
         Debug,
@@ -530,7 +534,7 @@ mod comptrollerv3storage_mod {
     )]
     #[ethcall(name = "markets", abi = "markets(address)")]
     pub struct MarketsCall(pub ethers::core::types::Address);
-    #[doc = "Container type for all input parameters for the `maxAssets`function with signature `maxAssets()` and selector `[148, 178, 41, 75]`"]
+    #[doc = "Container type for all input parameters for the `maxAssets` function with signature `maxAssets()` and selector `[148, 178, 41, 75]`"]
     #[derive(
         Clone,
         Debug,
@@ -542,7 +546,7 @@ mod comptrollerv3storage_mod {
     )]
     #[ethcall(name = "maxAssets", abi = "maxAssets()")]
     pub struct MaxAssetsCall;
-    #[doc = "Container type for all input parameters for the `mintGuardianPaused`function with signature `mintGuardianPaused(address)` and selector `[115, 31, 12, 43]`"]
+    #[doc = "Container type for all input parameters for the `mintGuardianPaused` function with signature `mintGuardianPaused(address)` and selector `[115, 31, 12, 43]`"]
     #[derive(
         Clone,
         Debug,
@@ -554,7 +558,7 @@ mod comptrollerv3storage_mod {
     )]
     #[ethcall(name = "mintGuardianPaused", abi = "mintGuardianPaused(address)")]
     pub struct MintGuardianPausedCall(pub ethers::core::types::Address);
-    #[doc = "Container type for all input parameters for the `oracle`function with signature `oracle()` and selector `[125, 192, 209, 208]`"]
+    #[doc = "Container type for all input parameters for the `oracle` function with signature `oracle()` and selector `[125, 192, 209, 208]`"]
     #[derive(
         Clone,
         Debug,
@@ -566,7 +570,7 @@ mod comptrollerv3storage_mod {
     )]
     #[ethcall(name = "oracle", abi = "oracle()")]
     pub struct OracleCall;
-    #[doc = "Container type for all input parameters for the `pauseGuardian`function with signature `pauseGuardian()` and selector `[36, 163, 214, 34]`"]
+    #[doc = "Container type for all input parameters for the `pauseGuardian` function with signature `pauseGuardian()` and selector `[36, 163, 214, 34]`"]
     #[derive(
         Clone,
         Debug,
@@ -578,7 +582,7 @@ mod comptrollerv3storage_mod {
     )]
     #[ethcall(name = "pauseGuardian", abi = "pauseGuardian()")]
     pub struct PauseGuardianCall;
-    #[doc = "Container type for all input parameters for the `pendingAdmin`function with signature `pendingAdmin()` and selector `[38, 120, 34, 71]`"]
+    #[doc = "Container type for all input parameters for the `pendingAdmin` function with signature `pendingAdmin()` and selector `[38, 120, 34, 71]`"]
     #[derive(
         Clone,
         Debug,
@@ -590,7 +594,7 @@ mod comptrollerv3storage_mod {
     )]
     #[ethcall(name = "pendingAdmin", abi = "pendingAdmin()")]
     pub struct PendingAdminCall;
-    #[doc = "Container type for all input parameters for the `pendingComptrollerImplementation`function with signature `pendingComptrollerImplementation()` and selector `[220, 251, 192, 199]`"]
+    #[doc = "Container type for all input parameters for the `pendingComptrollerImplementation` function with signature `pendingComptrollerImplementation()` and selector `[220, 251, 192, 199]`"]
     #[derive(
         Clone,
         Debug,
@@ -605,7 +609,7 @@ mod comptrollerv3storage_mod {
         abi = "pendingComptrollerImplementation()"
     )]
     pub struct PendingComptrollerImplementationCall;
-    #[doc = "Container type for all input parameters for the `seizeGuardianPaused`function with signature `seizeGuardianPaused()` and selector `[172, 11, 11, 183]`"]
+    #[doc = "Container type for all input parameters for the `seizeGuardianPaused` function with signature `seizeGuardianPaused()` and selector `[172, 11, 11, 183]`"]
     #[derive(
         Clone,
         Debug,
@@ -617,7 +621,7 @@ mod comptrollerv3storage_mod {
     )]
     #[ethcall(name = "seizeGuardianPaused", abi = "seizeGuardianPaused()")]
     pub struct SeizeGuardianPausedCall;
-    #[doc = "Container type for all input parameters for the `transferGuardianPaused`function with signature `transferGuardianPaused()` and selector `[135, 247, 99, 3]`"]
+    #[doc = "Container type for all input parameters for the `transferGuardianPaused` function with signature `transferGuardianPaused()` and selector `[135, 247, 99, 3]`"]
     #[derive(
         Clone,
         Debug,
@@ -658,7 +662,9 @@ mod comptrollerv3storage_mod {
         TransferGuardianPaused(TransferGuardianPausedCall),
     }
     impl ethers::core::abi::AbiDecode for ComptrollerV3StorageCalls {
-        fn decode(data: impl AsRef<[u8]>) -> Result<Self, ethers::core::abi::AbiError> {
+        fn decode(
+            data: impl AsRef<[u8]>,
+        ) -> ::std::result::Result<Self, ethers::core::abi::AbiError> {
             if let Ok(decoded) =
                 <_BorrowGuardianPausedCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
@@ -990,4 +996,289 @@ mod comptrollerv3storage_mod {
             ComptrollerV3StorageCalls::TransferGuardianPaused(var)
         }
     }
+    #[doc = "Container type for all return fields from the `_borrowGuardianPaused` function with signature `_borrowGuardianPaused()` and selector `[230, 101, 63, 61]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct _BorrowGuardianPausedReturn(pub bool);
+    #[doc = "Container type for all return fields from the `_mintGuardianPaused` function with signature `_mintGuardianPaused()` and selector `[60, 148, 120, 111]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct _MintGuardianPausedReturn(pub bool);
+    #[doc = "Container type for all return fields from the `accountAssets` function with signature `accountAssets(address,uint256)` and selector `[220, 225, 84, 73]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct AccountAssetsReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `admin` function with signature `admin()` and selector `[248, 81, 164, 64]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct AdminReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `allMarkets` function with signature `allMarkets(uint256)` and selector `[82, 216, 77, 30]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct AllMarketsReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `borrowGuardianPaused` function with signature `borrowGuardianPaused(address)` and selector `[109, 21, 78, 165]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct BorrowGuardianPausedReturn(pub bool);
+    #[doc = "Container type for all return fields from the `closeFactorMantissa` function with signature `closeFactorMantissa()` and selector `[232, 117, 84, 70]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct CloseFactorMantissaReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `compAccrued` function with signature `compAccrued(address)` and selector `[204, 126, 189, 196]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct CompAccruedReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `compBorrowState` function with signature `compBorrowState(address)` and selector `[140, 87, 128, 78]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct CompBorrowStateReturn {
+        pub index: ethers::core::types::U256,
+        pub block: u32,
+    }
+    #[doc = "Container type for all return fields from the `compBorrowerIndex` function with signature `compBorrowerIndex(address,address)` and selector `[202, 10, 240, 67]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct CompBorrowerIndexReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `compRate` function with signature `compRate()` and selector `[170, 144, 7, 84]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct CompRateReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `compSpeeds` function with signature `compSpeeds(address)` and selector `[29, 123, 51, 215]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct CompSpeedsReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `compSupplierIndex` function with signature `compSupplierIndex(address,address)` and selector `[178, 27, 231, 253]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct CompSupplierIndexReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `compSupplyState` function with signature `compSupplyState(address)` and selector `[107, 121, 195, 141]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct CompSupplyStateReturn {
+        pub index: ethers::core::types::U256,
+        pub block: u32,
+    }
+    #[doc = "Container type for all return fields from the `comptrollerImplementation` function with signature `comptrollerImplementation()` and selector `[187, 130, 170, 94]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct ComptrollerImplementationReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `liquidationIncentiveMantissa` function with signature `liquidationIncentiveMantissa()` and selector `[74, 218, 144, 175]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct LiquidationIncentiveMantissaReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `markets` function with signature `markets(address)` and selector `[142, 143, 41, 75]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct MarketsReturn {
+        pub is_listed: bool,
+        pub collateral_factor_mantissa: ethers::core::types::U256,
+        pub is_comped: bool,
+    }
+    #[doc = "Container type for all return fields from the `maxAssets` function with signature `maxAssets()` and selector `[148, 178, 41, 75]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct MaxAssetsReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `mintGuardianPaused` function with signature `mintGuardianPaused(address)` and selector `[115, 31, 12, 43]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct MintGuardianPausedReturn(pub bool);
+    #[doc = "Container type for all return fields from the `oracle` function with signature `oracle()` and selector `[125, 192, 209, 208]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct OracleReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `pauseGuardian` function with signature `pauseGuardian()` and selector `[36, 163, 214, 34]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct PauseGuardianReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `pendingAdmin` function with signature `pendingAdmin()` and selector `[38, 120, 34, 71]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct PendingAdminReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `pendingComptrollerImplementation` function with signature `pendingComptrollerImplementation()` and selector `[220, 251, 192, 199]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct PendingComptrollerImplementationReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `seizeGuardianPaused` function with signature `seizeGuardianPaused()` and selector `[172, 11, 11, 183]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct SeizeGuardianPausedReturn(pub bool);
+    #[doc = "Container type for all return fields from the `transferGuardianPaused` function with signature `transferGuardianPaused()` and selector `[135, 247, 99, 3]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct TransferGuardianPausedReturn(pub bool);
 }

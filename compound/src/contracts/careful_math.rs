@@ -1,6 +1,6 @@
-pub use carefulmath_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod carefulmath_mod {
+pub use careful_math::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod careful_math {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -17,14 +17,20 @@ mod carefulmath_mod {
     #[doc = "CarefulMath was auto-generated with ethers-rs Abigen. More information at: https://github.com/gakonst/ethers-rs"]
     use std::sync::Arc;
     pub static CAREFULMATH_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
-        ethers::contract::Lazy::new(|| serde_json::from_str("[]").expect("invalid abi"));
+        ethers::contract::Lazy::new(|| {
+            ethers::core::utils::__serde_json::from_str("[]").expect("invalid abi")
+        });
     #[doc = r" Bytecode of the #name contract"]
     pub static CAREFULMATH_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
         ethers::contract::Lazy::new(|| {
-            "0x6080604052348015600f57600080fd5b50603e80601d6000396000f3fe6080604052600080fdfea265627a7a723158209c038506faa85efef784e309ed60513504c0c2c5568e8e5b116ef81b1695445764736f6c63430005110032" . parse () . expect ("invalid bytecode")
+            "0x6080604052348015600f57600080fd5b50603e80601d6000396000f3fe6080604052600080fdfea265627a7a72315820224ca43cc1f218e948d7531db46f261afc4c6c31290cf71bfcc88d5fcc5b36ec64736f6c63430005110032" . parse () . expect ("invalid bytecode")
         });
-    #[derive(Clone)]
     pub struct CarefulMath<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for CarefulMath<M> {
+        fn clone(&self) -> Self {
+            CarefulMath(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for CarefulMath<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -38,7 +44,7 @@ mod carefulmath_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> CarefulMath<M> {
+    impl<M: ethers::providers::Middleware> CarefulMath<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -74,7 +80,7 @@ mod carefulmath_mod {
         pub fn deploy<T: ethers::core::abi::Tokenize>(
             client: ::std::sync::Arc<M>,
             constructor_args: T,
-        ) -> Result<
+        ) -> ::std::result::Result<
             ethers::contract::builders::ContractDeployer<M, Self>,
             ethers::contract::ContractError<M>,
         > {

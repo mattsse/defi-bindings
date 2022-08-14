@@ -1,6 +1,6 @@
-pub use helpers_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod helpers_mod {
+pub use helpers::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod helpers {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -17,14 +17,20 @@ mod helpers_mod {
     #[doc = "Helpers was auto-generated with ethers-rs Abigen. More information at: https://github.com/gakonst/ethers-rs"]
     use std::sync::Arc;
     pub static HELPERS_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
-        ethers::contract::Lazy::new(|| serde_json::from_str("[]").expect("invalid abi"));
+        ethers::contract::Lazy::new(|| {
+            ethers::core::utils::__serde_json::from_str("[]").expect("invalid abi")
+        });
     #[doc = r" Bytecode of the #name contract"]
     pub static HELPERS_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
         ethers::contract::Lazy::new(|| {
-            "0x60566037600b82828239805160001a607314602a57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea26469706673582212201864212825a08757c6a9cd116384a7c265a982cfd20625fdfb7f000baa8decd864736f6c634300080a0033" . parse () . expect ("invalid bytecode")
+            "0x60566037600b82828239805160001a607314602a57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea26469706673582212201f046705f68d3c9aaa8555eead2b3c37030d0148bd4a966ee312ad39645f143b64736f6c634300080a0033" . parse () . expect ("invalid bytecode")
         });
-    #[derive(Clone)]
     pub struct Helpers<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for Helpers<M> {
+        fn clone(&self) -> Self {
+            Helpers(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for Helpers<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -38,7 +44,7 @@ mod helpers_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> Helpers<M> {
+    impl<M: ethers::providers::Middleware> Helpers<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -74,7 +80,7 @@ mod helpers_mod {
         pub fn deploy<T: ethers::core::abi::Tokenize>(
             client: ::std::sync::Arc<M>,
             constructor_args: T,
-        ) -> Result<
+        ) -> ::std::result::Result<
             ethers::contract::builders::ContractDeployer<M, Self>,
             ethers::contract::ContractError<M>,
         > {

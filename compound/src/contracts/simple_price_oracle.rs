@@ -1,6 +1,6 @@
-pub use simplepriceoracle_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod simplepriceoracle_mod {
+pub use simple_price_oracle::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod simple_price_oracle {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,15 +18,19 @@ mod simplepriceoracle_mod {
     use std::sync::Arc;
     pub static SIMPLEPRICEORACLE_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"previousPriceMantissa\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"requestedPriceMantissa\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"newPriceMantissa\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"PricePosted\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"assetPrices\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"contract CToken\",\"name\":\"cToken\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getUnderlyingPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"isPriceOracle\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setDirectPrice\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"contract CToken\",\"name\":\"cToken\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"underlyingPriceMantissa\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setUnderlyingPrice\",\"outputs\":[]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"previousPriceMantissa\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"requestedPriceMantissa\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"newPriceMantissa\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"PricePosted\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"assetPrices\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"contract CToken\",\"name\":\"cToken\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getUnderlyingPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"isPriceOracle\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setDirectPrice\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"contract CToken\",\"name\":\"cToken\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"underlyingPriceMantissa\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setUnderlyingPrice\",\"outputs\":[]}]") . expect ("invalid abi")
         });
     #[doc = r" Bytecode of the #name contract"]
     pub static SIMPLEPRICEORACLE_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
         ethers::contract::Lazy::new(|| {
-            "0x608060405234801561001057600080fd5b506105ae806100206000396000f3fe608060405234801561001057600080fd5b50600436106100575760003560e01c806309a8acb01461005c578063127ffda01461008a5780635e9a523c146100b657806366331bba146100ee578063fc57d4df1461010a575b600080fd5b6100886004803603604081101561007257600080fd5b506001600160a01b038135169060200135610130565b005b610088600480360360408110156100a057600080fd5b506001600160a01b0381351690602001356101a8565b6100dc600480360360208110156100cc57600080fd5b50356001600160a01b031661028a565b60408051918252519081900360200190f35b6100f66102a9565b604080519115158252519081900360200190f35b6100dc6004803603602081101561012057600080fd5b50356001600160a01b03166102ae565b6001600160a01b038216600081815260208181526040918290205482519384529083015281810183905260608201839052517fdd71a1d19fcba687442a1d5c58578f1e409af71a79d10fd95a4d66efd8fa9ae79181900360800190a16001600160a01b03909116600090815260208190526040902055565b6000826001600160a01b0316636f307dc36040518163ffffffff1660e01b815260040160206040518083038186803b1580156101e357600080fd5b505afa1580156101f7573d6000803e3d6000fd5b505050506040513d602081101561020d57600080fd5b50516001600160a01b038116600081815260208181526040918290205482519384529083015281810185905260608201859052519192507fdd71a1d19fcba687442a1d5c58578f1e409af71a79d10fd95a4d66efd8fa9ae7919081900360800190a16001600160a01b031660009081526020819052604090205550565b6001600160a01b0381166000908152602081905260409020545b919050565b600181565b60006103f5826001600160a01b03166395d89b416040518163ffffffff1660e01b815260040160006040518083038186803b1580156102ec57600080fd5b505afa158015610300573d6000803e3d6000fd5b505050506040513d6000823e601f3d908101601f19168201604052602081101561032957600080fd5b810190808051604051939291908464010000000082111561034957600080fd5b90830190602082018581111561035e57600080fd5b825164010000000081118282018810171561037857600080fd5b82525081516020918201929091019080838360005b838110156103a557818101518382015260200161038d565b50505050905090810190601f1680156103d25780820380516001836020036101000a031916815260200191505b506040818101905260048152630c68aa8960e31b60208201529250610492915050565b156104095750670de0b6b3a76400006102a4565b600080836001600160a01b0316636f307dc36040518163ffffffff1660e01b815260040160206040518083038186803b15801561044557600080fd5b505afa158015610459573d6000803e3d6000fd5b505050506040513d602081101561046f57600080fd5b50516001600160a01b0316815260208101919091526040016000205490506102a4565b6000816040516020018082805190602001908083835b602083106104c75780518252601f1990920191602091820191016104a8565b6001836020036101000a03801982511681845116808217855250505050505090500191505060405160208183030381529060405280519060200120836040516020018082805190602001908083835b602083106105355780518252601f199092019160209182019101610516565b6001836020036101000a038019825116818451168082178552505050505050905001915050604051602081830303815290604052805190602001201490509291505056fea265627a7a7231582049ab629be64602f158c09ce74fd72679da13303c61c2356b897904e18a2b4e0864736f6c63430005110032" . parse () . expect ("invalid bytecode")
+            "0x608060405234801561001057600080fd5b506105ae806100206000396000f3fe608060405234801561001057600080fd5b50600436106100575760003560e01c806309a8acb01461005c578063127ffda01461008a5780635e9a523c146100b657806366331bba146100ee578063fc57d4df1461010a575b600080fd5b6100886004803603604081101561007257600080fd5b506001600160a01b038135169060200135610130565b005b610088600480360360408110156100a057600080fd5b506001600160a01b0381351690602001356101a8565b6100dc600480360360208110156100cc57600080fd5b50356001600160a01b031661028a565b60408051918252519081900360200190f35b6100f66102a9565b604080519115158252519081900360200190f35b6100dc6004803603602081101561012057600080fd5b50356001600160a01b03166102ae565b6001600160a01b038216600081815260208181526040918290205482519384529083015281810183905260608201839052517fdd71a1d19fcba687442a1d5c58578f1e409af71a79d10fd95a4d66efd8fa9ae79181900360800190a16001600160a01b03909116600090815260208190526040902055565b6000826001600160a01b0316636f307dc36040518163ffffffff1660e01b815260040160206040518083038186803b1580156101e357600080fd5b505afa1580156101f7573d6000803e3d6000fd5b505050506040513d602081101561020d57600080fd5b50516001600160a01b038116600081815260208181526040918290205482519384529083015281810185905260608201859052519192507fdd71a1d19fcba687442a1d5c58578f1e409af71a79d10fd95a4d66efd8fa9ae7919081900360800190a16001600160a01b031660009081526020819052604090205550565b6001600160a01b0381166000908152602081905260409020545b919050565b600181565b60006103f5826001600160a01b03166395d89b416040518163ffffffff1660e01b815260040160006040518083038186803b1580156102ec57600080fd5b505afa158015610300573d6000803e3d6000fd5b505050506040513d6000823e601f3d908101601f19168201604052602081101561032957600080fd5b810190808051604051939291908464010000000082111561034957600080fd5b90830190602082018581111561035e57600080fd5b825164010000000081118282018810171561037857600080fd5b82525081516020918201929091019080838360005b838110156103a557818101518382015260200161038d565b50505050905090810190601f1680156103d25780820380516001836020036101000a031916815260200191505b506040818101905260048152630c68aa8960e31b60208201529250610492915050565b156104095750670de0b6b3a76400006102a4565b600080836001600160a01b0316636f307dc36040518163ffffffff1660e01b815260040160206040518083038186803b15801561044557600080fd5b505afa158015610459573d6000803e3d6000fd5b505050506040513d602081101561046f57600080fd5b50516001600160a01b0316815260208101919091526040016000205490506102a4565b6000816040516020018082805190602001908083835b602083106104c75780518252601f1990920191602091820191016104a8565b6001836020036101000a03801982511681845116808217855250505050505090500191505060405160208183030381529060405280519060200120836040516020018082805190602001908083835b602083106105355780518252601f199092019160209182019101610516565b6001836020036101000a038019825116818451168082178552505050505050905001915050604051602081830303815290604052805190602001201490509291505056fea265627a7a723158209503bd3ae688611301296c806bfe41866fee361f0b2a644e146ac3c8678fc3e764736f6c63430005110032" . parse () . expect ("invalid bytecode")
         });
-    #[derive(Clone)]
     pub struct SimplePriceOracle<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for SimplePriceOracle<M> {
+        fn clone(&self) -> Self {
+            SimplePriceOracle(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for SimplePriceOracle<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -40,7 +44,7 @@ mod simplepriceoracle_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> SimplePriceOracle<M> {
+    impl<M: ethers::providers::Middleware> SimplePriceOracle<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -77,7 +81,7 @@ mod simplepriceoracle_mod {
         pub fn deploy<T: ethers::core::abi::Tokenize>(
             client: ::std::sync::Arc<M>,
             constructor_args: T,
-        ) -> Result<
+        ) -> ::std::result::Result<
             ethers::contract::builders::ContractDeployer<M, Self>,
             ethers::contract::ContractError<M>,
         > {
@@ -171,7 +175,7 @@ mod simplepriceoracle_mod {
         pub requested_price_mantissa: ethers::core::types::U256,
         pub new_price_mantissa: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `assetPrices`function with signature `assetPrices(address)` and selector `[94, 154, 82, 60]`"]
+    #[doc = "Container type for all input parameters for the `assetPrices` function with signature `assetPrices(address)` and selector `[94, 154, 82, 60]`"]
     #[derive(
         Clone,
         Debug,
@@ -185,7 +189,7 @@ mod simplepriceoracle_mod {
     pub struct AssetPricesCall {
         pub asset: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `getUnderlyingPrice`function with signature `getUnderlyingPrice(address)` and selector `[252, 87, 212, 223]`"]
+    #[doc = "Container type for all input parameters for the `getUnderlyingPrice` function with signature `getUnderlyingPrice(address)` and selector `[252, 87, 212, 223]`"]
     #[derive(
         Clone,
         Debug,
@@ -199,7 +203,7 @@ mod simplepriceoracle_mod {
     pub struct GetUnderlyingPriceCall {
         pub c_token: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `isPriceOracle`function with signature `isPriceOracle()` and selector `[102, 51, 27, 186]`"]
+    #[doc = "Container type for all input parameters for the `isPriceOracle` function with signature `isPriceOracle()` and selector `[102, 51, 27, 186]`"]
     #[derive(
         Clone,
         Debug,
@@ -211,7 +215,7 @@ mod simplepriceoracle_mod {
     )]
     #[ethcall(name = "isPriceOracle", abi = "isPriceOracle()")]
     pub struct IsPriceOracleCall;
-    #[doc = "Container type for all input parameters for the `setDirectPrice`function with signature `setDirectPrice(address,uint256)` and selector `[9, 168, 172, 176]`"]
+    #[doc = "Container type for all input parameters for the `setDirectPrice` function with signature `setDirectPrice(address,uint256)` and selector `[9, 168, 172, 176]`"]
     #[derive(
         Clone,
         Debug,
@@ -226,7 +230,7 @@ mod simplepriceoracle_mod {
         pub asset: ethers::core::types::Address,
         pub price: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `setUnderlyingPrice`function with signature `setUnderlyingPrice(address,uint256)` and selector `[18, 127, 253, 160]`"]
+    #[doc = "Container type for all input parameters for the `setUnderlyingPrice` function with signature `setUnderlyingPrice(address,uint256)` and selector `[18, 127, 253, 160]`"]
     #[derive(
         Clone,
         Debug,
@@ -253,7 +257,9 @@ mod simplepriceoracle_mod {
         SetUnderlyingPrice(SetUnderlyingPriceCall),
     }
     impl ethers::core::abi::AbiDecode for SimplePriceOracleCalls {
-        fn decode(data: impl AsRef<[u8]>) -> Result<Self, ethers::core::abi::AbiError> {
+        fn decode(
+            data: impl AsRef<[u8]>,
+        ) -> ::std::result::Result<Self, ethers::core::abi::AbiError> {
             if let Ok(decoded) =
                 <AssetPricesCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
@@ -329,4 +335,37 @@ mod simplepriceoracle_mod {
             SimplePriceOracleCalls::SetUnderlyingPrice(var)
         }
     }
+    #[doc = "Container type for all return fields from the `assetPrices` function with signature `assetPrices(address)` and selector `[94, 154, 82, 60]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct AssetPricesReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `getUnderlyingPrice` function with signature `getUnderlyingPrice(address)` and selector `[252, 87, 212, 223]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetUnderlyingPriceReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `isPriceOracle` function with signature `isPriceOracle()` and selector `[102, 51, 27, 186]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct IsPriceOracleReturn(pub bool);
 }

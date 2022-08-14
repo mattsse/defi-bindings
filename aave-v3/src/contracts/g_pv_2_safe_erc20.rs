@@ -1,6 +1,6 @@
-pub use gpv2safeerc20_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod gpv2safeerc20_mod {
+pub use g_pv_2_safe_erc20::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod g_pv_2_safe_erc20 {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -17,14 +17,20 @@ mod gpv2safeerc20_mod {
     #[doc = "GPv2SafeERC20 was auto-generated with ethers-rs Abigen. More information at: https://github.com/gakonst/ethers-rs"]
     use std::sync::Arc;
     pub static GPV2SAFEERC20_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
-        ethers::contract::Lazy::new(|| serde_json::from_str("[]").expect("invalid abi"));
+        ethers::contract::Lazy::new(|| {
+            ethers::core::utils::__serde_json::from_str("[]").expect("invalid abi")
+        });
     #[doc = r" Bytecode of the #name contract"]
     pub static GPV2SAFEERC20_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
         ethers::contract::Lazy::new(|| {
-            "0x60566037600b82828239805160001a607314602a57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea264697066735822122061c8947db09cbd937ed941aca3a0847bf3dfca5bccc20a5f88476777496cda4f64736f6c634300080a0033" . parse () . expect ("invalid bytecode")
+            "0x60566037600b82828239805160001a607314602a57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea26469706673582212208f3beef52a00fdffc496a1b7020200140800bc6da9e7731ba94db8d45b6d0a9d64736f6c634300080a0033" . parse () . expect ("invalid bytecode")
         });
-    #[derive(Clone)]
     pub struct GPv2SafeERC20<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for GPv2SafeERC20<M> {
+        fn clone(&self) -> Self {
+            GPv2SafeERC20(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for GPv2SafeERC20<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -38,7 +44,7 @@ mod gpv2safeerc20_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> GPv2SafeERC20<M> {
+    impl<M: ethers::providers::Middleware> GPv2SafeERC20<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -75,7 +81,7 @@ mod gpv2safeerc20_mod {
         pub fn deploy<T: ethers::core::abi::Tokenize>(
             client: ::std::sync::Arc<M>,
             constructor_args: T,
-        ) -> Result<
+        ) -> ::std::result::Result<
             ethers::contract::builders::ContractDeployer<M, Self>,
             ethers::contract::ContractError<M>,
         > {

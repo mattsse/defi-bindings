@@ -1,6 +1,6 @@
-pub use ipooladdressesproviderregistry_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod ipooladdressesproviderregistry_mod {
+pub use i_pool_addresses_provider_registry::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod i_pool_addresses_provider_registry {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,14 +18,14 @@ mod ipooladdressesproviderregistry_mod {
     use std::sync::Arc;
     pub static IPOOLADDRESSESPROVIDERREGISTRY_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"addressesProvider\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"AddressesProviderRegistered\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"addressesProvider\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"AddressesProviderUnregistered\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getAddressesProviderAddressById\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"addressesProvider\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getAddressesProviderIdByAddress\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getAddressesProvidersList\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"provider\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"registerAddressesProvider\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"provider\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"unregisterAddressesProvider\",\"outputs\":[]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"addressesProvider\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"AddressesProviderRegistered\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"addressesProvider\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"AddressesProviderUnregistered\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getAddressesProviderAddressById\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"addressesProvider\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getAddressesProviderIdByAddress\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getAddressesProvidersList\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"provider\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"registerAddressesProvider\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"provider\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"unregisterAddressesProvider\",\"outputs\":[]}]") . expect ("invalid abi")
         });
-    #[doc = r" Bytecode of the #name contract"]
-    pub static IPOOLADDRESSESPROVIDERREGISTRY_BYTECODE: ethers::contract::Lazy<
-        ethers::core::types::Bytes,
-    > = ethers::contract::Lazy::new(|| "0x".parse().expect("invalid bytecode"));
-    #[derive(Clone)]
     pub struct IPoolAddressesProviderRegistry<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for IPoolAddressesProviderRegistry<M> {
+        fn clone(&self) -> Self {
+            IPoolAddressesProviderRegistry(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for IPoolAddressesProviderRegistry<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -39,7 +39,7 @@ mod ipooladdressesproviderregistry_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> IPoolAddressesProviderRegistry<M> {
+    impl<M: ethers::providers::Middleware> IPoolAddressesProviderRegistry<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -53,45 +53,6 @@ mod ipooladdressesproviderregistry_mod {
                 client,
             )
             .into()
-        }
-        #[doc = r" Constructs the general purpose `Deployer` instance based on the provided constructor arguments and sends it."]
-        #[doc = r" Returns a new instance of a deployer that returns an instance of this contract after sending the transaction"]
-        #[doc = r""]
-        #[doc = r" Notes:"]
-        #[doc = r" 1. If there are no constructor arguments, you should pass `()` as the argument."]
-        #[doc = r" 1. The default poll duration is 7 seconds."]
-        #[doc = r" 1. The default number of confirmations is 1 block."]
-        #[doc = r""]
-        #[doc = r""]
-        #[doc = r" # Example"]
-        #[doc = r""]
-        #[doc = r" Generate contract bindings with `abigen!` and deploy a new contract instance."]
-        #[doc = r""]
-        #[doc = r" *Note*: this requires a `bytecode` and `abi` object in the `greeter.json` artifact."]
-        #[doc = r""]
-        #[doc = r" ```ignore"]
-        #[doc = r" # async fn deploy<M: ethers::providers::Middleware>(client: ::std::sync::Arc<M>) {"]
-        #[doc = r#"     abigen!(Greeter,"../greeter.json");"#]
-        #[doc = r""]
-        #[doc = r#"    let greeter_contract = Greeter::deploy(client, "Hello world!".to_string()).unwrap().send().await.unwrap();"#]
-        #[doc = r"    let msg = greeter_contract.greet().call().await.unwrap();"]
-        #[doc = r" # }"]
-        #[doc = r" ```"]
-        pub fn deploy<T: ethers::core::abi::Tokenize>(
-            client: ::std::sync::Arc<M>,
-            constructor_args: T,
-        ) -> Result<
-            ethers::contract::builders::ContractDeployer<M, Self>,
-            ethers::contract::ContractError<M>,
-        > {
-            let factory = ethers::contract::ContractFactory::new(
-                IPOOLADDRESSESPROVIDERREGISTRY_ABI.clone(),
-                IPOOLADDRESSESPROVIDERREGISTRY_BYTECODE.clone().into(),
-                client,
-            );
-            let deployer = factory.deploy(constructor_args)?;
-            let deployer = ethers::contract::ContractDeployer::new(deployer);
-            Ok(deployer)
         }
         #[doc = "Calls the contract's `getAddressesProviderAddressById` (0x57dc0566) function"]
         pub fn get_addresses_provider_address_by_id(
@@ -211,7 +172,9 @@ mod ipooladdressesproviderregistry_mod {
         AddressesProviderUnregisteredFilter(AddressesProviderUnregisteredFilter),
     }
     impl ethers::contract::EthLogDecode for IPoolAddressesProviderRegistryEvents {
-        fn decode_log(log: &ethers::core::abi::RawLog) -> Result<Self, ethers::core::abi::Error>
+        fn decode_log(
+            log: &ethers::core::abi::RawLog,
+        ) -> ::std::result::Result<Self, ethers::core::abi::Error>
         where
             Self: Sized,
         {
@@ -244,7 +207,7 @@ mod ipooladdressesproviderregistry_mod {
             }
         }
     }
-    #[doc = "Container type for all input parameters for the `getAddressesProviderAddressById`function with signature `getAddressesProviderAddressById(uint256)` and selector `[87, 220, 5, 102]`"]
+    #[doc = "Container type for all input parameters for the `getAddressesProviderAddressById` function with signature `getAddressesProviderAddressById(uint256)` and selector `[87, 220, 5, 102]`"]
     #[derive(
         Clone,
         Debug,
@@ -261,7 +224,7 @@ mod ipooladdressesproviderregistry_mod {
     pub struct GetAddressesProviderAddressByIdCall {
         pub id: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `getAddressesProviderIdByAddress`function with signature `getAddressesProviderIdByAddress(address)` and selector `[208, 38, 123, 231]`"]
+    #[doc = "Container type for all input parameters for the `getAddressesProviderIdByAddress` function with signature `getAddressesProviderIdByAddress(address)` and selector `[208, 38, 123, 231]`"]
     #[derive(
         Clone,
         Debug,
@@ -278,7 +241,7 @@ mod ipooladdressesproviderregistry_mod {
     pub struct GetAddressesProviderIdByAddressCall {
         pub addresses_provider: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `getAddressesProvidersList`function with signature `getAddressesProvidersList()` and selector `[54, 92, 203, 191]`"]
+    #[doc = "Container type for all input parameters for the `getAddressesProvidersList` function with signature `getAddressesProvidersList()` and selector `[54, 92, 203, 191]`"]
     #[derive(
         Clone,
         Debug,
@@ -293,7 +256,7 @@ mod ipooladdressesproviderregistry_mod {
         abi = "getAddressesProvidersList()"
     )]
     pub struct GetAddressesProvidersListCall;
-    #[doc = "Container type for all input parameters for the `registerAddressesProvider`function with signature `registerAddressesProvider(address,uint256)` and selector `[210, 88, 25, 30]`"]
+    #[doc = "Container type for all input parameters for the `registerAddressesProvider` function with signature `registerAddressesProvider(address,uint256)` and selector `[210, 88, 25, 30]`"]
     #[derive(
         Clone,
         Debug,
@@ -311,7 +274,7 @@ mod ipooladdressesproviderregistry_mod {
         pub provider: ethers::core::types::Address,
         pub id: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `unregisterAddressesProvider`function with signature `unregisterAddressesProvider(address)` and selector `[13, 226, 103, 7]`"]
+    #[doc = "Container type for all input parameters for the `unregisterAddressesProvider` function with signature `unregisterAddressesProvider(address)` and selector `[13, 226, 103, 7]`"]
     #[derive(
         Clone,
         Debug,
@@ -337,7 +300,9 @@ mod ipooladdressesproviderregistry_mod {
         UnregisterAddressesProvider(UnregisterAddressesProviderCall),
     }
     impl ethers::core::abi::AbiDecode for IPoolAddressesProviderRegistryCalls {
-        fn decode(data: impl AsRef<[u8]>) -> Result<Self, ethers::core::abi::AbiError> {
+        fn decode(
+            data: impl AsRef<[u8]>,
+        ) -> ::std::result::Result<Self, ethers::core::abi::AbiError> {
             if let Ok(decoded) =
                 <GetAddressesProviderAddressByIdCall as ethers::core::abi::AbiDecode>::decode(
                     data.as_ref(),
@@ -453,4 +418,37 @@ mod ipooladdressesproviderregistry_mod {
             IPoolAddressesProviderRegistryCalls::UnregisterAddressesProvider(var)
         }
     }
+    #[doc = "Container type for all return fields from the `getAddressesProviderAddressById` function with signature `getAddressesProviderAddressById(uint256)` and selector `[87, 220, 5, 102]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetAddressesProviderAddressByIdReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `getAddressesProviderIdByAddress` function with signature `getAddressesProviderIdByAddress(address)` and selector `[208, 38, 123, 231]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetAddressesProviderIdByAddressReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `getAddressesProvidersList` function with signature `getAddressesProvidersList()` and selector `[54, 92, 203, 191]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetAddressesProvidersListReturn(pub ::std::vec::Vec<ethers::core::types::Address>);
 }

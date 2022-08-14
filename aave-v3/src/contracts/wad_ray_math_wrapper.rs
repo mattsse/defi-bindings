@@ -1,6 +1,6 @@
-pub use wadraymathwrapper_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod wadraymathwrapper_mod {
+pub use wad_ray_math_wrapper::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod wad_ray_math_wrapper {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,15 +18,19 @@ mod wadraymathwrapper_mod {
     use std::sync::Arc;
     pub static WADRAYMATHWRAPPER_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"halfRay\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"halfWad\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"ray\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"a\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"b\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"rayDiv\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"a\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"b\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"rayMul\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"a\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"rayToWad\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"wad\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"a\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"b\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"wadDiv\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"a\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"b\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"wadMul\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"a\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"wadToRay\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"halfRay\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"halfWad\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"ray\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"a\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"b\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"rayDiv\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"a\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"b\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"rayMul\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"a\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"rayToWad\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"wad\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"a\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"b\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"wadDiv\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"a\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"b\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"wadMul\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"a\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"wadToRay\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]}]") . expect ("invalid abi")
         });
     #[doc = r" Bytecode of the #name contract"]
     pub static WADRAYMATHWRAPPER_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
         ethers::contract::Lazy::new(|| {
-            "0x608060405234801561001057600080fd5b5061035b806100206000396000f3fe608060405234801561001057600080fd5b506004361061009e5760003560e01c80637df38c5b116100665780637df38c5b146101125780639c34d88014610120578063d2e3058514610133578063e304e1d314610146578063e57b6d3b1461015457600080fd5b806310de27b9146100a35780631fa89fc6146100c857806329cb5aa4146100da578063416a8b20146100ed578063761fdad6146100ff575b600080fd5b6100b66100b13660046102ea565b610167565b60405190815260200160405180910390f35b6b019d971e4fe8401e740000006100b6565b6100b66100e83660046102ea565b610178565b6b033b2e3c9fd0803ce80000006100b6565b6100b661010d366004610303565b610183565b670de0b6b3a76400006100b6565b6100b661012e366004610303565b610196565b6100b6610141366004610303565b6101a2565b6706f05b59d3b200006100b6565b6100b6610162366004610303565b6101ae565b6000610172826101ba565b92915050565b6000610172826101d5565b600061018f83836101f8565b9392505050565b600061018f8383610230565b600061018f838361026f565b600061018f83836102b3565b633b9aca0081810290810482146101d057600080fd5b919050565b633b9aca00808204908206631dcd650081106101f2576001820191505b50919050565b600081156706f05b59d3b20000198390048411151761021657600080fd5b50670de0b6b3a764000091026706f05b59d3b20000010490565b600081156b033b2e3c9fd0803ce80000006002840419048411171561025457600080fd5b506b033b2e3c9fd0803ce80000009190910260028204010490565b600081156b019d971e4fe8401e74000000198390048411151761029157600080fd5b506b033b2e3c9fd0803ce800000091026b019d971e4fe8401e74000000010490565b60008115670de0b6b3a7640000600284041904841117156102d357600080fd5b50670de0b6b3a76400009190910260028204010490565b6000602082840312156102fc57600080fd5b5035919050565b6000806040838503121561031657600080fd5b5050803592602090910135915056fea264697066735822122016b9c4b4a6291bb8c75364e369a0cd51e56eb36615d6a636de8f8e4da14378ad64736f6c634300080a0033" . parse () . expect ("invalid bytecode")
+            "0x608060405234801561001057600080fd5b5061035b806100206000396000f3fe608060405234801561001057600080fd5b506004361061009e5760003560e01c80637df38c5b116100665780637df38c5b146101125780639c34d88014610120578063d2e3058514610133578063e304e1d314610146578063e57b6d3b1461015457600080fd5b806310de27b9146100a35780631fa89fc6146100c857806329cb5aa4146100da578063416a8b20146100ed578063761fdad6146100ff575b600080fd5b6100b66100b13660046102ea565b610167565b60405190815260200160405180910390f35b6b019d971e4fe8401e740000006100b6565b6100b66100e83660046102ea565b610178565b6b033b2e3c9fd0803ce80000006100b6565b6100b661010d366004610303565b610183565b670de0b6b3a76400006100b6565b6100b661012e366004610303565b610196565b6100b6610141366004610303565b6101a2565b6706f05b59d3b200006100b6565b6100b6610162366004610303565b6101ae565b6000610172826101ba565b92915050565b6000610172826101d5565b600061018f83836101f8565b9392505050565b600061018f8383610230565b600061018f838361026f565b600061018f83836102b3565b633b9aca0081810290810482146101d057600080fd5b919050565b633b9aca00808204908206631dcd650081106101f2576001820191505b50919050565b600081156706f05b59d3b20000198390048411151761021657600080fd5b50670de0b6b3a764000091026706f05b59d3b20000010490565b600081156b033b2e3c9fd0803ce80000006002840419048411171561025457600080fd5b506b033b2e3c9fd0803ce80000009190910260028204010490565b600081156b019d971e4fe8401e74000000198390048411151761029157600080fd5b506b033b2e3c9fd0803ce800000091026b019d971e4fe8401e74000000010490565b60008115670de0b6b3a7640000600284041904841117156102d357600080fd5b50670de0b6b3a76400009190910260028204010490565b6000602082840312156102fc57600080fd5b5035919050565b6000806040838503121561031657600080fd5b5050803592602090910135915056fea2646970667358221220c447c87835533e372e4d1c6796649f3731463911768d3f3fafff17febf72871f64736f6c634300080a0033" . parse () . expect ("invalid bytecode")
         });
-    #[derive(Clone)]
     pub struct WadRayMathWrapper<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for WadRayMathWrapper<M> {
+        fn clone(&self) -> Self {
+            WadRayMathWrapper(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for WadRayMathWrapper<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -40,7 +44,7 @@ mod wadraymathwrapper_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> WadRayMathWrapper<M> {
+    impl<M: ethers::providers::Middleware> WadRayMathWrapper<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -77,7 +81,7 @@ mod wadraymathwrapper_mod {
         pub fn deploy<T: ethers::core::abi::Tokenize>(
             client: ::std::sync::Arc<M>,
             constructor_args: T,
-        ) -> Result<
+        ) -> ::std::result::Result<
             ethers::contract::builders::ContractDeployer<M, Self>,
             ethers::contract::ContractError<M>,
         > {
@@ -188,7 +192,7 @@ mod wadraymathwrapper_mod {
             Self(contract)
         }
     }
-    #[doc = "Container type for all input parameters for the `halfRay`function with signature `halfRay()` and selector `[31, 168, 159, 198]`"]
+    #[doc = "Container type for all input parameters for the `halfRay` function with signature `halfRay()` and selector `[31, 168, 159, 198]`"]
     #[derive(
         Clone,
         Debug,
@@ -200,7 +204,7 @@ mod wadraymathwrapper_mod {
     )]
     #[ethcall(name = "halfRay", abi = "halfRay()")]
     pub struct HalfRayCall;
-    #[doc = "Container type for all input parameters for the `halfWad`function with signature `halfWad()` and selector `[227, 4, 225, 211]`"]
+    #[doc = "Container type for all input parameters for the `halfWad` function with signature `halfWad()` and selector `[227, 4, 225, 211]`"]
     #[derive(
         Clone,
         Debug,
@@ -212,7 +216,7 @@ mod wadraymathwrapper_mod {
     )]
     #[ethcall(name = "halfWad", abi = "halfWad()")]
     pub struct HalfWadCall;
-    #[doc = "Container type for all input parameters for the `ray`function with signature `ray()` and selector `[65, 106, 139, 32]`"]
+    #[doc = "Container type for all input parameters for the `ray` function with signature `ray()` and selector `[65, 106, 139, 32]`"]
     #[derive(
         Clone,
         Debug,
@@ -224,7 +228,7 @@ mod wadraymathwrapper_mod {
     )]
     #[ethcall(name = "ray", abi = "ray()")]
     pub struct RayCall;
-    #[doc = "Container type for all input parameters for the `rayDiv`function with signature `rayDiv(uint256,uint256)` and selector `[156, 52, 216, 128]`"]
+    #[doc = "Container type for all input parameters for the `rayDiv` function with signature `rayDiv(uint256,uint256)` and selector `[156, 52, 216, 128]`"]
     #[derive(
         Clone,
         Debug,
@@ -239,7 +243,7 @@ mod wadraymathwrapper_mod {
         pub a: ethers::core::types::U256,
         pub b: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `rayMul`function with signature `rayMul(uint256,uint256)` and selector `[210, 227, 5, 133]`"]
+    #[doc = "Container type for all input parameters for the `rayMul` function with signature `rayMul(uint256,uint256)` and selector `[210, 227, 5, 133]`"]
     #[derive(
         Clone,
         Debug,
@@ -254,7 +258,7 @@ mod wadraymathwrapper_mod {
         pub a: ethers::core::types::U256,
         pub b: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `rayToWad`function with signature `rayToWad(uint256)` and selector `[41, 203, 90, 164]`"]
+    #[doc = "Container type for all input parameters for the `rayToWad` function with signature `rayToWad(uint256)` and selector `[41, 203, 90, 164]`"]
     #[derive(
         Clone,
         Debug,
@@ -268,7 +272,7 @@ mod wadraymathwrapper_mod {
     pub struct RayToWadCall {
         pub a: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `wad`function with signature `wad()` and selector `[125, 243, 140, 91]`"]
+    #[doc = "Container type for all input parameters for the `wad` function with signature `wad()` and selector `[125, 243, 140, 91]`"]
     #[derive(
         Clone,
         Debug,
@@ -280,7 +284,7 @@ mod wadraymathwrapper_mod {
     )]
     #[ethcall(name = "wad", abi = "wad()")]
     pub struct WadCall;
-    #[doc = "Container type for all input parameters for the `wadDiv`function with signature `wadDiv(uint256,uint256)` and selector `[229, 123, 109, 59]`"]
+    #[doc = "Container type for all input parameters for the `wadDiv` function with signature `wadDiv(uint256,uint256)` and selector `[229, 123, 109, 59]`"]
     #[derive(
         Clone,
         Debug,
@@ -295,7 +299,7 @@ mod wadraymathwrapper_mod {
         pub a: ethers::core::types::U256,
         pub b: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `wadMul`function with signature `wadMul(uint256,uint256)` and selector `[118, 31, 218, 214]`"]
+    #[doc = "Container type for all input parameters for the `wadMul` function with signature `wadMul(uint256,uint256)` and selector `[118, 31, 218, 214]`"]
     #[derive(
         Clone,
         Debug,
@@ -310,7 +314,7 @@ mod wadraymathwrapper_mod {
         pub a: ethers::core::types::U256,
         pub b: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `wadToRay`function with signature `wadToRay(uint256)` and selector `[16, 222, 39, 185]`"]
+    #[doc = "Container type for all input parameters for the `wadToRay` function with signature `wadToRay(uint256)` and selector `[16, 222, 39, 185]`"]
     #[derive(
         Clone,
         Debug,
@@ -338,7 +342,9 @@ mod wadraymathwrapper_mod {
         WadToRay(WadToRayCall),
     }
     impl ethers::core::abi::AbiDecode for WadRayMathWrapperCalls {
-        fn decode(data: impl AsRef<[u8]>) -> Result<Self, ethers::core::abi::AbiError> {
+        fn decode(
+            data: impl AsRef<[u8]>,
+        ) -> ::std::result::Result<Self, ethers::core::abi::AbiError> {
             if let Ok(decoded) =
                 <HalfRayCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
@@ -466,4 +472,114 @@ mod wadraymathwrapper_mod {
             WadRayMathWrapperCalls::WadToRay(var)
         }
     }
+    #[doc = "Container type for all return fields from the `halfRay` function with signature `halfRay()` and selector `[31, 168, 159, 198]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct HalfRayReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `halfWad` function with signature `halfWad()` and selector `[227, 4, 225, 211]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct HalfWadReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `ray` function with signature `ray()` and selector `[65, 106, 139, 32]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct RayReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `rayDiv` function with signature `rayDiv(uint256,uint256)` and selector `[156, 52, 216, 128]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct RayDivReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `rayMul` function with signature `rayMul(uint256,uint256)` and selector `[210, 227, 5, 133]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct RayMulReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `rayToWad` function with signature `rayToWad(uint256)` and selector `[41, 203, 90, 164]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct RayToWadReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `wad` function with signature `wad()` and selector `[125, 243, 140, 91]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct WadReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `wadDiv` function with signature `wadDiv(uint256,uint256)` and selector `[229, 123, 109, 59]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct WadDivReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `wadMul` function with signature `wadMul(uint256,uint256)` and selector `[118, 31, 218, 214]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct WadMulReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `wadToRay` function with signature `wadToRay(uint256)` and selector `[16, 222, 39, 185]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct WadToRayReturn(pub ethers::core::types::U256);
 }

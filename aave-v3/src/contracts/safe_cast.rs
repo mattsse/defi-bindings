@@ -1,6 +1,6 @@
-pub use safecast_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod safecast_mod {
+pub use safe_cast::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod safe_cast {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -17,14 +17,20 @@ mod safecast_mod {
     #[doc = "SafeCast was auto-generated with ethers-rs Abigen. More information at: https://github.com/gakonst/ethers-rs"]
     use std::sync::Arc;
     pub static SAFECAST_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
-        ethers::contract::Lazy::new(|| serde_json::from_str("[]").expect("invalid abi"));
+        ethers::contract::Lazy::new(|| {
+            ethers::core::utils::__serde_json::from_str("[]").expect("invalid abi")
+        });
     #[doc = r" Bytecode of the #name contract"]
     pub static SAFECAST_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
         ethers::contract::Lazy::new(|| {
-            "0x60566037600b82828239805160001a607314602a57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220812c731b5e1a4dd042e57a102386791f05badb3f04d6d443e6bc5735f939939e64736f6c634300080a0033" . parse () . expect ("invalid bytecode")
+            "0x60566037600b82828239805160001a607314602a57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea26469706673582212207ea610714272954b22acdba14d61c131fb9a63023ce102640b8304bf971fecb864736f6c634300080a0033" . parse () . expect ("invalid bytecode")
         });
-    #[derive(Clone)]
     pub struct SafeCast<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for SafeCast<M> {
+        fn clone(&self) -> Self {
+            SafeCast(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for SafeCast<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -38,7 +44,7 @@ mod safecast_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> SafeCast<M> {
+    impl<M: ethers::providers::Middleware> SafeCast<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -74,7 +80,7 @@ mod safecast_mod {
         pub fn deploy<T: ethers::core::abi::Tokenize>(
             client: ::std::sync::Arc<M>,
             constructor_args: T,
-        ) -> Result<
+        ) -> ::std::result::Result<
             ethers::contract::builders::ContractDeployer<M, Self>,
             ethers::contract::ContractError<M>,
         > {

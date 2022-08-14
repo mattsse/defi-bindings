@@ -1,6 +1,6 @@
-pub use l2encoder_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod l2encoder_mod {
+pub use l2_encoder::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod l2_encoder {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,15 +18,19 @@ mod l2encoder_mod {
     use std::sync::Arc;
     pub static L2ENCODER_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"contract IPool\",\"name\":\"pool\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\",\"outputs\":[]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"POOL\",\"outputs\":[{\"internalType\":\"contract IPool\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"interestRateMode\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint16\",\"name\":\"referralCode\",\"type\":\"uint16\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"encodeBorrowParams\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"collateralAsset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"debtAsset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"debtToCover\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"receiveAToken\",\"type\":\"bool\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"encodeLiquidationCall\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"encodeRebalanceStableBorrowRate\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"interestRateMode\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"encodeRepayParams\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"interestRateMode\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"encodeRepayWithATokensParams\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"interestRateMode\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint8\",\"name\":\"permitV\",\"type\":\"uint8\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"permitR\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"permitS\",\"type\":\"bytes32\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"encodeRepayWithPermitParams\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"useAsCollateral\",\"type\":\"bool\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"encodeSetUserUseReserveAsCollateral\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint16\",\"name\":\"referralCode\",\"type\":\"uint16\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"encodeSupplyParams\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint16\",\"name\":\"referralCode\",\"type\":\"uint16\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint8\",\"name\":\"permitV\",\"type\":\"uint8\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"permitR\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"permitS\",\"type\":\"bytes32\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"encodeSupplyWithPermitParams\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"interestRateMode\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"encodeSwapBorrowRateMode\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"encodeWithdrawParams\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"contract IPool\",\"name\":\"pool\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\",\"outputs\":[]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"POOL\",\"outputs\":[{\"internalType\":\"contract IPool\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"interestRateMode\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint16\",\"name\":\"referralCode\",\"type\":\"uint16\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"encodeBorrowParams\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"collateralAsset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"debtAsset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"debtToCover\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"receiveAToken\",\"type\":\"bool\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"encodeLiquidationCall\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"encodeRebalanceStableBorrowRate\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"interestRateMode\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"encodeRepayParams\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"interestRateMode\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"encodeRepayWithATokensParams\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"interestRateMode\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint8\",\"name\":\"permitV\",\"type\":\"uint8\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"permitR\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"permitS\",\"type\":\"bytes32\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"encodeRepayWithPermitParams\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"useAsCollateral\",\"type\":\"bool\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"encodeSetUserUseReserveAsCollateral\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint16\",\"name\":\"referralCode\",\"type\":\"uint16\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"encodeSupplyParams\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint16\",\"name\":\"referralCode\",\"type\":\"uint16\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint8\",\"name\":\"permitV\",\"type\":\"uint8\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"permitR\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"permitS\",\"type\":\"bytes32\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"encodeSupplyWithPermitParams\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"interestRateMode\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"encodeSwapBorrowRateMode\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"encodeWithdrawParams\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]}]") . expect ("invalid abi")
         });
     #[doc = r" Bytecode of the #name contract"]
     pub static L2ENCODER_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
         ethers::contract::Lazy::new(|| {
-            "0x60a060405234801561001057600080fd5b5060405161111138038061111183398101604081905261002f91610040565b6001600160a01b0316608052610070565b60006020828403121561005257600080fd5b81516001600160a01b038116811461006957600080fd5b9392505050565b6080516110406100d16000396000818161014b0152818161022b015281816102fd015281816103a001528181610453015281816105250152818161060d015281816106a70152818161079f01528181610881015261094001526110406000f3fe608060405234801561001057600080fd5b50600436106100b45760003560e01c806388d518521161007157806388d51852146101855780638da7fb18146101ad5780639d2ffc1b146101c0578063b76398e4146101d3578063fc0eed85146101e6578063fed63a93146101f457600080fd5b80631a64acf2146100b95780631a8f6dee146100df5780631fd34797146100f25780635cc7bc1014610105578063671a7fae146101185780637535d24614610146575b600080fd5b6100cc6100c7366004610b81565b610207565b6040519081526020015b60405180910390f35b6100cc6100ed366004610bcb565b6102d9565b6100cc610100366004610c04565b61037c565b6100cc610113366004610c04565b61042f565b61012b610126366004610c46565b6104fd565b604080519384526020840192909252908201526060016100d6565b61016d7f000000000000000000000000000000000000000000000000000000000000000081565b6040516001600160a01b0390911681526020016100d6565b610198610193366004610cc4565b6105e7565b604080519283526020830191909152016100d6565b6100cc6101bb366004610d28565b610766565b6100cc6101ce366004610d28565b61077b565b6100cc6101e1366004610d5d565b61085d565b6100cc6100ed366004610d9f565b61012b610202366004610dd4565b610918565b6040516335ea6a7560e01b81526001600160a01b03858116600483015260009182917f000000000000000000000000000000000000000000000000000000000000000016906335ea6a75906024016101e060405180830381865afa158015610273573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906102979190610ee7565b60e081015190915060006102aa87610a21565b905060006102b787610a93565b60109290921b60909290921b60989690961b9590950101019695505050505050565b6040516335ea6a7560e01b81526001600160a01b03838116600483015260009182917f000000000000000000000000000000000000000000000000000000000000000016906335ea6a75906024016101e060405180830381865afa158015610345573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906103699190610ee7565b60e00151601084901b0191505092915050565b6040516335ea6a7560e01b81526001600160a01b03838116600483015260009182917f000000000000000000000000000000000000000000000000000000000000000016906335ea6a75906024016101e060405180830381865afa1580156103e8573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061040c9190610ee7565b60e0810151909150600061041f85610a93565b60101b9190910195945050505050565b6040516335ea6a7560e01b81526001600160a01b03838116600483015260009182917f000000000000000000000000000000000000000000000000000000000000000016906335ea6a75906024016101e060405180830381865afa15801561049b573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906104bf9190610ee7565b60e0810151909150600060001985146104e0576104db85610a21565b61041f565b5071ffffffffffffffffffffffffffffffff000001949350505050565b6040516335ea6a7560e01b81526001600160a01b0388811660048301526000918291829182917f000000000000000000000000000000000000000000000000000000000000000016906335ea6a75906024016101e060405180830381865afa15801561056d573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906105919190610ee7565b60e081015190915060006105a48c610a21565b905060006105b18b610af4565b905060008a60c01b8260a01b018d60901b018360101b0184019050808a8a97509750975050505050509750975097945050505050565b6040516335ea6a7560e01b81526001600160a01b038681166004830152600091829182917f0000000000000000000000000000000000000000000000000000000000000000909116906335ea6a75906024016101e060405180830381865afa158015610657573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061067b9190610ee7565b60e08101516040516335ea6a7560e01b81526001600160a01b038a8116600483015292935090916000917f0000000000000000000000000000000000000000000000000000000000000000909116906335ea6a75906024016101e060405180830381865afa1580156106f1573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906107159190610ee7565b60e0810151909150600060001989146107365761073189610a21565b61073f565b6001600160801b035b60109290921b9390930160208a901b019550608087901b0193505050509550959350505050565b600061077384848461077b565b949350505050565b6040516335ea6a7560e01b81526001600160a01b03848116600483015260009182917f000000000000000000000000000000000000000000000000000000000000000016906335ea6a75906024016101e060405180830381865afa1580156107e7573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061080b9190610ee7565b60e08101519091506000600019861461082c5761082786610a21565b610835565b6001600160801b035b9050600061084286610a93565b60901b60109290921b91909101919091019695505050505050565b6040516335ea6a7560e01b81526001600160a01b03848116600483015260009182917f000000000000000000000000000000000000000000000000000000000000000016906335ea6a75906024016101e060405180830381865afa1580156108c9573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906108ed9190610ee7565b60e0810151909150600061090086610a21565b60101b609086901b0191909101925050509392505050565b6040516335ea6a7560e01b81526001600160a01b0388811660048301526000918291829182917f000000000000000000000000000000000000000000000000000000000000000016906335ea6a75906024016101e060405180830381865afa158015610988573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906109ac9190610ee7565b60e081015190915060006000198c146109cd576109c88c610a21565b6109d6565b6001600160801b035b905060006109e38c610a93565b905060006109f08c610af4565b60b89b909b1b60989b909b1b9a909a0160909190911b0160109190911b01019b959a50939850939650505050505050565b60006001600160801b03821115610a8f5760405162461bcd60e51b815260206004820152602760248201527f53616665436173743a2076616c756520646f65736e27742066697420696e20316044820152663238206269747360c81b60648201526084015b60405180910390fd5b5090565b600060ff821115610a8f5760405162461bcd60e51b815260206004820152602560248201527f53616665436173743a2076616c756520646f65736e27742066697420696e2038604482015264206269747360d81b6064820152608401610a86565b600063ffffffff821115610a8f5760405162461bcd60e51b815260206004820152602660248201527f53616665436173743a2076616c756520646f65736e27742066697420696e203360448201526532206269747360d01b6064820152608401610a86565b6001600160a01b0381168114610b6e57600080fd5b50565b61ffff81168114610b6e57600080fd5b60008060008060808587031215610b9757600080fd5b8435610ba281610b59565b935060208501359250604085013591506060850135610bc081610b71565b939692955090935050565b60008060408385031215610bde57600080fd5b8235610be981610b59565b91506020830135610bf981610b59565b809150509250929050565b60008060408385031215610c1757600080fd5b8235610c2281610b59565b946020939093013593505050565b803560ff81168114610c4157600080fd5b919050565b600080600080600080600060e0888a031215610c6157600080fd5b8735610c6c81610b59565b9650602088013595506040880135610c8381610b71565b945060608801359350610c9860808901610c30565b925060a0880135915060c0880135905092959891949750929550565b80358015158114610c4157600080fd5b600080600080600060a08688031215610cdc57600080fd5b8535610ce781610b59565b94506020860135610cf781610b59565b93506040860135610d0781610b59565b925060608601359150610d1c60808701610cb4565b90509295509295909350565b600080600060608486031215610d3d57600080fd5b8335610d4881610b59565b95602085013595506040909401359392505050565b600080600060608486031215610d7257600080fd5b8335610d7d81610b59565b9250602084013591506040840135610d9481610b71565b809150509250925092565b60008060408385031215610db257600080fd5b8235610dbd81610b59565b9150610dcb60208401610cb4565b90509250929050565b600080600080600080600060e0888a031215610def57600080fd5b8735610dfa81610b59565b9650602088013595506040880135945060608801359350610c9860808901610c30565b6040516101e0810167ffffffffffffffff81118282101715610e4f57634e487b7160e01b600052604160045260246000fd5b60405290565b600060208284031215610e6757600080fd5b6040516020810181811067ffffffffffffffff82111715610e9857634e487b7160e01b600052604160045260246000fd5b6040529151825250919050565b80516001600160801b0381168114610c4157600080fd5b805164ffffffffff81168114610c4157600080fd5b8051610c4181610b71565b8051610c4181610b59565b60006101e08284031215610efa57600080fd5b610f02610e1d565b610f0c8484610e55565b8152610f1a60208401610ea5565b6020820152610f2b60408401610ea5565b6040820152610f3c60608401610ea5565b6060820152610f4d60808401610ea5565b6080820152610f5e60a08401610ea5565b60a0820152610f6f60c08401610ebc565b60c0820152610f8060e08401610ed1565b60e0820152610100610f93818501610edc565b90820152610120610fa5848201610edc565b90820152610140610fb7848201610edc565b90820152610160610fc9848201610edc565b90820152610180610fdb848201610ea5565b908201526101a0610fed848201610ea5565b908201526101c0610fff848201610ea5565b90820152939250505056fea2646970667358221220fe8038d987461d98ea5b5ca1c493bd4af4d3ed86d5dfb55b1ceb9d258b628f5764736f6c634300080a0033" . parse () . expect ("invalid bytecode")
+            "0x60a060405234801561001057600080fd5b5060405161111138038061111183398101604081905261002f91610040565b6001600160a01b0316608052610070565b60006020828403121561005257600080fd5b81516001600160a01b038116811461006957600080fd5b9392505050565b6080516110406100d16000396000818161014b0152818161022b015281816102fd015281816103a001528181610453015281816105250152818161060d015281816106a70152818161079f01528181610881015261094001526110406000f3fe608060405234801561001057600080fd5b50600436106100b45760003560e01c806388d518521161007157806388d51852146101855780638da7fb18146101ad5780639d2ffc1b146101c0578063b76398e4146101d3578063fc0eed85146101e6578063fed63a93146101f457600080fd5b80631a64acf2146100b95780631a8f6dee146100df5780631fd34797146100f25780635cc7bc1014610105578063671a7fae146101185780637535d24614610146575b600080fd5b6100cc6100c7366004610b81565b610207565b6040519081526020015b60405180910390f35b6100cc6100ed366004610bcb565b6102d9565b6100cc610100366004610c04565b61037c565b6100cc610113366004610c04565b61042f565b61012b610126366004610c46565b6104fd565b604080519384526020840192909252908201526060016100d6565b61016d7f000000000000000000000000000000000000000000000000000000000000000081565b6040516001600160a01b0390911681526020016100d6565b610198610193366004610cc4565b6105e7565b604080519283526020830191909152016100d6565b6100cc6101bb366004610d28565b610766565b6100cc6101ce366004610d28565b61077b565b6100cc6101e1366004610d5d565b61085d565b6100cc6100ed366004610d9f565b61012b610202366004610dd4565b610918565b6040516335ea6a7560e01b81526001600160a01b03858116600483015260009182917f000000000000000000000000000000000000000000000000000000000000000016906335ea6a75906024016101e060405180830381865afa158015610273573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906102979190610ee7565b60e081015190915060006102aa87610a21565b905060006102b787610a93565b60109290921b60909290921b60989690961b9590950101019695505050505050565b6040516335ea6a7560e01b81526001600160a01b03838116600483015260009182917f000000000000000000000000000000000000000000000000000000000000000016906335ea6a75906024016101e060405180830381865afa158015610345573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906103699190610ee7565b60e00151601084901b0191505092915050565b6040516335ea6a7560e01b81526001600160a01b03838116600483015260009182917f000000000000000000000000000000000000000000000000000000000000000016906335ea6a75906024016101e060405180830381865afa1580156103e8573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061040c9190610ee7565b60e0810151909150600061041f85610a93565b60101b9190910195945050505050565b6040516335ea6a7560e01b81526001600160a01b03838116600483015260009182917f000000000000000000000000000000000000000000000000000000000000000016906335ea6a75906024016101e060405180830381865afa15801561049b573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906104bf9190610ee7565b60e0810151909150600060001985146104e0576104db85610a21565b61041f565b5071ffffffffffffffffffffffffffffffff000001949350505050565b6040516335ea6a7560e01b81526001600160a01b0388811660048301526000918291829182917f000000000000000000000000000000000000000000000000000000000000000016906335ea6a75906024016101e060405180830381865afa15801561056d573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906105919190610ee7565b60e081015190915060006105a48c610a21565b905060006105b18b610af4565b905060008a60c01b8260a01b018d60901b018360101b0184019050808a8a97509750975050505050509750975097945050505050565b6040516335ea6a7560e01b81526001600160a01b038681166004830152600091829182917f0000000000000000000000000000000000000000000000000000000000000000909116906335ea6a75906024016101e060405180830381865afa158015610657573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061067b9190610ee7565b60e08101516040516335ea6a7560e01b81526001600160a01b038a8116600483015292935090916000917f0000000000000000000000000000000000000000000000000000000000000000909116906335ea6a75906024016101e060405180830381865afa1580156106f1573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906107159190610ee7565b60e0810151909150600060001989146107365761073189610a21565b61073f565b6001600160801b035b60109290921b9390930160208a901b019550608087901b0193505050509550959350505050565b600061077384848461077b565b949350505050565b6040516335ea6a7560e01b81526001600160a01b03848116600483015260009182917f000000000000000000000000000000000000000000000000000000000000000016906335ea6a75906024016101e060405180830381865afa1580156107e7573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061080b9190610ee7565b60e08101519091506000600019861461082c5761082786610a21565b610835565b6001600160801b035b9050600061084286610a93565b60901b60109290921b91909101919091019695505050505050565b6040516335ea6a7560e01b81526001600160a01b03848116600483015260009182917f000000000000000000000000000000000000000000000000000000000000000016906335ea6a75906024016101e060405180830381865afa1580156108c9573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906108ed9190610ee7565b60e0810151909150600061090086610a21565b60101b609086901b0191909101925050509392505050565b6040516335ea6a7560e01b81526001600160a01b0388811660048301526000918291829182917f000000000000000000000000000000000000000000000000000000000000000016906335ea6a75906024016101e060405180830381865afa158015610988573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906109ac9190610ee7565b60e081015190915060006000198c146109cd576109c88c610a21565b6109d6565b6001600160801b035b905060006109e38c610a93565b905060006109f08c610af4565b60b89b909b1b60989b909b1b9a909a0160909190911b0160109190911b01019b959a50939850939650505050505050565b60006001600160801b03821115610a8f5760405162461bcd60e51b815260206004820152602760248201527f53616665436173743a2076616c756520646f65736e27742066697420696e20316044820152663238206269747360c81b60648201526084015b60405180910390fd5b5090565b600060ff821115610a8f5760405162461bcd60e51b815260206004820152602560248201527f53616665436173743a2076616c756520646f65736e27742066697420696e2038604482015264206269747360d81b6064820152608401610a86565b600063ffffffff821115610a8f5760405162461bcd60e51b815260206004820152602660248201527f53616665436173743a2076616c756520646f65736e27742066697420696e203360448201526532206269747360d01b6064820152608401610a86565b6001600160a01b0381168114610b6e57600080fd5b50565b61ffff81168114610b6e57600080fd5b60008060008060808587031215610b9757600080fd5b8435610ba281610b59565b935060208501359250604085013591506060850135610bc081610b71565b939692955090935050565b60008060408385031215610bde57600080fd5b8235610be981610b59565b91506020830135610bf981610b59565b809150509250929050565b60008060408385031215610c1757600080fd5b8235610c2281610b59565b946020939093013593505050565b803560ff81168114610c4157600080fd5b919050565b600080600080600080600060e0888a031215610c6157600080fd5b8735610c6c81610b59565b9650602088013595506040880135610c8381610b71565b945060608801359350610c9860808901610c30565b925060a0880135915060c0880135905092959891949750929550565b80358015158114610c4157600080fd5b600080600080600060a08688031215610cdc57600080fd5b8535610ce781610b59565b94506020860135610cf781610b59565b93506040860135610d0781610b59565b925060608601359150610d1c60808701610cb4565b90509295509295909350565b600080600060608486031215610d3d57600080fd5b8335610d4881610b59565b95602085013595506040909401359392505050565b600080600060608486031215610d7257600080fd5b8335610d7d81610b59565b9250602084013591506040840135610d9481610b71565b809150509250925092565b60008060408385031215610db257600080fd5b8235610dbd81610b59565b9150610dcb60208401610cb4565b90509250929050565b600080600080600080600060e0888a031215610def57600080fd5b8735610dfa81610b59565b9650602088013595506040880135945060608801359350610c9860808901610c30565b6040516101e0810167ffffffffffffffff81118282101715610e4f57634e487b7160e01b600052604160045260246000fd5b60405290565b600060208284031215610e6757600080fd5b6040516020810181811067ffffffffffffffff82111715610e9857634e487b7160e01b600052604160045260246000fd5b6040529151825250919050565b80516001600160801b0381168114610c4157600080fd5b805164ffffffffff81168114610c4157600080fd5b8051610c4181610b71565b8051610c4181610b59565b60006101e08284031215610efa57600080fd5b610f02610e1d565b610f0c8484610e55565b8152610f1a60208401610ea5565b6020820152610f2b60408401610ea5565b6040820152610f3c60608401610ea5565b6060820152610f4d60808401610ea5565b6080820152610f5e60a08401610ea5565b60a0820152610f6f60c08401610ebc565b60c0820152610f8060e08401610ed1565b60e0820152610100610f93818501610edc565b90820152610120610fa5848201610edc565b90820152610140610fb7848201610edc565b90820152610160610fc9848201610edc565b90820152610180610fdb848201610ea5565b908201526101a0610fed848201610ea5565b908201526101c0610fff848201610ea5565b90820152939250505056fea2646970667358221220c8e438d0783de925732ad433f32ed5990917ec3116c1297d21b3f096282b61de64736f6c634300080a0033" . parse () . expect ("invalid bytecode")
         });
-    #[derive(Clone)]
     pub struct L2Encoder<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for L2Encoder<M> {
+        fn clone(&self) -> Self {
+            L2Encoder(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for L2Encoder<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -40,7 +44,7 @@ mod l2encoder_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> L2Encoder<M> {
+    impl<M: ethers::providers::Middleware> L2Encoder<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -76,7 +80,7 @@ mod l2encoder_mod {
         pub fn deploy<T: ethers::core::abi::Tokenize>(
             client: ::std::sync::Arc<M>,
             constructor_args: T,
-        ) -> Result<
+        ) -> ::std::result::Result<
             ethers::contract::builders::ContractDeployer<M, Self>,
             ethers::contract::ContractError<M>,
         > {
@@ -265,7 +269,7 @@ mod l2encoder_mod {
             Self(contract)
         }
     }
-    #[doc = "Container type for all input parameters for the `POOL`function with signature `POOL()` and selector `[117, 53, 210, 70]`"]
+    #[doc = "Container type for all input parameters for the `POOL` function with signature `POOL()` and selector `[117, 53, 210, 70]`"]
     #[derive(
         Clone,
         Debug,
@@ -277,7 +281,7 @@ mod l2encoder_mod {
     )]
     #[ethcall(name = "POOL", abi = "POOL()")]
     pub struct PoolCall;
-    #[doc = "Container type for all input parameters for the `encodeBorrowParams`function with signature `encodeBorrowParams(address,uint256,uint256,uint16)` and selector `[26, 100, 172, 242]`"]
+    #[doc = "Container type for all input parameters for the `encodeBorrowParams` function with signature `encodeBorrowParams(address,uint256,uint256,uint16)` and selector `[26, 100, 172, 242]`"]
     #[derive(
         Clone,
         Debug,
@@ -297,7 +301,7 @@ mod l2encoder_mod {
         pub interest_rate_mode: ethers::core::types::U256,
         pub referral_code: u16,
     }
-    #[doc = "Container type for all input parameters for the `encodeLiquidationCall`function with signature `encodeLiquidationCall(address,address,address,uint256,bool)` and selector `[136, 213, 24, 82]`"]
+    #[doc = "Container type for all input parameters for the `encodeLiquidationCall` function with signature `encodeLiquidationCall(address,address,address,uint256,bool)` and selector `[136, 213, 24, 82]`"]
     #[derive(
         Clone,
         Debug,
@@ -318,7 +322,7 @@ mod l2encoder_mod {
         pub debt_to_cover: ethers::core::types::U256,
         pub receive_a_token: bool,
     }
-    #[doc = "Container type for all input parameters for the `encodeRebalanceStableBorrowRate`function with signature `encodeRebalanceStableBorrowRate(address,address)` and selector `[26, 143, 109, 238]`"]
+    #[doc = "Container type for all input parameters for the `encodeRebalanceStableBorrowRate` function with signature `encodeRebalanceStableBorrowRate(address,address)` and selector `[26, 143, 109, 238]`"]
     #[derive(
         Clone,
         Debug,
@@ -336,7 +340,7 @@ mod l2encoder_mod {
         pub asset: ethers::core::types::Address,
         pub user: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `encodeRepayParams`function with signature `encodeRepayParams(address,uint256,uint256)` and selector `[157, 47, 252, 27]`"]
+    #[doc = "Container type for all input parameters for the `encodeRepayParams` function with signature `encodeRepayParams(address,uint256,uint256)` and selector `[157, 47, 252, 27]`"]
     #[derive(
         Clone,
         Debug,
@@ -355,7 +359,7 @@ mod l2encoder_mod {
         pub amount: ethers::core::types::U256,
         pub interest_rate_mode: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `encodeRepayWithATokensParams`function with signature `encodeRepayWithATokensParams(address,uint256,uint256)` and selector `[141, 167, 251, 24]`"]
+    #[doc = "Container type for all input parameters for the `encodeRepayWithATokensParams` function with signature `encodeRepayWithATokensParams(address,uint256,uint256)` and selector `[141, 167, 251, 24]`"]
     #[derive(
         Clone,
         Debug,
@@ -374,7 +378,7 @@ mod l2encoder_mod {
         pub amount: ethers::core::types::U256,
         pub interest_rate_mode: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `encodeRepayWithPermitParams`function with signature `encodeRepayWithPermitParams(address,uint256,uint256,uint256,uint8,bytes32,bytes32)` and selector `[254, 214, 58, 147]`"]
+    #[doc = "Container type for all input parameters for the `encodeRepayWithPermitParams` function with signature `encodeRepayWithPermitParams(address,uint256,uint256,uint256,uint8,bytes32,bytes32)` and selector `[254, 214, 58, 147]`"]
     #[derive(
         Clone,
         Debug,
@@ -397,7 +401,7 @@ mod l2encoder_mod {
         pub permit_r: [u8; 32],
         pub permit_s: [u8; 32],
     }
-    #[doc = "Container type for all input parameters for the `encodeSetUserUseReserveAsCollateral`function with signature `encodeSetUserUseReserveAsCollateral(address,bool)` and selector `[252, 14, 237, 133]`"]
+    #[doc = "Container type for all input parameters for the `encodeSetUserUseReserveAsCollateral` function with signature `encodeSetUserUseReserveAsCollateral(address,bool)` and selector `[252, 14, 237, 133]`"]
     #[derive(
         Clone,
         Debug,
@@ -415,7 +419,7 @@ mod l2encoder_mod {
         pub asset: ethers::core::types::Address,
         pub use_as_collateral: bool,
     }
-    #[doc = "Container type for all input parameters for the `encodeSupplyParams`function with signature `encodeSupplyParams(address,uint256,uint16)` and selector `[183, 99, 152, 228]`"]
+    #[doc = "Container type for all input parameters for the `encodeSupplyParams` function with signature `encodeSupplyParams(address,uint256,uint16)` and selector `[183, 99, 152, 228]`"]
     #[derive(
         Clone,
         Debug,
@@ -434,7 +438,7 @@ mod l2encoder_mod {
         pub amount: ethers::core::types::U256,
         pub referral_code: u16,
     }
-    #[doc = "Container type for all input parameters for the `encodeSupplyWithPermitParams`function with signature `encodeSupplyWithPermitParams(address,uint256,uint16,uint256,uint8,bytes32,bytes32)` and selector `[103, 26, 127, 174]`"]
+    #[doc = "Container type for all input parameters for the `encodeSupplyWithPermitParams` function with signature `encodeSupplyWithPermitParams(address,uint256,uint16,uint256,uint8,bytes32,bytes32)` and selector `[103, 26, 127, 174]`"]
     #[derive(
         Clone,
         Debug,
@@ -457,7 +461,7 @@ mod l2encoder_mod {
         pub permit_r: [u8; 32],
         pub permit_s: [u8; 32],
     }
-    #[doc = "Container type for all input parameters for the `encodeSwapBorrowRateMode`function with signature `encodeSwapBorrowRateMode(address,uint256)` and selector `[31, 211, 71, 151]`"]
+    #[doc = "Container type for all input parameters for the `encodeSwapBorrowRateMode` function with signature `encodeSwapBorrowRateMode(address,uint256)` and selector `[31, 211, 71, 151]`"]
     #[derive(
         Clone,
         Debug,
@@ -475,7 +479,7 @@ mod l2encoder_mod {
         pub asset: ethers::core::types::Address,
         pub interest_rate_mode: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `encodeWithdrawParams`function with signature `encodeWithdrawParams(address,uint256)` and selector `[92, 199, 188, 16]`"]
+    #[doc = "Container type for all input parameters for the `encodeWithdrawParams` function with signature `encodeWithdrawParams(address,uint256)` and selector `[92, 199, 188, 16]`"]
     #[derive(
         Clone,
         Debug,
@@ -509,7 +513,9 @@ mod l2encoder_mod {
         EncodeWithdrawParams(EncodeWithdrawParamsCall),
     }
     impl ethers::core::abi::AbiDecode for L2EncoderCalls {
-        fn decode(data: impl AsRef<[u8]>) -> Result<Self, ethers::core::abi::AbiError> {
+        fn decode(
+            data: impl AsRef<[u8]>,
+        ) -> ::std::result::Result<Self, ethers::core::abi::AbiError> {
             if let Ok(decoded) = <PoolCall as ethers::core::abi::AbiDecode>::decode(data.as_ref()) {
                 return Ok(L2EncoderCalls::Pool(decoded));
             }
@@ -679,4 +685,136 @@ mod l2encoder_mod {
             L2EncoderCalls::EncodeWithdrawParams(var)
         }
     }
+    #[doc = "Container type for all return fields from the `POOL` function with signature `POOL()` and selector `[117, 53, 210, 70]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct PoolReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `encodeBorrowParams` function with signature `encodeBorrowParams(address,uint256,uint256,uint16)` and selector `[26, 100, 172, 242]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct EncodeBorrowParamsReturn(pub [u8; 32]);
+    #[doc = "Container type for all return fields from the `encodeLiquidationCall` function with signature `encodeLiquidationCall(address,address,address,uint256,bool)` and selector `[136, 213, 24, 82]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct EncodeLiquidationCallReturn(pub [u8; 32], pub [u8; 32]);
+    #[doc = "Container type for all return fields from the `encodeRebalanceStableBorrowRate` function with signature `encodeRebalanceStableBorrowRate(address,address)` and selector `[26, 143, 109, 238]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct EncodeRebalanceStableBorrowRateReturn(pub [u8; 32]);
+    #[doc = "Container type for all return fields from the `encodeRepayParams` function with signature `encodeRepayParams(address,uint256,uint256)` and selector `[157, 47, 252, 27]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct EncodeRepayParamsReturn(pub [u8; 32]);
+    #[doc = "Container type for all return fields from the `encodeRepayWithATokensParams` function with signature `encodeRepayWithATokensParams(address,uint256,uint256)` and selector `[141, 167, 251, 24]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct EncodeRepayWithATokensParamsReturn(pub [u8; 32]);
+    #[doc = "Container type for all return fields from the `encodeRepayWithPermitParams` function with signature `encodeRepayWithPermitParams(address,uint256,uint256,uint256,uint8,bytes32,bytes32)` and selector `[254, 214, 58, 147]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct EncodeRepayWithPermitParamsReturn(pub [u8; 32], pub [u8; 32], pub [u8; 32]);
+    #[doc = "Container type for all return fields from the `encodeSetUserUseReserveAsCollateral` function with signature `encodeSetUserUseReserveAsCollateral(address,bool)` and selector `[252, 14, 237, 133]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct EncodeSetUserUseReserveAsCollateralReturn(pub [u8; 32]);
+    #[doc = "Container type for all return fields from the `encodeSupplyParams` function with signature `encodeSupplyParams(address,uint256,uint16)` and selector `[183, 99, 152, 228]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct EncodeSupplyParamsReturn(pub [u8; 32]);
+    #[doc = "Container type for all return fields from the `encodeSupplyWithPermitParams` function with signature `encodeSupplyWithPermitParams(address,uint256,uint16,uint256,uint8,bytes32,bytes32)` and selector `[103, 26, 127, 174]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct EncodeSupplyWithPermitParamsReturn(pub [u8; 32], pub [u8; 32], pub [u8; 32]);
+    #[doc = "Container type for all return fields from the `encodeSwapBorrowRateMode` function with signature `encodeSwapBorrowRateMode(address,uint256)` and selector `[31, 211, 71, 151]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct EncodeSwapBorrowRateModeReturn(pub [u8; 32]);
+    #[doc = "Container type for all return fields from the `encodeWithdrawParams` function with signature `encodeWithdrawParams(address,uint256)` and selector `[92, 199, 188, 16]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct EncodeWithdrawParamsReturn(pub [u8; 32]);
 }

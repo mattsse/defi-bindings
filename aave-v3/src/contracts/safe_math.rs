@@ -1,6 +1,6 @@
-pub use safemath_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod safemath_mod {
+pub use safe_math::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod safe_math {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -17,14 +17,20 @@ mod safemath_mod {
     #[doc = "SafeMath was auto-generated with ethers-rs Abigen. More information at: https://github.com/gakonst/ethers-rs"]
     use std::sync::Arc;
     pub static SAFEMATH_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
-        ethers::contract::Lazy::new(|| serde_json::from_str("[]").expect("invalid abi"));
+        ethers::contract::Lazy::new(|| {
+            ethers::core::utils::__serde_json::from_str("[]").expect("invalid abi")
+        });
     #[doc = r" Bytecode of the #name contract"]
     pub static SAFEMATH_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
         ethers::contract::Lazy::new(|| {
-            "0x60566037600b82828239805160001a607314602a57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea26469706673582212207c0871adfa190ce97e0a6e3c3bc43087d8b21ec229d13f71ee2e784e9bd1b0fc64736f6c634300080a0033" . parse () . expect ("invalid bytecode")
+            "0x60566037600b82828239805160001a607314602a57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220c0a7ec2ba68bfac85dc62e0c9ae585379e918e0d2388568ecfd2b3561d594ffe64736f6c634300080a0033" . parse () . expect ("invalid bytecode")
         });
-    #[derive(Clone)]
     pub struct SafeMath<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for SafeMath<M> {
+        fn clone(&self) -> Self {
+            SafeMath(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for SafeMath<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -38,7 +44,7 @@ mod safemath_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> SafeMath<M> {
+    impl<M: ethers::providers::Middleware> SafeMath<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -74,7 +80,7 @@ mod safemath_mod {
         pub fn deploy<T: ethers::core::abi::Tokenize>(
             client: ::std::sync::Arc<M>,
             constructor_args: T,
-        ) -> Result<
+        ) -> ::std::result::Result<
             ethers::contract::builders::ContractDeployer<M, Self>,
             ethers::contract::ContractError<M>,
         > {

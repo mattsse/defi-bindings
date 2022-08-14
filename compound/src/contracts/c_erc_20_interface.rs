@@ -1,6 +1,6 @@
-pub use cerc20interface_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod cerc20interface_mod {
+pub use c_erc_20_interface::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod c_erc_20_interface {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,13 +18,14 @@ mod cerc20interface_mod {
     use std::sync::Arc;
     pub static CERC20INTERFACE_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"addAmount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"_addReserves\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"borrowAmount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"borrow\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"borrower\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"repayAmount\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"contract CTokenInterface\",\"name\":\"cTokenCollateral\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"liquidateBorrow\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"mintAmount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"mint\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"redeemTokens\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"redeem\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"redeemAmount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"redeemUnderlying\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"repayAmount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"repayBorrow\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"borrower\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"repayAmount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"repayBorrowBehalf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"underlying\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"addAmount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"_addReserves\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"borrowAmount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"borrow\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"borrower\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"repayAmount\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"contract CTokenInterface\",\"name\":\"cTokenCollateral\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"liquidateBorrow\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"mintAmount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"mint\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"redeemTokens\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"redeem\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"redeemAmount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"redeemUnderlying\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"repayAmount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"repayBorrow\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"borrower\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"repayAmount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"repayBorrowBehalf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"underlying\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]}]") . expect ("invalid abi")
         });
-    #[doc = r" Bytecode of the #name contract"]
-    pub static CERC20INTERFACE_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
-        ethers::contract::Lazy::new(|| "0x".parse().expect("invalid bytecode"));
-    #[derive(Clone)]
     pub struct CErc20Interface<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for CErc20Interface<M> {
+        fn clone(&self) -> Self {
+            CErc20Interface(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for CErc20Interface<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -38,7 +39,7 @@ mod cerc20interface_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> CErc20Interface<M> {
+    impl<M: ethers::providers::Middleware> CErc20Interface<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -48,45 +49,6 @@ mod cerc20interface_mod {
         ) -> Self {
             ethers::contract::Contract::new(address.into(), CERC20INTERFACE_ABI.clone(), client)
                 .into()
-        }
-        #[doc = r" Constructs the general purpose `Deployer` instance based on the provided constructor arguments and sends it."]
-        #[doc = r" Returns a new instance of a deployer that returns an instance of this contract after sending the transaction"]
-        #[doc = r""]
-        #[doc = r" Notes:"]
-        #[doc = r" 1. If there are no constructor arguments, you should pass `()` as the argument."]
-        #[doc = r" 1. The default poll duration is 7 seconds."]
-        #[doc = r" 1. The default number of confirmations is 1 block."]
-        #[doc = r""]
-        #[doc = r""]
-        #[doc = r" # Example"]
-        #[doc = r""]
-        #[doc = r" Generate contract bindings with `abigen!` and deploy a new contract instance."]
-        #[doc = r""]
-        #[doc = r" *Note*: this requires a `bytecode` and `abi` object in the `greeter.json` artifact."]
-        #[doc = r""]
-        #[doc = r" ```ignore"]
-        #[doc = r" # async fn deploy<M: ethers::providers::Middleware>(client: ::std::sync::Arc<M>) {"]
-        #[doc = r#"     abigen!(Greeter,"../greeter.json");"#]
-        #[doc = r""]
-        #[doc = r#"    let greeter_contract = Greeter::deploy(client, "Hello world!".to_string()).unwrap().send().await.unwrap();"#]
-        #[doc = r"    let msg = greeter_contract.greet().call().await.unwrap();"]
-        #[doc = r" # }"]
-        #[doc = r" ```"]
-        pub fn deploy<T: ethers::core::abi::Tokenize>(
-            client: ::std::sync::Arc<M>,
-            constructor_args: T,
-        ) -> Result<
-            ethers::contract::builders::ContractDeployer<M, Self>,
-            ethers::contract::ContractError<M>,
-        > {
-            let factory = ethers::contract::ContractFactory::new(
-                CERC20INTERFACE_ABI.clone(),
-                CERC20INTERFACE_BYTECODE.clone().into(),
-                client,
-            );
-            let deployer = factory.deploy(constructor_args)?;
-            let deployer = ethers::contract::ContractDeployer::new(deployer);
-            Ok(deployer)
         }
         #[doc = "Calls the contract's `_addReserves` (0x3e941010) function"]
         pub fn add_reserves(
@@ -180,7 +142,7 @@ mod cerc20interface_mod {
             Self(contract)
         }
     }
-    #[doc = "Container type for all input parameters for the `_addReserves`function with signature `_addReserves(uint256)` and selector `[62, 148, 16, 16]`"]
+    #[doc = "Container type for all input parameters for the `_addReserves` function with signature `_addReserves(uint256)` and selector `[62, 148, 16, 16]`"]
     #[derive(
         Clone,
         Debug,
@@ -194,7 +156,7 @@ mod cerc20interface_mod {
     pub struct AddReservesCall {
         pub add_amount: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `borrow`function with signature `borrow(uint256)` and selector `[197, 235, 234, 236]`"]
+    #[doc = "Container type for all input parameters for the `borrow` function with signature `borrow(uint256)` and selector `[197, 235, 234, 236]`"]
     #[derive(
         Clone,
         Debug,
@@ -208,7 +170,7 @@ mod cerc20interface_mod {
     pub struct BorrowCall {
         pub borrow_amount: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `liquidateBorrow`function with signature `liquidateBorrow(address,uint256,address)` and selector `[245, 227, 196, 98]`"]
+    #[doc = "Container type for all input parameters for the `liquidateBorrow` function with signature `liquidateBorrow(address,uint256,address)` and selector `[245, 227, 196, 98]`"]
     #[derive(
         Clone,
         Debug,
@@ -227,7 +189,7 @@ mod cerc20interface_mod {
         pub repay_amount: ethers::core::types::U256,
         pub c_token_collateral: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `mint`function with signature `mint(uint256)` and selector `[160, 113, 45, 104]`"]
+    #[doc = "Container type for all input parameters for the `mint` function with signature `mint(uint256)` and selector `[160, 113, 45, 104]`"]
     #[derive(
         Clone,
         Debug,
@@ -241,7 +203,7 @@ mod cerc20interface_mod {
     pub struct MintCall {
         pub mint_amount: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `redeem`function with signature `redeem(uint256)` and selector `[219, 0, 106, 117]`"]
+    #[doc = "Container type for all input parameters for the `redeem` function with signature `redeem(uint256)` and selector `[219, 0, 106, 117]`"]
     #[derive(
         Clone,
         Debug,
@@ -255,7 +217,7 @@ mod cerc20interface_mod {
     pub struct RedeemCall {
         pub redeem_tokens: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `redeemUnderlying`function with signature `redeemUnderlying(uint256)` and selector `[133, 42, 18, 227]`"]
+    #[doc = "Container type for all input parameters for the `redeemUnderlying` function with signature `redeemUnderlying(uint256)` and selector `[133, 42, 18, 227]`"]
     #[derive(
         Clone,
         Debug,
@@ -269,7 +231,7 @@ mod cerc20interface_mod {
     pub struct RedeemUnderlyingCall {
         pub redeem_amount: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `repayBorrow`function with signature `repayBorrow(uint256)` and selector `[14, 117, 39, 2]`"]
+    #[doc = "Container type for all input parameters for the `repayBorrow` function with signature `repayBorrow(uint256)` and selector `[14, 117, 39, 2]`"]
     #[derive(
         Clone,
         Debug,
@@ -283,7 +245,7 @@ mod cerc20interface_mod {
     pub struct RepayBorrowCall {
         pub repay_amount: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `repayBorrowBehalf`function with signature `repayBorrowBehalf(address,uint256)` and selector `[38, 8, 248, 24]`"]
+    #[doc = "Container type for all input parameters for the `repayBorrowBehalf` function with signature `repayBorrowBehalf(address,uint256)` and selector `[38, 8, 248, 24]`"]
     #[derive(
         Clone,
         Debug,
@@ -298,7 +260,7 @@ mod cerc20interface_mod {
         pub borrower: ethers::core::types::Address,
         pub repay_amount: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `underlying`function with signature `underlying()` and selector `[111, 48, 125, 195]`"]
+    #[doc = "Container type for all input parameters for the `underlying` function with signature `underlying()` and selector `[111, 48, 125, 195]`"]
     #[derive(
         Clone,
         Debug,
@@ -323,7 +285,9 @@ mod cerc20interface_mod {
         Underlying(UnderlyingCall),
     }
     impl ethers::core::abi::AbiDecode for CErc20InterfaceCalls {
-        fn decode(data: impl AsRef<[u8]>) -> Result<Self, ethers::core::abi::AbiError> {
+        fn decode(
+            data: impl AsRef<[u8]>,
+        ) -> ::std::result::Result<Self, ethers::core::abi::AbiError> {
             if let Ok(decoded) =
                 <AddReservesCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
@@ -443,4 +407,103 @@ mod cerc20interface_mod {
             CErc20InterfaceCalls::Underlying(var)
         }
     }
+    #[doc = "Container type for all return fields from the `_addReserves` function with signature `_addReserves(uint256)` and selector `[62, 148, 16, 16]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct AddReservesReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `borrow` function with signature `borrow(uint256)` and selector `[197, 235, 234, 236]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct BorrowReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `liquidateBorrow` function with signature `liquidateBorrow(address,uint256,address)` and selector `[245, 227, 196, 98]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct LiquidateBorrowReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `mint` function with signature `mint(uint256)` and selector `[160, 113, 45, 104]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct MintReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `redeem` function with signature `redeem(uint256)` and selector `[219, 0, 106, 117]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct RedeemReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `redeemUnderlying` function with signature `redeemUnderlying(uint256)` and selector `[133, 42, 18, 227]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct RedeemUnderlyingReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `repayBorrow` function with signature `repayBorrow(uint256)` and selector `[14, 117, 39, 2]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct RepayBorrowReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `repayBorrowBehalf` function with signature `repayBorrowBehalf(address,uint256)` and selector `[38, 8, 248, 24]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct RepayBorrowBehalfReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `underlying` function with signature `underlying()` and selector `[111, 48, 125, 195]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct UnderlyingReturn(pub ethers::core::types::Address);
 }

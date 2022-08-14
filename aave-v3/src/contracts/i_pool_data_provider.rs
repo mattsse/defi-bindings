@@ -1,6 +1,6 @@
-pub use ipooldataprovider_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod ipooldataprovider_mod {
+pub use i_pool_data_provider::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod i_pool_data_provider {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,13 +18,14 @@ mod ipooldataprovider_mod {
     use std::sync::Arc;
     pub static IPOOLDATAPROVIDER_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getATokenTotalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getReserveData\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"unbacked\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"accruedToTreasuryScaled\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"totalAToken\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"totalStableDebt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"totalVariableDebt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"liquidityRate\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"variableBorrowRate\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"stableBorrowRate\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"averageStableBorrowRate\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"liquidityIndex\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"variableBorrowIndex\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint40\",\"name\":\"lastUpdateTimestamp\",\"type\":\"uint40\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getTotalDebt\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getATokenTotalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getReserveData\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"unbacked\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"accruedToTreasuryScaled\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"totalAToken\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"totalStableDebt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"totalVariableDebt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"liquidityRate\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"variableBorrowRate\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"stableBorrowRate\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"averageStableBorrowRate\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"liquidityIndex\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"variableBorrowIndex\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint40\",\"name\":\"lastUpdateTimestamp\",\"type\":\"uint40\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getTotalDebt\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]}]") . expect ("invalid abi")
         });
-    #[doc = r" Bytecode of the #name contract"]
-    pub static IPOOLDATAPROVIDER_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
-        ethers::contract::Lazy::new(|| "0x".parse().expect("invalid bytecode"));
-    #[derive(Clone)]
     pub struct IPoolDataProvider<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for IPoolDataProvider<M> {
+        fn clone(&self) -> Self {
+            IPoolDataProvider(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for IPoolDataProvider<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -38,7 +39,7 @@ mod ipooldataprovider_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> IPoolDataProvider<M> {
+    impl<M: ethers::providers::Middleware> IPoolDataProvider<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -48,45 +49,6 @@ mod ipooldataprovider_mod {
         ) -> Self {
             ethers::contract::Contract::new(address.into(), IPOOLDATAPROVIDER_ABI.clone(), client)
                 .into()
-        }
-        #[doc = r" Constructs the general purpose `Deployer` instance based on the provided constructor arguments and sends it."]
-        #[doc = r" Returns a new instance of a deployer that returns an instance of this contract after sending the transaction"]
-        #[doc = r""]
-        #[doc = r" Notes:"]
-        #[doc = r" 1. If there are no constructor arguments, you should pass `()` as the argument."]
-        #[doc = r" 1. The default poll duration is 7 seconds."]
-        #[doc = r" 1. The default number of confirmations is 1 block."]
-        #[doc = r""]
-        #[doc = r""]
-        #[doc = r" # Example"]
-        #[doc = r""]
-        #[doc = r" Generate contract bindings with `abigen!` and deploy a new contract instance."]
-        #[doc = r""]
-        #[doc = r" *Note*: this requires a `bytecode` and `abi` object in the `greeter.json` artifact."]
-        #[doc = r""]
-        #[doc = r" ```ignore"]
-        #[doc = r" # async fn deploy<M: ethers::providers::Middleware>(client: ::std::sync::Arc<M>) {"]
-        #[doc = r#"     abigen!(Greeter,"../greeter.json");"#]
-        #[doc = r""]
-        #[doc = r#"    let greeter_contract = Greeter::deploy(client, "Hello world!".to_string()).unwrap().send().await.unwrap();"#]
-        #[doc = r"    let msg = greeter_contract.greet().call().await.unwrap();"]
-        #[doc = r" # }"]
-        #[doc = r" ```"]
-        pub fn deploy<T: ethers::core::abi::Tokenize>(
-            client: ::std::sync::Arc<M>,
-            constructor_args: T,
-        ) -> Result<
-            ethers::contract::builders::ContractDeployer<M, Self>,
-            ethers::contract::ContractError<M>,
-        > {
-            let factory = ethers::contract::ContractFactory::new(
-                IPOOLDATAPROVIDER_ABI.clone(),
-                IPOOLDATAPROVIDER_BYTECODE.clone().into(),
-                client,
-            );
-            let deployer = factory.deploy(constructor_args)?;
-            let deployer = ethers::contract::ContractDeployer::new(deployer);
-            Ok(deployer)
         }
         #[doc = "Calls the contract's `getATokenTotalSupply` (0x51460e25) function"]
         pub fn get_a_token_total_supply(
@@ -139,7 +101,7 @@ mod ipooldataprovider_mod {
             Self(contract)
         }
     }
-    #[doc = "Container type for all input parameters for the `getATokenTotalSupply`function with signature `getATokenTotalSupply(address)` and selector `[81, 70, 14, 37]`"]
+    #[doc = "Container type for all input parameters for the `getATokenTotalSupply` function with signature `getATokenTotalSupply(address)` and selector `[81, 70, 14, 37]`"]
     #[derive(
         Clone,
         Debug,
@@ -153,7 +115,7 @@ mod ipooldataprovider_mod {
     pub struct GetATokenTotalSupplyCall {
         pub asset: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `getReserveData`function with signature `getReserveData(address)` and selector `[53, 234, 106, 117]`"]
+    #[doc = "Container type for all input parameters for the `getReserveData` function with signature `getReserveData(address)` and selector `[53, 234, 106, 117]`"]
     #[derive(
         Clone,
         Debug,
@@ -167,7 +129,7 @@ mod ipooldataprovider_mod {
     pub struct GetReserveDataCall {
         pub asset: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `getTotalDebt`function with signature `getTotalDebt(address)` and selector `[77, 68, 172, 79]`"]
+    #[doc = "Container type for all input parameters for the `getTotalDebt` function with signature `getTotalDebt(address)` and selector `[77, 68, 172, 79]`"]
     #[derive(
         Clone,
         Debug,
@@ -188,7 +150,9 @@ mod ipooldataprovider_mod {
         GetTotalDebt(GetTotalDebtCall),
     }
     impl ethers::core::abi::AbiDecode for IPoolDataProviderCalls {
-        fn decode(data: impl AsRef<[u8]>) -> Result<Self, ethers::core::abi::AbiError> {
+        fn decode(
+            data: impl AsRef<[u8]>,
+        ) -> ::std::result::Result<Self, ethers::core::abi::AbiError> {
             if let Ok(decoded) =
                 <GetATokenTotalSupplyCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
@@ -240,4 +204,50 @@ mod ipooldataprovider_mod {
             IPoolDataProviderCalls::GetTotalDebt(var)
         }
     }
+    #[doc = "Container type for all return fields from the `getATokenTotalSupply` function with signature `getATokenTotalSupply(address)` and selector `[81, 70, 14, 37]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetATokenTotalSupplyReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `getReserveData` function with signature `getReserveData(address)` and selector `[53, 234, 106, 117]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetReserveDataReturn {
+        pub unbacked: ethers::core::types::U256,
+        pub accrued_to_treasury_scaled: ethers::core::types::U256,
+        pub total_a_token: ethers::core::types::U256,
+        pub total_stable_debt: ethers::core::types::U256,
+        pub total_variable_debt: ethers::core::types::U256,
+        pub liquidity_rate: ethers::core::types::U256,
+        pub variable_borrow_rate: ethers::core::types::U256,
+        pub stable_borrow_rate: ethers::core::types::U256,
+        pub average_stable_borrow_rate: ethers::core::types::U256,
+        pub liquidity_index: ethers::core::types::U256,
+        pub variable_borrow_index: ethers::core::types::U256,
+        pub last_update_timestamp: u64,
+    }
+    #[doc = "Container type for all return fields from the `getTotalDebt` function with signature `getTotalDebt(address)` and selector `[77, 68, 172, 79]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetTotalDebtReturn(pub ethers::core::types::U256);
 }

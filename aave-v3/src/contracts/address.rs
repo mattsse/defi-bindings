@@ -1,6 +1,6 @@
-pub use address_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod address_mod {
+pub use address::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod address {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -17,14 +17,20 @@ mod address_mod {
     #[doc = "Address was auto-generated with ethers-rs Abigen. More information at: https://github.com/gakonst/ethers-rs"]
     use std::sync::Arc;
     pub static ADDRESS_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
-        ethers::contract::Lazy::new(|| serde_json::from_str("[]").expect("invalid abi"));
+        ethers::contract::Lazy::new(|| {
+            ethers::core::utils::__serde_json::from_str("[]").expect("invalid abi")
+        });
     #[doc = r" Bytecode of the #name contract"]
     pub static ADDRESS_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
         ethers::contract::Lazy::new(|| {
-            "0x60566037600b82828239805160001a607314602a57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea264697066735822122047b93ac2400c0e550c73b66b0e9b7044570494974ba33f479b6199d59ab8632364736f6c634300080a0033" . parse () . expect ("invalid bytecode")
+            "0x60566037600b82828239805160001a607314602a57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea264697066735822122041583d8427bf59358ba555204a024e0e9e115008e75dc7cbfc2aa366b28b996664736f6c634300080a0033" . parse () . expect ("invalid bytecode")
         });
-    #[derive(Clone)]
     pub struct Address<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for Address<M> {
+        fn clone(&self) -> Self {
+            Address(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for Address<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -38,7 +44,7 @@ mod address_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> Address<M> {
+    impl<M: ethers::providers::Middleware> Address<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -74,7 +80,7 @@ mod address_mod {
         pub fn deploy<T: ethers::core::abi::Tokenize>(
             client: ::std::sync::Arc<M>,
             constructor_args: T,
-        ) -> Result<
+        ) -> ::std::result::Result<
             ethers::contract::builders::ContractDeployer<M, Self>,
             ethers::contract::ContractError<M>,
         > {

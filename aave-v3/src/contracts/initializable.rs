@@ -1,6 +1,6 @@
-pub use initializable_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod initializable_mod {
+pub use initializable::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod initializable {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -17,14 +17,20 @@ mod initializable_mod {
     #[doc = "Initializable was auto-generated with ethers-rs Abigen. More information at: https://github.com/gakonst/ethers-rs"]
     use std::sync::Arc;
     pub static INITIALIZABLE_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
-        ethers::contract::Lazy::new(|| serde_json::from_str("[]").expect("invalid abi"));
+        ethers::contract::Lazy::new(|| {
+            ethers::core::utils::__serde_json::from_str("[]").expect("invalid abi")
+        });
     #[doc = r" Bytecode of the #name contract"]
     pub static INITIALIZABLE_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
         ethers::contract::Lazy::new(|| {
-            "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220f5a58cc7778b69b17dbb49f56835939fc52c8e9b461dbe033842f83ce2fd2acd64736f6c634300080a0033" . parse () . expect ("invalid bytecode")
+            "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea264697066735822122084edcf79a898329f3c957f7768f84223eb9268de3db03f0ae94ff047d5055ecd64736f6c634300080a0033" . parse () . expect ("invalid bytecode")
         });
-    #[derive(Clone)]
     pub struct Initializable<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for Initializable<M> {
+        fn clone(&self) -> Self {
+            Initializable(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for Initializable<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -38,7 +44,7 @@ mod initializable_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> Initializable<M> {
+    impl<M: ethers::providers::Middleware> Initializable<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -75,7 +81,7 @@ mod initializable_mod {
         pub fn deploy<T: ethers::core::abi::Tokenize>(
             client: ::std::sync::Arc<M>,
             constructor_args: T,
-        ) -> Result<
+        ) -> ::std::result::Result<
             ethers::contract::builders::ContractDeployer<M, Self>,
             ethers::contract::ContractError<M>,
         > {

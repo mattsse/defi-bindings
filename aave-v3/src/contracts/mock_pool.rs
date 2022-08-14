@@ -1,6 +1,6 @@
-pub use mockpool_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod mockpool_mod {
+pub use mock_pool::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod mock_pool {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,15 +18,19 @@ mod mockpool_mod {
     use std::sync::Arc;
     pub static MOCKPOOL_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"reserve\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"addReserveToReservesList\",\"outputs\":[]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getReservesList\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"provider\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"initialize\",\"outputs\":[]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"reserve\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"addReserveToReservesList\",\"outputs\":[]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getReservesList\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"provider\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"initialize\",\"outputs\":[]}]") . expect ("invalid abi")
         });
     #[doc = r" Bytecode of the #name contract"]
     pub static MOCKPOOL_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
         ethers::contract::Lazy::new(|| {
-            "0x608060405234801561001057600080fd5b506102cb806100206000396000f3fe608060405234801561001057600080fd5b50600436106100415760003560e01c8063c4d66de814610046578063d1946dbc14610078578063e636a4f414610096575b600080fd5b6100766100543660046101c3565b606480546001600160a01b0319166001600160a01b0392909216919091179055565b005b6100806100f6565b60405161008d91906101f3565b60405180910390f35b6100766100a43660046101c3565b606580546001810182556000919091527f8ff97419363ffd7000167f130ef7168fbea05faf9251824ca5043f113cc6a7c70180546001600160a01b0319166001600160a01b0392909216919091179055565b60655460609060009067ffffffffffffffff81111561011757610117610240565b604051908082528060200260200182016040528015610140578160200160208202803683370190505b50905060005b6065548110156101bd576065818154811061016357610163610256565b9060005260206000200160009054906101000a90046001600160a01b031682828151811061019357610193610256565b6001600160a01b0390921660209283029190910190910152806101b58161026c565b915050610146565b50919050565b6000602082840312156101d557600080fd5b81356001600160a01b03811681146101ec57600080fd5b9392505050565b6020808252825182820181905260009190848201906040850190845b818110156102345783516001600160a01b03168352928401929184019160010161020f565b50909695505050505050565b634e487b7160e01b600052604160045260246000fd5b634e487b7160e01b600052603260045260246000fd5b600060001982141561028e57634e487b7160e01b600052601160045260246000fd5b506001019056fea264697066735822122013c97d42a56ac06ddbb739cf8fcec227d5b678ce78e96ca39ba2384b5eee99ed64736f6c634300080a0033" . parse () . expect ("invalid bytecode")
+            "0x608060405234801561001057600080fd5b506102cb806100206000396000f3fe608060405234801561001057600080fd5b50600436106100415760003560e01c8063c4d66de814610046578063d1946dbc14610078578063e636a4f414610096575b600080fd5b6100766100543660046101c3565b606480546001600160a01b0319166001600160a01b0392909216919091179055565b005b6100806100f6565b60405161008d91906101f3565b60405180910390f35b6100766100a43660046101c3565b606580546001810182556000919091527f8ff97419363ffd7000167f130ef7168fbea05faf9251824ca5043f113cc6a7c70180546001600160a01b0319166001600160a01b0392909216919091179055565b60655460609060009067ffffffffffffffff81111561011757610117610240565b604051908082528060200260200182016040528015610140578160200160208202803683370190505b50905060005b6065548110156101bd576065818154811061016357610163610256565b9060005260206000200160009054906101000a90046001600160a01b031682828151811061019357610193610256565b6001600160a01b0390921660209283029190910190910152806101b58161026c565b915050610146565b50919050565b6000602082840312156101d557600080fd5b81356001600160a01b03811681146101ec57600080fd5b9392505050565b6020808252825182820181905260009190848201906040850190845b818110156102345783516001600160a01b03168352928401929184019160010161020f565b50909695505050505050565b634e487b7160e01b600052604160045260246000fd5b634e487b7160e01b600052603260045260246000fd5b600060001982141561028e57634e487b7160e01b600052601160045260246000fd5b506001019056fea2646970667358221220e6534a7a155f715d740e4f7c87059de89c20117f48efbfeaa8b2d9768342128064736f6c634300080a0033" . parse () . expect ("invalid bytecode")
         });
-    #[derive(Clone)]
     pub struct MockPool<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for MockPool<M> {
+        fn clone(&self) -> Self {
+            MockPool(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for MockPool<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -40,7 +44,7 @@ mod mockpool_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> MockPool<M> {
+    impl<M: ethers::providers::Middleware> MockPool<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -76,7 +80,7 @@ mod mockpool_mod {
         pub fn deploy<T: ethers::core::abi::Tokenize>(
             client: ::std::sync::Arc<M>,
             constructor_args: T,
-        ) -> Result<
+        ) -> ::std::result::Result<
             ethers::contract::builders::ContractDeployer<M, Self>,
             ethers::contract::ContractError<M>,
         > {
@@ -124,7 +128,7 @@ mod mockpool_mod {
             Self(contract)
         }
     }
-    #[doc = "Container type for all input parameters for the `addReserveToReservesList`function with signature `addReserveToReservesList(address)` and selector `[230, 54, 164, 244]`"]
+    #[doc = "Container type for all input parameters for the `addReserveToReservesList` function with signature `addReserveToReservesList(address)` and selector `[230, 54, 164, 244]`"]
     #[derive(
         Clone,
         Debug,
@@ -141,7 +145,7 @@ mod mockpool_mod {
     pub struct AddReserveToReservesListCall {
         pub reserve: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `getReservesList`function with signature `getReservesList()` and selector `[209, 148, 109, 188]`"]
+    #[doc = "Container type for all input parameters for the `getReservesList` function with signature `getReservesList()` and selector `[209, 148, 109, 188]`"]
     #[derive(
         Clone,
         Debug,
@@ -153,7 +157,7 @@ mod mockpool_mod {
     )]
     #[ethcall(name = "getReservesList", abi = "getReservesList()")]
     pub struct GetReservesListCall;
-    #[doc = "Container type for all input parameters for the `initialize`function with signature `initialize(address)` and selector `[196, 214, 109, 232]`"]
+    #[doc = "Container type for all input parameters for the `initialize` function with signature `initialize(address)` and selector `[196, 214, 109, 232]`"]
     #[derive(
         Clone,
         Debug,
@@ -174,7 +178,9 @@ mod mockpool_mod {
         Initialize(InitializeCall),
     }
     impl ethers::core::abi::AbiDecode for MockPoolCalls {
-        fn decode(data: impl AsRef<[u8]>) -> Result<Self, ethers::core::abi::AbiError> {
+        fn decode(
+            data: impl AsRef<[u8]>,
+        ) -> ::std::result::Result<Self, ethers::core::abi::AbiError> {
             if let Ok(decoded) =
                 <AddReserveToReservesListCall as ethers::core::abi::AbiDecode>::decode(
                     data.as_ref(),
@@ -228,4 +234,15 @@ mod mockpool_mod {
             MockPoolCalls::Initialize(var)
         }
     }
+    #[doc = "Container type for all return fields from the `getReservesList` function with signature `getReservesList()` and selector `[209, 148, 109, 188]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetReservesListReturn(pub ::std::vec::Vec<ethers::core::types::Address>);
 }

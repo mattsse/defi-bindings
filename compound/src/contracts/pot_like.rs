@@ -1,6 +1,6 @@
-pub use potlike_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod potlike_mod {
+pub use pot_like::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod pot_like {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,13 +18,14 @@ mod potlike_mod {
     use std::sync::Arc;
     pub static POTLIKE_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"chi\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"drip\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"dsr\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"exit\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"join\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"pie\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"rho\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"chi\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"drip\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"dsr\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"exit\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"join\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"pie\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"rho\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]}]") . expect ("invalid abi")
         });
-    #[doc = r" Bytecode of the #name contract"]
-    pub static POTLIKE_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
-        ethers::contract::Lazy::new(|| "0x".parse().expect("invalid bytecode"));
-    #[derive(Clone)]
     pub struct PotLike<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for PotLike<M> {
+        fn clone(&self) -> Self {
+            PotLike(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for PotLike<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -38,7 +39,7 @@ mod potlike_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> PotLike<M> {
+    impl<M: ethers::providers::Middleware> PotLike<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -47,45 +48,6 @@ mod potlike_mod {
             client: ::std::sync::Arc<M>,
         ) -> Self {
             ethers::contract::Contract::new(address.into(), POTLIKE_ABI.clone(), client).into()
-        }
-        #[doc = r" Constructs the general purpose `Deployer` instance based on the provided constructor arguments and sends it."]
-        #[doc = r" Returns a new instance of a deployer that returns an instance of this contract after sending the transaction"]
-        #[doc = r""]
-        #[doc = r" Notes:"]
-        #[doc = r" 1. If there are no constructor arguments, you should pass `()` as the argument."]
-        #[doc = r" 1. The default poll duration is 7 seconds."]
-        #[doc = r" 1. The default number of confirmations is 1 block."]
-        #[doc = r""]
-        #[doc = r""]
-        #[doc = r" # Example"]
-        #[doc = r""]
-        #[doc = r" Generate contract bindings with `abigen!` and deploy a new contract instance."]
-        #[doc = r""]
-        #[doc = r" *Note*: this requires a `bytecode` and `abi` object in the `greeter.json` artifact."]
-        #[doc = r""]
-        #[doc = r" ```ignore"]
-        #[doc = r" # async fn deploy<M: ethers::providers::Middleware>(client: ::std::sync::Arc<M>) {"]
-        #[doc = r#"     abigen!(Greeter,"../greeter.json");"#]
-        #[doc = r""]
-        #[doc = r#"    let greeter_contract = Greeter::deploy(client, "Hello world!".to_string()).unwrap().send().await.unwrap();"#]
-        #[doc = r"    let msg = greeter_contract.greet().call().await.unwrap();"]
-        #[doc = r" # }"]
-        #[doc = r" ```"]
-        pub fn deploy<T: ethers::core::abi::Tokenize>(
-            client: ::std::sync::Arc<M>,
-            constructor_args: T,
-        ) -> Result<
-            ethers::contract::builders::ContractDeployer<M, Self>,
-            ethers::contract::ContractError<M>,
-        > {
-            let factory = ethers::contract::ContractFactory::new(
-                POTLIKE_ABI.clone(),
-                POTLIKE_BYTECODE.clone().into(),
-                client,
-            );
-            let deployer = factory.deploy(constructor_args)?;
-            let deployer = ethers::contract::ContractDeployer::new(deployer);
-            Ok(deployer)
         }
         #[doc = "Calls the contract's `chi` (0xc92aecc4) function"]
         pub fn chi(
@@ -152,7 +114,7 @@ mod potlike_mod {
             Self(contract)
         }
     }
-    #[doc = "Container type for all input parameters for the `chi`function with signature `chi()` and selector `[201, 42, 236, 196]`"]
+    #[doc = "Container type for all input parameters for the `chi` function with signature `chi()` and selector `[201, 42, 236, 196]`"]
     #[derive(
         Clone,
         Debug,
@@ -164,7 +126,7 @@ mod potlike_mod {
     )]
     #[ethcall(name = "chi", abi = "chi()")]
     pub struct ChiCall;
-    #[doc = "Container type for all input parameters for the `drip`function with signature `drip()` and selector `[159, 103, 140, 202]`"]
+    #[doc = "Container type for all input parameters for the `drip` function with signature `drip()` and selector `[159, 103, 140, 202]`"]
     #[derive(
         Clone,
         Debug,
@@ -176,7 +138,7 @@ mod potlike_mod {
     )]
     #[ethcall(name = "drip", abi = "drip()")]
     pub struct DripCall;
-    #[doc = "Container type for all input parameters for the `dsr`function with signature `dsr()` and selector `[72, 123, 240, 130]`"]
+    #[doc = "Container type for all input parameters for the `dsr` function with signature `dsr()` and selector `[72, 123, 240, 130]`"]
     #[derive(
         Clone,
         Debug,
@@ -188,7 +150,7 @@ mod potlike_mod {
     )]
     #[ethcall(name = "dsr", abi = "dsr()")]
     pub struct DsrCall;
-    #[doc = "Container type for all input parameters for the `exit`function with signature `exit(uint256)` and selector `[127, 134, 97, 161]`"]
+    #[doc = "Container type for all input parameters for the `exit` function with signature `exit(uint256)` and selector `[127, 134, 97, 161]`"]
     #[derive(
         Clone,
         Debug,
@@ -200,7 +162,7 @@ mod potlike_mod {
     )]
     #[ethcall(name = "exit", abi = "exit(uint256)")]
     pub struct ExitCall(pub ethers::core::types::U256);
-    #[doc = "Container type for all input parameters for the `join`function with signature `join(uint256)` and selector `[4, 152, 120, 243]`"]
+    #[doc = "Container type for all input parameters for the `join` function with signature `join(uint256)` and selector `[4, 152, 120, 243]`"]
     #[derive(
         Clone,
         Debug,
@@ -212,7 +174,7 @@ mod potlike_mod {
     )]
     #[ethcall(name = "join", abi = "join(uint256)")]
     pub struct JoinCall(pub ethers::core::types::U256);
-    #[doc = "Container type for all input parameters for the `pie`function with signature `pie(address)` and selector `[11, 235, 172, 134]`"]
+    #[doc = "Container type for all input parameters for the `pie` function with signature `pie(address)` and selector `[11, 235, 172, 134]`"]
     #[derive(
         Clone,
         Debug,
@@ -224,7 +186,7 @@ mod potlike_mod {
     )]
     #[ethcall(name = "pie", abi = "pie(address)")]
     pub struct PieCall(pub ethers::core::types::Address);
-    #[doc = "Container type for all input parameters for the `rho`function with signature `rho()` and selector `[32, 171, 160, 139]`"]
+    #[doc = "Container type for all input parameters for the `rho` function with signature `rho()` and selector `[32, 171, 160, 139]`"]
     #[derive(
         Clone,
         Debug,
@@ -247,7 +209,9 @@ mod potlike_mod {
         Rho(RhoCall),
     }
     impl ethers::core::abi::AbiDecode for PotLikeCalls {
-        fn decode(data: impl AsRef<[u8]>) -> Result<Self, ethers::core::abi::AbiError> {
+        fn decode(
+            data: impl AsRef<[u8]>,
+        ) -> ::std::result::Result<Self, ethers::core::abi::AbiError> {
             if let Ok(decoded) = <ChiCall as ethers::core::abi::AbiDecode>::decode(data.as_ref()) {
                 return Ok(PotLikeCalls::Chi(decoded));
             }
@@ -333,4 +297,59 @@ mod potlike_mod {
             PotLikeCalls::Rho(var)
         }
     }
+    #[doc = "Container type for all return fields from the `chi` function with signature `chi()` and selector `[201, 42, 236, 196]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct ChiReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `drip` function with signature `drip()` and selector `[159, 103, 140, 202]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct DripReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `dsr` function with signature `dsr()` and selector `[72, 123, 240, 130]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct DsrReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `pie` function with signature `pie(address)` and selector `[11, 235, 172, 134]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct PieReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `rho` function with signature `rho()` and selector `[32, 171, 160, 139]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct RhoReturn(pub ethers::core::types::U256);
 }

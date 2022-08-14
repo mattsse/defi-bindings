@@ -1,6 +1,6 @@
-pub use wadraymath_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod wadraymath_mod {
+pub use wad_ray_math::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod wad_ray_math {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -17,14 +17,20 @@ mod wadraymath_mod {
     #[doc = "WadRayMath was auto-generated with ethers-rs Abigen. More information at: https://github.com/gakonst/ethers-rs"]
     use std::sync::Arc;
     pub static WADRAYMATH_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
-        ethers::contract::Lazy::new(|| serde_json::from_str("[]").expect("invalid abi"));
+        ethers::contract::Lazy::new(|| {
+            ethers::core::utils::__serde_json::from_str("[]").expect("invalid abi")
+        });
     #[doc = r" Bytecode of the #name contract"]
     pub static WADRAYMATH_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
         ethers::contract::Lazy::new(|| {
-            "0x60566037600b82828239805160001a607314602a57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea26469706673582212202e717a9bc199c779e0bfd235721d16051049af4cd94ce7b1cb2d160b0388405164736f6c634300080a0033" . parse () . expect ("invalid bytecode")
+            "0x60566037600b82828239805160001a607314602a57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea26469706673582212206b23c10e47845eb01451cf6a3953bfa27f117ca2df7f4d92d50213b6fd15045b64736f6c634300080a0033" . parse () . expect ("invalid bytecode")
         });
-    #[derive(Clone)]
     pub struct WadRayMath<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for WadRayMath<M> {
+        fn clone(&self) -> Self {
+            WadRayMath(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for WadRayMath<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -38,7 +44,7 @@ mod wadraymath_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> WadRayMath<M> {
+    impl<M: ethers::providers::Middleware> WadRayMath<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -74,7 +80,7 @@ mod wadraymath_mod {
         pub fn deploy<T: ethers::core::abi::Tokenize>(
             client: ::std::sync::Arc<M>,
             constructor_args: T,
-        ) -> Result<
+        ) -> ::std::result::Result<
             ethers::contract::builders::ContractDeployer<M, Self>,
             ethers::contract::ContractError<M>,
         > {

@@ -1,6 +1,6 @@
-pub use selfdestructtransfer_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod selfdestructtransfer_mod {
+pub use selfdestruct_transfer::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod selfdestruct_transfer {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,15 +18,19 @@ mod selfdestructtransfer_mod {
     use std::sync::Arc;
     pub static SELFDESTRUCTTRANSFER_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address payable\",\"name\":\"to\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"payable\",\"type\":\"function\",\"name\":\"destroyAndTransfer\",\"outputs\":[]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address payable\",\"name\":\"to\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"payable\",\"type\":\"function\",\"name\":\"destroyAndTransfer\",\"outputs\":[]}]") . expect ("invalid abi")
         });
     #[doc = r" Bytecode of the #name contract"]
     pub static SELFDESTRUCTTRANSFER_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
         ethers::contract::Lazy::new(|| {
-            "0x6080604052348015600f57600080fd5b5060a28061001e6000396000f3fe608060405260043610601c5760003560e01c8063785e07b3146021575b600080fd5b6030602c366004603e565b6032565b005b806001600160a01b0316ff5b600060208284031215604f57600080fd5b81356001600160a01b0381168114606557600080fd5b939250505056fea26469706673582212204b1463ca94b43100b871edbd9506693232356f90d61140b0317c1f50704bb4a564736f6c634300080a0033" . parse () . expect ("invalid bytecode")
+            "0x6080604052348015600f57600080fd5b5060a28061001e6000396000f3fe608060405260043610601c5760003560e01c8063785e07b3146021575b600080fd5b6030602c366004603e565b6032565b005b806001600160a01b0316ff5b600060208284031215604f57600080fd5b81356001600160a01b0381168114606557600080fd5b939250505056fea26469706673582212207105fc6c0aa8e21a6bc0d7a96b984cdb00da16f370fdc0ab5c0fef5ad6c0012164736f6c634300080a0033" . parse () . expect ("invalid bytecode")
         });
-    #[derive(Clone)]
     pub struct SelfdestructTransfer<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for SelfdestructTransfer<M> {
+        fn clone(&self) -> Self {
+            SelfdestructTransfer(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for SelfdestructTransfer<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -40,7 +44,7 @@ mod selfdestructtransfer_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> SelfdestructTransfer<M> {
+    impl<M: ethers::providers::Middleware> SelfdestructTransfer<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -81,7 +85,7 @@ mod selfdestructtransfer_mod {
         pub fn deploy<T: ethers::core::abi::Tokenize>(
             client: ::std::sync::Arc<M>,
             constructor_args: T,
-        ) -> Result<
+        ) -> ::std::result::Result<
             ethers::contract::builders::ContractDeployer<M, Self>,
             ethers::contract::ContractError<M>,
         > {
@@ -111,7 +115,7 @@ mod selfdestructtransfer_mod {
             Self(contract)
         }
     }
-    #[doc = "Container type for all input parameters for the `destroyAndTransfer`function with signature `destroyAndTransfer(address)` and selector `[120, 94, 7, 179]`"]
+    #[doc = "Container type for all input parameters for the `destroyAndTransfer` function with signature `destroyAndTransfer(address)` and selector `[120, 94, 7, 179]`"]
     #[derive(
         Clone,
         Debug,

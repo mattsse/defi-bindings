@@ -1,6 +1,6 @@
-pub use cerc20storage_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod cerc20storage_mod {
+pub use c_erc_20_storage::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod c_erc_20_storage {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,15 +18,19 @@ mod cerc20storage_mod {
     use std::sync::Arc;
     pub static CERC20STORAGE_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"underlying\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"underlying\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]}]") . expect ("invalid abi")
         });
     #[doc = r" Bytecode of the #name contract"]
     pub static CERC20STORAGE_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
         ethers::contract::Lazy::new(|| {
-            "0x6080604052348015600f57600080fd5b5060938061001e6000396000f3fe6080604052348015600f57600080fd5b506004361060285760003560e01c80636f307dc314602d575b600080fd5b6033604f565b604080516001600160a01b039092168252519081900360200190f35b6000546001600160a01b03168156fea265627a7a7231582016d55d0d314ad4877c483969e36db6c80c8e06dd3ab1176d41b8f5c5ea8aa47164736f6c63430005110032" . parse () . expect ("invalid bytecode")
+            "0x6080604052348015600f57600080fd5b5060938061001e6000396000f3fe6080604052348015600f57600080fd5b506004361060285760003560e01c80636f307dc314602d575b600080fd5b6033604f565b604080516001600160a01b039092168252519081900360200190f35b6000546001600160a01b03168156fea265627a7a723158206fc3afcb8b922a5a5069b61a274f81b81ec6903ecce16c7f5d2dabd709020ba164736f6c63430005110032" . parse () . expect ("invalid bytecode")
         });
-    #[derive(Clone)]
     pub struct CErc20Storage<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for CErc20Storage<M> {
+        fn clone(&self) -> Self {
+            CErc20Storage(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for CErc20Storage<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -40,7 +44,7 @@ mod cerc20storage_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> CErc20Storage<M> {
+    impl<M: ethers::providers::Middleware> CErc20Storage<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -77,7 +81,7 @@ mod cerc20storage_mod {
         pub fn deploy<T: ethers::core::abi::Tokenize>(
             client: ::std::sync::Arc<M>,
             constructor_args: T,
-        ) -> Result<
+        ) -> ::std::result::Result<
             ethers::contract::builders::ContractDeployer<M, Self>,
             ethers::contract::ContractError<M>,
         > {
@@ -104,7 +108,7 @@ mod cerc20storage_mod {
             Self(contract)
         }
     }
-    #[doc = "Container type for all input parameters for the `underlying`function with signature `underlying()` and selector `[111, 48, 125, 195]`"]
+    #[doc = "Container type for all input parameters for the `underlying` function with signature `underlying()` and selector `[111, 48, 125, 195]`"]
     #[derive(
         Clone,
         Debug,
@@ -116,4 +120,15 @@ mod cerc20storage_mod {
     )]
     #[ethcall(name = "underlying", abi = "underlying()")]
     pub struct UnderlyingCall;
+    #[doc = "Container type for all return fields from the `underlying` function with signature `underlying()` and selector `[111, 48, 125, 195]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct UnderlyingReturn(pub ethers::core::types::Address);
 }

@@ -1,6 +1,6 @@
-pub use poolstorage_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod poolstorage_mod {
+pub use pool_storage::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod pool_storage {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -17,14 +17,20 @@ mod poolstorage_mod {
     #[doc = "PoolStorage was auto-generated with ethers-rs Abigen. More information at: https://github.com/gakonst/ethers-rs"]
     use std::sync::Arc;
     pub static POOLSTORAGE_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
-        ethers::contract::Lazy::new(|| serde_json::from_str("[]").expect("invalid abi"));
+        ethers::contract::Lazy::new(|| {
+            ethers::core::utils::__serde_json::from_str("[]").expect("invalid abi")
+        });
     #[doc = r" Bytecode of the #name contract"]
     pub static POOLSTORAGE_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
         ethers::contract::Lazy::new(|| {
-            "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220fbf8f9bb2a5ce0b42956d31ec7fba97cdd98a7eeb75da135176ad09beb91ef5f64736f6c634300080a0033" . parse () . expect ("invalid bytecode")
+            "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220a744ea932ac8b241cc34cbe86d94f5a832b767abce23610e7dc8609d11d4b75a64736f6c634300080a0033" . parse () . expect ("invalid bytecode")
         });
-    #[derive(Clone)]
     pub struct PoolStorage<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for PoolStorage<M> {
+        fn clone(&self) -> Self {
+            PoolStorage(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for PoolStorage<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -38,7 +44,7 @@ mod poolstorage_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> PoolStorage<M> {
+    impl<M: ethers::providers::Middleware> PoolStorage<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -74,7 +80,7 @@ mod poolstorage_mod {
         pub fn deploy<T: ethers::core::abi::Tokenize>(
             client: ::std::sync::Arc<M>,
             constructor_args: T,
-        ) -> Result<
+        ) -> ::std::result::Result<
             ethers::contract::builders::ContractDeployer<M, Self>,
             ethers::contract::ContractError<M>,
         > {

@@ -1,6 +1,6 @@
-pub use maximillion_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod maximillion_mod {
+pub use maximillion::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod maximillion {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,15 +18,19 @@ mod maximillion_mod {
     use std::sync::Arc;
     pub static MAXIMILLION_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"contract CEther\",\"name\":\"cEther_\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\",\"outputs\":[]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"cEther\",\"outputs\":[{\"internalType\":\"contract CEther\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"borrower\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"payable\",\"type\":\"function\",\"name\":\"repayBehalf\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"borrower\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"contract CEther\",\"name\":\"cEther_\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"payable\",\"type\":\"function\",\"name\":\"repayBehalfExplicit\",\"outputs\":[]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"contract CEther\",\"name\":\"cEther_\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\",\"outputs\":[]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"cEther\",\"outputs\":[{\"internalType\":\"contract CEther\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"borrower\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"payable\",\"type\":\"function\",\"name\":\"repayBehalf\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"borrower\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"contract CEther\",\"name\":\"cEther_\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"payable\",\"type\":\"function\",\"name\":\"repayBehalfExplicit\",\"outputs\":[]}]") . expect ("invalid abi")
         });
     #[doc = r" Bytecode of the #name contract"]
     pub static MAXIMILLION_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
         ethers::contract::Lazy::new(|| {
-            "0x608060405234801561001057600080fd5b506040516103363803806103368339818101604052602081101561003357600080fd5b5051600080546001600160a01b039092166001600160a01b03199092169190911790556102d1806100656000396000f3fe6080604052600436106100345760003560e01c806319b68c0014610039578063367b7f051461006a5780639f35c3d51461009a575b600080fd5b34801561004557600080fd5b5061004e6100c0565b604080516001600160a01b039092168252519081900360200190f35b6100986004803603604081101561008057600080fd5b506001600160a01b03813581169160200135166100cf565b005b610098600480360360208110156100b057600080fd5b50356001600160a01b0316610282565b6000546001600160a01b031681565b60003490506000826001600160a01b03166317bfdfbc856040518263ffffffff1660e01b815260040180826001600160a01b03166001600160a01b03168152602001915050602060405180830381600087803b15801561012e57600080fd5b505af1158015610142573d6000803e3d6000fd5b505050506040513d602081101561015857600080fd5b505190508082111561020a57826001600160a01b031663e597461982866040518363ffffffff1660e01b815260040180826001600160a01b03166001600160a01b031681526020019150506000604051808303818588803b1580156101bc57600080fd5b505af11580156101d0573d6000803e3d6000fd5b505060405133935084860380156108fc02935091506000818181858888f19350505050158015610204573d6000803e3d6000fd5b5061027c565b826001600160a01b031663e597461983866040518363ffffffff1660e01b815260040180826001600160a01b03166001600160a01b031681526020019150506000604051808303818588803b15801561026257600080fd5b505af1158015610276573d6000803e3d6000fd5b50505050505b50505050565b6000546102999082906001600160a01b03166100cf565b5056fea265627a7a72315820d1a103654733de4855aec603253a7b89e59018447417a86b97314c09c314e34764736f6c63430005110032" . parse () . expect ("invalid bytecode")
+            "0x608060405234801561001057600080fd5b506040516103363803806103368339818101604052602081101561003357600080fd5b5051600080546001600160a01b039092166001600160a01b03199092169190911790556102d1806100656000396000f3fe6080604052600436106100345760003560e01c806319b68c0014610039578063367b7f051461006a5780639f35c3d51461009a575b600080fd5b34801561004557600080fd5b5061004e6100c0565b604080516001600160a01b039092168252519081900360200190f35b6100986004803603604081101561008057600080fd5b506001600160a01b03813581169160200135166100cf565b005b610098600480360360208110156100b057600080fd5b50356001600160a01b0316610282565b6000546001600160a01b031681565b60003490506000826001600160a01b03166317bfdfbc856040518263ffffffff1660e01b815260040180826001600160a01b03166001600160a01b03168152602001915050602060405180830381600087803b15801561012e57600080fd5b505af1158015610142573d6000803e3d6000fd5b505050506040513d602081101561015857600080fd5b505190508082111561020a57826001600160a01b031663e597461982866040518363ffffffff1660e01b815260040180826001600160a01b03166001600160a01b031681526020019150506000604051808303818588803b1580156101bc57600080fd5b505af11580156101d0573d6000803e3d6000fd5b505060405133935084860380156108fc02935091506000818181858888f19350505050158015610204573d6000803e3d6000fd5b5061027c565b826001600160a01b031663e597461983866040518363ffffffff1660e01b815260040180826001600160a01b03166001600160a01b031681526020019150506000604051808303818588803b15801561026257600080fd5b505af1158015610276573d6000803e3d6000fd5b50505050505b50505050565b6000546102999082906001600160a01b03166100cf565b5056fea265627a7a72315820b4aa7c01d8a3d05ec1e29569017b59333cadb734a70e8d43e50142b298bca5b764736f6c63430005110032" . parse () . expect ("invalid bytecode")
         });
-    #[derive(Clone)]
     pub struct Maximillion<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for Maximillion<M> {
+        fn clone(&self) -> Self {
+            Maximillion(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for Maximillion<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -40,7 +44,7 @@ mod maximillion_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> Maximillion<M> {
+    impl<M: ethers::providers::Middleware> Maximillion<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -76,7 +80,7 @@ mod maximillion_mod {
         pub fn deploy<T: ethers::core::abi::Tokenize>(
             client: ::std::sync::Arc<M>,
             constructor_args: T,
-        ) -> Result<
+        ) -> ::std::result::Result<
             ethers::contract::builders::ContractDeployer<M, Self>,
             ethers::contract::ContractError<M>,
         > {
@@ -122,7 +126,7 @@ mod maximillion_mod {
             Self(contract)
         }
     }
-    #[doc = "Container type for all input parameters for the `cEther`function with signature `cEther()` and selector `[25, 182, 140, 0]`"]
+    #[doc = "Container type for all input parameters for the `cEther` function with signature `cEther()` and selector `[25, 182, 140, 0]`"]
     #[derive(
         Clone,
         Debug,
@@ -134,7 +138,7 @@ mod maximillion_mod {
     )]
     #[ethcall(name = "cEther", abi = "cEther()")]
     pub struct CetherCall;
-    #[doc = "Container type for all input parameters for the `repayBehalf`function with signature `repayBehalf(address)` and selector `[159, 53, 195, 213]`"]
+    #[doc = "Container type for all input parameters for the `repayBehalf` function with signature `repayBehalf(address)` and selector `[159, 53, 195, 213]`"]
     #[derive(
         Clone,
         Debug,
@@ -148,7 +152,7 @@ mod maximillion_mod {
     pub struct RepayBehalfCall {
         pub borrower: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `repayBehalfExplicit`function with signature `repayBehalfExplicit(address,address)` and selector `[54, 123, 127, 5]`"]
+    #[doc = "Container type for all input parameters for the `repayBehalfExplicit` function with signature `repayBehalfExplicit(address,address)` and selector `[54, 123, 127, 5]`"]
     #[derive(
         Clone,
         Debug,
@@ -173,7 +177,9 @@ mod maximillion_mod {
         RepayBehalfExplicit(RepayBehalfExplicitCall),
     }
     impl ethers::core::abi::AbiDecode for MaximillionCalls {
-        fn decode(data: impl AsRef<[u8]>) -> Result<Self, ethers::core::abi::AbiError> {
+        fn decode(
+            data: impl AsRef<[u8]>,
+        ) -> ::std::result::Result<Self, ethers::core::abi::AbiError> {
             if let Ok(decoded) = <CetherCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
                 return Ok(MaximillionCalls::Cether(decoded));
@@ -224,4 +230,15 @@ mod maximillion_mod {
             MaximillionCalls::RepayBehalfExplicit(var)
         }
     }
+    #[doc = "Container type for all return fields from the `cEther` function with signature `cEther()` and selector `[25, 182, 140, 0]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct CetherReturn(pub ethers::core::types::Address);
 }

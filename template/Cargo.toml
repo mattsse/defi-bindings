@@ -10,4 +10,4 @@ Rust bindings for <template>
 ethers = { git = "https://github.com/gakonst/ethers-rs", features = ["abigen"] }
 
 [build-dependencies]
-foundry-binder = { git = "https://github.com/gakonst/foundry" }
+foundry-binder = { git = "https://github.com/foundry-rs/foundry" }

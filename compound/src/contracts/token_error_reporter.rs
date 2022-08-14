@@ -1,6 +1,6 @@
-pub use tokenerrorreporter_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod tokenerrorreporter_mod {
+pub use token_error_reporter::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod token_error_reporter {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,15 +18,19 @@ mod tokenerrorreporter_mod {
     use std::sync::Arc;
     pub static TOKENERRORREPORTER_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"error\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"info\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"detail\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"Failure\",\"outputs\":[],\"anonymous\":false}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"error\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"info\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"detail\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"Failure\",\"outputs\":[],\"anonymous\":false}]") . expect ("invalid abi")
         });
     #[doc = r" Bytecode of the #name contract"]
     pub static TOKENERRORREPORTER_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
         ethers::contract::Lazy::new(|| {
-            "0x6080604052348015600f57600080fd5b50603e80601d6000396000f3fe6080604052600080fdfea265627a7a72315820f75935241534691a2b8d4fd81b4fb76ff6559bc592cbc97339abb2fda4c40f0f64736f6c63430005110032" . parse () . expect ("invalid bytecode")
+            "0x6080604052348015600f57600080fd5b50603e80601d6000396000f3fe6080604052600080fdfea265627a7a723158200e72d22cd27923ed3c19331225eec8b32264cefc27cca5e4b7d56aeb46b9105c64736f6c63430005110032" . parse () . expect ("invalid bytecode")
         });
-    #[derive(Clone)]
     pub struct TokenErrorReporter<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for TokenErrorReporter<M> {
+        fn clone(&self) -> Self {
+            TokenErrorReporter(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for TokenErrorReporter<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -40,7 +44,7 @@ mod tokenerrorreporter_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> TokenErrorReporter<M> {
+    impl<M: ethers::providers::Middleware> TokenErrorReporter<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -77,7 +81,7 @@ mod tokenerrorreporter_mod {
         pub fn deploy<T: ethers::core::abi::Tokenize>(
             client: ::std::sync::Arc<M>,
             constructor_args: T,
-        ) -> Result<
+        ) -> ::std::result::Result<
             ethers::contract::builders::ContractDeployer<M, Self>,
             ethers::contract::ContractError<M>,
         > {

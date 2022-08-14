@@ -1,6 +1,6 @@
-pub use iaaveoracle_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod iaaveoracle_mod {
+pub use i_aave_oracle::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod i_aave_oracle {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,13 +18,14 @@ mod iaaveoracle_mod {
     use std::sync::Arc;
     pub static IAAVEORACLE_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"source\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"AssetSourceUpdated\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"baseCurrency\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"baseCurrencyUnit\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"BaseCurrencySet\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"fallbackOracle\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"FallbackOracleUpdated\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"ADDRESSES_PROVIDER\",\"outputs\":[{\"internalType\":\"contract IPoolAddressesProvider\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"BASE_CURRENCY\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"BASE_CURRENCY_UNIT\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getAssetPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"assets\",\"type\":\"address[]\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getAssetsPrices\",\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"\",\"type\":\"uint256[]\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getFallbackOracle\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getSourceOfAsset\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"assets\",\"type\":\"address[]\",\"components\":[]},{\"internalType\":\"address[]\",\"name\":\"sources\",\"type\":\"address[]\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setAssetSources\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"fallbackOracle\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setFallbackOracle\",\"outputs\":[]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"source\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"AssetSourceUpdated\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"baseCurrency\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"baseCurrencyUnit\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"BaseCurrencySet\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"fallbackOracle\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"FallbackOracleUpdated\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"ADDRESSES_PROVIDER\",\"outputs\":[{\"internalType\":\"contract IPoolAddressesProvider\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"BASE_CURRENCY\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"BASE_CURRENCY_UNIT\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getAssetPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"assets\",\"type\":\"address[]\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getAssetsPrices\",\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"\",\"type\":\"uint256[]\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getFallbackOracle\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getSourceOfAsset\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"assets\",\"type\":\"address[]\",\"components\":[]},{\"internalType\":\"address[]\",\"name\":\"sources\",\"type\":\"address[]\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setAssetSources\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"fallbackOracle\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setFallbackOracle\",\"outputs\":[]}]") . expect ("invalid abi")
         });
-    #[doc = r" Bytecode of the #name contract"]
-    pub static IAAVEORACLE_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
-        ethers::contract::Lazy::new(|| "0x".parse().expect("invalid bytecode"));
-    #[derive(Clone)]
     pub struct IAaveOracle<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for IAaveOracle<M> {
+        fn clone(&self) -> Self {
+            IAaveOracle(self.0.clone())
+        }
+    }
     impl<M> std::ops::Deref for IAaveOracle<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
@@ -38,7 +39,7 @@ mod iaaveoracle_mod {
                 .finish()
         }
     }
-    impl<'a, M: ethers::providers::Middleware> IAaveOracle<M> {
+    impl<M: ethers::providers::Middleware> IAaveOracle<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -47,45 +48,6 @@ mod iaaveoracle_mod {
             client: ::std::sync::Arc<M>,
         ) -> Self {
             ethers::contract::Contract::new(address.into(), IAAVEORACLE_ABI.clone(), client).into()
-        }
-        #[doc = r" Constructs the general purpose `Deployer` instance based on the provided constructor arguments and sends it."]
-        #[doc = r" Returns a new instance of a deployer that returns an instance of this contract after sending the transaction"]
-        #[doc = r""]
-        #[doc = r" Notes:"]
-        #[doc = r" 1. If there are no constructor arguments, you should pass `()` as the argument."]
-        #[doc = r" 1. The default poll duration is 7 seconds."]
-        #[doc = r" 1. The default number of confirmations is 1 block."]
-        #[doc = r""]
-        #[doc = r""]
-        #[doc = r" # Example"]
-        #[doc = r""]
-        #[doc = r" Generate contract bindings with `abigen!` and deploy a new contract instance."]
-        #[doc = r""]
-        #[doc = r" *Note*: this requires a `bytecode` and `abi` object in the `greeter.json` artifact."]
-        #[doc = r""]
-        #[doc = r" ```ignore"]
-        #[doc = r" # async fn deploy<M: ethers::providers::Middleware>(client: ::std::sync::Arc<M>) {"]
-        #[doc = r#"     abigen!(Greeter,"../greeter.json");"#]
-        #[doc = r""]
-        #[doc = r#"    let greeter_contract = Greeter::deploy(client, "Hello world!".to_string()).unwrap().send().await.unwrap();"#]
-        #[doc = r"    let msg = greeter_contract.greet().call().await.unwrap();"]
-        #[doc = r" # }"]
-        #[doc = r" ```"]
-        pub fn deploy<T: ethers::core::abi::Tokenize>(
-            client: ::std::sync::Arc<M>,
-            constructor_args: T,
-        ) -> Result<
-            ethers::contract::builders::ContractDeployer<M, Self>,
-            ethers::contract::ContractError<M>,
-        > {
-            let factory = ethers::contract::ContractFactory::new(
-                IAAVEORACLE_ABI.clone(),
-                IAAVEORACLE_BYTECODE.clone().into(),
-                client,
-            );
-            let deployer = factory.deploy(constructor_args)?;
-            let deployer = ethers::contract::ContractDeployer::new(deployer);
-            Ok(deployer)
         }
         #[doc = "Calls the contract's `ADDRESSES_PROVIDER` (0x0542975c) function"]
         pub fn addresses_provider(
@@ -249,7 +211,9 @@ mod iaaveoracle_mod {
         FallbackOracleUpdatedFilter(FallbackOracleUpdatedFilter),
     }
     impl ethers::contract::EthLogDecode for IAaveOracleEvents {
-        fn decode_log(log: &ethers::core::abi::RawLog) -> Result<Self, ethers::core::abi::Error>
+        fn decode_log(
+            log: &ethers::core::abi::RawLog,
+        ) -> ::std::result::Result<Self, ethers::core::abi::Error>
         where
             Self: Sized,
         {
@@ -274,7 +238,7 @@ mod iaaveoracle_mod {
             }
         }
     }
-    #[doc = "Container type for all input parameters for the `ADDRESSES_PROVIDER`function with signature `ADDRESSES_PROVIDER()` and selector `[5, 66, 151, 92]`"]
+    #[doc = "Container type for all input parameters for the `ADDRESSES_PROVIDER` function with signature `ADDRESSES_PROVIDER()` and selector `[5, 66, 151, 92]`"]
     #[derive(
         Clone,
         Debug,
@@ -286,7 +250,7 @@ mod iaaveoracle_mod {
     )]
     #[ethcall(name = "ADDRESSES_PROVIDER", abi = "ADDRESSES_PROVIDER()")]
     pub struct AddressesProviderCall;
-    #[doc = "Container type for all input parameters for the `BASE_CURRENCY`function with signature `BASE_CURRENCY()` and selector `[225, 159, 71, 0]`"]
+    #[doc = "Container type for all input parameters for the `BASE_CURRENCY` function with signature `BASE_CURRENCY()` and selector `[225, 159, 71, 0]`"]
     #[derive(
         Clone,
         Debug,
@@ -298,7 +262,7 @@ mod iaaveoracle_mod {
     )]
     #[ethcall(name = "BASE_CURRENCY", abi = "BASE_CURRENCY()")]
     pub struct BaseCurrencyCall;
-    #[doc = "Container type for all input parameters for the `BASE_CURRENCY_UNIT`function with signature `BASE_CURRENCY_UNIT()` and selector `[140, 137, 182, 79]`"]
+    #[doc = "Container type for all input parameters for the `BASE_CURRENCY_UNIT` function with signature `BASE_CURRENCY_UNIT()` and selector `[140, 137, 182, 79]`"]
     #[derive(
         Clone,
         Debug,
@@ -310,7 +274,7 @@ mod iaaveoracle_mod {
     )]
     #[ethcall(name = "BASE_CURRENCY_UNIT", abi = "BASE_CURRENCY_UNIT()")]
     pub struct BaseCurrencyUnitCall;
-    #[doc = "Container type for all input parameters for the `getAssetPrice`function with signature `getAssetPrice(address)` and selector `[179, 89, 111, 7]`"]
+    #[doc = "Container type for all input parameters for the `getAssetPrice` function with signature `getAssetPrice(address)` and selector `[179, 89, 111, 7]`"]
     #[derive(
         Clone,
         Debug,
@@ -324,7 +288,7 @@ mod iaaveoracle_mod {
     pub struct GetAssetPriceCall {
         pub asset: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `getAssetsPrices`function with signature `getAssetsPrices(address[])` and selector `[157, 35, 217, 242]`"]
+    #[doc = "Container type for all input parameters for the `getAssetsPrices` function with signature `getAssetsPrices(address[])` and selector `[157, 35, 217, 242]`"]
     #[derive(
         Clone,
         Debug,
@@ -338,7 +302,7 @@ mod iaaveoracle_mod {
     pub struct GetAssetsPricesCall {
         pub assets: ::std::vec::Vec<ethers::core::types::Address>,
     }
-    #[doc = "Container type for all input parameters for the `getFallbackOracle`function with signature `getFallbackOracle()` and selector `[98, 16, 48, 140]`"]
+    #[doc = "Container type for all input parameters for the `getFallbackOracle` function with signature `getFallbackOracle()` and selector `[98, 16, 48, 140]`"]
     #[derive(
         Clone,
         Debug,
@@ -350,7 +314,7 @@ mod iaaveoracle_mod {
     )]
     #[ethcall(name = "getFallbackOracle", abi = "getFallbackOracle()")]
     pub struct GetFallbackOracleCall;
-    #[doc = "Container type for all input parameters for the `getSourceOfAsset`function with signature `getSourceOfAsset(address)` and selector `[146, 191, 43, 224]`"]
+    #[doc = "Container type for all input parameters for the `getSourceOfAsset` function with signature `getSourceOfAsset(address)` and selector `[146, 191, 43, 224]`"]
     #[derive(
         Clone,
         Debug,
@@ -364,7 +328,7 @@ mod iaaveoracle_mod {
     pub struct GetSourceOfAssetCall {
         pub asset: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `setAssetSources`function with signature `setAssetSources(address[],address[])` and selector `[171, 253, 83, 16]`"]
+    #[doc = "Container type for all input parameters for the `setAssetSources` function with signature `setAssetSources(address[],address[])` and selector `[171, 253, 83, 16]`"]
     #[derive(
         Clone,
         Debug,
@@ -379,7 +343,7 @@ mod iaaveoracle_mod {
         pub assets: ::std::vec::Vec<ethers::core::types::Address>,
         pub sources: ::std::vec::Vec<ethers::core::types::Address>,
     }
-    #[doc = "Container type for all input parameters for the `setFallbackOracle`function with signature `setFallbackOracle(address)` and selector `[23, 10, 238, 115]`"]
+    #[doc = "Container type for all input parameters for the `setFallbackOracle` function with signature `setFallbackOracle(address)` and selector `[23, 10, 238, 115]`"]
     #[derive(
         Clone,
         Debug,
@@ -406,7 +370,9 @@ mod iaaveoracle_mod {
         SetFallbackOracle(SetFallbackOracleCall),
     }
     impl ethers::core::abi::AbiDecode for IAaveOracleCalls {
-        fn decode(data: impl AsRef<[u8]>) -> Result<Self, ethers::core::abi::AbiError> {
+        fn decode(
+            data: impl AsRef<[u8]>,
+        ) -> ::std::result::Result<Self, ethers::core::abi::AbiError> {
             if let Ok(decoded) =
                 <AddressesProviderCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
@@ -530,4 +496,81 @@ mod iaaveoracle_mod {
             IAaveOracleCalls::SetFallbackOracle(var)
         }
     }
+    #[doc = "Container type for all return fields from the `ADDRESSES_PROVIDER` function with signature `ADDRESSES_PROVIDER()` and selector `[5, 66, 151, 92]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct AddressesProviderReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `BASE_CURRENCY` function with signature `BASE_CURRENCY()` and selector `[225, 159, 71, 0]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct BaseCurrencyReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `BASE_CURRENCY_UNIT` function with signature `BASE_CURRENCY_UNIT()` and selector `[140, 137, 182, 79]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct BaseCurrencyUnitReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `getAssetPrice` function with signature `getAssetPrice(address)` and selector `[179, 89, 111, 7]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetAssetPriceReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `getAssetsPrices` function with signature `getAssetsPrices(address[])` and selector `[157, 35, 217, 242]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetAssetsPricesReturn(pub ::std::vec::Vec<ethers::core::types::U256>);
+    #[doc = "Container type for all return fields from the `getFallbackOracle` function with signature `getFallbackOracle()` and selector `[98, 16, 48, 140]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetFallbackOracleReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `getSourceOfAsset` function with signature `getSourceOfAsset(address)` and selector `[146, 191, 43, 224]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetSourceOfAssetReturn(pub ethers::core::types::Address);
 }
